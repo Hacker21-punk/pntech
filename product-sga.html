@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGA-60 | PN Technologies - USB Vector Signal Generator</title>
+  <meta name="description" content="SGA-60 - USB Vector Signal Generator. Advanced RF instruments by PN Technologies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/product-detail.css">
+  <style>body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <script>var name = 'products'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
+
+  <!-- HEADER -->
+  <header>
+    <div class="hd-bg"></div>
+    <div class="hd-out header-active">
+      <div class="hd-logo">
+        <a href="index.html">
+          <img src="images/logo.png" alt="PN Technologies Logo">
+        </a>
+      </div>
+      <div class="hd-nav">
+        <div class="hd-md-nav">
+          <ul class="hdnav-box">
+            <li class="menu-item menu-item-has-children checked"><a href="products.html">Product</a>
+              <ul class="sub-menu">
+                <li class="menu-item menu-item-has-children"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children"><a href="products.html#usb-spectrum-analyzers">USB</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="product-new-san.html">New SAN Series</a></li>
+                        <li class="menu-item"><a href="product-san400.html">SAN Series</a></li>
+                        <li class="menu-item"><a href="product-sa.html">SA Series</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children"><a href="products.html#networked-spectrum-analyzers">Networked</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="product-nxn.html">NXN Series</a></li>
+                        <li class="menu-item"><a href="product-nxe.html">NXE Series</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children"><a href="products.html#benchtop-handheld-spectrum-analyzers">Benchtop/Handheld</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="product-px-standard.html">PX Series Standard</a></li>
+                        <li class="menu-item"><a href="product-px-geek.html">PX Series Geek</a></li>
+                        <li class="menu-item"><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">Vector Signal Generator</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">USB</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="product-sga.html">SGA-60</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="products.html#antennas">Antenna</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children"><a href="products.html#antennas">HDA Series</a>
+                      <ul class="sub-menu">
+                        <li class="menu-item"><a href="product-hda.html">HDA-100</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="products.html">Application</a></li>
+            <li class="menu-item menu-item-has-children"><a href="support.html">Support</a>
+              <ul class="sub-menu"><li class="menu-item"><a href="support.html">Download Center</a></li><li class="menu-item"><a href="support.html">After-Sales Service</a></li></ul>
+            </li>
+            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+            <li class="menu-item"><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="hd-md">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <div class="hd-search"><form><div class="hd-search-input"><input type="text" placeholder="Search"></div><button class="hd-search-img" type="button"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button></form></div>
+      </div>
+    </div>
+    <div class="con phone-header header-active">
+      <div class="phone-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div>
+      <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+        <div class="phone-more"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+      </div>
+    </div>
+    <div class="con phone-back">
+      <div class="back-desc">
+        <div class="back-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div>
+        <div class="back-more"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+      </div>
+      <div class="back-title">
+        <ul class="back-level1">
+          <li class="menu-item"><a href="about.html">About Us</a></li>
+          <li class="menu-item menu-item-has-children"><a href="products.html">Product</a>
+            <ul class="sub-menu">
+              <li class="menu-item"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a></li>
+              <li class="menu-item"><a href="products.html#vector-signal-generators">Vector Signal Generator</a></li>
+              <li class="menu-item"><a href="products.html#antennas">Antenna</a></li>
+            </ul>
+          </li>
+          <li class="menu-item"><a href="products.html">Application</a></li>
+          <li class="menu-item menu-item-has-children"><a href="support.html">Support</a><ul class="sub-menu"><li class="menu-item"><a href="support.html">Download Center</a></li><li class="menu-item"><a href="support.html">After-Sales Service</a></li></ul></li>
+          <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb -->
+    <nav class="product-breadcrumb">
+      <div class="con">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="products.html">Vector Signal Generator</a>
+        <span class="sep">›</span>
+        <span class="current">SGA-60</span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="product-hero">
+      <div class="con">
+        <div class="product-hero-left">
+          <div class="product-series-badge">
+            <div class="badge-icon">SGA<br>Series</div>
+            <span class="badge-text">SGA-60</span>
+          </div>
+          <div class="product-key-facts">
+            <h2>Key Facts</h2>
+            <ul>
+          <li>Frequency Range: 9 kHz to 6 GHz</li>
+          <li>Output Power: −100 dBm to +14 dBm (up to +25 dBm opt)</li>
+          <li>Phase Noise: < −124 dBc/Hz @ 10 kHz offset</li>
+          <li>16-bit DAC with 100 MHz playback bandwidth</li>
+          <li>Digital Modulation: BPSK, QPSK, 16/64/256/1024 QAM</li>
+          <li>USB-C Powered: Only 360 g, 163 × 66 × 37 mm</li>
+            </ul>
+          </div>
+          <a href="#" class="product-cta-btn" onclick="event.preventDefault(); document.querySelector('.sc30-out').style.display='block'; document.querySelector('.sc30-dbg').style.display='block';">Get a Quote</a>
+        </div>
+        <div class="product-hero-right">
+          <img src="images/products/sga-60/sga-60_front-view.jpg" alt="SGA-60">
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <div class="con">
+        <h2 class="section-title">Product Gallery</h2>
+        <div class="gallery-main">
+          <img id="main-gallery-img" src="images/products/sga-60/pxr-and-sga.jpg" alt="SGA-60">
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/pxr-and-sga.jpg'"><img src="images/products/sga-60/pxr-and-sga.jpg" alt="View 1"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/pxr-and-sga1.png'"><img src="images/products/sga-60/pxr-and-sga1.png" alt="View 2"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_front-view.jpg'"><img src="images/products/sga-60/sga-60_front-view.jpg" alt="View 3"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_left-side-view.jpg'"><img src="images/products/sga-60/sga-60_left-side-view.jpg" alt="View 4"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_low-angle-view.jpg'"><img src="images/products/sga-60/sga-60_low-angle-view.jpg" alt="View 5"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_right-side-view.jpg'"><img src="images/products/sga-60/sga-60_right-side-view.jpg" alt="View 6"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_side-view1.jpg'"><img src="images/products/sga-60/sga-60_side-view1.jpg" alt="View 7"></div>
+          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_side-view2.jpg'"><img src="images/products/sga-60/sga-60_side-view2.jpg" alt="View 8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specifications -->
+    <section class="specs-section">
+      <div class="con">
+        <h2 class="section-title">Technical Specifications</h2>
+        <div class="specs-table-wrapper">
+          <table class="specs-table">
+            <thead>
+              <tr><th>Parameter</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+          <tr><td>Frequency Range</td><td>9 kHz – 6 GHz</td></tr>
+          <tr><td>Output Power</td><td>−100 dBm to +14 dBm (opt +25 dBm)</td></tr>
+          <tr><td>RT Streaming BW</td><td>50 MHz</td></tr>
+          <tr><td>Playback BW</td><td>100 MHz</td></tr>
+          <tr><td>Phase Noise</td><td>< −124 dBc/Hz @ 10 kHz offset (1 GHz)</td></tr>
+          <tr><td>Harmonics</td><td>< −50 dBc (typ @ 0 dBm)</td></tr>
+          <tr><td>DAC Resolution</td><td>16-bit</td></tr>
+          <tr><td>Freq Resolution</td><td>0.1 Hz (analog); ≤ 1 µHz (digital)</td></tr>
+          <tr><td>Internal Memory</td><td>125 MB waveform storage</td></tr>
+          <tr><td>Output Connector</td><td>N-Type Female</td></tr>
+          <tr><td>Connectivity</td><td>USB Type-C (3.0/2.0)</td></tr>
+          <tr><td>Dimensions</td><td>163 × 66 × 37 mm</td></tr>
+          <tr><td>Weight</td><td>≤ 360 g</td></tr>
+          <tr><td>Power</td><td>≤ 16 W (USB PD)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section">
+      <div class="con">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <h3>Wide Modulation</h3>
+          <p>Supports CW, AM, FM, chirp, pulse, AWGN, OFDM, and digital modulations up to 1024 QAM.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>16-bit Fidelity</h3>
+          <p>High-resolution 16-bit DAC ensures clean, accurate signal generation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>USB Powered</h3>
+          <p>Runs from a single USB-C connection — no external power supply needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>100 MHz Playback</h3>
+          <p>Play back arbitrary waveforms with up to 100 MHz bandwidth.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3>Compact Form</h3>
+          <p>At just 360 g and 163×66×37 mm, carry it anywhere in the field.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3>Rich APIs</h3>
+          <p>Full SDK for C/C++, Python, MATLAB, Qt, LabVIEW, and GNU Radio.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section">
+      <div class="con">
+        <h2 class="section-title">Related Products</h2>
+        <div class="related-grid">
+        <a href="product-san400.html" class="related-card">
+          <div class="related-img">
+            <img src="images/products/san-400/san-400_white_angled-view_01.png" alt="SAN-400 Series">
+          </div>
+          <div class="related-info">
+            <h3>SAN-400 Series</h3>
+            <p>40 GHz USB Real-Time Spectrum Analyzer</p>
+          </div>
+        </a>
+        <a href="product-new-san.html" class="related-card">
+          <div class="related-img">
+            <img src="images/products/san-90/san-90_20260201_01.jpg" alt="New SAN Series">
+          </div>
+          <div class="related-info">
+            <h3>New SAN Series</h3>
+            <p>USB Spectrum Analyzer / Receiver</p>
+          </div>
+        </a>
+        <a href="product-hda.html" class="related-card">
+          <div class="related-img">
+            <img src="images/products/hda-100/hda-100_white_front.jpg" alt="HDA-100 Series">
+          </div>
+          <div class="related-info">
+            <h3>HDA-100 Series</h3>
+            <p>Active Direction Finding Antenna</p>
+          </div>
+        </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <!-- ========== GET IN TOUCH SECTION ========== -->
+  <section class="get-in-touch-section">
+    <div class="con">
+      <div class="git-header">
+        <span class="git-tag">GET IN TOUCH</span>
+        <h2 class="git-title">Talk to our RF specialists</h2>
+        <p class="git-desc">Send us your inquiry — we typically respond the same business day.</p>
+      </div>
+      
+      <div class="git-content">
+        <!-- Contact Form -->
+        <div class="git-form-card">
+          <h3>Send us a message</h3>
+          <form id="git-contact-form">
+            <div class="git-form-row">
+              <div class="git-form-group">
+                <label for="git-fullname">FULL NAME *</label>
+                <input type="text" id="git-fullname" required>
+              </div>
+              <div class="git-form-group">
+                <label for="git-email">EMAIL *</label>
+                <input type="email" id="git-email" required>
+              </div>
+            </div>
+            <div class="git-form-row">
+              <div class="git-form-group">
+                <label for="git-phone">PHONE</label>
+                <input type="tel" id="git-phone">
+              </div>
+              <div class="git-form-group">
+                <label for="git-company">COMPANY</label>
+                <input type="text" id="git-company">
+              </div>
+            </div>
+            <div class="git-form-group full-width">
+              <label for="git-message">MESSAGE *</label>
+              <textarea id="git-message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="git-submit-btn">Send Inquiry</button>
+          </form>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="git-details">
+          <a href="mailto:business@pntech.in" class="git-detail-card">
+            <div class="git-icon-box">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+            </div>
+            <div class="git-info-box">
+              <span class="git-detail-label">EMAIL</span>
+              <span class="git-detail-value">business@pntech.in</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="con">
+      <div class="ft-out">
+        <div class="ft">
+          <div class="ft-right">
+            <div class="ft-nav">
+              <ul class="ftnav-box">
+                <li><a href="products.html">Product</a><ul class="sub-menu"><li><a href="products.html">Spectrum Analyzer</a></li><li><a href="products.html">Signal Generator</a></li><li><a href="products.html">Antenna</a></li></ul></li>
+                <li><a href="support.html">Support</a><ul class="sub-menu"><li><a href="support.html">Download Center</a></li><li><a href="support.html">After-Sales Service</a></li></ul></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="#">Application</a></li>
+              </ul>
+            </div>
+            <div class="ft-right-end">
+              <div class="ft-sns">
+                <a href="#"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="#"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="#"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bb"><p>Copyright &copy; 2024-2026 PN Technologies</p></div>
+    </div>
+    <div class="phone-footer">
+      
+      <div class="phone-box"><ul class="phone-footer"><li><a href="products.html">Product</a></li><li><a href="support.html">Support</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+  </footer>
+
+  <!-- Floating Sidebar -->
+  <div class="sc33">
+    <div class="sc33-item sc33-zx" title="Contact Us"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div>
+    <div class="sc33-item sc33-top" title="Back to Top"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></div></div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="sc30-dbg"></div>
+  <div class="sc30-out">
+    <div class="sc30-close"></div>
+    <div class="sc30-name"><p>Request</p><p>For Quote</p></div>
+    <div class="sc30-con">
+      <form id="modal-contact-form">
+        <div class="sc30-part1 sc30-part"><div class="sc30-part-name"><p><span>Request Fields*</span></p></div><div class="sc30-part-input" style="position:relative;"><input type="text" id="request-type" placeholder="Please select" readonly style="cursor:pointer;"><div class="sc30-part-xia"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="sc30-part-select" id="request-select"><div class="sc30-part-select-scroll"><div class="sc30-part-select-item"><p>Product Information</p></div><div class="sc30-part-select-item"><p>Request for Quote</p></div><div class="sc30-part-select-item"><p>Technical Support</p></div><div class="sc30-part-select-item"><p>Others</p></div></div></div></div>
+        <div class="sc30-part2 sc30-part"><div class="sc30-part-name"><p><span>First Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+        <div class="sc30-part3 sc30-part"><div class="sc30-part-name"><p><span>Last Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+        <div class="sc30-part4 sc30-part"><div class="sc30-part-name"><p><span>Company*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+        <div class="sc30-part5 sc30-part"><div class="sc30-part-name"><p><span>Country*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+        <div class="sc30-part6 sc30-part"><div class="sc30-part-name"><p><span>E-Mail*</span></p></div><div class="sc30-part-input"><input type="email" required></div></div>
+        <div class="sc30-part7 sc30-part"><div class="sc30-part-name"><p><span>Phone (optional)</span></p></div><div class="sc30-part-input"><input type="tel"></div></div>
+        <div class="sc30-part8 sc30-part"><div class="sc30-part-name"><p><span>Your Message (optional)</span></p></div><div class="sc30-part-input"><textarea rows="4"></textarea></div></div>
+        <div class="sc30-part10 sc30-part"><input type="submit" value="SEND MESSAGE"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Model tabs switching
+    document.querySelectorAll('.model-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        const modelIdx = this.dataset.model;
+        // Update tabs
+        document.querySelectorAll('.model-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        // Update content
+        document.querySelectorAll('.model-content').forEach(c => c.classList.remove('active'));
+        document.querySelector('.model-content[data-model="'+modelIdx+'"]').classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
