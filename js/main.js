@@ -240,17 +240,7 @@ $(document).ready(function () {
     $(this).fadeOut(200);
   });
 
-  // ---- Theme Toggler ----
-  $('.theme-toggle').on('click', function () {
-    var isLight = $('html').hasClass('light-theme');
-    if (isLight) {
-      $('html').removeClass('light-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      $('html').addClass('light-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  });
+  // Theme is permanently dark mode — no toggler needed.
 
   // ---- Contact Forms AJAX Integration ----
   

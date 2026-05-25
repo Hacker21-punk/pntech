@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Solutions - PN Technologies | RF Instruments for Every Industry</title>
+  <meta name="description" content="Discover how PN Technologies RF instruments power innovation across industries — from spectrum monitoring to 5G testing, EMC compliance, and research.">
+  <meta property="og:title" content="Application Solutions - PN Technologies">
+  <meta property="og:description" content="RF instruments for spectrum monitoring, drone detection, 5G testing, and more.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .app-banner { position: relative; width: 100%; height: 400px; background: linear-gradient(135deg, #050505 0%, #0a1628 50%, #050505 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, rgba(255,102,0,0.08) 0%, transparent 60%); }
+    .app-banner-text { position: relative; z-index: 2; text-align: center; }
+    .app-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 16px; }
+    .app-banner-text p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; }
+    .app-section { padding: 80px 0; }
+    .app-section-title { text-align: center; margin-bottom: 60px; }
+    .app-section-title h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .app-section-title p { font-size: 16px; color: rgba(255,255,255,0.5); }
+    .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .app-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 40px 30px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; }
+    .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ff6600, #ff8533); transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
+    .app-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,102,0,0.3); transform: translateY(-6px); }
+    .app-card:hover::before { transform: scaleX(1); }
+    .app-card-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,102,0,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; transition: background 0.3s ease; }
+    .app-card:hover .app-card-icon { background: rgba(255,102,0,0.2); }
+    .app-card-icon svg { color: #ff6600; }
+    .app-card-title { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+    .app-card-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+    .app-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #ff6600; text-decoration: none; transition: gap 0.3s ease; }
+    .app-card-link:hover { gap: 10px; }
+    @media (max-width: 1024px) { .app-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .app-banner { height: 300px; }
+      .app-banner-text h1 { font-size: 36px; }
+      .app-grid { grid-template-columns: 1fr; gap: 20px; }
+      .app-section { padding: 50px 0; }
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <script>var name = 'application'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="hd-bg"></div>
+    <div class="hd-out">
+      <div class="hd-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div>
+      <div class="hd-nav"><div class="hd-md-nav">
+        <ul class="hdnav-box">
+          <li class="menu-item"><a href="about.html">About Us</a></li>
+          <li class="menu-item"><a href="news.html">Latest News</a></li>
+          <li class="menu-item menu-item-has-children"><a href="products.html">Product</a>
+            <ul class="sub-menu">
+              <li class="menu-item menu-item-has-children"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a>
+                <ul class="sub-menu">
+                  <li class="menu-item menu-item-has-children"><a href="products.html#usb-spectrum-analyzers">USB</a>
+                    <ul class="sub-menu">
+                      <li class="menu-item"><a href="product-new-san.html">New SAN Series</a></li>
+                      <li class="menu-item"><a href="product-san400.html">SAN Series</a></li>
+                      <li class="menu-item"><a href="product-sa.html">SA Series</a></li>
+                    </ul></li>
+                  <li class="menu-item menu-item-has-children"><a href="products.html#networked-spectrum-analyzers">Networked</a>
+                    <ul class="sub-menu">
+                      <li class="menu-item"><a href="product-nxn.html">NXN Series</a></li>
+                      <li class="menu-item"><a href="product-nxe.html">NXE Series</a></li>
+                    </ul></li>
+                  <li class="menu-item menu-item-has-children"><a href="products.html#benchtop-handheld-spectrum-analyzers">Benchtop/Handheld</a>
+                    <ul class="sub-menu">
+                      <li class="menu-item"><a href="product-px-standard.html">PX Series Standard</a></li>
+                      <li class="menu-item"><a href="product-px-geek.html">PX Series Geek</a></li>
+                      <li class="menu-item"><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                    </ul></li>
+                </ul></li>
+              <li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">Vector Signal Generator</a>
+                <ul class="sub-menu"><li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">USB</a>
+                  <ul class="sub-menu"><li class="menu-item"><a href="product-sga.html">SGA-60</a></li></ul></li></ul></li>
+              <li class="menu-item menu-item-has-children"><a href="products.html#antennas">Antenna</a>
+                <ul class="sub-menu"><li class="menu-item menu-item-has-children"><a href="products.html#antennas">HDA Series</a>
+                  <ul class="sub-menu"><li class="menu-item"><a href="product-hda.html">HDA-100</a></li></ul></li></ul></li>
+            </ul></li>
+          <li class="menu-item"><a href="application.html">Application</a></li>
+          <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div></div>
+      <div class="hd-md"><div class="hd-search"><form><div class="hd-search-input"><input type="text" placeholder="Search"></div><button class="hd-search-img" type="button"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button></form></div></div>
+    </div>
+    <div class="con phone-header"><div class="phone-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div><div class="phone-right-actions" style="display:flex;align-items:center;gap:15px;"><div class="phone-more"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div></div></div>
+    <div class="con phone-back"><div class="back-desc"><div class="back-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div><div class="back-more"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div></div>
+      <div class="back-title"><ul class="back-level1">
+        <li class="menu-item"><a href="about.html">About Us</a></li>
+        <li class="menu-item"><a href="news.html">Latest News</a></li>
+        <li class="menu-item menu-item-has-children"><a href="products.html">Product</a><ul class="sub-menu"><li class="menu-item"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a></li><li class="menu-item"><a href="products.html#vector-signal-generators">Vector Signal Generator</a></li><li class="menu-item"><a href="products.html#antennas">Antenna</a></li></ul></li>
+        <li class="menu-item"><a href="application.html">Application</a></li>
+        <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+    <!-- Banner -->
+    <section class="app-banner">
+      <div class="app-banner-text">
+        <h1 class="wow fadeIn" data-wow-duration="1.5s">Application Solutions</h1>
+        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Explore how PN Technologies instruments power innovation across industries</p>
+      </div>
+    </section>
+
+    <!-- Application Cards -->
+    <section class="app-section">
+      <div class="app-section-title">
+        <h2 class="wow fadeIn" data-wow-duration="1.5s">Industries We Serve</h2>
+        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">From spectrum monitoring to education, our instruments enable breakthroughs</p>
+      </div>
+      <div class="app-grid">
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20M12 2c2.5 3 4 6.5 4 10s-1.5 7-4 10c-2.5-3-4-6.5-4-10s1.5-7 4-10z"/></svg></div>
+          <h3 class="app-card-title">Spectrum Monitoring</h3>
+          <p class="app-card-desc">Real-time monitoring and analysis of RF spectrum for interference detection, signal identification, and regulatory compliance.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 16v4M15 16v4"/></svg></div>
+          <h3 class="app-card-title">Software Defined Radios</h3>
+          <p class="app-card-desc">Seamless integration with SDR++ and other software-defined radio platforms for versatile signal processing.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+          <h3 class="app-card-title">Embedded RF Systems</h3>
+          <p class="app-card-desc">Compact USB spectrum analyzers for integration into OEM embedded systems and automated test environments.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3 class="app-card-title">Drone Detection</h3>
+          <p class="app-card-desc">Fast sweep and real-time analysis capabilities for detecting and identifying unauthorized drone communications.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3 class="app-card-title">RF Signal Mapping</h3>
+          <p class="app-card-desc">Geolocation and signal mapping using GPS-integrated spectrum analyzers for field surveys and coverage analysis.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+          <h3 class="app-card-title">5G/LTE Testing</h3>
+          <p class="app-card-desc">Wideband measurements up to 40 GHz for next-generation wireless communication testing and validation.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="app-card-title">EMC/EMI Testing</h3>
+          <p class="app-card-desc">Pre-compliance electromagnetic compatibility testing with high dynamic range and sensitive receivers.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+          <h3 class="app-card-title">Education &amp; Research</h3>
+          <p class="app-card-desc">Affordable, portable RF instruments for academic labs, universities, and research institutions.</p>
+          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Work With PN Technologies -->
+    <section class="home_join">
+      <div class="con home_join_text">
+        <div class="home_join_text_title home_title">
+          <p class="wow sc4fadeInLeft" data-wow-duration="2s" data-wow-offset="100">Work with</p>
+          <p class="wow sc4fadeInLeft" data-wow-duration="2s" data-wow-offset="100" data-wow-delay="0.1s">PN Technologies</p>
+        </div>
+        <div class="home_join_text_info">
+          <p class="hyphenate">At PN Technologies, we thrive on bold ideas, unconventional thinking, and a relentless passion for RF knowledge and technology. Reach out to us and let's collaborate.</p>
+        </div>
+        <div class="m_home_join_text_info">
+          <p class="hyphenate">At PN Technologies, we thrive on bold ideas and a relentless passion for RF technology. Reach out and let's innovate together.</p>
+        </div>
+      </div>
+      <div class="home_join_bg">
+        <picture>
+          <source media="(min-width: 769px)" srcset="images/home_join_bg.jpg">
+          <source media="(max-width: 768px)" srcset="images/home_join_bg_m.jpg">
+          <img src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
+        </picture>
+      </div>
+    </section>
+  </main>
+
+  <!-- GET IN TOUCH -->
+  <section class="get-in-touch-section">
+    <div class="con">
+      <div class="git-header"><span class="git-tag">GET IN TOUCH</span><h2 class="git-title">Talk to our RF specialists</h2><p class="git-desc">Send us your inquiry — we typically respond the same business day.</p></div>
+      <div class="git-content">
+        <div class="git-form-card"><h3>Send us a message</h3>
+          <form id="git-contact-form">
+            <div class="git-form-row"><div class="git-form-group"><label for="git-fullname">FULL NAME *</label><input type="text" id="git-fullname" required></div><div class="git-form-group"><label for="git-email">EMAIL *</label><input type="email" id="git-email" required></div></div>
+            <div class="git-form-row"><div class="git-form-group"><label for="git-phone">PHONE</label><input type="tel" id="git-phone"></div><div class="git-form-group"><label for="git-company">COMPANY</label><input type="text" id="git-company"></div></div>
+            <div class="git-form-group full-width"><label for="git-message">MESSAGE *</label><textarea id="git-message" rows="5" required></textarea></div>
+            <button type="submit" class="git-submit-btn">Send Inquiry</button>
+          </form>
+        </div>
+        <div class="git-details"><a href="mailto:business@pntech.in" class="git-detail-card"><div class="git-icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></div><div class="git-info-box"><span class="git-detail-label">EMAIL</span><span class="git-detail-value">business@pntech.in</span></div></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="con"><div class="ft-out"><div class="ft"><div class="ft-right">
+      <div class="ft-nav"><ul class="ftnav-box">
+        <li><a href="products.html">Product</a><ul class="sub-menu"><li><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a></li><li><a href="products.html#vector-signal-generators">Signal Generator</a></li><li><a href="products.html#antennas">Antenna</a></li></ul></li>
+        <li><a href="about.html">About Us</a></li><li><a href="news.html">Latest News</a></li><li><a href="application.html">Application</a></li><li><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+      <div class="ft-right-end">
+        <div class="ft-contact-info"><p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p><p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p></div>
+        <div class="ft-sns">
+          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="ft-bb"><p>Copyright &copy; 2024-2026 PN Technologies</p></div></div>
+    <div class="phone-footer"><div class="phone-box"><ul class="phone-footer"><li><a href="products.html">Product</a></li><li><a href="about.html">About Us</a></li><li><a href="news.html">Latest News</a></li><li><a href="application.html">Application</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="ft-sns-link"><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div>
+    </div>
+  </footer>
+
+  <!-- Floating Sidebar -->
+  <div class="sc33"><div class="sc33-item sc33-zx" title="Contact Us"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div><div class="sc33-item sc33-fx" title="Share"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></div><div class="sc33-fx-con"><div class="sc33-fx-con-in"><a href="#" class="sc33-one"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#" class="sc33-two"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" class="sc33-three"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="#" class="sc33-four"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div></div></div><div class="sc33-item sc33-top" title="Back to Top"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></div></div></div>
+
+  <!-- Contact Modal -->
+  <div class="sc30-dbg"></div>
+  <div class="sc30-out"><div class="sc30-close"></div><div class="sc30-name"><p>Request</p><p>For Contact</p></div><div class="sc30-con">
+    <form id="modal-contact-form">
+      <div class="sc30-part1 sc30-part"><div class="sc30-part-name"><p><span>Request Fields*</span></p></div><div class="sc30-part-input" style="position:relative;"><input type="text" id="request-type" placeholder="Please select" readonly style="cursor:pointer;"><div class="sc30-part-xia"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="sc30-part-select" id="request-select"><div class="sc30-part-select-scroll"><div class="sc30-part-select-item"><p>Product Information</p></div><div class="sc30-part-select-item"><p>Request for Quote</p></div><div class="sc30-part-select-item"><p>Technical Support</p></div><div class="sc30-part-select-item"><p>Apply for a Job</p></div><div class="sc30-part-select-item"><p>Others</p></div></div></div></div>
+      <div class="sc30-part2 sc30-part"><div class="sc30-part-name"><p><span>First Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part3 sc30-part"><div class="sc30-part-name"><p><span>Last Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part4 sc30-part"><div class="sc30-part-name"><p><span>Company*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part5 sc30-part"><div class="sc30-part-name"><p><span>Country*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part6 sc30-part"><div class="sc30-part-name"><p><span>E-Mail*</span></p></div><div class="sc30-part-input"><input type="email" required></div></div>
+      <div class="sc30-part7 sc30-part"><div class="sc30-part-name"><p><span>Phone (optional)</span></p></div><div class="sc30-part-input"><input type="tel"></div></div>
+      <div class="sc30-part8 sc30-part"><div class="sc30-part-name"><p><span>Your Message (optional)</span></p></div><div class="sc30-part-input"><textarea rows="4"></textarea></div></div>
+      <div class="sc30-part10 sc30-part"><input type="submit" value="SEND MESSAGE"></div>
+    </form>
+  </div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
