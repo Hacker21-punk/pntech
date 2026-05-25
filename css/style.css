@@ -243,119 +243,156 @@ header {
   color: var(--white);
   opacity: 1;
 }
+/* Remove underline from dropdown-parent items - they use flyout instead */
+.hdnav-box > .menu-item-has-children > a::after {
+  display: none !important;
+}
+/* Make Product link text act as trigger, not navigable */
+.hdnav-box > .menu-item-has-children > a {
+  pointer-events: none;
+  cursor: default;
+}
+/* But keep the parent li hoverable */
+.hdnav-box > .menu-item-has-children {
+  pointer-events: auto;
+  cursor: pointer;
+}
 
-/* Mega Menu Dropdown */
-.hdnav-box .sub-menu {
+/* ===== Flyout Dropdown Navigation (Harogic-style) ===== */
+
+/* Level 1: Top-level dropdown (Spectrum Analyzer, VSG, Antenna) */
+.hdnav-box > li > .sub-menu {
+  position: absolute;
+  width: 250px;
+  display: none;
+  padding: 15px 0 10px;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  list-style: none;
+}
+.hdnav-box > li > .sub-menu > li {
+  padding-bottom: 14px;
+  position: relative;
+  text-align: left;
+}
+.hdnav-box > li > .sub-menu > li > a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff !important;
+  display: block;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+.hdnav-box > li > .sub-menu > li > a:hover {
+  color: var(--accent) !important;
+}
+/* Arrow indicator for items with children at level 1 */
+.hdnav-box > li > .sub-menu > .menu-item-has-children > a::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  vertical-align: middle;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.hdnav-box > li > .sub-menu > .menu-item-has-children:hover > a::after,
+.hdnav-box > li > .sub-menu > .menu-item-has-children.checked > a::after {
+  color: var(--accent);
+}
+
+/* Level 2: Second-level flyout (USB, Networked, Benchtop/Handheld) */
+.hdnav-box > li > .sub-menu > li > .sub-menu {
   display: none;
   position: absolute;
-  top: var(--header-height);
-  left: 0;
-  width: 100%;
-  max-height: calc(100vh - 120px);
-  overflow-y: auto;
-  background: var(--navy-light);
-  border-bottom: 1px solid var(--navy-border);
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
-  padding: 40px 80px;
-  z-index: 100;
-  box-shadow: 0 20px 40px var(--shadow-main);
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent) rgba(0, 0, 0, 0.1);
-}
-.hdnav-box .sub-menu::-webkit-scrollbar {
-  width: 6px;
-}
-.hdnav-box .sub-menu::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-}
-.hdnav-box .sub-menu::-webkit-scrollbar-thumb {
-  background-color: var(--accent);
-  border-radius: 3px;
-}
-.hdnav-box > .menu-item-has-children > .sub-menu {
-  display: none;
-  flex-wrap: wrap;
-  gap: 30px 80px;
-  justify-content: center;
-}
-
-/* Mega menu columns - level 1 (Spectrum Analyzer, VSG, Antenna) */
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item {
-  width: 260px;
-  display: block;
-}
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > a {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white) !important;
-  border-bottom: 1px solid var(--navy-border);
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  display: block;
-}
-
-/* Mega menu subcategories - level 2 (USB, Networked, etc.) */
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item {
-  display: block;
-  margin-top: 18px;
-}
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > a {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent) !important;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  padding: 4px 0;
-  margin-bottom: 6px;
-  display: block;
-  pointer-events: none; /* Make grouping headers unclickable or distinct */
-}
-
-/* Mega menu products - level 3 (New SAN Series, SGA-60, etc.) */
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item {
-  display: block;
-  padding-left: 0;
-}
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item a {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-secondary) !important;
-  padding: 5px 0;
-  display: block;
-  transition: all var(--transition-fast);
-}
-.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item > .sub-menu > .menu-item a:hover {
-  color: var(--white) !important;
-  padding-left: 6px;
-}
-
-/* Make all nested sub-menus visible inside the mega menu columns */
-.hdnav-box .sub-menu .sub-menu {
-  position: relative;
-  top: 0;
-  left: 0;
-  background: none;
-  backdrop-filter: none;
+  width: 210px;
+  top: -5px;
+  left: 85%;
+  text-align: left;
   padding: 0;
-  display: block !important;
+  list-style: none;
+  z-index: 101;
 }
-.hdnav-box .sub-menu .menu-item-has-children > .sub-menu {
-  display: block !important;
+.hdnav-box > li > .sub-menu > li > .sub-menu > li {
+  padding-bottom: 14px;
+  width: 100%;
+  position: relative;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff !important;
+  display: block;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > a:hover {
+  color: var(--accent) !important;
+}
+/* Arrow indicator for items with children at level 2 */
+.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children > a::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  vertical-align: middle;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children:hover > a::after,
+.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children.checked > a::after {
+  color: var(--accent);
 }
 
-/* Header Background Overlay */
-.hd-bg {
+/* Level 3: Third-level flyout (New SAN Series, SGA-60, etc.) */
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu {
   display: none;
-  position: fixed;
+  position: absolute;
+  width: 160px;
+  top: -5px;
+  left: 100%;
+  padding: 0;
+  list-style: none;
+  z-index: 102;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li {
+  padding-bottom: 14px;
+  display: none;
+  width: 160px;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li:last-child {
+  padding-bottom: 0;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff !important;
+  display: block;
+  padding: 2px 0;
+  transition: color 0.2s;
+}
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a:hover {
+  color: var(--accent) !important;
+}
+
+/* Checked/active state for flyout items */
+.hdnav-box .sub-menu .checked > a {
+  color: var(--accent) !important;
+}
+
+/* Header Background Overlay (behind flyout dropdown) */
+.hd-bg {
+  position: absolute;
   top: 0;
   left: 0;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
   width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 995;
+  z-index: -1;
 }
 
 /* Header Right Icons */

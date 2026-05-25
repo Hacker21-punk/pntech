@@ -45,24 +45,63 @@ $(document).ready(function () {
     lastScrollTop = st <= 0 ? 0 : st;
   });
 
-  // ---- Desktop Mega Menu ----
-  var menuTimeout;
-  $('.hdnav-box > .menu-item-has-children').on('mouseenter', function () {
-    clearTimeout(menuTimeout);
-    var $this = $(this);
-    $this.find('> .sub-menu').css('display', 'flex');
-    $this.addClass('checked');
+  // ---- Desktop Multi-Level Flyout Menu (Harogic-style) ----
+
+  // Hovering over main nav item with children shows its dropdown
+  $('.hdnav-box > .menu-item-has-children').hover(function (event) {
     $('.hd-bg').fadeIn(200);
-  }).on('mouseleave', function () {
-    var $this = $(this);
-    menuTimeout = setTimeout(function () {
-      $this.find('> .sub-menu').css('display', 'none');
-      $this.removeClass('checked');
-      $('.hd-bg').fadeOut(200);
-    }, 150);
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
+    $(this).children('.sub-menu').css('display', 'block');
+    $(this).siblings().children('.sub-menu').css('display', 'none');
+    // Reset all nested states
+    $(this).children('.sub-menu').children('.menu-item').removeClass('checked');
+    $(this).children('.sub-menu').children('.menu-item').children('.sub-menu').css('display', 'none');
+    event.stopPropagation();
+  }, function () {});
+
+  // Level 1 sub-menu items hover (Spectrum Analyzer, VSG, Antenna)
+  $('.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item').hover(function (event) {
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
+    $(this).find('> .sub-menu').css('display', 'block');
+    $(this).siblings().find('> .sub-menu').css('display', 'none');
+    // Reset deeper nested states
+    $(this).find('> .sub-menu > .menu-item').removeClass('checked');
+    $(this).find('> .sub-menu > .menu-item > .sub-menu').css('display', 'none');
+    $(this).find('> .sub-menu > .menu-item > .sub-menu > .menu-item').css('display', 'none');
+    event.stopPropagation();
   });
 
-  // Close desktop mega menu when clicking a link inside it
+  // Level 2 sub-menu items hover (USB, Networked, Benchtop/Handheld)
+  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item').hover(function () {
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
+    $(this).find('> .sub-menu > .menu-item').css('display', 'block');
+    $(this).siblings().find('> .sub-menu > .menu-item').css('display', 'none');
+  });
+
+  // Level 3 sub-menu items hover (individual products)
+  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item').hover(function () {
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
+  });
+
+  // Close dropdown when hovering over main content
+  $('main').hover(function () {
+    $('.hd-bg').fadeOut(200);
+    $('.hdnav-box').children('.menu-item').removeClass('checked');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
+  });
+
+  // Close menu when hovering over the background overlay
+  $('.hd-bg').hover(function () {}, function () {
+    $('.hd-bg').fadeOut(200);
+    $('.hdnav-box').children('.menu-item').removeClass('checked');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
+  });
+
+  // Close desktop menu when clicking a product link
   $('.hdnav-box .sub-menu a').on('click', function () {
     $('.hdnav-box > .menu-item-has-children > .sub-menu').css('display', 'none');
     $('.hdnav-box > .menu-item-has-children').removeClass('checked');
