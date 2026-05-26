@@ -612,6 +612,75 @@ header {
   margin-bottom: 6px;
 }
 
+/* Swiper slide desktop specifications overlay on the right (matches harogic.com layout) */
+.sc1-item-models-right {
+  position: absolute;
+  right: 12%;
+  bottom: 22%;
+  z-index: 3;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.sc1-model-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 14px 28px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 102, 204, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-fast);
+}
+
+.sc1-model-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 102, 204, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 102, 204, 0.12);
+}
+
+.sc1-model-name {
+  font-size: 22px;
+  font-weight: 500;
+  color: #0066cc;
+  font-family: var(--font-main);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.sc1-model-name span {
+  font-weight: 700;
+  color: #0044aa;
+}
+
+/* Inline models layout inside the glass card (for smaller devices/mobile) */
+.sc1-item-models-inline {
+  display: none;
+  gap: 20px;
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 15px;
+}
+
+.sc1-model-inline-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.sc1-model-inline-item span {
+  color: #38bdf8;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
 /* Banner Pagination */
 .sc1-out .pagination {
   position: absolute;
@@ -2253,6 +2322,8 @@ footer {
   .sc1-item-wz-1 p { font-size: 40px; }
   .home_title p, .about_title p { font-size: 48px; }
   .sc15 { grid-template-columns: repeat(2, 1fr); }
+  .sc1-item-models-right { display: none !important; }
+  .sc1-item-models-inline { display: flex !important; }
 }
 
 @media (max-width: 1024px) {
