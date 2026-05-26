@@ -365,19 +365,22 @@ $(document).ready(function () {
     $btn.prop('disabled', true).text('Sending...');
     
     var data = {
-      name: $('#git-fullname').val(),
-      email: $('#git-email').val(),
-      phone: $('#git-phone').val(),
-      company: $('#git-company').val(),
-      message: $('#git-message').val(),
-      _subject: 'New Inquiry from Website (Footer Form)'
+      name: $form.find('#git-fullname').val(),
+      email: $form.find('#git-email').val(),
+      phone: $form.find('#git-phone').val(),
+      company: $form.find('#git-company').val(),
+      message: $form.find('#git-message').val(),
+      _subject: 'New Inquiry from Website (Footer Form)',
+      _honey: '',
+      _template: 'table'
     };
     
     $.ajax({
       url: 'https://formsubmit.co/ajax/business@pntech.in',
       method: 'POST',
       dataType: 'json',
-      data: data,
+      contentType: 'application/json',
+      data: JSON.stringify(data),
       success: function (response) {
         showToast('Success', 'Your message has been sent successfully. We will get back to you shortly!', true);
         $form[0].reset();
@@ -401,21 +404,24 @@ $(document).ready(function () {
     $btn.prop('disabled', true).val('Sending...');
     
     var data = {
-      request_type: $('#request-type').val(),
-      name: $('.sc30-part2 input').val() + ' ' + $('.sc30-part3 input').val(),
-      company: $('.sc30-part4 input').val(),
-      country: $('.sc30-part5 input').val(),
-      email: $('.sc30-part6 input').val(),
-      phone: $('.sc30-part7 input').val(),
-      message: $('.sc30-part8 textarea').val(),
-      _subject: 'New Inquiry from Website (Modal Form) - ' + $('#request-type').val()
+      request_type: $form.find('#request-type').val(),
+      name: $form.find('.sc30-part2 input').val() + ' ' + $form.find('.sc30-part3 input').val(),
+      company: $form.find('.sc30-part4 input').val(),
+      country: $form.find('.sc30-part5 input').val(),
+      email: $form.find('.sc30-part6 input').val(),
+      phone: $form.find('.sc30-part7 input').val(),
+      message: $form.find('.sc30-part8 textarea').val(),
+      _subject: 'New Inquiry from Website (Modal Form) - ' + $form.find('#request-type').val(),
+      _honey: '',
+      _template: 'table'
     };
     
     $.ajax({
       url: 'https://formsubmit.co/ajax/business@pntech.in',
       method: 'POST',
       dataType: 'json',
-      data: data,
+      contentType: 'application/json',
+      data: JSON.stringify(data),
       success: function (response) {
         showToast('Success', 'Your request has been submitted successfully. We will contact you shortly!', true);
         $form[0].reset();
