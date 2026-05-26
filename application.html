@@ -14,59 +14,219 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #ffffff; color: #111; }
+    
+    /* Layout overrides */
+    main { background: #ffffff; padding-bottom: 120px; }
+    
     .app-banner { position: relative; width: 100%; height: 420px; background: linear-gradient(135deg, #020202 0%, #08111e 50%, #020202 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255,102,0,0.1) 0%, transparent 70%); }
     .app-banner-text { position: relative; z-index: 2; text-align: center; padding: 0 20px; }
     .app-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -1px; }
     .app-banner-text p { font-size: 18px; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto; line-height: 1.6; }
     
-    /* Showcase alternating layout */
-    .app-showcase-section { padding: 100px 0; position: relative; }
-    .app-showcase-section:nth-child(odd) { background: #040811; }
-    .app-showcase-section:nth-child(even) { background: #020202; }
-    
-    .app-showcase-container { display: flex; align-items: center; gap: 70px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    
-    .app-showcase-content { flex: 1.2; text-align: left; }
-    .app-showcase-number { font-size: 13px; font-weight: 700; color: #ff6600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-    .app-showcase-title { font-size: 38px; font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.25; }
-    .app-showcase-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 28px; }
-    
-    .app-feature-list { list-style: none; padding: 0; margin: 0 0 32px 0; }
-    .app-feature-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; font-size: 14.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
-    .app-feature-icon { color: #ff6600; flex-shrink: 0; margin-top: 2px; }
-    
-    .app-showcase-media { flex: 1.0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 25px 55px rgba(0,0,0,0.5); position: relative; transition: all 0.4s ease; background: rgba(255,255,255,0.02); }
-    .app-showcase-media img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.8s cubic-bezier(0.4,0,0.2,1); }
-    .app-showcase-media:hover { border-color: rgba(255,102,0,0.25); box-shadow: 0 25px 55px rgba(0,0,0,0.6), 0 0 30px rgba(255,102,0,0.05); }
-    .app-showcase-media:hover img { transform: scale(1.04); }
-    
-    /* Technical specs grid */
-    .app-stats-section { padding: 90px 0; background: #020202; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .app-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .app-stat-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 36px 28px; text-align: center; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
-    .app-stat-card:hover { border-color: rgba(255,102,0,0.2); transform: translateY(-5px); background: rgba(255,255,255,0.04); }
-    .app-stat-num { font-size: 32px; font-weight: 700; color: #ff6600; margin-bottom: 10px; letter-spacing: -0.5px; }
-    .app-stat-label { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-    .app-stat-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
-    
-    @media (min-width: 769px) {
-      .app-showcase-container.reverse { flex-direction: row-reverse; }
+    /* Cooperation Page Banner & Title */
+    .cooperation_page_title {
+      padding: 90px 0 20px 0;
+      text-align: left;
+    }
+    .cooperation_page_title p {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #ff6600; /* Use premium brand orange */
+      margin: 0;
     }
     
-    @media (max-width: 1024px) {
-      .app-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-      .app-showcase-title { font-size: 32px; }
+    /* Cooperation Categories/Tabs */
+    .coo-cate {
+      margin-top: 30px;
+      margin-bottom: 70px;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 15px;
+    }
+    .coo-cate ul {
+      display: flex;
+      gap: 50px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .coo-cate li.cooperation-item {
+      font-size: 20px;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+      padding-bottom: 12px;
+    }
+    .coo-cate li.cooperation-item:hover {
+      color: #ff6600;
+    }
+    .coo-cate li.cooperation-item.active {
+      color: #ff6600;
+      font-weight: 700;
+    }
+    .coo-cate li.cooperation-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #ff6600;
+      border-radius: 2px;
+    }
+    
+    /* Cooperation List Items */
+    .coo-list {
+      display: flex;
+      flex-direction: column;
+      gap: 110px;
+    }
+    .cooperation_list_item {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+      justify-content: space-between;
+    }
+    .cooperation_list_text {
+      flex: 1.25;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 260px;
+    }
+    .cooperation_list_textbox h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+    }
+    .cooperation_list_textbox h2 a {
+      color: #111;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .cooperation_list_textbox h2 a:hover {
+      color: #ff6600;
+    }
+    .cooperation_list_textbox p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
+      margin: 0;
+    }
+    
+    /* More Button styling */
+    .cooperation_list_more {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ff6600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+    .cooperation_list_more i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff4ee;
+      color: #ff6600;
+      transition: all 0.3s ease;
+    }
+    .cooperation_list_more:hover {
+      color: #cc5200;
+    }
+    .cooperation_list_more:hover i {
+      transform: translateX(6px);
+      background: #ff6600;
+      color: #fff;
+    }
+    
+    /* Image Column styling */
+    .cooperation_list_img {
+      flex: 1.0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+      border: 1px solid #eaeaea;
+      transition: all 0.4s ease;
+      background: #fafafa;
+    }
+    .cooperation_list_img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .cooperation_list_img:hover {
+      box-shadow: 0 20px 45px rgba(255, 102, 0, 0.12);
+      border-color: rgba(255, 102, 0, 0.2);
+      transform: translateY(-4px);
+    }
+    .cooperation_list_img:hover img {
+      transform: scale(1.03);
+    }
+    
+    /* Empty state */
+    .no-data {
+      padding: 80px 0;
+      text-align: center;
+      font-size: 18px;
+      color: #888;
+    }
+    
+    /* Responsive styling */
+    @media (max-width: 991px) {
+      .cooperation_list_item {
+        gap: 40px;
+      }
+      .cooperation_list_textbox h2 {
+        font-size: 26px;
+      }
     }
     
     @media (max-width: 768px) {
-      .app-banner { height: 320px; }
-      .app-banner-text h1 { font-size: 38px; }
-      .app-showcase-container { flex-direction: column; gap: 40px; }
-      .app-showcase-section { padding: 60px 0; }
-      .app-stats-grid { grid-template-columns: 1fr; gap: 20px; }
-      .app-stats-section { padding: 60px 0; }
+      .cooperation_page_title {
+        padding: 60px 0 10px 0;
+      }
+      .cooperation_page_title p {
+        font-size: 38px;
+      }
+      .coo-cate {
+        margin-bottom: 40px;
+      }
+      .coo-cate ul {
+        gap: 30px;
+      }
+      .coo-cate li.cooperation-item {
+        font-size: 17px;
+      }
+      .coo-list {
+        gap: 60px;
+      }
+      .cooperation_list_item {
+        flex-direction: column !important;
+        gap: 30px;
+      }
+      .cooperation_list_text {
+        min-height: auto;
+      }
+      .cooperation_list_img {
+        width: 100%;
+        order: -1 !important; /* Image on top on mobile */
+      }
     }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -189,131 +349,27 @@
         <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Precision RF instrumentation designed to solve complex test and measurement challenges in the field and in the laboratory.</p>
       </div>
     </section>
-
-    <!-- Showcase 1: RF Signal Mapping and Geolocation -->
-    <section class="app-showcase-section">
-      <div class="app-showcase-container wow fadeIn" data-wow-duration="1.5s">
-        <div class="app-showcase-content">
-          <div class="app-showcase-number">Case Study 01</div>
-          <h2 class="app-showcase-title">RF Signal Mapping and Geolocation</h2>
-          <p class="app-showcase-desc">By combining high-speed real-time spectrum analyzers with integrated GPS/GNSS receivers, field engineers can perform comprehensive signal coverage audits and trace interference sources instantly. The SAStudio4 Mapping Mode visualizes signal intensity heatmaps on interactive GIS maps directly in the field.</p>
-          <ul class="app-feature-list">
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>GPS-Tagging Data Points:</strong> Log absolute coordinate and altitude data for every spectrum sweep.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Vibrant Heatmap Overlays:</strong> Draw color-coded signal strength contours directly over geographical layers.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Geolocation direction lines:</strong> Correlate multiple bearing measurements to pinpoint the exact locations of rogue emitters.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Offline Map Capabilities:</strong> Store and load local geographic maps for seamless outdoor audits without internet.</div>
-            </li>
+    <!-- Cooperation / Application Scenarios Section -->
+    <section style="background: #ffffff; padding-bottom: 80px;">
+      <div class="con">
+        <div class="cooperation_page_title">
+          <p>Application</p>
+          <p>Scenarios.</p>
+        </div>
+        
+        <!-- Category Filter Tabs -->
+        <div class="coo-cate">
+          <ul>
+            <li class="cooperation-item active" data-id="0">All</li>
+            <li class="cooperation-item" data-id="206">Signal Generator</li>
+            <li class="cooperation-item" data-id="207">Spectrum analyzer</li>
           </ul>
-          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
-        </div>
-        <div class="app-showcase-media">
-          <img src="images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg" alt="RF Signal Geolocation and Mapping Mode">
         </div>
       </div>
-    </section>
-
-    <!-- Showcase 2: Tracking Generator & Component Sweeps -->
-    <section class="app-showcase-section">
-      <div class="app-showcase-container reverse wow fadeIn" data-wow-duration="1.5s">
-        <div class="app-showcase-content">
-          <div class="app-showcase-number">Case Study 02</div>
-          <h2 class="app-showcase-title">Tracking Generator & Transmission Sweeps</h2>
-          <p class="app-showcase-desc">Stimulus-response measurements are crucial for evaluating passive and active RF components. By linking the tracking generator capabilities of our SGA-60 vector signal generator with real-time spectrum analyzers, engineers can characterize duplexers, sweep antenna feedlines, and perform cable loss calibrations instantly in the field.</p>
-          <ul class="app-feature-list">
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Cable Attenuation Calibrations:</strong> Standardize and normalize path losses to guarantee laboratory-grade accuracy.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Filter Insertion/Return Loss:</strong> Trace transfer characteristics, bandwidth cutoffs, and duplexer isolation curves.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Field Feeder Auditing:</strong> Test base station coax cables, adaptors, and antennas for structural defects.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Dynamic Range Performance:</strong> Achieve over 100 dB dynamic range sweeps for precise leakage audits.</div>
-            </li>
-          </ul>
-          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
-        </div>
-        <div class="app-showcase-media">
-          <img src="images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg" alt="Tracking Generator component S-parameter sweeps">
-        </div>
-      </div>
-    </section>
-
-    <!-- Showcase 3: SDR++ & Custom SDR Integration -->
-    <section class="app-showcase-section">
-      <div class="app-showcase-container wow fadeIn" data-wow-duration="1.5s">
-        <div class="app-showcase-content">
-          <div class="app-showcase-number">Case Study 03</div>
-          <h2 class="app-showcase-title">SDR++ & Third-Party SDR Software Support</h2>
-          <p class="app-showcase-desc">Our instruments feature complete native compatibility with the leading open-source software-defined radio suite, SDR++. Combined with our multi-language software development kits (SDKs), researchers and developers can capture high-speed IQ streams, execute custom signal demodulations, and automate laboratory test flows.</p>
-          <ul class="app-feature-list">
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Native SDR++ Integration:</strong> Run SDR++ natively on your host PC to demodulate and record RF signals.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Full-Bandwidth IQ Streaming:</strong> Stream ultra-low latency, phase-coherent complex IQ data for raw digital demodulation.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Robust API Library Support:</strong> Automate measurement routines via free, lightweight C++, C#, Python, and Java APIs.</div>
-            </li>
-            <li class="app-feature-item">
-              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>MATLAB & LabVIEW Hooks:</strong> Inject live spectral data directly into laboratory computation tools for deep analysis.</div>
-            </li>
-          </ul>
-          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
-        </div>
-        <div class="app-showcase-media">
-          <img src="images/jjfa_lunbo_3.webp" alt="SDR++ integration and spectral analysis">
-        </div>
-      </div>
-    </section>
-
-    <!-- Tech Specs Highlights Section -->
-    <section class="app-stats-section">
-      <div class="app-stats-grid">
-        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="app-stat-num">100 MHz</div>
-          <div class="app-stat-label">Real-Time Bandwidth</div>
-          <div class="app-stat-desc">Capture transient signals with 100% Probability of Intercept (POI) down to nanosecond durations.</div>
-        </div>
-        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="app-stat-num">1.1 THz/s</div>
-          <div class="app-stat-label">Ultra-Fast Sweep Speed</div>
-          <div class="app-stat-desc">Conduct comprehensive full-band spectrum sweeps up to 40 GHz in milliseconds for immediate threat detection.</div>
-        </div>
-        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-          <div class="app-stat-num">SWaP-C</div>
-          <div class="app-stat-label">Size, Weight & Power</div>
-          <div class="app-stat-desc">Minimized physical profiles with standard USB powering, optimized for field deployments and system enclosures.</div>
-        </div>
-        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-          <div class="app-stat-num">Open API</div>
-          <div class="app-stat-label">System Platform SDK</div>
-          <div class="app-stat-desc">Integrate natively into custom platforms with standard multi-platform drivers and high-speed libraries.</div>
-        </div>
-      </div>
-    </section>
+      
+      <!-- List of Alternating Showcase items -->
+      <div class="coo-list"></div>
+    </section>n>
 
     <!-- Work With PN Technologies -->
     <section class="home_join">
@@ -432,5 +488,147 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    $(function() {
+      // 7 Live posts tailored for PN Technologies
+      const posts = [
+        {
+          id: 30906,
+          title: "Pulse Generation and Frequency Sweeping: Precision Simulation with the SGA-60",
+          excerpt: "This application note demonstrates how the PN Technologies SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.",
+          image: "images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg",
+          category_ids: [206]
+        },
+        {
+          id: 28838,
+          title: "Tracking Generator and Signal Generator Applications in the New PXN Series",
+          excerpt: "Learn how the new PN Technologies PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.",
+          image: "images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg",
+          category_ids: [207]
+        },
+        {
+          id: 28671,
+          title: "RF Signal Mapping and Geolocation Using Mapping Mode",
+          excerpt: "This application note explains how PN Technologies Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.",
+          image: "images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg",
+          category_ids: [207]
+        },
+        {
+          id: 26514,
+          title: "Using PN Technologies Products in GNU Radio",
+          excerpt: "PN Technologies offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces, enabling seamless integration into GNU Radio projects.",
+          image: "images/harogic-gnradio.jpg",
+          category_ids: [207]
+        },
+        {
+          id: 2174,
+          title: "Airborne Radio Measurement Systems \"9 kHz to 40 GHz\"",
+          excerpt: "A USB spectrum analyzer up to 40 GHz from PN Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring and coverage auditing.",
+          image: "images/cooperation_1.webp",
+          category_ids: [207]
+        },
+        {
+          id: 2051,
+          title: "Third Party Spectrum Monitoring System Up to 40 GHz",
+          excerpt: "PN Technologies specializes in RF spectrum monitoring with advanced real-time spectrum analyzers. We provide an open API with high compatibility to our customers, empowering them to define their own RF spectrum monitoring systems up to 40 GHz.",
+          image: "images/cooperation_2.jpg",
+          category_ids: [207]
+        },
+        {
+          id: 2055,
+          title: "SDR++ Works Well on PN Technologies PX Series Spectrum Analyzer",
+          excerpt: "SDR++ with the feature of a versatile platform for software defined radio, is running well on PN Technologies handheld spectrum analyzer.",
+          image: "images/cooperation_3.webp",
+          category_ids: [207]
+        }
+      ];
+
+      // Initial render: show All (id: 0)
+      renderPosts(0);
+
+      // Category click event
+      $('.cooperation-item').click(function() {
+        $(this).addClass('active').siblings().removeClass('active');
+        var cateId = $(this).data('id');
+        renderPosts(cateId);
+      });
+
+      function renderPosts(subCategoryId) {
+        const container = $('.coo-list');
+        container.empty();
+
+        // Filter posts
+        const filtered = subCategoryId === 0
+          ? posts
+          : posts.filter(p => p.category_ids.includes(subCategoryId));
+
+        if (filtered.length === 0) {
+          container.append('<div class="con no-data">No relevant content available</div>');
+          return;
+        }
+
+        let html = '';
+        filtered.forEach((post, index) => {
+          const isEven = index % 2 === 0;
+          const contactUrl = 'contact.html?subject=' + encodeURIComponent('Inquiry regarding ' + post.title);
+
+          if (!isEven) {
+            html += `
+              <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                <div class="cooperation_list_text">
+                  <div class="cooperation_list_textbox">
+                    <h2><a href="${contactUrl}">${post.title}</a></h2>
+                    <p class="hyphenate">${post.excerpt}</p>
+                  </div>
+                  <a href="${contactUrl}" class="cooperation_list_more">
+                    <i>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </i>
+                    More
+                  </a>
+                </div>
+                <div class="cooperation_list_img">
+                  <img src="${post.image}" alt="${post.title}">
+                </div>
+              </div>
+            `;
+          } else {
+            html += `
+              <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                <div class="cooperation_list_img">
+                  <img src="${post.image}" alt="${post.title}">
+                </div>
+                <div class="cooperation_list_text">
+                  <div class="cooperation_list_textbox">
+                    <h2><a href="${contactUrl}">${post.title}</a></h2>
+                    <p class="hyphenate">${post.excerpt}</p>
+                  </div>
+                  <a href="${contactUrl}" class="cooperation_list_more">
+                    <i>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                      </svg>
+                    </i>
+                    More
+                  </a>
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        container.append(html);
+        
+        // Re-initialize WOW.js for dynamically generated elements
+        if (typeof WOW !== 'undefined') {
+          new WOW().init();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
