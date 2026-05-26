@@ -21,3 +21,10 @@ env
 .env
 .env.local
 .env.*
+
+# Python helper/debug scripts
+*.py
+
+# Debug/temp images
+images/pxn_*.jpg
+images/debug_*.jpg
