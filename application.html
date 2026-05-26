@@ -15,33 +15,58 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-    .app-banner { position: relative; width: 100%; height: 400px; background: linear-gradient(135deg, #050505 0%, #0a1628 50%, #050505 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 50%, rgba(255,102,0,0.08) 0%, transparent 60%); }
-    .app-banner-text { position: relative; z-index: 2; text-align: center; }
-    .app-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 16px; }
-    .app-banner-text p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; }
-    .app-section { padding: 80px 0; }
-    .app-section-title { text-align: center; margin-bottom: 60px; }
-    .app-section-title h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .app-section-title p { font-size: 16px; color: rgba(255,255,255,0.5); }
-    .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .app-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 40px 30px; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); position: relative; overflow: hidden; }
-    .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #ff6600, #ff8533); transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left; }
-    .app-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,102,0,0.3); transform: translateY(-6px); }
-    .app-card:hover::before { transform: scaleX(1); }
-    .app-card-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(255,102,0,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; transition: background 0.3s ease; }
-    .app-card:hover .app-card-icon { background: rgba(255,102,0,0.2); }
-    .app-card-icon svg { color: #ff6600; }
-    .app-card-title { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 12px; }
-    .app-card-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
-    .app-card-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: #ff6600; text-decoration: none; transition: gap 0.3s ease; }
-    .app-card-link:hover { gap: 10px; }
-    @media (max-width: 1024px) { .app-grid { grid-template-columns: repeat(2, 1fr); } }
+    .app-banner { position: relative; width: 100%; height: 420px; background: linear-gradient(135deg, #020202 0%, #08111e 50%, #020202 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255,102,0,0.1) 0%, transparent 70%); }
+    .app-banner-text { position: relative; z-index: 2; text-align: center; padding: 0 20px; }
+    .app-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -1px; }
+    .app-banner-text p { font-size: 18px; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    
+    /* Showcase alternating layout */
+    .app-showcase-section { padding: 100px 0; position: relative; }
+    .app-showcase-section:nth-child(odd) { background: #040811; }
+    .app-showcase-section:nth-child(even) { background: #020202; }
+    
+    .app-showcase-container { display: flex; align-items: center; gap: 70px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    .app-showcase-content { flex: 1.2; text-align: left; }
+    .app-showcase-number { font-size: 13px; font-weight: 700; color: #ff6600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .app-showcase-title { font-size: 38px; font-weight: 700; color: #fff; margin-bottom: 20px; line-height: 1.25; }
+    .app-showcase-desc { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 28px; }
+    
+    .app-feature-list { list-style: none; padding: 0; margin: 0 0 32px 0; }
+    .app-feature-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; font-size: 14.5px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+    .app-feature-icon { color: #ff6600; flex-shrink: 0; margin-top: 2px; }
+    
+    .app-showcase-media { flex: 1.0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 25px 55px rgba(0,0,0,0.5); position: relative; transition: all 0.4s ease; background: rgba(255,255,255,0.02); }
+    .app-showcase-media img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .app-showcase-media:hover { border-color: rgba(255,102,0,0.25); box-shadow: 0 25px 55px rgba(0,0,0,0.6), 0 0 30px rgba(255,102,0,0.05); }
+    .app-showcase-media:hover img { transform: scale(1.04); }
+    
+    /* Technical specs grid */
+    .app-stats-section { padding: 90px 0; background: #020202; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .app-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .app-stat-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 36px 28px; text-align: center; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .app-stat-card:hover { border-color: rgba(255,102,0,0.2); transform: translateY(-5px); background: rgba(255,255,255,0.04); }
+    .app-stat-num { font-size: 32px; font-weight: 700; color: #ff6600; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .app-stat-label { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .app-stat-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    
+    @media (min-width: 769px) {
+      .app-showcase-container.reverse { flex-direction: row-reverse; }
+    }
+    
+    @media (max-width: 1024px) {
+      .app-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .app-showcase-title { font-size: 32px; }
+    }
+    
     @media (max-width: 768px) {
-      .app-banner { height: 300px; }
-      .app-banner-text h1 { font-size: 36px; }
-      .app-grid { grid-template-columns: 1fr; gap: 20px; }
-      .app-section { padding: 50px 0; }
+      .app-banner { height: 320px; }
+      .app-banner-text h1 { font-size: 38px; }
+      .app-showcase-container { flex-direction: column; gap: 40px; }
+      .app-showcase-section { padding: 60px 0; }
+      .app-stats-grid { grid-template-columns: 1fr; gap: 20px; }
+      .app-stats-section { padding: 60px 0; }
     }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -51,59 +76,109 @@
 
   <!-- ========== HEADER ========== -->
   <header>
-    <div class="hd-bg"></div>
-    <div class="hd-out">
-      <div class="hd-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div>
-      <div class="hd-nav"><div class="hd-md-nav">
-        <ul class="hdnav-box">
-          <li class="menu-item"><a href="about.html">About Us</a></li>
-          <li class="menu-item"><a href="news.html">Latest News</a></li>
-          <li class="menu-item menu-item-has-children"><a href="products.html">Product</a>
-            <ul class="sub-menu">
-              <li class="menu-item menu-item-has-children"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a>
-                <ul class="sub-menu">
-                  <li class="menu-item menu-item-has-children"><a href="products.html#usb-spectrum-analyzers">USB</a>
-                    <ul class="sub-menu">
-                      <li class="menu-item"><a href="product-new-san.html">New SAN Series</a></li>
-                      <li class="menu-item"><a href="product-san400.html">SAN Series</a></li>
-                      <li class="menu-item"><a href="product-sa.html">SA Series</a></li>
-                    </ul></li>
-                  <li class="menu-item menu-item-has-children"><a href="products.html#networked-spectrum-analyzers">Networked</a>
-                    <ul class="sub-menu">
-                      <li class="menu-item"><a href="product-nxn.html">NXN Series</a></li>
-                      <li class="menu-item"><a href="product-nxe.html">NXE Series</a></li>
-                    </ul></li>
-                  <li class="menu-item menu-item-has-children"><a href="products.html#benchtop-handheld-spectrum-analyzers">Benchtop/Handheld</a>
-                    <ul class="sub-menu">
-                      <li class="menu-item"><a href="product-px-standard.html">PX Series Standard</a></li>
-                      <li class="menu-item"><a href="product-px-geek.html">PX Series Geek</a></li>
-                      <li class="menu-item"><a href="product-px-rugged.html">PX Series Rugged</a></li>
-                    </ul></li>
-                </ul></li>
-              <li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">Vector Signal Generator</a>
-                <ul class="sub-menu"><li class="menu-item menu-item-has-children"><a href="products.html#vector-signal-generators">USB</a>
-                  <ul class="sub-menu"><li class="menu-item"><a href="product-sga.html">SGA-60</a></li></ul></li></ul></li>
-              <li class="menu-item menu-item-has-children"><a href="products.html#antennas">Antenna</a>
-                <ul class="sub-menu"><li class="menu-item menu-item-has-children"><a href="products.html#antennas">HDA Series</a>
-                  <ul class="sub-menu"><li class="menu-item"><a href="product-hda.html">HDA-100</a></li></ul></li></ul></li>
-            </ul></li>
-          <li class="menu-item"><a href="application.html">Application</a></li>
-          <li class="menu-item"><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div></div>
-      <div class="hd-md"><div class="hd-search"><form><div class="hd-search-input"><input type="text" placeholder="Search"></div><button class="hd-search-img" type="button"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button></form></div></div>
+  <div class="hd-bg"></div>
+  <!-- Desktop Header -->
+  <div class="hd-out">
+    <div class="hd con">
+      <div class="hd-left">
+        <a href="index.html" style="display:flex; align-items:center; gap:10px;">
+          <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
+          <span class="hd-logo-text" style="color:#fff; font-size:18px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
+        </a>
+      </div>
+      <div class="hd-md">
+        <nav class="hd-nav">
+          <ul class="hdnav-box">
+            <li class="menu-item"><a href="about.html">About Us</a></li>
+            <li class="menu-item"><a href="news.html">Latest News</a></li>
+            <li class="menu-item menu-item-has-children">
+              <a href="products.html">Product</a>
+              <ul class="sub-menu">
+                <li class="menu-item menu-item-has-children">
+                  <a href="product-spectrum-analyzer.html">Spectrum Analyzer</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children">
+                      <a href="product-spectrum-analyzer.html#usb">USB</a>
+                      <ul class="sub-menu">
+                        <li><a href="product-new-san.html">New SAN Series</a></li>
+                        <li><a href="product-san400.html">SAN Series</a></li>
+                        <li><a href="product-sa.html">SA Series</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                      <a href="product-spectrum-analyzer.html#networked">Networked</a>
+                      <ul class="sub-menu">
+                        <li><a href="product-nxn.html">NXN Series</a></li>
+                        <li><a href="product-nxe.html">NXE Series</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item menu-item-has-children">
+                      <a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a>
+                      <ul class="sub-menu">
+                        <li><a href="product-px-standard.html">PX Series Standard</a></li>
+                        <li><a href="product-px-geek.html">PX Series Geek</a></li>
+                        <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="product-vector-signal-generator.html">Vector Signal Generator</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children">
+                      <a href="product-vector-signal-generator.html#usb">USB</a>
+                      <ul class="sub-menu">
+                        <li><a href="product-sga.html">New SGA-60</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="product-hda.html">Antenna</a>
+                  <ul class="sub-menu">
+                    <li class="menu-item menu-item-has-children">
+                      <a href="product-hda.html">HDA Series</a>
+                      <ul class="sub-menu">
+                        <li><a href="product-hda.html">HDA-100</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="application.html">Application</a></li>
+            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hd-right">
+        <div class="hd-search">
+          <form>
+            <div class="hd-search-input"><input type="text" placeholder="Search"></div>
+            <button class="hd-search-img" type="button">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="con phone-header"><div class="phone-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div><div class="phone-right-actions" style="display:flex;align-items:center;gap:15px;"><div class="phone-more"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div></div></div>
-    <div class="con phone-back"><div class="back-desc"><div class="back-logo"><a href="index.html"><img src="images/logo.png" alt="PN Technologies Logo"></a></div><div class="back-more"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div></div>
-      <div class="back-title"><ul class="back-level1">
-        <li class="menu-item"><a href="about.html">About Us</a></li>
-        <li class="menu-item"><a href="news.html">Latest News</a></li>
-        <li class="menu-item menu-item-has-children"><a href="products.html">Product</a><ul class="sub-menu"><li class="menu-item"><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a></li><li class="menu-item"><a href="products.html#vector-signal-generators">Vector Signal Generator</a></li><li class="menu-item"><a href="products.html#antennas">Antenna</a></li></ul></li>
-        <li class="menu-item"><a href="application.html">Application</a></li>
-        <li class="menu-item"><a href="contact.html">Contact Us</a></li>
-      </ul></div>
+  </div>
+
+  <!-- Mobile Header -->
+  <div class="phone-header" style="background:rgba(0,0,0,0.85);">
+    <div class="phone-logo">
+      <a href="index.html" style="display:flex; align-items:center; gap:10px;">
+        <img src="images/logo.png" alt="PNTECH" style="height:32px; width:auto;">
+        <span style="color:#fff; font-size:16px; font-weight:700;">PN Technologies</span>
+      </a>
     </div>
-  </header>
+    <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
+      <div class="phone-more">
+        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+    </div>
+  </div>
+</header>
 
   <!-- ========== MAIN CONTENT ========== -->
   <main>
@@ -111,74 +186,132 @@
     <section class="app-banner">
       <div class="app-banner-text">
         <h1 class="wow fadeIn" data-wow-duration="1.5s">Application Solutions</h1>
-        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Explore how PN Technologies instruments power innovation across industries</p>
+        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Precision RF instrumentation designed to solve complex test and measurement challenges in the field and in the laboratory.</p>
       </div>
     </section>
 
-    <!-- Application Cards -->
-    <section class="app-section">
-      <div class="app-section-title">
-        <h2 class="wow fadeIn" data-wow-duration="1.5s">Industries We Serve</h2>
-        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">From spectrum monitoring to education, our instruments enable breakthroughs</p>
+    <!-- Showcase 1: RF Signal Mapping and Geolocation -->
+    <section class="app-showcase-section">
+      <div class="app-showcase-container wow fadeIn" data-wow-duration="1.5s">
+        <div class="app-showcase-content">
+          <div class="app-showcase-number">Case Study 01</div>
+          <h2 class="app-showcase-title">RF Signal Mapping and Geolocation</h2>
+          <p class="app-showcase-desc">By combining high-speed real-time spectrum analyzers with integrated GPS/GNSS receivers, field engineers can perform comprehensive signal coverage audits and trace interference sources instantly. The SAStudio4 Mapping Mode visualizes signal intensity heatmaps on interactive GIS maps directly in the field.</p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>GPS-Tagging Data Points:</strong> Log absolute coordinate and altitude data for every spectrum sweep.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Vibrant Heatmap Overlays:</strong> Draw color-coded signal strength contours directly over geographical layers.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Geolocation direction lines:</strong> Correlate multiple bearing measurements to pinpoint the exact locations of rogue emitters.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Offline Map Capabilities:</strong> Store and load local geographic maps for seamless outdoor audits without internet.</div>
+            </li>
+          </ul>
+          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
+        </div>
+        <div class="app-showcase-media">
+          <img src="images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg" alt="RF Signal Geolocation and Mapping Mode">
+        </div>
       </div>
-      <div class="app-grid">
+    </section>
 
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20M12 2c2.5 3 4 6.5 4 10s-1.5 7-4 10c-2.5-3-4-6.5-4-10s1.5-7 4-10z"/></svg></div>
-          <h3 class="app-card-title">Spectrum Monitoring</h3>
-          <p class="app-card-desc">Real-time monitoring and analysis of RF spectrum for interference detection, signal identification, and regulatory compliance.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- Showcase 2: Tracking Generator & Component Sweeps -->
+    <section class="app-showcase-section">
+      <div class="app-showcase-container reverse wow fadeIn" data-wow-duration="1.5s">
+        <div class="app-showcase-content">
+          <div class="app-showcase-number">Case Study 02</div>
+          <h2 class="app-showcase-title">Tracking Generator & Transmission Sweeps</h2>
+          <p class="app-showcase-desc">Stimulus-response measurements are crucial for evaluating passive and active RF components. By linking the tracking generator capabilities of our SGA-60 vector signal generator with real-time spectrum analyzers, engineers can characterize duplexers, sweep antenna feedlines, and perform cable loss calibrations instantly in the field.</p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Cable Attenuation Calibrations:</strong> Standardize and normalize path losses to guarantee laboratory-grade accuracy.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Filter Insertion/Return Loss:</strong> Trace transfer characteristics, bandwidth cutoffs, and duplexer isolation curves.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Field Feeder Auditing:</strong> Test base station coax cables, adaptors, and antennas for structural defects.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Dynamic Range Performance:</strong> Achieve over 100 dB dynamic range sweeps for precise leakage audits.</div>
+            </li>
+          </ul>
+          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
         </div>
-
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M9 16v4M15 16v4"/></svg></div>
-          <h3 class="app-card-title">Software Defined Radios</h3>
-          <p class="app-card-desc">Seamless integration with SDR++ and other software-defined radio platforms for versatile signal processing.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="app-showcase-media">
+          <img src="images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg" alt="Tracking Generator component S-parameter sweeps">
         </div>
+      </div>
+    </section>
 
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
-          <h3 class="app-card-title">Embedded RF Systems</h3>
-          <p class="app-card-desc">Compact USB spectrum analyzers for integration into OEM embedded systems and automated test environments.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- Showcase 3: SDR++ & Custom SDR Integration -->
+    <section class="app-showcase-section">
+      <div class="app-showcase-container wow fadeIn" data-wow-duration="1.5s">
+        <div class="app-showcase-content">
+          <div class="app-showcase-number">Case Study 03</div>
+          <h2 class="app-showcase-title">SDR++ & Third-Party SDR Software Support</h2>
+          <p class="app-showcase-desc">Our instruments feature complete native compatibility with the leading open-source software-defined radio suite, SDR++. Combined with our multi-language software development kits (SDKs), researchers and developers can capture high-speed IQ streams, execute custom signal demodulations, and automate laboratory test flows.</p>
+          <ul class="app-feature-list">
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Native SDR++ Integration:</strong> Run SDR++ natively on your host PC to demodulate and record RF signals.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Full-Bandwidth IQ Streaming:</strong> Stream ultra-low latency, phase-coherent complex IQ data for raw digital demodulation.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Robust API Library Support:</strong> Automate measurement routines via free, lightweight C++, C#, Python, and Java APIs.</div>
+            </li>
+            <li class="app-feature-item">
+              <span class="app-feature-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>MATLAB & LabVIEW Hooks:</strong> Inject live spectral data directly into laboratory computation tools for deep analysis.</div>
+            </li>
+          </ul>
+          <a href="contact.html" class="app-showcase-btn">Inquire Solution</a>
         </div>
-
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h3 class="app-card-title">Drone Detection</h3>
-          <p class="app-card-desc">Fast sweep and real-time analysis capabilities for detecting and identifying unauthorized drone communications.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="app-showcase-media">
+          <img src="images/jjfa_lunbo_3.webp" alt="SDR++ integration and spectral analysis">
         </div>
+      </div>
+    </section>
 
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h3 class="app-card-title">RF Signal Mapping</h3>
-          <p class="app-card-desc">Geolocation and signal mapping using GPS-integrated spectrum analyzers for field surveys and coverage analysis.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- Tech Specs Highlights Section -->
+    <section class="app-stats-section">
+      <div class="app-stats-grid">
+        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
+          <div class="app-stat-num">100 MHz</div>
+          <div class="app-stat-label">Real-Time Bandwidth</div>
+          <div class="app-stat-desc">Capture transient signals with 100% Probability of Intercept (POI) down to nanosecond durations.</div>
         </div>
-
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-          <h3 class="app-card-title">5G/LTE Testing</h3>
-          <p class="app-card-desc">Wideband measurements up to 40 GHz for next-generation wireless communication testing and validation.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
+          <div class="app-stat-num">1.1 THz/s</div>
+          <div class="app-stat-label">Ultra-Fast Sweep Speed</div>
+          <div class="app-stat-desc">Conduct comprehensive full-band spectrum sweeps up to 40 GHz in milliseconds for immediate threat detection.</div>
         </div>
-
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3 class="app-card-title">EMC/EMI Testing</h3>
-          <p class="app-card-desc">Pre-compliance electromagnetic compatibility testing with high dynamic range and sensitive receivers.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+          <div class="app-stat-num">SWaP-C</div>
+          <div class="app-stat-label">Size, Weight & Power</div>
+          <div class="app-stat-desc">Minimized physical profiles with standard USB powering, optimized for field deployments and system enclosures.</div>
         </div>
-
-        <div class="app-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="app-card-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
-          <h3 class="app-card-title">Education &amp; Research</h3>
-          <p class="app-card-desc">Affordable, portable RF instruments for academic labs, universities, and research institutions.</p>
-          <a class="app-card-link" href="products.html">Learn More <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="app-stat-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
+          <div class="app-stat-num">Open API</div>
+          <div class="app-stat-label">System Platform SDK</div>
+          <div class="app-stat-desc">Integrate natively into custom platforms with standard multi-platform drivers and high-speed libraries.</div>
         </div>
-
       </div>
     </section>
 
@@ -225,25 +358,64 @@
   </section>
 
   <!-- FOOTER -->
+      <!-- ========== FOOTER ========== -->
   <footer>
-    <div class="con"><div class="ft-out"><div class="ft"><div class="ft-right">
-      <div class="ft-nav"><ul class="ftnav-box">
-        <li><a href="products.html">Product</a><ul class="sub-menu"><li><a href="products.html#spectrum-analyzers">Spectrum Analyzer</a></li><li><a href="products.html#vector-signal-generators">Signal Generator</a></li><li><a href="products.html#antennas">Antenna</a></li></ul></li>
-        <li><a href="about.html">About Us</a></li><li><a href="news.html">Latest News</a></li><li><a href="application.html">Application</a></li><li><a href="contact.html">Contact Us</a></li>
-      </ul></div>
-      <div class="ft-right-end">
-        <div class="ft-contact-info"><p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p><p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p></div>
-        <div class="ft-sns">
-          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-          <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <div class="con">
+      <div class="ft-out">
+        <div class="ft">
+          <div class="ft-right">
+            <div class="ft-nav">
+              <ul class="ftnav-box">
+                <li><a href="products.html">Product</a>
+                  <ul class="sub-menu">
+                    <li><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></li>
+                    <li><a href="product-vector-signal-generator.html">Vector Signal Generator</a></li>
+                    <li><a href="product-hda.html">Antenna</a></li>
+                  </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="news.html">Latest News</a></li>
+                <li><a href="application.html">Application</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="ft-right-end">
+              <div class="ft-contact-info">
+                <p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p>
+                <p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p>
+              </div>
+              <div class="ft-sns">
+                <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                <a href="#" target="_blank" rel="nofollow"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div></div></div>
-    <div class="ft-bb"><p>Copyright &copy; 2024-2026 PN Technologies</p></div></div>
-    <div class="phone-footer"><div class="phone-box"><ul class="phone-footer"><li><a href="products.html">Product</a></li><li><a href="about.html">About Us</a></li><li><a href="news.html">Latest News</a></li><li><a href="application.html">Application</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
-      <div class="ft-sns-link"><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></div>
+      <div class="ft-bb">
+        <p>Copyright &copy; 2024-2026 PN Technologies</p>
+      </div>
+    </div>
+
+    <!-- Mobile Footer -->
+    <div class="phone-footer">
+      <div class="phone-box">
+        <ul class="phone-footer">
+          <li><a href="products.html">Product</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">Latest News</a></li>
+          <li><a href="application.html">Application</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="ft-sns-link">
+        <a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a href="#"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
     </div>
   </footer>
 

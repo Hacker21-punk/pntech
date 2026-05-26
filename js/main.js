@@ -4,13 +4,15 @@
 
 $(document).ready(function () {
   // ---- WOW.js Init ----
-  new WOW({
-    boxClass: 'wow',
-    animateClass: 'animated',
-    offset: 100,
-    mobile: true,
-    live: true
-  }).init();
+  if (typeof WOW !== 'undefined') {
+    new WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 100,
+      mobile: true,
+      live: true
+    }).init();
+  }
 
   // ---- Header Scroll Behavior ----
   var lastScrollTop = 0;
@@ -77,14 +79,23 @@ $(document).ready(function () {
   $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item').hover(function () {
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
-    $(this).find('> .sub-menu > .menu-item').css('display', 'block');
-    $(this).siblings().find('> .sub-menu > .menu-item').css('display', 'none');
+    $(this).find('> .sub-menu').css('display', 'block');
+    $(this).find('> .sub-menu > li').css('display', 'block');
+    $(this).siblings().find('> .sub-menu').css('display', 'none');
+    $(this).siblings().find('> .sub-menu > li').css('display', 'none');
   });
 
   // Level 3 sub-menu items hover (individual products)
-  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > .menu-item').hover(function () {
+  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > li').hover(function () {
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
+  });
+
+  // Close dropdown when hovering over main nav items without children
+  $('.hdnav-box > .menu-item:not(.menu-item-has-children)').hover(function () {
+    $('.hd-bg').fadeOut(200);
+    $('.hdnav-box').children('.menu-item').removeClass('checked');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
   });
 
   // Close dropdown when hovering over main content
@@ -262,7 +273,33 @@ $(document).ready(function () {
     });
   }
 
+  // ---- News Synced Swipers ----
+  if ($('.sc7-1').length) {
+    var sc72Swiper = null;
+    if ($('.sc7-2').length && window.innerWidth > 768) {
+      sc72Swiper = new Swiper('.sc7-2', {
+        loop: true,
+        direction: 'vertical',
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true
+      });
+    }
 
+    var sc71Swiper = new Swiper('.sc7-1', {
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      loop: true,
+      speed: 1500,
+      spaceBetween: 10,
+      thumbs: sc72Swiper ? { swiper: sc72Swiper } : undefined,
+      pagination: {
+        el: '.sc7-out .swiper-pagination',
+        clickable: true
+      }
+    });
+  }
 
   // ---- Responsive device mode check ----
   $(window).on('resize', function () {

@@ -769,3 +769,134 @@ html.light-theme .product-breadcrumb .sep {
 html.light-theme .product-breadcrumb .current {
   color: rgba(0, 0, 0, 0.8) !important;
 }
+
+/* ========================================
+   AVAILABLE MODELS TABLE STYLES (.sc24)
+   ======================================== */
+.sc23-out {
+  padding: 80px 0;
+  background: #080808;
+}
+.sc24-out {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+}
+.sc24-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(255, 102, 0, 0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sc24-name-left {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.sc24 {
+  width: 100%;
+}
+.sc24-tou {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 24px;
+}
+.sc24-tou .sc24-lie {
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.sc24-hang {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.2s ease;
+}
+.sc24-hang:hover {
+  background: rgba(255, 102, 0, 0.05);
+}
+.sc24-hang:last-child {
+  border-bottom: none;
+}
+.sc24-lie {
+  flex: 1;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 10px;
+}
+.sc24-lie.sc24-lie-pd {
+  justify-content: flex-start;
+  text-align: left;
+  font-weight: 700;
+  color: #fff;
+}
+/* Width distribution for table columns */
+.sc24-tou .sc24-lie, .sc24-hang .sc24-lie {
+  width: 14%;
+}
+.sc24-tou .sc24-lie:first-child, .sc24-hang .sc24-lie:first-child {
+  width: 18%;
+  flex: 1.2;
+}
+.sc24-tou .sc24-lie:nth-child(2), .sc24-hang .sc24-lie:nth-child(2) {
+  width: 10%;
+  flex: 0.8;
+}
+.sc24-tou .sc24-lie:nth-child(3), .sc24-hang .sc24-lie:nth-child(3) {
+  width: 16%;
+  flex: 1.1;
+}
+
+/* Light Theme Overrides */
+html.light-theme .sc23-out {
+  background: var(--navy-light) !important;
+}
+html.light-theme .sc24-out {
+  border-color: rgba(0,0,0,0.08) !important;
+  background: #fff !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+html.light-theme .sc24-name {
+  background: rgba(255, 102, 0, 0.08) !important;
+  border-bottom-color: rgba(0,0,0,0.08) !important;
+}
+html.light-theme .sc24-name-left {
+  color: var(--navy) !important;
+}
+html.light-theme .sc24-tou {
+  background: rgba(0,0,0,0.02) !important;
+  border-bottom-color: rgba(0,0,0,0.08) !important;
+}
+html.light-theme .sc24-tou .sc24-lie {
+  color: rgba(0,0,0,0.6) !important;
+}
+html.light-theme .sc24-hang {
+  border-bottom-color: rgba(0,0,0,0.05) !important;
+}
+html.light-theme .sc24-hang:hover {
+  background: rgba(255, 102, 0, 0.04) !important;
+}
+html.light-theme .sc24-lie {
+  color: rgba(0,0,0,0.8) !important;
+}
+html.light-theme .sc24-lie.sc24-lie-pd {
+  color: var(--navy) !important;
+}
+
