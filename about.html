@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <script>
@@ -13,7 +13,138 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
+  <style>
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    
+    /* Collage & Slideshow Layout */
+    .collage-container {
+      position: relative;
+      width: 480px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+    }
+    
+    .collage-card {
+      position: absolute;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 5;
+    }
+    
+    .collage-card:hover {
+      transform: scale(1.05) !important;
+      z-index: 20;
+      border-color: #ff6600;
+      box-shadow: 0 25px 50px rgba(255, 102, 0, 0.3), 0 0 15px rgba(255, 102, 0, 0.15);
+    }
+    
+    .card-primary {
+      width: 340px;
+      height: 220px;
+      top: 40px;
+      right: 10px;
+      z-index: 10;
+    }
+    
+    .card-secondary {
+      width: 220px;
+      height: 140px;
+      bottom: 30px;
+      left: 10px;
+      z-index: 8;
+    }
+    
+    .card-tertiary {
+      width: 150px;
+      height: 100px;
+      top: 15px;
+      left: 40px;
+      z-index: 6;
+    }
+    
+    /* Slideshow inside cards */
+    .slideshow-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .slideshow-wrapper .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+    
+    .slideshow-wrapper .slide.active {
+      opacity: 1;
+    }
+    
+    .slideshow-wrapper .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Captions style */
+    .card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 6px 12px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+    
+    /* Floating Animations */
+    @keyframes floatPrimary {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(0.3deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    
+    @keyframes floatSecondary {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(8px) rotate(-0.3deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+    
+    @keyframes floatTertiary {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .floating-anim-1 {
+      animation: floatPrimary 6s ease-in-out infinite;
+    }
+    
+    .floating-anim-2 {
+      animation: floatSecondary 7s ease-in-out infinite;
+    }
+    
+    .floating-anim-3 {
+      animation: floatTertiary 5s ease-in-out infinite;
+    }
+  </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
@@ -147,7 +278,39 @@
           </div>
         </div>
         <div class="about_page_banner_pic desktop">
-          <img class="wow sc2fadeInRight" data-wow-duration="2s" data-wow-delay="0.3s" src="images/about_banner_pic.png" alt="PN Technologies Products">
+          <div class="collage-container">
+            <!-- Primary Floating Card -->
+            <div class="collage-card card-primary floating-anim-1">
+              <div class="slideshow-wrapper">
+                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_01.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_01.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/sae-200/sae-200_scene-image_01.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/hda-100/hda-100_scene_01.jpg" alt="HDA-100 Active Antenna Scene"></div>
+              </div>
+              <div class="card-caption">Precision Measurement</div>
+            </div>
+            
+            <!-- Secondary Floating Card -->
+            <div class="collage-card card-secondary floating-anim-2">
+              <div class="slideshow-wrapper">
+                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_02.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_02.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/sae-200/sae-200_scene-image_04.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/hda-100/hda-100_scene_02.jpg" alt="HDA-100 Active Antenna Scene"></div>
+              </div>
+              <div class="card-caption">Field Sweep Testing</div>
+            </div>
+
+            <!-- Tertiary Floating Card -->
+            <div class="collage-card card-tertiary floating-anim-3">
+              <div class="slideshow-wrapper">
+                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_03.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_03.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img src="images/products/sam-60/sam-60_scene-image_01.png" alt="SAM-60 Receiver Scene"></div>
+                <div class="slide"><img src="images/products/san-400/san-400_scene-image_01.png" alt="SAN-400 Spectrum Analyzer Scene"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -406,5 +569,24 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.collage-card');
+      cards.forEach(card => {
+        const slides = card.querySelectorAll('.slide');
+        if (slides.length <= 1) return;
+        
+        let currentIndex = 0;
+        // Stagger the transitions so they are out-of-sync and feel highly dynamic
+        const intervalTime = 4000 + Math.random() * 2500;
+        
+        setInterval(() => {
+          slides[currentIndex].classList.remove('active');
+          currentIndex = (currentIndex + 1) % slides.length;
+          slides[currentIndex].classList.add('active');
+        }, intervalTime);
+      });
+    });
+  </script>
 </body>
 </html>
