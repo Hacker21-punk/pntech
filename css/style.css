@@ -322,8 +322,9 @@ html.light-theme .hdnav-box > li > .sub-menu > li > a:hover {
 /* Level 2: Second-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
 .hdnav-box > li > .sub-menu > li > .sub-menu {
   display: none;
-  position: static; /* Tree style: stays in flow, shows below parent */
-  width: 100%;
+  position: static !important; /* Tree style: stays in flow, shows below parent */
+  float: none !important;
+  width: auto !important;
   text-align: left;
   padding: 6px 0 6px 24px; /* Indent tree branch */
   list-style: none;
@@ -397,8 +398,9 @@ html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a:hover {
 /* Level 3: Third-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu {
   display: none;
-  position: static; /* Tree style: stays in flow, shows below parent */
-  width: 100%;
+  position: static !important; /* Tree style: stays in flow, shows below parent */
+  float: none !important;
+  width: auto !important;
   padding: 4px 0 4px 24px; /* Further indent tree branch */
   list-style: none;
   z-index: auto;
