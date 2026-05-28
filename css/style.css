@@ -257,128 +257,159 @@ header {
   cursor: pointer;
 }
 
-/* ===== Flyout Dropdown Navigation (Harogic-style) ===== */
+/* ===== Tree Dropdown Navigation (Premium Accordion Style) ===== */
 
-/* Level 1: Top-level dropdown (Spectrum Analyzer, VSG, Antenna) */
+/* Level 1: Top-level dropdown container under "Product" */
 .hdnav-box > li > .sub-menu {
   position: absolute;
-  width: 250px;
+  width: 320px;
   display: none;
-  padding: 15px 0 10px;
-  left: 0;
+  padding: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   top: 100%;
-  z-index: 100;
+  z-index: 9999;
   list-style: none;
+  background: rgba(10, 10, 10, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
+
+/* Light Theme overrides for Level 1 dropdown */
+html.light-theme .hdnav-box > li > .sub-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
 .hdnav-box > li > .sub-menu > li {
-  padding-bottom: 14px;
+  padding-bottom: 12px;
   position: relative;
   text-align: left;
 }
+
+.hdnav-box > li > .sub-menu > li:last-child {
+  padding-bottom: 0;
+}
+
 .hdnav-box > li > .sub-menu > li > a {
-  font-size: 14px;
-  font-weight: 400;
-  color: #fff !important;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white) !important;
   display: block;
-  padding: 2px 0;
+  padding: 4px 0;
   transition: color 0.2s;
 }
+
+html.light-theme .hdnav-box > li > .sub-menu > li > a {
+  color: #111827 !important;
+}
+
 .hdnav-box > li > .sub-menu > li > a:hover {
   color: var(--accent) !important;
 }
-/* Arrow indicator for items with children at level 1 */
-.hdnav-box > li > .sub-menu > .menu-item-has-children > a::after {
-  content: "›";
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 16px;
-  font-weight: 300;
-  vertical-align: middle;
-  color: rgba(255,255,255,0.5);
-  transition: color 0.2s;
-}
-.hdnav-box > li > .sub-menu > .menu-item-has-children:hover > a::after,
-.hdnav-box > li > .sub-menu > .menu-item-has-children.checked > a::after {
-  color: var(--accent);
-}
 
-/* Level 2: Second-level flyout (USB, Networked, Benchtop/Handheld) */
+/* Level 2: Second-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
 .hdnav-box > li > .sub-menu > li > .sub-menu {
   display: none;
-  position: absolute;
-  width: 210px;
-  top: -5px;
-  left: 85%;
+  position: static; /* Tree style: stays in flow, shows below parent */
+  width: 100%;
   text-align: left;
-  padding: 0;
+  padding: 5px 0 5px 15px; /* Indent tree branch */
   list-style: none;
-  z-index: 101;
+  z-index: auto;
 }
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li {
-  padding-bottom: 14px;
+  padding-bottom: 8px;
   width: 100%;
   position: relative;
 }
+
+.hdnav-box > li > .sub-menu > li > .sub-menu > li:last-child {
+  padding-bottom: 0;
+}
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
   font-size: 14px;
-  font-weight: 400;
-  color: #fff !important;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75) !important;
   display: block;
-  padding: 2px 0;
+  padding: 3px 0;
   transition: color 0.2s;
 }
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
+  color: #4b5563 !important;
+}
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > a:hover {
   color: var(--accent) !important;
 }
-/* Arrow indicator for items with children at level 2 */
-.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children > a::after {
-  content: "›";
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 16px;
-  font-weight: 300;
-  vertical-align: middle;
-  color: rgba(255,255,255,0.5);
-  transition: color 0.2s;
-}
-.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children:hover > a::after,
-.hdnav-box > li > .sub-menu > li > .sub-menu > .menu-item-has-children.checked > a::after {
-  color: var(--accent);
-}
 
-/* Level 3: Third-level flyout (New SAN Series, SGA-60, etc.) */
+/* Level 3: Third-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu {
   display: none;
-  position: absolute;
-  width: 160px;
-  top: -5px;
-  left: 100%;
-  padding: 0;
+  position: static; /* Tree style: stays in flow, shows below parent */
+  width: 100%;
+  padding: 5px 0 5px 15px; /* Further indent tree branch */
   list-style: none;
-  z-index: 102;
+  z-index: auto;
 }
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li {
-  padding-bottom: 14px;
-  display: none;
-  width: 160px;
+  padding-bottom: 6px;
+  width: 100%;
+  display: block;
 }
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li:last-child {
   padding-bottom: 0;
 }
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: #fff !important;
+  color: rgba(255, 255, 255, 0.6) !important;
   display: block;
   padding: 2px 0;
   transition: color 0.2s;
 }
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a {
+  color: #6b7280 !important;
+}
+
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a:hover {
   color: var(--accent) !important;
 }
 
-/* Checked/active state for flyout items */
+/* Checked/active state for tree items */
 .hdnav-box .sub-menu .checked > a {
+  color: var(--accent) !important;
+}
+
+/* Tree arrow indicators */
+.hdnav-box .menu-item-has-children > a::after {
+  content: "›";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  vertical-align: middle;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s, color 0.2s;
+}
+
+html.light-theme .hdnav-box .menu-item-has-children > a::after {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.hdnav-box .menu-item-has-children.checked > a::after {
+  transform: rotate(90deg);
   color: var(--accent) !important;
 }
 

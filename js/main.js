@@ -54,18 +54,15 @@ $(document).ready(function () {
     lastScrollTop = st <= 0 ? 0 : st;
   });
 
-  // ---- Desktop Multi-Level Flyout Menu (Harogic-style) ----
+  // ---- Desktop Tree Accordion Dropdown Menu ----
 
-  // Hovering over main nav item with children shows its dropdown
+  // Hovering over main nav item with children (Product) shows Level 1 sub-menu
   $('.hdnav-box > .menu-item-has-children').hover(function (event) {
     $('.hd-bg').fadeIn(200);
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
-    $(this).children('.sub-menu').css('display', 'block');
-    $(this).siblings().children('.sub-menu').css('display', 'none');
-    // Reset all nested states
-    $(this).children('.sub-menu').children('.menu-item').removeClass('checked');
-    $(this).children('.sub-menu').children('.menu-item').children('.sub-menu').css('display', 'none');
+    $(this).children('.sub-menu').stop(true, true).slideDown(250);
+    $(this).siblings().children('.sub-menu').stop(true, true).slideUp(200);
     event.stopPropagation();
   }, function () {});
 
@@ -73,56 +70,67 @@ $(document).ready(function () {
   $('.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item').hover(function (event) {
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
-    $(this).find('> .sub-menu').css('display', 'block');
-    $(this).siblings().find('> .sub-menu').css('display', 'none');
-    // Reset deeper nested states
-    $(this).find('> .sub-menu > .menu-item').removeClass('checked');
-    $(this).find('> .sub-menu > .menu-item > .sub-menu').css('display', 'none');
-    $(this).find('> .sub-menu > .menu-item > .sub-menu > .menu-item').css('display', 'none');
+    $(this).find('> .sub-menu').stop(true, true).slideDown(200);
+    $(this).siblings().find('> .sub-menu').stop(true, true).slideUp(150);
+    // Reset nested submenus inside collapsed siblings
+    $(this).siblings().find('.menu-item').removeClass('checked');
+    $(this).siblings().find('.sub-menu').stop(true, true).slideUp(150);
     event.stopPropagation();
   });
 
   // Level 2 sub-menu items hover (USB, Networked, Benchtop/Handheld)
-  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item').hover(function () {
+  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item').hover(function (event) {
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
-    $(this).find('> .sub-menu').css('display', 'block');
+    $(this).find('> .sub-menu').stop(true, true).slideDown(200);
     $(this).find('> .sub-menu > li').css('display', 'block');
-    $(this).siblings().find('> .sub-menu').css('display', 'none');
-    $(this).siblings().find('> .sub-menu > li').css('display', 'none');
+    $(this).siblings().find('> .sub-menu').stop(true, true).slideUp(150);
+    $(this).siblings().find('.menu-item').removeClass('checked');
+    $(this).siblings().find('.sub-menu').stop(true, true).slideUp(150);
+    event.stopPropagation();
   });
 
   // Level 3 sub-menu items hover (individual products)
-  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > li').hover(function () {
+  $('.hdnav-box > li > .sub-menu > .menu-item-has-children > .sub-menu > .menu-item > .sub-menu > li').hover(function (event) {
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
+    event.stopPropagation();
   });
 
   // Close dropdown when hovering over main nav items without children
   $('.hdnav-box > .menu-item:not(.menu-item-has-children)').hover(function () {
     $('.hd-bg').fadeOut(200);
     $('.hdnav-box').children('.menu-item').removeClass('checked');
-    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
+    // Reset all sub-checked states
+    $('.hdnav-box .menu-item').removeClass('checked');
+    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
   });
 
   // Close dropdown when hovering over main content
   $('main').hover(function () {
     $('.hd-bg').fadeOut(200);
     $('.hdnav-box').children('.menu-item').removeClass('checked');
-    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
+    $('.hdnav-box .menu-item').removeClass('checked');
+    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
   });
 
   // Close menu when hovering over the background overlay
   $('.hd-bg').hover(function () {}, function () {
     $('.hd-bg').fadeOut(200);
     $('.hdnav-box').children('.menu-item').removeClass('checked');
-    $('.hdnav-box').children('.menu-item').children('.sub-menu').css('display', 'none');
+    $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
+    $('.hdnav-box .menu-item').removeClass('checked');
+    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
   });
 
   // Close desktop menu when clicking a product link
   $('.hdnav-box .sub-menu a').on('click', function () {
-    $('.hdnav-box > .menu-item-has-children > .sub-menu').css('display', 'none');
+    $('.hdnav-box > .menu-item-has-children > .sub-menu').stop(true, true).slideUp(200);
     $('.hdnav-box > .menu-item-has-children').removeClass('checked');
+    $('.hdnav-box .menu-item').removeClass('checked');
+    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
     $('.hd-bg').fadeOut(200);
   });
 
