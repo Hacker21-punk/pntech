@@ -185,6 +185,7 @@ for filepath in html_files:
     # Force stylesheet/script cache busting
     content = re.sub(r'href="css/style\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/style.css?v=20260529-v9"', content)
     content = re.sub(r'href="css/product-category\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-category.css?v=20260529-v9"', content)
+    content = re.sub(r'href="css/product-detail\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-detail.css?v=20260529-v9"', content)
     content = re.sub(r'src="js/main\.js(?:\?v=[a-zA-Z0-9_-]+)?"', 'src="js/main.js?v=20260529-v9"', content)
 
     # Clean up double phone-backs if any
