@@ -465,5 +465,62 @@ $(document).ready(function () {
     e.preventDefault();
     toggleTheme();
   });
+
+  // ---- Hero Inline Product Slider (Fade) ----
+  function initHeroProductSliders() {
+    document.querySelectorAll('.hero-product-slider, .hero-product-slider-2').forEach(function(slider) {
+      var imgs = slider.querySelectorAll('img');
+      if (imgs.length <= 1) return;
+      var current = 0;
+      setInterval(function() {
+        imgs[current].style.opacity = '0';
+        current = (current + 1) % imgs.length;
+        imgs[current].style.opacity = '1';
+      }, 2400);
+    });
+  }
+  initHeroProductSliders();
+
+  // ---- Homepage Inquiry Form ----
+  $('#homepage-inquiry-form').on('submit', function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $btn = $form.find('.inquiry-submit-btn');
+    var originalText = $btn.text();
+
+    // Gather interests
+    var interests = [];
+    $form.find('input[name="interest"]:checked').each(function() {
+      interests.push($(this).val());
+    });
+
+    var formData = {
+      name: $form.find('#inq-name').val(),
+      interest: interests.join(', '),
+      budget: $form.find('input[name="budget"]:checked').val() || 'Not specified',
+      message: $form.find('#inq-message').val(),
+      _subject: 'New Homepage Inquiry from ' + $form.find('#inq-name').val(),
+      _template: 'table'
+    };
+
+    $btn.prop('disabled', true).text('Sending...');
+
+    $.ajax({
+      url: 'https://formsubmit.co/ajax/business@pntech.in',
+      method: 'POST',
+      data: formData,
+      dataType: 'json',
+      success: function(resp) {
+        showToast('Sent!', 'Your inquiry has been submitted. We\'ll be in touch shortly.', true);
+        $form[0].reset();
+      },
+      error: function() {
+        showToast('Error', 'Failed to send. Please email business@pntech.in directly.', false);
+      },
+      complete: function() {
+        $btn.prop('disabled', false).text(originalText);
+      }
+    });
+  });
 });
 
