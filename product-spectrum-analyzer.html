@@ -146,6 +146,21 @@
         display: flex !important;
       }
     }
+
+    /* Fix Swiper heights to prevent collapsing in creative/loop transitions */
+    .sc4-right .swiper.sc6 {
+      height: 100%;
+      width: 100%;
+    }
+    .sc4-right .swiper.sc6 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .sc4-left .swiper.sc5 {
+      width: 100%;
+    }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
