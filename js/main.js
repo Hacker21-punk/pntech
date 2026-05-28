@@ -55,21 +55,27 @@ $(document).ready(function () {
   });
 
   // ---- Desktop Tree Accordion Dropdown Menu ----
+  var hoverTimeout;
 
   // Hovering over main nav item with children (Product) shows Level 1 sub-menu
   $('.hdnav-box > .menu-item-has-children').hover(function (event) {
-    $('.hd-bg').fadeIn(200);
+    clearTimeout(hoverTimeout);
+    $('.hd-bg').stop(true, true).fadeIn(200);
     $(this).addClass('checked');
     $(this).siblings().removeClass('checked');
     $(this).children('.sub-menu').stop(true, true).slideDown(250);
     $(this).siblings().children('.sub-menu').stop(true, true).slideUp(200);
     event.stopPropagation();
   }, function () {
-    $('.hd-bg').fadeOut(200);
-    $(this).removeClass('checked');
-    $(this).children('.sub-menu').stop(true, true).slideUp(200);
-    $('.hdnav-box .menu-item').removeClass('checked');
-    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
+    var $this = $(this);
+    clearTimeout(hoverTimeout);
+    hoverTimeout = setTimeout(function () {
+      $('.hd-bg').stop(true, true).fadeOut(200);
+      $this.removeClass('checked');
+      $this.children('.sub-menu').stop(true, true).slideUp(200);
+      $('.hdnav-box .menu-item').removeClass('checked');
+      $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
+    }, 150);
   });
 
   // Level 1 sub-menu items hover (Spectrum Analyzer, VSG, Antenna)
@@ -105,28 +111,11 @@ $(document).ready(function () {
 
   // Close dropdown when hovering over main nav items without children
   $('.hdnav-box > .menu-item:not(.menu-item-has-children)').hover(function () {
-    $('.hd-bg').fadeOut(200);
+    clearTimeout(hoverTimeout);
+    $('.hd-bg').stop(true, true).fadeOut(200);
     $('.hdnav-box').children('.menu-item').removeClass('checked');
     $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
     // Reset all sub-checked states
-    $('.hdnav-box .menu-item').removeClass('checked');
-    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
-  });
-
-  // Close dropdown when hovering over main content
-  $('main').hover(function () {
-    $('.hd-bg').fadeOut(200);
-    $('.hdnav-box').children('.menu-item').removeClass('checked');
-    $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
-    $('.hdnav-box .menu-item').removeClass('checked');
-    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
-  });
-
-  // Close menu when hovering over the background overlay
-  $('.hd-bg').hover(function () {}, function () {
-    $('.hd-bg').fadeOut(200);
-    $('.hdnav-box').children('.menu-item').removeClass('checked');
-    $('.hdnav-box').children('.menu-item').children('.sub-menu').stop(true, true).slideUp(200);
     $('.hdnav-box .menu-item').removeClass('checked');
     $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
   });
