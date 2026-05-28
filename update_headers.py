@@ -10,71 +10,81 @@ master_header = """<header>
     <div class="hd con">
       <div class="hd-left">
         <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-          <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
-          <span class="hd-logo-text" style="color:#fff; font-size:18px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
+          <img src="images/logo.png" alt="PNTECH" style="height:48px; width:auto;">
+          <span class="hd-logo-text" style="color:#fff; font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
         </a>
       </div>
       <div class="hd-md">
         <nav class="hd-nav">
           <ul class="hdnav-box">
-            <li class="menu-item"><a href="about.html">About Us</a></li>
-            <li class="menu-item"><a href="news.html">Latest News</a></li>
+            <li class="menu-item"><a href="index.html">Home</a></li>
             <li class="menu-item menu-item-has-children">
               <a href="products.html">Product</a>
-              <ul class="sub-menu">
-                <li class="menu-item menu-item-has-children">
-                  <a href="product-spectrum-analyzer.html">Spectrum Analyzer</a>
-                  <ul class="sub-menu">
-                    <li class="menu-item menu-item-has-children">
-                      <a href="product-spectrum-analyzer.html#usb">USB</a>
-                      <ul class="sub-menu">
-                        <li><a href="product-new-san.html">New SAN Series</a></li>
-                        <li><a href="product-san400.html">SAN Series</a></li>
-                        <li><a href="product-sa.html">SA Series</a></li>
-                      </ul>
-                    </li>
-                    <li class="menu-item menu-item-has-children">
-                      <a href="product-spectrum-analyzer.html#networked">Networked</a>
-                      <ul class="sub-menu">
-                        <li><a href="product-nxn.html">NXN Series</a></li>
-                        <li><a href="product-nxe.html">NXE Series</a></li>
-                      </ul>
-                    </li>
-                    <li class="menu-item menu-item-has-children">
-                      <a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a>
-                      <ul class="sub-menu">
-                        <li><a href="product-px-standard.html">PX Series Standard</a></li>
-                        <li><a href="product-px-geek.html">PX Series Geek</a></li>
-                        <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="menu-item menu-item-has-children">
-                  <a href="product-vector-signal-generator.html">Vector Signal Generator</a>
-                  <ul class="sub-menu">
-                    <li class="menu-item menu-item-has-children">
-                      <a href="product-vector-signal-generator.html#usb">USB</a>
-                      <ul class="sub-menu">
-                        <li><a href="product-sga.html">New SGA-60</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li class="menu-item menu-item-has-children">
-                  <a href="product-hda.html">Antenna</a>
-                  <ul class="sub-menu">
-                    <li class="menu-item menu-item-has-children">
-                      <a href="product-hda.html">HDA Series</a>
-                      <ul class="sub-menu">
-                        <li><a href="product-hda.html">HDA-100</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <div class="sub-menu mega-menu">
+                <div class="mega-menu-inner">
+                  <!-- Column 1: Spectrum Analyzer -->
+                  <div class="mega-column spectrum-analyzer-column">
+                    <div class="mega-column-title"><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></div>
+                    <div class="mega-sub-grid">
+                      <!-- USB Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#usb">USB</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-new-san.html">New SAN Series</a></li>
+                          <li><a href="product-san400.html">SAN Series</a></li>
+                          <li><a href="product-sa.html">SA Series</a></li>
+                        </ul>
+                      </div>
+                      <!-- Networked Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#networked">Networked</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-nxn.html">NXN Series</a></li>
+                          <li><a href="product-nxe.html">NXE Series</a></li>
+                        </ul>
+                      </div>
+                      <!-- Benchtop/Handheld Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-px-standard.html">PX Series Standard</a></li>
+                          <li><a href="product-px-geek.html">PX Series Geek</a></li>
+                          <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Column 2: Vector Signal Generator -->
+                  <div class="mega-column vsg-column">
+                    <div class="mega-column-title"><a href="product-vector-signal-generator.html">Vector Signal Generator</a></div>
+                    <div class="mega-sub-grid">
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-vector-signal-generator.html#usb">USB</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-sga.html">New SGA-60</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Column 3: Antenna -->
+                  <div class="mega-column antenna-column">
+                    <div class="mega-column-title"><a href="product-hda.html">Antenna</a></div>
+                    <div class="mega-sub-grid">
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-hda.html">HDA Series</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-hda.html">HDA-100</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li class="menu-item"><a href="application.html">Application</a></li>
+            <li class="menu-item"><a href="news.html">Latest News</a></li>
             <li class="menu-item"><a href="contact.html">Contact Us</a></li>
           </ul>
         </nav>
@@ -105,8 +115,8 @@ master_header = """<header>
   <div class="phone-header" style="background:rgba(0,0,0,0.85);">
     <div class="phone-logo">
       <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-        <img src="images/logo.png" alt="PNTECH" style="height:32px; width:auto;">
-        <span style="color:#fff; font-size:16px; font-weight:700;">PN Technologies</span>
+        <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
+        <span style="color:#fff; font-size:18px; font-weight:700;">PN Technologies</span>
       </a>
     </div>
     <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
@@ -130,16 +140,15 @@ master_phone_back = """<div class="phone-back">
   <div class="back-desc" style="background:rgba(0,0,0,0.85); padding:10px 20px; display:flex; justify-content:space-between; align-items:center;">
     <div class="back-logo">
       <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-        <img src="images/logo.png" alt="PNTECH" style="height:32px; width:auto;">
-        <span style="color:#fff; font-size:16px; font-weight:700;">PN Technologies</span>
+        <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
+        <span style="color:#fff; font-size:18px; font-weight:700;">PN Technologies</span>
       </a>
     </div>
     <div class="back-more"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
   </div>
   <div class="back-title">
     <ul class="back-level1">
-      <li class="menu-item"><a href="about.html">About Us</a></li>
-      <li class="menu-item"><a href="news.html">Latest News</a></li>
+      <li class="menu-item"><a href="index.html">Home</a></li>
       <li class="menu-item menu-item-has-children">
         <a href="products.html" style="color:#fff;">Product</a>
         <ul class="sub-menu">
@@ -149,6 +158,7 @@ master_phone_back = """<div class="phone-back">
         </ul>
       </li>
       <li class="menu-item"><a href="application.html" style="color:#fff;">Application</a></li>
+      <li class="menu-item"><a href="news.html" style="color:#fff;">Latest News</a></li>
       <li class="menu-item"><a href="contact.html" style="color:#fff;">Contact Us</a></li>
     </ul>
   </div>
@@ -173,9 +183,9 @@ for filepath in html_files:
     content = re.sub(r'<div class="phone-back">.*?</div>\s*</ul>\s*</div>|<div class="phone-back">.*?</div>', master_phone_back, content, flags=re.DOTALL)
 
     # Force stylesheet/script cache busting
-    content = re.sub(r'href="css/style\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/style.css?v=20260528-v4"', content)
-    content = re.sub(r'href="css/product-category\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-category.css?v=20260528-v4"', content)
-    content = re.sub(r'src="js/main\.js(?:\?v=[a-zA-Z0-9_-]+)?"', 'src="js/main.js?v=20260528-v4"', content)
+    content = re.sub(r'href="css/style\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/style.css?v=20260528-v5"', content)
+    content = re.sub(r'href="css/product-category\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-category.css?v=20260528-v5"', content)
+    content = re.sub(r'src="js/main\.js(?:\?v=[a-zA-Z0-9_-]+)?"', 'src="js/main.js?v=20260528-v5"', content)
 
     # Clean up double phone-backs if any
     # (some pages might have different ending tags for phone-back, let's make sure it's correct)
