@@ -2851,8 +2851,8 @@ html.light-theme .subcategory_header .line {
   border-radius: 50px;
   overflow: hidden;
   vertical-align: middle;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
+  background: transparent;
+  border: none;
   margin: 0 4px;
   position: relative;
 }
