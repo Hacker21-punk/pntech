@@ -194,20 +194,25 @@
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section">
+    <!-- Models Section -->
+    <section class="product-models-section">
       <div class="con">
-        <h2 class="section-title">Product Gallery</h2>
-        <div class="gallery-main">
-          <img id="main-gallery-img" src="images/products/sga-60/sga-60_front-view.jpg" alt="SGA-60">
+        <h2 class="section-title">Available Models</h2>
+        <div class="model-tabs">
+          <div class="model-tab active" data-model="0">SGA-60<br><small>9 kHz – 6 GHz</small></div>
         </div>
-        <div class="gallery-thumbs">
-          <div class="gallery-thumb active" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_front-view.jpg'"><img src="images/products/sga-60/sga-60_front-view.jpg" alt="View 1"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_left-side-view.jpg'"><img src="images/products/sga-60/sga-60_left-side-view.jpg" alt="View 2"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_low-angle-view.jpg'"><img src="images/products/sga-60/sga-60_low-angle-view.jpg" alt="View 3"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_right-side-view.jpg'"><img src="images/products/sga-60/sga-60_right-side-view.jpg" alt="View 4"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_side-view1.jpg'"><img src="images/products/sga-60/sga-60_side-view1.jpg" alt="View 5"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/sga-60/sga-60_side-view2.jpg'"><img src="images/products/sga-60/sga-60_side-view2.jpg" alt="View 6"></div>
+        <div class="model-content active" data-model="0">
+          <div class="gallery-main">
+            <img src="images/products/sga-60/sga-60_front-view.jpg" alt="SGA-60">
+          </div>
+          <div class="gallery-thumbs">
+            <div class="gallery-thumb active" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_front-view.jpg'"><img src="images/products/sga-60/sga-60_front-view.jpg" alt="View 1"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_left-side-view.jpg'"><img src="images/products/sga-60/sga-60_left-side-view.jpg" alt="View 2"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_low-angle-view.jpg'"><img src="images/products/sga-60/sga-60_low-angle-view.jpg" alt="View 3"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_right-side-view.jpg'"><img src="images/products/sga-60/sga-60_right-side-view.jpg" alt="View 4"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_side-view1.jpg'"><img src="images/products/sga-60/sga-60_side-view1.jpg" alt="View 5"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/sga-60/sga-60_side-view2.jpg'"><img src="images/products/sga-60/sga-60_side-view2.jpg" alt="View 6"></div>
+          </div>
         </div>
       </div>
     </section>

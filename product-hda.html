@@ -192,18 +192,23 @@
       </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section">
+    <!-- Models Section -->
+    <section class="product-models-section">
       <div class="con">
-        <h2 class="section-title">Product Gallery</h2>
-        <div class="gallery-main">
-          <img id="main-gallery-img" src="images/products/hda-100/hda-100_scene_01.jpg" alt="HDA-100 Series">
+        <h2 class="section-title">Available Models</h2>
+        <div class="model-tabs">
+          <div class="model-tab active" data-model="0">HDA-100<br><small>500 MHz – 10 GHz</small></div>
         </div>
-        <div class="gallery-thumbs">
-          <div class="gallery-thumb active" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/hda-100/hda-100_scene_01.jpg'"><img src="images/products/hda-100/hda-100_scene_01.jpg" alt="View 1"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/hda-100/hda-100_scene_02.jpg'"><img src="images/products/hda-100/hda-100_scene_02.jpg" alt="View 2"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/hda-100/hda-100_scene_03.jpg'"><img src="images/products/hda-100/hda-100_scene_03.jpg" alt="View 3"></div>
-          <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); document.getElementById('main-gallery-img').src='images/products/hda-100/hda-100_white_front.jpg'"><img src="images/products/hda-100/hda-100_white_front.jpg" alt="View 4"></div>
+        <div class="model-content active" data-model="0">
+          <div class="gallery-main">
+            <img src="images/products/hda-100/hda-100_scene_01.jpg" alt="HDA-100">
+          </div>
+          <div class="gallery-thumbs">
+            <div class="gallery-thumb active" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/hda-100/hda-100_scene_01.jpg'"><img src="images/products/hda-100/hda-100_scene_01.jpg" alt="View 1"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/hda-100/hda-100_scene_02.jpg'"><img src="images/products/hda-100/hda-100_scene_02.jpg" alt="View 2"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/hda-100/hda-100_scene_03.jpg'"><img src="images/products/hda-100/hda-100_scene_03.jpg" alt="View 3"></div>
+            <div class="gallery-thumb" onclick="this.parentNode.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); this.classList.add('active'); this.closest('.model-content').querySelector('.gallery-main img').src='images/products/hda-100/hda-100_white_front.jpg'"><img src="images/products/hda-100/hda-100_white_front.jpg" alt="View 4"></div>
+          </div>
         </div>
       </div>
     </section>
