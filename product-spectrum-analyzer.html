@@ -148,11 +148,12 @@
       }
     }
 
-    /* Fix Swiper heights to prevent collapsing in creative/loop transitions */
+    /* Fix Swiper heights & prevent flexbox width/height collapse */
+    .sc4-right {
+      display: flex;
+    }
     .sc4-right .swiper.sc6 {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: relative;
       height: 100%;
       width: 100%;
     }
