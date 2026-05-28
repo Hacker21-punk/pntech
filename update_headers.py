@@ -11,7 +11,7 @@ master_header = """<header>
       <div class="hd-left">
         <a href="index.html" style="display:flex; align-items:center; gap:10px;">
           <img src="images/logo.png" alt="PNTECH" style="height:48px; width:auto;">
-          <span class="hd-logo-text" style="color:#fff; font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
+          <span class="hd-logo-text" style="color:var(--white); font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
         </a>
       </div>
       <div class="hd-md">
@@ -112,15 +112,15 @@ master_header = """<header>
   </div>
 
   <!-- Mobile Header -->
-  <div class="phone-header" style="background:rgba(0,0,0,0.85);">
+  <div class="phone-header">
     <div class="phone-logo">
       <a href="index.html" style="display:flex; align-items:center; gap:10px;">
         <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
-        <span style="color:#fff; font-size:18px; font-weight:700;">PN Technologies</span>
+        <span style="color:var(--white); font-size:18px; font-weight:700;">PN Technologies</span>
       </a>
     </div>
     <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
-      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme" style="color: white;">
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
         <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
@@ -130,36 +130,36 @@ master_header = """<header>
         </svg>
       </button>
       <div class="phone-more">
-        <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--white);"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </div>
     </div>
   </div>
 </header>"""
 
 master_phone_back = """<div class="phone-back">
-  <div class="back-desc" style="background:rgba(0,0,0,0.85); padding:10px 20px; display:flex; justify-content:space-between; align-items:center;">
+  <div class="back-desc" style="padding:10px 20px; display:flex; justify-content:space-between; align-items:center;">
     <div class="back-logo">
       <a href="index.html" style="display:flex; align-items:center; gap:10px;">
         <img src="images/logo.png" alt="PNTECH" style="height:40px; width:auto;">
-        <span style="color:#fff; font-size:18px; font-weight:700;">PN Technologies</span>
+        <span style="color:var(--white); font-size:18px; font-weight:700;">PN Technologies</span>
       </a>
     </div>
-    <div class="back-more"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+    <div class="back-more"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--white);"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
   </div>
   <div class="back-title">
     <ul class="back-level1">
       <li class="menu-item"><a href="index.html">Home</a></li>
       <li class="menu-item menu-item-has-children">
-        <a href="products.html" style="color:#fff;">Product</a>
+        <a href="products.html" style="color:var(--white);">Product</a>
         <ul class="sub-menu">
           <li class="menu-item"><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></li>
           <li class="menu-item"><a href="product-vector-signal-generator.html">Vector Signal Generator</a></li>
           <li class="menu-item"><a href="product-hda.html">Antenna</a></li>
         </ul>
       </li>
-      <li class="menu-item"><a href="application.html" style="color:#fff;">Application</a></li>
-      <li class="menu-item"><a href="news.html" style="color:#fff;">Latest News</a></li>
-      <li class="menu-item"><a href="contact.html" style="color:#fff;">Contact Us</a></li>
+      <li class="menu-item"><a href="application.html" style="color:var(--white);">Application</a></li>
+      <li class="menu-item"><a href="news.html" style="color:var(--white);">Latest News</a></li>
+      <li class="menu-item"><a href="contact.html" style="color:var(--white);">Contact Us</a></li>
     </ul>
   </div>
 </div>"""
@@ -183,9 +183,9 @@ for filepath in html_files:
     content = re.sub(r'<div class="phone-back">.*?</div>\s*</ul>\s*</div>|<div class="phone-back">.*?</div>', master_phone_back, content, flags=re.DOTALL)
 
     # Force stylesheet/script cache busting
-    content = re.sub(r'href="css/style\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/style.css?v=20260529-v7"', content)
-    content = re.sub(r'href="css/product-category\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-category.css?v=20260529-v7"', content)
-    content = re.sub(r'src="js/main\.js(?:\?v=[a-zA-Z0-9_-]+)?"', 'src="js/main.js?v=20260529-v7"', content)
+    content = re.sub(r'href="css/style\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/style.css?v=20260529-v8"', content)
+    content = re.sub(r'href="css/product-category\.css(?:\?v=[a-zA-Z0-9_-]+)?"', 'href="css/product-category.css?v=20260529-v8"', content)
+    content = re.sub(r'src="js/main\.js(?:\?v=[a-zA-Z0-9_-]+)?"', 'src="js/main.js?v=20260529-v8"', content)
 
     # Clean up double phone-backs if any
     # (some pages might have different ending tags for phone-back, let's make sure it's correct)

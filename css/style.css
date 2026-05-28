@@ -2610,6 +2610,59 @@ html.light-theme .home_tansuo_left:hover {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(255, 102, 0, 0.05) !important;
 }
 
+/* --- Form and Button overrides in Light Mode --- */
+html.light-theme .git-form-group input,
+html.light-theme .git-form-group textarea,
+html.light-theme .sc30-part-input input,
+html.light-theme .sc30-part-input textarea {
+  background: rgba(0, 0, 0, 0.015) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  color: var(--text-primary) !important;
+}
+html.light-theme .git-form-group input:hover,
+html.light-theme .git-form-group textarea:hover,
+html.light-theme .sc30-part-input input:hover,
+html.light-theme .sc30-part-input textarea:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+html.light-theme .git-form-group input:focus,
+html.light-theme .git-form-group textarea:focus,
+html.light-theme .sc30-part-input input:focus,
+html.light-theme .sc30-part-input textarea:focus {
+  border-color: var(--accent) !important;
+  background: rgba(255, 102, 0, 0.02) !important;
+  box-shadow: 0 0 10px rgba(255, 102, 0, 0.12) !important;
+}
+.git-submit-btn,
+.sc30-part10 input[type="submit"] {
+  color: #ffffff !important;
+}
+html.light-theme .sc30-part-select {
+  background: var(--navy-light) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+html.light-theme .sc30-part-select-item {
+  color: var(--text-primary) !important;
+}
+html.light-theme .sc30-part-select-item:hover {
+  background: rgba(255, 102, 0, 0.1) !important;
+  color: var(--accent) !important;
+}
+html.light-theme .sc30-part-xia img {
+  filter: brightness(0) !important;
+}
+html.light-theme .back-level1 .sub-menu a {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+html.light-theme .back-booton {
+  filter: none !important;
+}
+html.light-theme .phone-box .phone-footer > li {
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+
 /* Premium Toast Notification */
 .toast-notification {
   position: fixed;
