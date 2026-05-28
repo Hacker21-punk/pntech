@@ -878,7 +878,7 @@ html.light-theme .sc24-name {
   border-bottom-color: rgba(0,0,0,0.08) !important;
 }
 html.light-theme .sc24-name-left {
-  color: var(--navy) !important;
+  color: #111827 !important;
 }
 html.light-theme .sc24-tou {
   background: rgba(0,0,0,0.02) !important;
@@ -897,7 +897,10 @@ html.light-theme .sc24-lie {
   color: rgba(0,0,0,0.8) !important;
 }
 html.light-theme .sc24-lie.sc24-lie-pd {
-  color: var(--navy) !important;
+  color: #111827 !important;
+}
+html.light-theme .sc23-out .section-title {
+  color: #111827 !important;
 }
 
 /* ========================================
@@ -1016,7 +1019,7 @@ html.light-theme .sc25-name {
   border-bottom-color: rgba(0,0,0,0.08) !important;
 }
 html.light-theme .sc25-name-left {
-  color: var(--navy) !important;
+  color: #111827 !important;
 }
 html.light-theme .sc25-tou {
   background: rgba(0,0,0,0.02) !important;
@@ -1035,6 +1038,6 @@ html.light-theme .sc25-lie {
   color: rgba(0,0,0,0.8) !important;
 }
 html.light-theme .sc25-lie.sc25-lie-pd {
-  color: var(--navy) !important;
+  color: #111827 !important;
 }
 
