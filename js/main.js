@@ -2,6 +2,13 @@
    PNTECH.IN - Main JavaScript
    ============================================ */
 
+// ---- Theme Initialization (Run immediately to avoid flash) ----
+if (localStorage.getItem('theme') === 'light') {
+  document.documentElement.classList.add('light-theme');
+} else {
+  document.documentElement.classList.remove('light-theme');
+}
+
 $(document).ready(function () {
   // ---- WOW.js Init ----
   if (typeof WOW !== 'undefined') {
@@ -436,4 +443,24 @@ $(document).ready(function () {
       }
     });
   });
+
+  // ---- Light/Dark Theme Toggle ----
+  function toggleTheme() {
+    if ($('html').hasClass('light-theme')) {
+      $('html').removeClass('light-theme');
+      localStorage.setItem('theme', 'dark');
+      showToast('Theme Changed', 'Switched to Premium Dark Mode 🌙', true);
+    } else {
+      $('html').addClass('light-theme');
+      localStorage.setItem('theme', 'light');
+      showToast('Theme Changed', 'Switched to Elegant Light Mode ☀️', true);
+    }
+  }
+
+  // Handle both desktop and mobile buttons
+  $(document).on('click', '#theme-toggle, #theme-toggle-mobile', function(e) {
+    e.preventDefault();
+    toggleTheme();
+  });
 });
+

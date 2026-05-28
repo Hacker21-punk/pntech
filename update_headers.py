@@ -79,7 +79,16 @@ master_header = """<header>
           </ul>
         </nav>
       </div>
-      <div class="hd-right">
+      <div class="hd-right" style="display: flex; align-items: center; gap: 16px;">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <div class="hd-search">
           <form>
             <div class="hd-search-input"><input type="text" placeholder="Search"></div>
@@ -101,6 +110,15 @@ master_header = """<header>
       </a>
     </div>
     <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme" style="color: white;">
+        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
       <div class="phone-more">
         <svg width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </div>
@@ -146,6 +164,10 @@ for filepath in html_files:
 
     # Replace <header>...</header> block
     content = re.sub(r'<header>.*?</header>', master_header, content, flags=re.DOTALL)
+
+    # Add non-flash theme loader to <head> if not already present
+    if "localStorage.getItem('theme')" not in content:
+        content = content.replace('<head>', '<head>\n  <script>if(localStorage.getItem(\'theme\')===\'light\')document.documentElement.classList.add(\'light-theme\');</script>')
 
     # Replace <div class="phone-back">...</div> block
     content = re.sub(r'<div class="phone-back">.*?</div>\s*</ul>\s*</div>|<div class="phone-back">.*?</div>', master_phone_back, content, flags=re.DOTALL)
