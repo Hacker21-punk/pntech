@@ -262,33 +262,33 @@ header {
 /* Level 1: Top-level dropdown container under "Product" */
 .hdnav-box > li > .sub-menu {
   position: absolute;
-  width: 320px;
+  width: 330px;
   display: none;
-  padding: 20px;
+  padding: 24px 20px;
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
   z-index: 9999;
   list-style: none;
-  background: rgba(10, 10, 10, 0.98);
+  background: rgba(10, 10, 10, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  text-align: left;
 }
 
 /* Light Theme overrides for Level 1 dropdown */
 html.light-theme .hdnav-box > li > .sub-menu {
   background: rgba(255, 255, 255, 0.98);
   border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
 .hdnav-box > li > .sub-menu > li {
-  padding-bottom: 12px;
+  padding-bottom: 16px;
   position: relative;
-  text-align: left;
 }
 
 .hdnav-box > li > .sub-menu > li:last-child {
@@ -299,9 +299,11 @@ html.light-theme .hdnav-box > li > .sub-menu {
   font-size: 15px;
   font-weight: 600;
   color: var(--white) !important;
-  display: block;
-  padding: 4px 0;
-  transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
 }
 
 html.light-theme .hdnav-box > li > .sub-menu > li > a {
@@ -310,6 +312,11 @@ html.light-theme .hdnav-box > li > .sub-menu > li > a {
 
 .hdnav-box > li > .sub-menu > li > a:hover {
   color: var(--accent) !important;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > a:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* Level 2: Second-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
@@ -318,28 +325,60 @@ html.light-theme .hdnav-box > li > .sub-menu > li > a {
   position: static; /* Tree style: stays in flow, shows below parent */
   width: 100%;
   text-align: left;
-  padding: 5px 0 5px 15px; /* Indent tree branch */
+  padding: 6px 0 6px 24px; /* Indent tree branch */
   list-style: none;
   z-index: auto;
 }
 
+/* Level 2 items vertical connection line */
 .hdnav-box > li > .sub-menu > li > .sub-menu > li {
-  padding-bottom: 8px;
-  width: 100%;
   position: relative;
+  padding: 6px 0 6px 24px;
 }
 
-.hdnav-box > li > .sub-menu > li > .sub-menu > li:last-child {
-  padding-bottom: 0;
+.hdnav-box > li > .sub-menu > li > .sub-menu > li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li::before {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.hdnav-box > li > .sub-menu > li > .sub-menu > li:last-child::before {
+  bottom: auto;
+  height: 16px; /* stop at horizontal branch center */
+}
+
+/* Level 2 items horizontal branch line */
+.hdnav-box > li > .sub-menu > li > .sub-menu > li::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  width: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li::after {
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75) !important;
-  display: block;
-  padding: 3px 0;
-  transition: color 0.2s;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: rgba(255, 255, 255, 0.85) !important;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
 }
 
 html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
@@ -348,6 +387,11 @@ html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
 
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > a:hover {
   color: var(--accent) !important;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* Level 3: Third-level sub-menu displaying DIRECTLY BELOW the parent (Tree style) */
@@ -355,28 +399,60 @@ html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > a {
   display: none;
   position: static; /* Tree style: stays in flow, shows below parent */
   width: 100%;
-  padding: 5px 0 5px 15px; /* Further indent tree branch */
+  padding: 4px 0 4px 24px; /* Further indent tree branch */
   list-style: none;
   z-index: auto;
 }
 
+/* Level 3 items vertical connection line */
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li {
-  padding-bottom: 6px;
-  width: 100%;
-  display: block;
+  position: relative;
+  padding: 4px 0 4px 24px;
 }
 
-.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li:last-child {
-  padding-bottom: 0;
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li::before {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li:last-child::before {
+  bottom: auto;
+  height: 13px; /* stop at horizontal branch center */
+}
+
+/* Level 3 items horizontal branch line */
+.hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 13px;
+  width: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li::after {
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a {
   font-size: 13px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6) !important;
-  display: block;
-  padding: 2px 0;
-  transition: color 0.2s;
+  color: rgba(255, 255, 255, 0.65) !important;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
 }
 
 html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a {
@@ -385,7 +461,13 @@ html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu >
 
 .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a:hover {
   color: var(--accent) !important;
+  background: rgba(255, 255, 255, 0.04);
 }
+
+html.light-theme .hdnav-box > li > .sub-menu > li > .sub-menu > li > .sub-menu > li a:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
 
 /* Checked/active state for tree items */
 .hdnav-box .sub-menu .checked > a {
