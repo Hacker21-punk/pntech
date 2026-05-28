@@ -334,3 +334,69 @@
   .sc19-item-list-right h5 { font-size: 16px; margin-bottom: 5px;}
   .sc19-item-list-right span { font-size: 12px;}
 }
+
+/* ============================================
+   BULLETPROOF APPLICATIONS CAROUSEL FIXES
+   ============================================ */
+.sc4-out {
+  padding: 100px 0 !important;
+}
+.sc4 {
+  display: flex !important;
+  gap: 30px !important;
+  margin-bottom: 30px !important;
+  min-height: 450px !important;
+}
+.sc4-left {
+  flex: 1.1 !important;
+  background: rgba(18, 18, 18, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 60px 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 16px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+html.light-theme .sc4-left {
+  background: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+.sc4-right {
+  flex: 1 !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3) !important;
+  position: relative !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  display: flex !important;
+}
+.sc4-right .swiper.sc6 {
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+.sc4-right .swiper.sc6 img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.sc4-left .swiper.sc5 {
+  width: 100% !important;
+}
+
+@media (max-width: 1024px) {
+  .sc4 {
+    flex-direction: column !important;
+  }
+  .sc4-left, .sc4-right {
+    border-radius: 12px !important;
+  }
+  .sc4-right {
+    min-height: 300px !important;
+  }
+}

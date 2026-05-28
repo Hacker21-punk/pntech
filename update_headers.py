@@ -172,6 +172,12 @@ for filepath in html_files:
     # Replace <div class="phone-back">...</div> block
     content = re.sub(r'<div class="phone-back">.*?</div>\s*</ul>\s*</div>|<div class="phone-back">.*?</div>', master_phone_back, content, flags=re.DOTALL)
 
+    # Force stylesheet/script cache busting
+    content = content.replace('href="css/style.css"', 'href="css/style.css?v=20260528-v3"')
+    content = content.replace('href="css/product-category.css?v=20260528"', 'href="css/product-category.css?v=20260528-v3"')
+    content = content.replace('href="css/product-category.css"', 'href="css/product-category.css?v=20260528-v3"')
+    content = content.replace('src="js/main.js"', 'src="js/main.js?v=20260528-v3"')
+
     # Clean up double phone-backs if any
     # (some pages might have different ending tags for phone-back, let's make sure it's correct)
     
