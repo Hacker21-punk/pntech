@@ -263,7 +263,8 @@ header {
   position: absolute;
   width: 980px;
   display: none;
-  padding: 35px 30px;
+  margin-top: -10px;
+  padding: 45px 30px 35px 30px;
   left: 50%;
   transform: translateX(-50%);
   top: 100%;

@@ -64,7 +64,13 @@ $(document).ready(function () {
     $(this).children('.sub-menu').stop(true, true).slideDown(250);
     $(this).siblings().children('.sub-menu').stop(true, true).slideUp(200);
     event.stopPropagation();
-  }, function () {});
+  }, function () {
+    $('.hd-bg').fadeOut(200);
+    $(this).removeClass('checked');
+    $(this).children('.sub-menu').stop(true, true).slideUp(200);
+    $('.hdnav-box .menu-item').removeClass('checked');
+    $('.hdnav-box .sub-menu .sub-menu').stop(true, true).slideUp(150);
+  });
 
   // Level 1 sub-menu items hover (Spectrum Analyzer, VSG, Antenna)
   $('.hdnav-box > .menu-item-has-children > .sub-menu > .menu-item').hover(function (event) {
