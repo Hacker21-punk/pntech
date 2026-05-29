@@ -146,7 +146,7 @@
       animation: floatTertiary 5s ease-in-out infinite;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 </head>
 <body>
   <script>var name = 'about'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
@@ -292,7 +292,7 @@
         <picture>
           <source media="(min-width: 769px)" srcset="images/about_banner_bg.webp">
           <source media="(max-width: 768px)" srcset="images/m_about_banner.jpg">
-          <img src="images/about_banner_bg.webp" alt="About PN Technologies">
+          <img loading="lazy" src="images/about_banner_bg.webp" alt="About PN Technologies">
         </picture>
       </div>
       <div class="about_page_banner_item con">
@@ -311,10 +311,10 @@
             <!-- Primary Floating Card -->
             <div class="collage-card card-primary floating-anim-1">
               <div class="slideshow-wrapper">
-                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_01.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_01.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/sae-200/sae-200_scene-image_01.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/hda-100/hda-100_scene_01.jpg" alt="HDA-100 Active Antenna Scene"></div>
+                <div class="slide active"><img loading="lazy" src="images/products/pxe-200/pxe-200_scene-image_01.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/pxe-200r/pxe-200r_scene-image_01.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/sae-200/sae-200_scene-image_01.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/hda-100/hda-100_scene_01.jpg" alt="HDA-100 Active Antenna Scene"></div>
               </div>
               <div class="card-caption">Precision Measurement</div>
             </div>
@@ -322,10 +322,10 @@
             <!-- Secondary Floating Card -->
             <div class="collage-card card-secondary floating-anim-2">
               <div class="slideshow-wrapper">
-                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_02.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_02.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/sae-200/sae-200_scene-image_04.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/hda-100/hda-100_scene_02.jpg" alt="HDA-100 Active Antenna Scene"></div>
+                <div class="slide active"><img loading="lazy" src="images/products/pxe-200/pxe-200_scene-image_02.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/pxe-200r/pxe-200r_scene-image_02.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/sae-200/sae-200_scene-image_04.jpg" alt="SAE-200 USB Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/hda-100/hda-100_scene_02.jpg" alt="HDA-100 Active Antenna Scene"></div>
               </div>
               <div class="card-caption">Field Sweep Testing</div>
             </div>
@@ -333,10 +333,10 @@
             <!-- Tertiary Floating Card -->
             <div class="collage-card card-tertiary floating-anim-3">
               <div class="slideshow-wrapper">
-                <div class="slide active"><img src="images/products/pxe-200/pxe-200_scene-image_03.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/pxe-200r/pxe-200r_scene-image_03.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
-                <div class="slide"><img src="images/products/sam-60/sam-60_scene-image_01.png" alt="SAM-60 Receiver Scene"></div>
-                <div class="slide"><img src="images/products/san-400/san-400_scene-image_01.png" alt="SAN-400 Spectrum Analyzer Scene"></div>
+                <div class="slide active"><img loading="lazy" src="images/products/pxe-200/pxe-200_scene-image_03.jpg" alt="PXE-200 Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/pxe-200r/pxe-200r_scene-image_03.jpg" alt="PXE-200R Rugged Spectrum Analyzer Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/sam-60/sam-60_scene-image_01.png" alt="SAM-60 Receiver Scene"></div>
+                <div class="slide"><img loading="lazy" src="images/products/san-400/san-400_scene-image_01.png" alt="SAN-400 Spectrum Analyzer Scene"></div>
               </div>
             </div>
           </div>
@@ -359,14 +359,14 @@
         </div>
       </div>
       <div class="about_page_about_right wow sc2fadeInRight" data-wow-duration="2s" data-wow-offset="200">
-        <img src="images/about_youshi_team.jpg" alt="PN Technologies Team">
+        <img loading="lazy" src="images/about_youshi_team.jpg" alt="PN Technologies Team">
       </div>
     </section>
 
     <!-- What We Do -->
     <section class="con about_page_tansuo">
       <div class="about_page_tansuo_left wow sc3fadeInLeft" data-wow-duration="2s" data-wow-offset="200">
-        <img src="images/home_tansuo_left.jpg" alt="What We Do">
+        <img loading="lazy" src="images/home_tansuo_left.jpg" alt="What We Do">
       </div>
       <div class="about_page_tansuo_right">
         <div class="about_page_about_title about_title">
@@ -389,7 +389,7 @@
       <!-- R&D Team -->
       <div class="about_youshi_team">
         <div class="about_youshi_team_img wow sc3fadeInLeft" data-wow-duration="2s" data-wow-offset="200">
-          <img src="images/about_youshi_team.jpg" alt="R&D Team">
+          <img loading="lazy" src="images/about_youshi_team.jpg" alt="R&D Team">
         </div>
         <div class="about_youshi_item">
           <div class="about_youshi_item_title">
@@ -405,7 +405,7 @@
       <!-- Factory -->
       <div class="about_youshi_factory">
         <div class="about_youshi_team_img wow sc2fadeInRight" data-wow-duration="2s" data-wow-offset="200">
-          <img src="images/about_youshi_factory.webp" alt="Our Factory">
+          <img loading="lazy" src="images/about_youshi_factory.webp" alt="Our Factory">
         </div>
         <div class="about_youshi_item">
           <div class="about_youshi_item_title">
@@ -421,7 +421,7 @@
       <!-- After-Sales -->
       <div class="about_youshi_ts">
         <div class="about_youshi_team_img wow sc3fadeInLeft" data-wow-duration="2s" data-wow-offset="200">
-          <img src="images/about_youshi_technicalsupport.jpg" alt="Technical Support">
+          <img loading="lazy" src="images/about_youshi_technicalsupport.jpg" alt="Technical Support">
         </div>
         <div class="about_youshi_item">
           <div class="about_youshi_item_title">
@@ -453,7 +453,7 @@
         <picture>
           <source media="(min-width: 769px)" srcset="images/home_join_bg.jpg">
           <source media="(max-width: 768px)" srcset="images/home_join_bg_m.jpg">
-          <img src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
+          <img loading="lazy" src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
         </picture>
       </div>
     </section>
@@ -595,9 +595,9 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="js/main.js?v=20260529-v9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+  <script defer src="js/main.js?v=20260529-v9"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const cards = document.querySelectorAll('.collage-card');

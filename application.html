@@ -230,7 +230,7 @@
       }
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 </head>
 <body>
   <script>var name = 'application'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
@@ -418,7 +418,7 @@
         <picture>
           <source media="(min-width: 769px)" srcset="images/home_join_bg.jpg">
           <source media="(max-width: 768px)" srcset="images/home_join_bg_m.jpg">
-          <img src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
+          <img loading="lazy" src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
         </picture>
       </div>
     </section>
@@ -514,9 +514,9 @@
     </form>
   </div></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="js/main.js?v=20260529-v9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+  <script defer src="js/main.js?v=20260529-v9"></script>
   <script>
     $(function() {
       // 7 Live posts tailored for PN Technologies
@@ -620,7 +620,7 @@
                   </a>
                 </div>
                 <div class="cooperation_list_img">
-                  <img src="${post.image}" alt="${post.title}">
+                  <img loading="lazy" src="${post.image}" alt="${post.title}">
                 </div>
               </div>
             `;
@@ -628,7 +628,7 @@
             html += `
               <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
                 <div class="cooperation_list_img">
-                  <img src="${post.image}" alt="${post.title}">
+                  <img loading="lazy" src="${post.image}" alt="${post.title}">
                 </div>
                 <div class="cooperation_list_text">
                   <div class="cooperation_list_textbox">

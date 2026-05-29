@@ -15,7 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260529-v9">
   <style>body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }</style>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 </head>
 <body>
   <script>var name = 'contact'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
@@ -161,7 +161,7 @@
         <picture>
           <source media="(min-width: 769px)" srcset="images/contact_banner.webp">
           <source media="(max-width: 768px)" srcset="images/m_contact_banner.jpg">
-          <img src="images/contact_banner.webp" alt="Contact PN Technologies">
+          <img loading="lazy" src="images/contact_banner.webp" alt="Contact PN Technologies">
         </picture>
       </div>
       <div class="public_banner_text con">
@@ -313,8 +313,8 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-  <script src="js/main.js?v=20260529-v9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
+  <script defer src="js/main.js?v=20260529-v9"></script>
 </body>
 </html>
