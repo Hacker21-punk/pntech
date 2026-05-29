@@ -380,15 +380,11 @@ $(document).ready(function () {
       phone: $form.find('#git-phone').val(),
       company: $form.find('#git-company').val(),
       message: $form.find('#git-message').val(),
-      _subject: 'New Inquiry from Website (Footer Form)',
-      _honey: '',
-      _template: 'table',
-      _replyto: $form.find('#git-email').val(),
-      _autoresponse: 'Dear ' + $form.find('#git-fullname').val() + ',\n\nThank you for reaching out to PN Technologies!\n\nWe have received your inquiry and our team will review it shortly. You can expect a response within 1-2 business days.\n\nHere is a summary of your submission:\n- Name: ' + $form.find('#git-fullname').val() + '\n- Company: ' + ($form.find('#git-company').val() || 'N/A') + '\n- Phone: ' + ($form.find('#git-phone').val() || 'N/A') + '\n- Message: ' + ($form.find('#git-message').val() || 'N/A') + '\n\nIf you have any urgent queries, feel free to contact us directly at business@pntech.in or call us.\n\nBest regards,\nPN Technologies\nAuthorized Harogic Distribution Partner – India\nhttps://pntech.vercel.app'
+      _subject: 'New Inquiry from Website (Footer Form)'
     };
     
     $.ajax({
-      url: 'https://formsubmit.co/ajax/business@pntech.in',
+      url: '/api/send-email',
       method: 'POST',
       dataType: 'json',
       contentType: 'application/json',
@@ -427,15 +423,11 @@ $(document).ready(function () {
       email: userEmail,
       phone: $form.find('.sc30-part7 input').val(),
       message: $form.find('.sc30-part8 textarea').val(),
-      _subject: 'New Inquiry from Website (Modal Form) - ' + requestType,
-      _honey: '',
-      _template: 'table',
-      _replyto: userEmail,
-      _autoresponse: 'Dear ' + userName.trim() + ',\n\nThank you for contacting PN Technologies!\n\nWe have received your ' + requestType + ' request and our team is on it. You can expect a response within 1-2 business days.\n\nHere is a summary of your submission:\n- Request Type: ' + requestType + '\n- Name: ' + userName.trim() + '\n- Company: ' + ($form.find('.sc30-part4 input').val() || 'N/A') + '\n- Country: ' + ($form.find('.sc30-part5 input').val() || 'N/A') + '\n\nIf you have any urgent queries, feel free to contact us directly at business@pntech.in or call us.\n\nBest regards,\nPN Technologies\nAuthorized Harogic Distribution Partner – India\nhttps://pntech.vercel.app'
+      _subject: 'New Inquiry from Website (Modal Form) - ' + requestType
     };
     
     $.ajax({
-      url: 'https://formsubmit.co/ajax/business@pntech.in',
+      url: '/api/send-email',
       method: 'POST',
       dataType: 'json',
       contentType: 'application/json',
