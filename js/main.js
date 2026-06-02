@@ -791,5 +791,189 @@ $(document).ready(function () {
     initCapCardReveal();
   }
 
+  // ---- Automatic Image Background Removal (Key out White Background) ----
+  function removeWhiteBackground(img) {
+    if (img.dataset.bgRemoved === "true") return;
+    
+    // Only process local images to avoid CORS taint errors
+    var src = img.getAttribute('src');
+    if (!src) return;
+    
+    if (src.startsWith('data:')) {
+      img.dataset.bgRemoved = "true";
+      return;
+    }
+    
+    // Skip logo, icon, or loader images
+    var srcLower = src.toLowerCase();
+    if (srcLower.includes('logo') || srcLower.includes('icon') || srcLower.includes('loader') || srcLower.includes('arrow') || srcLower.includes('bg')) {
+      return;
+    }
+
+    // Only process local relative paths or absolute path matching current origin
+    var isLocal = !src.includes('://') || src.startsWith(window.location.origin);
+    if (!isLocal) return;
+
+    // Create a temporary image to read pixel data same-origin
+    var tempImg = new Image();
+    tempImg.crossOrigin = "anonymous";
+    tempImg.src = src;
+    
+    tempImg.onload = function() {
+      try {
+        var canvas = document.createElement('canvas');
+        canvas.width = tempImg.naturalWidth;
+        canvas.height = tempImg.naturalHeight;
+        
+        // If image is zero-size, return
+        if (canvas.width === 0 || canvas.height === 0) return;
+        
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(tempImg, 0, 0);
+        
+        var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var data = imgData.data;
+        var width = imgData.width;
+        var height = imgData.height;
+        
+        // Use BFS flood-fill from all 4 corners to find contiguous white background pixels.
+        var queue = [];
+        var visited = new Uint8Array(width * height);
+        
+        function getPixelIndex(x, y) {
+          return (y * width + x) * 4;
+        }
+        
+        function isWhite(x, y) {
+          var idx = getPixelIndex(x, y);
+          var r = data[idx];
+          var g = data[idx+1];
+          var b = data[idx+2];
+          var a = data[idx+3];
+          // Check if pixel is near-white (all channels > 240) and opaque
+          return a > 50 && r > 240 && g > 240 && b > 240;
+        }
+        
+        function enqueue(x, y) {
+          var vIdx = y * width + x;
+          if (!visited[vIdx]) {
+            visited[vIdx] = 1;
+            queue.push(x, y);
+          }
+        }
+        
+        // Enqueue all boundary pixels that are near-white
+        for (var x = 0; x < width; x++) {
+          if (isWhite(x, 0)) enqueue(x, 0);
+          if (isWhite(x, height - 1)) enqueue(x, height - 1);
+        }
+        for (var y = 0; y < height; y++) {
+          if (isWhite(0, y)) enqueue(0, y);
+          if (isWhite(width - 1, y)) enqueue(width - 1, y);
+        }
+        
+        // BFS Flood-fill
+        var head = 0;
+        var modified = false;
+        while (head < queue.length) {
+          var cx = queue[head++];
+          var cy = queue[head++];
+          
+          var idx = getPixelIndex(cx, cy);
+          if (data[idx+3] !== 0) {
+            data[idx+3] = 0;
+            modified = true;
+          }
+          
+          // Check neighbors
+          var neighbors = [
+            cx - 1, cy,
+            cx + 1, cy,
+            cx, cy - 1,
+            cx, cy + 1
+          ];
+          for (var i = 0; i < neighbors.length; i += 2) {
+            var nx = neighbors[i];
+            var ny = neighbors[i+1];
+            if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+              if (isWhite(nx, ny)) {
+                enqueue(nx, ny);
+              }
+            }
+          }
+        }
+        
+        img.dataset.bgRemoved = "true";
+        if (modified) {
+          ctx.putImageData(imgData, 0, 0);
+          img.src = canvas.toDataURL("image/png");
+        }
+      } catch (err) {
+        console.warn("Failed to remove background for image:", img.src, err);
+      }
+    };
+  }
+
+  function observeAndProcessImages() {
+    // Process existing images
+    $('img').each(function() {
+      var img = this;
+      if (img.complete) {
+        removeWhiteBackground(img);
+      } else {
+        $(img).on('load', function() {
+          removeWhiteBackground(img);
+        });
+      }
+    });
+
+    // Set up a MutationObserver to watch for newly added images or src attribute modifications
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+          var img = mutation.target;
+          var newSrc = img.getAttribute('src');
+          if (newSrc && !newSrc.startsWith('data:')) {
+            // Reset dataset state for new source image and process it
+            delete img.dataset.bgRemoved;
+            removeWhiteBackground(img);
+          }
+        } else if (mutation.type === 'childList') {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.tagName === 'IMG') {
+              var img = node;
+              if (img.complete) {
+                removeWhiteBackground(img);
+              } else {
+                $(img).on('load', function() {
+                  removeWhiteBackground(img);
+                });
+              }
+            } else if (node.querySelectorAll) {
+              node.querySelectorAll('img').forEach(function(img) {
+                if (img.complete) {
+                  removeWhiteBackground(img);
+                } else {
+                  $(img).on('load', function() {
+                    removeWhiteBackground(img);
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['src']
+    });
+  }
+
+  observeAndProcessImages();
+
 });
 
