@@ -4,233 +4,283 @@
   <script>if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Application Solutions - PN Technologies | RF Instruments for Every Industry</title>
-  <meta name="description" content="Discover how PN Technologies RF instruments power innovation across industries — from spectrum monitoring to 5G testing, EMC compliance, and research.">
-  <meta property="og:title" content="Application Solutions - PN Technologies">
-  <meta property="og:description" content="RF instruments for spectrum monitoring, drone detection, 5G testing, and more.">
-  <meta property="og:type" content="website">
+  <title>Application Details - PN Technologies</title>
+  <meta name="description" content="Read our detailed application scenario notes regarding RF signal monitoring, vector signal generation, and software defined radio.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260602-v11">
+  <link rel="stylesheet" href="css/product-detail.css?v=20260529-v9">
   <style>
     body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--navy); color: var(--text-primary); }
     
-    /* Layout overrides */
+    /* Article Layout overrides */
     main { background: var(--navy); padding-bottom: 120px; }
     
-    .app-banner { position: relative; width: 100%; height: 420px; background: linear-gradient(135deg, #020202 0%, #160800 50%, #020202 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255,102,0,0.1) 0%, transparent 70%); }
-    .app-banner-text { position: relative; z-index: 2; text-align: center; padding: 0 20px; }
-    .app-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -1px; }
-    .app-banner-text p { font-size: 18px; color: rgba(255,255,255,0.65); max-width: 600px; margin: 0 auto; line-height: 1.6; }
-    
-    /* Cooperation Page Banner & Title */
-    .cooperation_page_title {
-      padding: 90px 0 20px 0;
-      text-align: left;
-    }
-    .cooperation_page_title p {
-      font-size: 56px;
-      font-weight: 700;
-      line-height: 1.15;
-      color: #ff6600; /* Use premium brand orange */
-      margin: 0;
+    .cooperation_show {
+      padding: 60px 0;
     }
     
-    /* Cooperation Categories/Tabs */
-    .coo-cate {
-      margin-top: 30px;
-      margin-bottom: 70px;
-      border-bottom: 1px solid var(--navy-border);
-      padding-bottom: 15px;
-    }
-    .coo-cate ul {
-      display: flex;
-      gap: 50px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .coo-cate li.cooperation-item {
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-      padding-bottom: 12px;
-    }
-    .coo-cate li.cooperation-item:hover {
-      color: #ff6600;
-    }
-    .coo-cate li.cooperation-item.active {
-      color: #ff6600;
-      font-weight: 700;
-    }
-    .coo-cate li.cooperation-item.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: #ff6600;
-      border-radius: 2px;
+    .cooperation_show_box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--navy-light);
+      border: 1px solid var(--navy-border);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
     }
     
-    /* Cooperation List Items */
-    .coo-list {
-      display: flex;
-      flex-direction: column;
-      gap: 110px;
-    }
-    .cooperation_list_item {
-      display: flex;
-      align-items: center;
-      gap: 80px;
-      justify-content: space-between;
-    }
-    .cooperation_list_text {
-      flex: 1.25;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 260px;
-    }
-    .cooperation_list_textbox h2 {
-      font-size: 32px;
+    .cooperation_show_title {
+      font-size: 38px;
       font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.3;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: 15px;
       letter-spacing: -0.5px;
     }
-    .cooperation_list_textbox h2 a {
-      color: var(--text-primary);
+    
+    .cooperation_show_date {
+      font-size: 14px;
+      color: #ff6600;
+      font-weight: 600;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cooperation_show_date::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #ff6600;
+      border-radius: 50%;
+    }
+    
+    .cooperation_show_content {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    
+    .cooperation_show_foot {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--navy-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cooperation_show_back a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .cooperation_show_back a:hover {
+      color: #ff6600;
+    }
+    
+    .cooperation_show_next a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+    
+    .cooperation_show_next a:hover {
+      color: #cc5200;
+    }
+    
+    /* Dark/Light mode overrides for scraped article content to keep them premium */
+    .cooperation_show_content, 
+    .harogic-article, 
+    .pxn-article, 
+    .cooperation_show_content h6 {
+      color: var(--text-secondary) !important;
+    }
+    
+    .cooperation_show_content h1,
+    .cooperation_show_content h2,
+    .cooperation_show_content h3,
+    .cooperation_show_content h4,
+    .cooperation_show_content h5,
+    .harogic-article h5,
+    .pxn-article h3,
+    .pxn-article h2 {
+      color: var(--text-primary) !important;
+      font-family: 'Inter', sans-serif !important;
+      font-weight: 700 !important;
+      margin-top: 35px !important;
+      margin-bottom: 15px !important;
+    }
+    
+    .harogic-article h5, .pxn-article h3, .pxn-article h2 {
+      font-size: 24px !important;
+      border-left: 4px solid #ff6600 !important;
+      padding-left: 12px !important;
+    }
+    
+    .cooperation_show_content strong,
+    .harogic-article h6 strong {
+      color: #ff6600 !important;
+    }
+    
+    .cooperation_show_content a {
+      color: #ff6600 !important;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    .cooperation_list_textbox h2 a:hover {
-      color: #ff6600;
-    }
-    .cooperation_list_textbox p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin: 0;
+    
+    .cooperation_show_content a:hover {
+      color: #cc5200 !important;
+      text-decoration: underline;
     }
     
-    /* More Button styling */
-    .cooperation_list_more {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 30px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #ff6600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      align-self: flex-start;
-    }
-    .cooperation_list_more i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: #fff4ee;
-      color: #ff6600;
-      transition: all 0.3s ease;
-    }
-    .cooperation_list_more:hover {
-      color: #cc5200;
-    }
-    .cooperation_list_more:hover i {
-      transform: translateX(6px);
-      background: #ff6600;
-      color: #fff;
-    }
-    
-    /* Image Column styling */
-    .cooperation_list_img {
-      flex: 1.0;
-      border-radius: 16px;
+    /* Table inside articles */
+    .pxn-table-wrap {
+      margin: 25px 0;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.07);
       border: 1px solid var(--navy-border);
-      transition: all 0.4s ease;
-      background: var(--navy-light);
     }
-    .cooperation_list_img img {
+    
+    .pxn-table {
+      background: var(--navy-light) !important;
+      color: var(--text-primary) !important;
+      border-collapse: collapse;
       width: 100%;
+      border: none !important;
+    }
+    
+    .pxn-table thead th {
+      background: #ff6600 !important;
+      color: #fff !important;
+      font-weight: 700;
+      padding: 14px 16px;
+      border: 1px solid var(--navy-border) !important;
+    }
+    
+    .pxn-table tbody td {
+      padding: 13px 16px;
+      border: 1px solid var(--navy-border) !important;
+      color: var(--text-secondary) !important;
+    }
+    
+    .pxn-table tbody tr:nth-child(even) {
+      background: var(--navy) !important;
+    }
+    
+    .pxn-table tbody td:first-child {
+      color: var(--text-primary) !important;
+      font-weight: 600;
+    }
+    
+    /* Image layouts inside articles */
+    .harogic-single-image,
+    .cooperation_show_content div img {
+      max-width: 100%;
       height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--navy-border);
+      margin: 30px auto;
       display: block;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .cooperation_list_img:hover {
-      box-shadow: 0 20px 45px rgba(255, 102, 0, 0.12);
-      border-color: rgba(255, 102, 0, 0.2);
-      transform: translateY(-4px);
-    }
-    .cooperation_list_img:hover img {
-      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
     
-    /* Empty state */
-    .no-data {
-      padding: 80px 0;
+    .harogic-main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .harogic-grid-item {
+      display: block !important;
+      width: 100% !important;
+    }
+    
+    .harogic-grid-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--navy-border);
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .harogic-grid-item h6 {
       text-align: center;
-      font-size: 18px;
-      color: #888;
+      font-size: 13px !important;
+      color: var(--text-secondary) !important;
     }
     
-    /* Responsive styling */
-    @media (max-width: 991px) {
-      .cooperation_list_item {
-        gap: 40px;
-      }
-      .cooperation_list_textbox h2 {
-        font-size: 26px;
-      }
+    .harogic-double-image {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100% !important;
+      margin: 30px 0 !important;
+    }
+    
+    .harogic-double-image img {
+      width: 100% !important;
+      max-width: 100% !important;
+      border-radius: 10px;
+      border: 1px solid var(--navy-border);
+      display: block;
+    }
+    
+    /* Video Embed Container */
+    .cooperation_show_content iframe {
+      border-radius: 12px;
+      border: 1px solid var(--navy-border);
+    }
+    
+    /* Light Theme Overrides */
+    html.light-theme body {
+      background: #f7f9fc;
+    }
+    html.light-theme main {
+      background: #f7f9fc;
+    }
+    html.light-theme .cooperation_show_box {
+      background: #ffffff;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.05);
+    }
+    html.light-theme .pxn-table tbody tr:nth-child(even) {
+      background: #f7f9fc !important;
     }
     
     @media (max-width: 768px) {
-      .cooperation_page_title {
-        padding: 60px 0 10px 0;
+      .cooperation_show_box {
+        padding: 25px;
+        border-radius: 12px;
       }
-      .cooperation_page_title p {
-        font-size: 38px;
+      .cooperation_show_title {
+        font-size: 26px;
       }
-      .coo-cate {
-        margin-bottom: 40px;
-      }
-      .coo-cate ul {
-        gap: 30px;
-      }
-      .coo-cate li.cooperation-item {
-        font-size: 17px;
-      }
-      .coo-list {
-        gap: 60px;
-      }
-      .cooperation_list_item {
-        flex-direction: column !important;
-        gap: 30px;
-      }
-      .cooperation_list_text {
-        min-height: auto;
-      }
-      .cooperation_list_img {
-        width: 100%;
-        order: -1 !important; /* Image on top on mobile */
+      .harogic-main-grid,
+      .harogic-double-image {
+        grid-template-columns: 1fr;
+        gap: 15px;
       }
     }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+  <!-- Load the articles data -->
+  <script defer src="js/applications-data.js"></script>
 </head>
 <body>
   <script>var name = 'application'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
@@ -371,55 +421,43 @@
 
   <!-- ========== MAIN CONTENT ========== -->
   <main>
-    <!-- Banner -->
-    <section class="app-banner">
-      <div class="app-banner-text">
-        <h1 class="wow fadeIn" data-wow-duration="1.5s">Application Solutions</h1>
-        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Precision RF instrumentation designed to solve complex test and measurement challenges in the field and in the laboratory.</p>
-      </div>
-    </section>
-    <!-- Cooperation / Application Scenarios Section -->
-    <section style="background: var(--navy); padding-bottom: 80px;">
+    <!-- Breadcrumb -->
+    <nav class="product-breadcrumb">
       <div class="con">
-        <div class="cooperation_page_title">
-          <p>Application</p>
-          <p>Scenarios.</p>
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="application.html">Application</a>
+        <span class="sep">›</span>
+        <span class="current" id="detail-breadcrumb-title">Loading...</span>
+      </div>
+    </nav>
+
+    <!-- Content Showcase -->
+    <section class="cooperation_show">
+      <div class="con cooperation_show_box">
+        <h1 class="cooperation_show_title" id="detail-title">Loading Application Scenario...</h1>
+        <div class="cooperation_show_date">
+          <span id="detail-date">-</span>        
         </div>
         
-        <!-- Category Filter Tabs -->
-        <div class="coo-cate">
-          <ul>
-            <li class="cooperation-item active" data-id="0">All</li>
-            <li class="cooperation-item" data-id="206">Signal Generator</li>
-            <li class="cooperation-item" data-id="207">Spectrum analyzer</li>
-          </ul>
+        <div class="cooperation_show_content" id="detail-content">
+          <!-- Dynamic Content Injected Here -->
         </div>
-      </div>
-      
-      <!-- List of Alternating Showcase items -->
-      <div class="coo-list"></div>
-    </section>
-
-    <!-- Work With PN Technologies -->
-    <section class="home_join">
-      <div class="con home_join_text">
-        <div class="home_join_text_title home_title">
-          <p class="wow sc4fadeInLeft" data-wow-duration="2s" data-wow-offset="100">Work with</p>
-          <p class="wow sc4fadeInLeft" data-wow-duration="2s" data-wow-offset="100" data-wow-delay="0.1s">PN Technologies</p>
+        
+        <div class="cooperation_show_foot">
+          <div class="cooperation_show_back">
+            <a href="application.html">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back to Application
+            </a>
+          </div>
+          <div class="cooperation_show_next" id="detail-next-btn">
+            <!-- Dynamic Next Link -->
+          </div>
         </div>
-        <div class="home_join_text_info">
-          <p class="hyphenate">At PN Technologies, we thrive on bold ideas, unconventional thinking, and a relentless passion for RF knowledge and technology. Reach out to us and let's collaborate.</p>
-        </div>
-        <div class="m_home_join_text_info">
-          <p class="hyphenate">At PN Technologies, we thrive on bold ideas and a relentless passion for RF technology. Reach out and let's innovate together.</p>
-        </div>
-      </div>
-      <div class="home_join_bg">
-        <picture>
-          <source media="(min-width: 769px)" srcset="images/home_join_bg.jpg">
-          <source media="(max-width: 768px)" srcset="images/home_join_bg_m.jpg">
-          <img loading="lazy" src="images/home_join_bg_m.jpg" alt="Work with PN Technologies">
-        </picture>
       </div>
     </section>
   </main>
@@ -443,7 +481,7 @@
   </section>
 
   <!-- FOOTER -->
-      <!-- ========== FOOTER ========== -->
+  <!-- ========== FOOTER ========== -->
   <footer>
     <div class="con">
       <div class="ft-out">
@@ -519,153 +557,54 @@
   <script defer src="js/main.js?v=20260602-v11"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      $(function() {
-        // 7 Live posts tailored for PN Technologies
-        const posts = [
-          {
-            id: 30906,
-            slug: "pulse-generation-frequency-sweeping-sga60",
-            title: "Pulse Generation and Frequency Sweeping: Precision Simulation with the HAROGIC SGA-60",
-            excerpt: "This application note demonstrates how the HAROGIC SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.",
-            image: "images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg",
-            category_ids: [206]
-          },
-          {
-            id: 28838,
-            slug: "tracking-generator-signal-generator-pxn-series",
-            title: "Tracking Generator and Signal Generator Applications in the New PXN Series",
-            excerpt: "Learn how the new HAROGIC PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.",
-            image: "images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg",
-            category_ids: [207]
-          },
-          {
-            id: 28671,
-            slug: "rf-signal-mapping-geolocation-harogic-mapping-mode",
-            title: "RF Signal Mapping and Geolocation Using HAROGIC Mapping Mode",
-            excerpt: "This application note explains how HAROGIC Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.",
-            image: "images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg",
-            category_ids: [207]
-          },
-          {
-            id: 26514,
-            slug: "using-harogic-products-in-the-gnu-radio",
-            title: "Using HAROGIC Products in the GNU Radio",
-            excerpt: "HAROGIC offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces.",
-            image: "images/harogic-gnradio.jpg",
-            category_ids: [207]
-          },
-          {
-            id: 2174,
-            slug: "airborne-radio-measurement-systems-9-khz-to-40-ghz-3",
-            title: "Airborne Radio Measurement Systems “9 kHz to 40 GHz”",
-            excerpt: "USB spectrum analyzer up to 40 GHz from HAROGIC Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring.",
-            image: "images/cooperation_1.webp",
-            category_ids: [207]
-          },
-          {
-            id: 2051,
-            slug: "third-party-spectrum-monitoring-system-up-to-40-ghz",
-            title: "Third Party spectrum monitoring system up to 40 GHz",
-            excerpt: "HAROGIC Technologies specializes in RF spectrum monitoring with the advanced real-time spectrum analyzers. We provide open API with high compatibility to our customers, empowering customers to define their own RF spectrum monitoring system up to 40 GHz.",
-            image: "images/cooperation_2.jpg",
-            category_ids: [207]
-          },
-          {
-            id: 2055,
-            slug: "sdr-works-well-on-harogic-px-series-spectrum-analyzer",
-            title: "SDR++ Works Well on HAROGIC PX Series Spectrum Analyzer",
-            excerpt: "SDR++ with the feature of a versatile platform for software defined radio, is running well on HAROGIC Technologies handheld spectrum analyzer.",
-            image: "images/cooperation_3.webp",
-            category_ids: [207]
-          }
-        ];
-
-        // Initial render: show All (id: 0)
-        renderPosts(0);
-
-        // Category click event
-        $('.cooperation-item').click(function() {
-          $(this).addClass('active').siblings().removeClass('active');
-          var cateId = $(this).data('id');
-          renderPosts(cateId);
-        });
-
-        function renderPosts(subCategoryId) {
-          const container = $('.coo-list');
-          container.empty();
-
-          // Filter posts
-          const filtered = subCategoryId === 0
-            ? posts
-            : posts.filter(p => p.category_ids.includes(subCategoryId));
-
-          if (filtered.length === 0) {
-            container.append('<div class="con no-data">No relevant content available</div>');
-            return;
-          }
-
-          let html = '';
-          filtered.forEach((post, index) => {
-            const isEven = index % 2 === 0;
-            const detailUrl = `application-detail.html?slug=${post.slug}`;
-
-            if (!isEven) {
-              html += `
-                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
-                  <div class="cooperation_list_text">
-                    <div class="cooperation_list_textbox">
-                      <h2><a href="${detailUrl}">${post.title}</a></h2>
-                      <p class="hyphenate">${post.excerpt}</p>
-                    </div>
-                    <a href="${detailUrl}" class="cooperation_list_more">
-                      <i>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                      </i>
-                      More
-                    </a>
-                  </div>
-                  <div class="cooperation_list_img">
-                    <img loading="lazy" src="${post.image}" alt="${post.title}">
-                  </div>
-                </div>
-              `;
-            } else {
-              html += `
-                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
-                  <div class="cooperation_list_img">
-                    <img loading="lazy" src="${post.image}" alt="${post.title}">
-                  </div>
-                  <div class="cooperation_list_text">
-                    <div class="cooperation_list_textbox">
-                      <h2><a href="${detailUrl}">${post.title}</a></h2>
-                      <p class="hyphenate">${post.excerpt}</p>
-                    </div>
-                    <a href="${detailUrl}" class="cooperation_list_more">
-                      <i>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                          <line x1="5" y1="12" x2="19" y2="12"></line>
-                          <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                      </i>
-                      More
-                    </a>
-                  </div>
-                </div>
-              `;
-            }
-          });
-
-          container.append(html);
-          
-          // Re-initialize WOW.js for dynamically generated elements
-          if (typeof WOW !== 'undefined') {
-            new WOW().init();
-          }
+      // Dynamic rendering logic
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      
+      function renderDetail() {
+        const slug = getQueryParam('slug');
+        if (!slug || typeof applicationsData === 'undefined') {
+          $('#detail-title').text('Article Not Found');
+          $('#detail-content').html('<p style="text-align:center; padding: 40px 0;">We could not find the requested application article. Please return to the <a href="application.html">applications list</a>.</p>');
+          return;
         }
-      });
+        
+        const post = applicationsData.find(p => p.slug === slug);
+        if (!post) {
+          $('#detail-title').text('Article Not Found');
+          $('#detail-content').html('<p style="text-align:center; padding: 40px 0;">We could not find the requested application article. Please return to the <a href="application.html">applications list</a>.</p>');
+          return;
+        }
+        
+        // Populate Title, Date, Breadcrumb
+        document.title = post.title + " - PN Technologies";
+        $('#detail-title').text(post.title);
+        $('#detail-date').text(post.date);
+        $('#detail-breadcrumb-title').text(post.title);
+        
+        // Render content
+        $('#detail-content').html(post.content);
+        
+        // Setup next post link
+        const currentIdx = applicationsData.findIndex(p => p.slug === slug);
+        const nextPost = applicationsData[(currentIdx + 1) % applicationsData.length];
+        if (nextPost) {
+          $('#detail-next-btn').html(`
+            <a href="application-detail.html?slug=${nextPost.slug}">
+              Next Article
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          `);
+        }
+      }
+      
+      // Wait slightly to ensure applications-data.js is parsed
+      setTimeout(renderDetail, 100);
     });
   </script>
 </body>
