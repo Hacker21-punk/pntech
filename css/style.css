@@ -486,10 +486,13 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
   height: 100%;
 }
 .hd-search {
+  position: relative; /* Serves as the anchor for the absolute search results dropdown */
+  margin-left: 24px;  /* Safety margin to prevent overlap with Contact Us */
+}
+.hd-search form {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  margin-left: 24px; /* Safety margin to keep clean space from Contact Us navigation link */
 }
 .hd-search-input {
   display: none;
@@ -526,6 +529,62 @@ html.light-theme .hd-search-img:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 .hd-search-img-ac { display: none; }
+
+/* Live Search Suggestions Dropdown */
+.hd-search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 280px;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-top: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+html.light-theme .hd-search-results {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+.hd-search-result-item {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+html.light-theme .hd-search-result-item {
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+.hd-search-result-item:last-child {
+  border-bottom: none;
+}
+.hd-search-result-item:hover {
+  background: rgba(255, 102, 0, 0.1);
+}
+.hd-search-result-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.hd-search-result-category {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.hd-search-no-results {
+  padding: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+}
 
 .hd-hy, .hd-qh {
   display: flex;

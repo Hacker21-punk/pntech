@@ -161,12 +161,125 @@ $(document).ready(function () {
     }
   });
 
-  // ---- Search Toggle ----
-  $('.hd-search-img').on('click', function () {
-    var $input = $(this).siblings('.hd-search-input');
-    $input.toggle();
-    if ($input.is(':visible')) {
-      $input.find('input').focus();
+  // ---- Premium Live Search Implementation ----
+
+  var searchProducts = [
+    { name: "New SGA-60", url: "product-sga.html", category: "Vector Signal Generator", keywords: "sga60 sga-60 vector signal generator vsg" },
+    { name: "New SAN Series", url: "product-new-san.html", category: "Spectrum Analyzer", keywords: "san new san usb spectrum analyzer 9ghz 6ghz" },
+    { name: "SAN Series (SAN-400)", url: "product-san400.html", category: "Spectrum Analyzer", keywords: "san400 san-400 usb spectrum analyzer 40ghz" },
+    { name: "SAE Series", url: "product-sa.html", category: "Spectrum Analyzer", keywords: "sae sa usb spectrum analyzer 9ghz 6.3ghz" },
+    { name: "NXN Series", url: "product-nxn.html", category: "Networked Spectrum Analyzer", keywords: "nxn networked spectrum analyzer network 40ghz" },
+    { name: "NXE Series", url: "product-nxe.html", category: "Networked Spectrum Analyzer", keywords: "nxe networked spectrum analyzer network 9ghz" },
+    { name: "PX Series Standard", url: "product-px-standard.html", category: "Benchtop/Handheld Spectrum Analyzer", keywords: "px standard benchtop handheld spectrum analyzer 40ghz" },
+    { name: "PX Series Geek", url: "product-px-geek.html", category: "Benchtop/Handheld Spectrum Analyzer", keywords: "px geek benchtop handheld spectrum analyzer 40ghz" },
+    { name: "PXR Series (Rugged)", url: "product-px-rugged.html", category: "Rugged Spectrum Analyzer", keywords: "pxr rugged spectrum analyzer military 40ghz" },
+    { name: "New PXN Series", url: "product-pxn.html", category: "Benchtop/Handheld Spectrum Analyzer", keywords: "pxn new pxn benchtop handheld spectrum analyzer 40ghz" },
+    { name: "HDA-100 Active Antenna", url: "product-hda.html", category: "Antenna", keywords: "hda100 hda-100 active antenna directional automatic" }
+  ];
+
+  // Inject search results dropdown container dynamically on page load
+  $('.hd-search').each(function() {
+    if ($(this).find('.hd-search-results').length === 0) {
+      $(this).append('<div class="hd-search-results"></div>');
+    }
+  });
+
+  // Track search typing to provide real-time suggestions
+  $('.hd-search-input input').on('input', function() {
+    var query = $(this).val().toLowerCase().trim();
+    var $results = $(this).closest('.hd-search').find('.hd-search-results');
+    
+    if (query.length === 0) {
+      $results.hide().empty();
+      return;
+    }
+    
+    var matches = searchProducts.filter(function(product) {
+      return product.name.toLowerCase().indexOf(query) !== -1 || 
+             product.category.toLowerCase().indexOf(query) !== -1 ||
+             product.keywords.toLowerCase().indexOf(query) !== -1;
+    });
+    
+    $results.empty();
+    if (matches.length > 0) {
+      matches.forEach(function(product) {
+        var itemHtml = `
+          <div class="hd-search-result-item" data-url="${product.url}">
+            <div class="hd-search-result-title">${product.name}</div>
+            <div class="hd-search-result-category">${product.category}</div>
+          </div>
+        `;
+        $results.append(itemHtml);
+      });
+    } else {
+      $results.append('<div class="hd-search-no-results">No products found</div>');
+    }
+    $results.show();
+  });
+
+  // Click on search result item navigates directly to product page
+  $(document).on('click', '.hd-search-result-item', function() {
+    var url = $(this).data('url');
+    window.location.href = url;
+  });
+
+  // Search button click logic (Toggles box, or submits query if input is open and filled)
+  $('.hd-search-img').on('click', function (e) {
+    e.preventDefault();
+    var $searchContainer = $(this).closest('.hd-search');
+    var $inputContainer = $(this).siblings('.hd-search-input');
+    var $input = $inputContainer.find('input');
+    
+    if ($inputContainer.is(':visible')) {
+      var query = $input.val().toLowerCase().trim();
+      if (query.length > 0) {
+        // Run search query and redirect to first matching item
+        var matches = searchProducts.filter(function(product) {
+          return product.name.toLowerCase().indexOf(query) !== -1 || 
+                 product.category.toLowerCase().indexOf(query) !== -1 ||
+                 product.keywords.toLowerCase().indexOf(query) !== -1;
+        });
+        if (matches.length > 0) {
+          window.location.href = matches[0].url;
+        } else {
+          showToast('Search', 'No matching products found.', false);
+        }
+      } else {
+        // Toggle close
+        $inputContainer.hide();
+        $searchContainer.find('.hd-search-results').hide().empty();
+      }
+    } else {
+      // Toggle open
+      $inputContainer.show();
+      $input.focus();
+    }
+  });
+
+  // Handle enter key press inside search box to submit
+  $('.hd-search-input input').on('keypress', function(e) {
+    if (e.which === 13) { // Enter key
+      e.preventDefault();
+      var query = $(this).val().toLowerCase().trim();
+      if (query.length > 0) {
+        var matches = searchProducts.filter(function(product) {
+          return product.name.toLowerCase().indexOf(query) !== -1 || 
+                 product.category.toLowerCase().indexOf(query) !== -1 ||
+                 product.keywords.toLowerCase().indexOf(query) !== -1;
+        });
+        if (matches.length > 0) {
+          window.location.href = matches[0].url;
+        } else {
+          showToast('Search', 'No matching products found.', false);
+        }
+      }
+    }
+  });
+
+  // Close search results dropdown on clicking outside
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.hd-search').length) {
+      $('.hd-search-results').hide().empty();
     }
   });
 
