@@ -558,13 +558,25 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Dynamic rendering logic
-      function getQueryParam(param) {
+      function getSlug() {
         const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
+        let slug = urlParams.get('slug');
+        if (slug) return slug;
+        
+        const path = window.location.pathname;
+        const parts = path.split('/');
+        const filteredParts = parts.filter(p => p !== '');
+        if (filteredParts.length > 0) {
+          const lastPart = filteredParts[filteredParts.length - 1];
+          if (lastPart && lastPart !== 'application-detail' && lastPart !== 'application-detail.html') {
+            return lastPart;
+          }
+        }
+        return null;
       }
       
       function renderDetail() {
-        const slug = getQueryParam('slug');
+        const slug = getSlug();
         if (!slug || typeof applicationsData === 'undefined') {
           $('#detail-title').text('Article Not Found');
           $('#detail-content').html('<p style="text-align:center; padding: 40px 0;">We could not find the requested application article. Please return to the <a href="application.html">applications list</a>.</p>');
@@ -592,7 +604,7 @@
         const nextPost = applicationsData[(currentIdx + 1) % applicationsData.length];
         if (nextPost) {
           $('#detail-next-btn').html(`
-            <a href="application-detail.html?slug=${nextPost.slug}">
+            <a href="coop/${nextPost.slug}">
               Next Article
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>

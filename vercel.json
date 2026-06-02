@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/coop/:slug", "destination": "/application-detail.html?slug=:slug" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

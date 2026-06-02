@@ -607,7 +607,7 @@
           let html = '';
           filtered.forEach((post, index) => {
             const isEven = index % 2 === 0;
-            const detailUrl = `application-detail.html?slug=${post.slug}`;
+            const detailUrl = `coop/${post.slug}`;
 
             if (!isEven) {
               html += `
