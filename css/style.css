@@ -705,7 +705,7 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
   text-align: center;
   padding: 14px 28px;
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 102, 204, 0.08);
+  border: 1px solid rgba(255, 102, 0, 0.1);
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   backdrop-filter: blur(10px);
@@ -716,14 +716,14 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
 .sc1-model-box:hover {
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(0, 102, 204, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 102, 204, 0.12);
+  border-color: rgba(255, 102, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(255, 102, 0, 0.12);
 }
 
 .sc1-model-name {
   font-size: 22px;
   font-weight: 500;
-  color: #0066cc;
+  color: #ff6a00;
   font-family: var(--font-main);
   letter-spacing: -0.5px;
   white-space: nowrap;
@@ -731,7 +731,7 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
 
 .sc1-model-name span {
   font-weight: 700;
-  color: #0044aa;
+  color: #e05500;
 }
 
 /* Inline models layout inside the glass card (for smaller devices/mobile) */
@@ -751,7 +751,7 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
 }
 
 .sc1-model-inline-item span {
-  color: #38bdf8;
+  color: #ff8c33;
   font-weight: 700;
   margin-right: 4px;
 }
@@ -2253,7 +2253,7 @@ footer {
   position: relative;
   height: 50vh;
   min-height: 350px;
-  background: linear-gradient(135deg, var(--navy) 0%, #0a1550 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, #1a0a00 100%);
   display: flex;
   align-items: center;
 }
@@ -2302,7 +2302,7 @@ footer {
 .product_card_img {
   aspect-ratio: 4/3;
   overflow: hidden;
-  background: linear-gradient(135deg, #070b16 0%, #121829 100%);
+  background: linear-gradient(135deg, #0a0600 0%, #1a0d00 100%);
   display: flex;
   align-items: center;
   justify-content: center;

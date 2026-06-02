@@ -209,6 +209,11 @@
       html.light-theme .sc17-lie { color: #222 !important; }
       html.light-theme .sc17-lie::before { color: #666 !important; }
     }
+    
+    /* Transform blue icons to orange to match the black & orange brand theme */
+    img[src*="-icon-blue"] {
+      filter: hue-rotate(170deg) saturate(2.5) brightness(1.1);
+    }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 </head>
