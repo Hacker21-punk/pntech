@@ -7,19 +7,23 @@ export default async function handler(req, res) {
   const allowedOrigins = [
     'https://pntech.in',
     'https://www.pntech.in',
-    'https://pntech-source-code.vercel.app'
+    'https://pntech-source-code.vercel.app',
+    'https://pntech.vercel.app'
   ];
 
   // Allow localhost & 127.0.0.1 for development
   const isLocalhost = origin?.startsWith('http://localhost') || referer?.startsWith('http://localhost') || 
                       origin?.startsWith('http://127.0.0.1') || referer?.startsWith('http://127.0.0.1');
 
-  if (origin && !allowedOrigins.includes(origin) && !isLocalhost) {
+  // Allow Vercel preview/deployment domains
+  const isVercel = origin?.endsWith('.vercel.app') || referer?.includes('.vercel.app');
+
+  if (origin && !allowedOrigins.includes(origin) && !isLocalhost && !isVercel) {
     return res.status(403).json({ success: false, error: 'Forbidden: Request origin not allowed.' });
   }
 
   // Set secure CORS headers
-  if (origin && (allowedOrigins.includes(origin) || isLocalhost)) {
+  if (origin && (allowedOrigins.includes(origin) || isLocalhost || isVercel)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   } else {
     res.setHeader('Access-Control-Allow-Origin', 'https://pntech.in');
