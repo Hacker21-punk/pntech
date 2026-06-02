@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Details - PN Technologies</title>
+  <meta name="description" content="Read the latest product release news and technical announcements from PN Technologies.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260602-v11">
+  <link rel="stylesheet" href="css/product-detail.css?v=20260529-v9">
+  <style>
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--navy); color: var(--text-primary); }
+    
+    /* Article Layout overrides */
+    main { background: var(--navy); padding-bottom: 120px; }
+    
+    .cooperation_show {
+      padding: 60px 0;
+    }
+    
+    .cooperation_show_box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--navy-light);
+      border: 1px solid var(--navy-border);
+      border-radius: 20px;
+      padding: 50px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+    }
+    
+    .cooperation_show_title {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: 15px;
+      letter-spacing: -0.5px;
+    }
+    
+    .cooperation_show_date {
+      font-size: 14px;
+      color: #ff6600;
+      font-weight: 600;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cooperation_show_date::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #ff6600;
+      border-radius: 50%;
+    }
+    
+    .cooperation_show_content {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    
+    .cooperation_show_foot {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--navy-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cooperation_show_back a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .cooperation_show_back a:hover {
+      color: #ff6600;
+    }
+    
+    .cooperation_show_next a {
+      color: #ff6600;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease;
+    }
+    
+    .cooperation_show_next a:hover {
+      color: #ffaa66;
+    }
+    
+    /* Enhance original article styles to match dark theme gracefully */
+    .cooperation_show_content h4,
+    .cooperation_show_content h5,
+    .cooperation_show_content h4 span,
+    .cooperation_show_content h5 span {
+      color: #ff6600 !important;
+      font-weight: 700;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .cooperation_show_content h6 {
+      color: var(--text-secondary) !important;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .cooperation_show_content a {
+      color: #ff6600 !important;
+      text-decoration: underline;
+    }
+    .cooperation_show_content a:hover {
+      color: #ffaa66 !important;
+    }
+    .cooperation_show_content img {
+      max-width: 100% !important;
+      height: auto !important;
+      border-radius: 12px;
+      border: 1px solid var(--navy-border);
+      margin: 24px auto !important;
+      display: block;
+    }
+    .cooperation_show_content iframe {
+      border-radius: 12px;
+      border: 1px solid var(--navy-border);
+    }
+    
+    @media (max-width: 768px) {
+      .cooperation_show_box {
+        padding: 30px 20px;
+      }
+      .cooperation_show_title {
+        font-size: 26px;
+      }
+    }
+    
+    /* Light theme overrides */
+    html.light-theme body { background: var(--bg-primary); color: var(--text-primary); }
+    html.light-theme main { background: var(--bg-primary); }
+    html.light-theme .cooperation_show_box { background: var(--white); border-color: rgba(0,0,0,0.06); }
+    html.light-theme .cooperation_show_content h6 { color: var(--text-secondary) !important; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
+</head>
+<body>
+  <script>var name = 'news'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
+
+  <!-- HEADER -->
+  <header>
+  <div class="hd-bg"></div>
+  <!-- Desktop Header -->
+  <div class="hd-out">
+    <div class="hd con">
+      <div class="hd-left">
+        <a href="index.html" style="display:flex; align-items:center; gap:10px;">
+          <img src="images/logo.png" alt="PNTECH" style="height:56px; width:auto;">
+          <span class="hd-logo-text" style="color:var(--white); font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
+        </a>
+      </div>
+      <div class="hd-md">
+        <nav class="hd-nav">
+          <ul class="hdnav-box">
+            <li class="menu-item"><a href="index.html">Home</a></li>
+            <li class="menu-item menu-item-has-children">
+              <a href="products.html">Product</a>
+              <div class="sub-menu mega-menu">
+                <div class="mega-menu-inner">
+                  <!-- Column 1: Spectrum Analyzer -->
+                  <div class="mega-column spectrum-analyzer-column">
+                    <div class="mega-column-title"><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></div>
+                    <div class="mega-sub-grid">
+                      <!-- USB Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#usb">USB</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-new-san.html">New SAN Series</a></li>
+                          <li><a href="product-san400.html">SAN Series</a></li>
+                          <li><a href="product-sa.html">SA Series</a></li>
+                        </ul>
+                      </div>
+                      <!-- Networked Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#networked">Networked</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-nxn.html">NXN Series</a></li>
+                          <li><a href="product-nxe.html">NXE Series</a></li>
+                        </ul>
+                      </div>
+                      <!-- Benchtop/Handheld Sub-column -->
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-px-standard.html">PX Series Standard</a></li>
+                          <li><a href="product-px-geek.html">PX Series Geek</a></li>
+                          <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Column 2: Vector Signal Generator -->
+                  <div class="mega-column vsg-column">
+                    <div class="mega-column-title"><a href="product-vector-signal-generator.html">Vector Signal Generator</a></div>
+                    <div class="mega-sub-grid">
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-vector-signal-generator.html#usb">USB</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-sga.html">New SGA-60</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Column 3: Antenna -->
+                  <div class="mega-column antenna-column">
+                    <div class="mega-column-title"><a href="product-hda.html">Antenna</a></div>
+                    <div class="mega-sub-grid">
+                      <div class="mega-sub-column">
+                        <div class="mega-sub-title"><a href="product-hda.html">HDA Series</a></div>
+                        <ul class="mega-links">
+                          <li><a href="product-hda.html">HDA-100</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="menu-item"><a href="application.html">Application</a></li>
+            <li class="menu-item"><a href="news.html">Latest News</a></li>
+            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="hd-right" style="display: flex; align-items: center; gap: 16px;">
+        <div class="hd-search">
+          <form>
+            <div class="hd-search-input"><input type="text" placeholder="Search"></div>
+            <button class="hd-search-img" type="button">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+          </form>
+        </div>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Header -->
+  <div class="phone-header">
+    <div class="phone-logo">
+      <a href="index.html" style="display:flex; align-items:center; gap:10px;">
+        <img src="images/logo.png" alt="PNTECH" style="height:48px; width:auto;">
+        <span style="color:var(--white); font-size:18px; font-weight:700;">PN Technologies</span>
+      </a>
+    </div>
+    <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <div class="phone-more">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--white);"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main>
+    <!-- Breadcrumb -->
+    <nav class="product-breadcrumb">
+      <div class="con">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="news.html">Latest News</a>
+        <span class="sep">›</span>
+        <span class="current" id="detail-breadcrumb-title">Loading...</span>
+      </div>
+    </nav>
+
+    <!-- Content Showcase -->
+    <section class="cooperation_show">
+      <div class="con cooperation_show_box">
+        <h1 class="cooperation_show_title" id="detail-title">Loading News Article...</h1>
+        <div class="cooperation_show_date">
+          <span id="detail-date">-</span>        
+        </div>
+        
+        <div class="cooperation_show_content" id="detail-content">
+          <!-- Dynamic Content Injected Here -->
+        </div>
+        
+        <div class="cooperation_show_foot">
+          <div class="cooperation_show_back">
+            <a href="news.html">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Back to News
+            </a>
+          </div>
+          <div class="cooperation_show_next" id="detail-next-btn">
+            <!-- Dynamic Next Link -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GET IN TOUCH -->
+  <section class="get-in-touch-section">
+    <div class="con">
+      <div class="git-header"><span class="git-tag">GET IN TOUCH</span><h2 class="git-title">Talk to our RF specialists</h2><p class="git-desc">Send us your inquiry — we typically respond the same business day.</p></div>
+      <div class="git-content">
+        <div class="git-form-card"><h3>Send us a message</h3>
+          <form id="git-contact-form">
+            <div class="git-form-row"><div class="git-form-group"><label for="git-fullname">FULL NAME *</label><input type="text" id="git-fullname" required></div><div class="git-form-group"><label for="git-email">EMAIL *</label><input type="email" id="git-email" required></div></div>
+            <div class="git-form-row"><div class="git-form-group"><label for="git-phone">PHONE</label><input type="tel" id="git-phone"></div><div class="git-form-group"><label for="git-company">COMPANY</label><input type="text" id="git-company"></div></div>
+            <div class="git-form-group full-width"><label for="git-message">MESSAGE *</label><textarea id="git-message" rows="5" required></textarea></div>
+            <button type="submit" class="git-submit-btn">Send Inquiry</button>
+          </form>
+        </div>
+        <div class="git-details"><a href="mailto:business@pntech.in" class="git-detail-card"><div class="git-icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></div><div class="git-info-box"><span class="git-detail-label">EMAIL</span><span class="git-detail-value">business@pntech.in</span></div></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="con">
+      <div class="ft-out">
+        <div class="ft">
+          <div class="ft-right">
+            <div class="ft-nav">
+              <ul class="ftnav-box">
+                <li><a href="products.html">Product</a>
+                  <ul class="sub-menu">
+                    <li><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></li>
+                    <li><a href="product-vector-signal-generator.html">Vector Signal Generator</a></li>
+                    <li><a href="product-hda.html">Antenna</a></li>
+                  </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="news.html">Latest News</a></li>
+                <li><a href="application.html">Application</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="ft-right-end">
+              <div class="ft-contact-info">
+                <p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p>
+                <p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bb">
+        <p>Copyright &copy; 2024-2026 PN Technologies</p>
+      </div>
+    </div>
+
+    <!-- Mobile Footer -->
+    <div class="phone-footer">
+      <div class="phone-box">
+        <ul class="phone-footer">
+          <li><a href="products.html">Product</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">Latest News</a></li>
+          <li><a href="application.html">Application</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Sidebar -->
+  <div class="sc33">
+    <div class="sc33-item sc33-zx" title="Contact Us"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div>
+    <div class="sc33-item sc33-top" title="Back to Top"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></div></div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="sc30-dbg"></div>
+  <div class="sc30-out"><div class="sc30-close"></div><div class="sc30-name"><p>Request</p><p>For Contact</p></div><div class="sc30-con">
+    <form id="modal-contact-form">
+      <div class="sc30-part1 sc30-part"><div class="sc30-part-name"><p><span>Request Fields*</span></p></div><div class="sc30-part-input" style="position:relative;"><input type="text" id="request-type" placeholder="Please select" readonly style="cursor:pointer;"><div class="sc30-part-xia"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="sc30-part-select" id="request-select"><div class="sc30-part-select-scroll"><div class="sc30-part-select-item"><p>Product Information</p></div><div class="sc30-part-select-item"><p>Request for Quote</p></div><div class="sc30-part-select-item"><p>Technical Support</p></div><div class="sc30-part-select-item"><p>Apply for a Job</p></div><div class="sc30-part-select-item"><p>Others</p></div></div></div></div>
+      <div class="sc30-part2 sc30-part"><div class="sc30-part-name"><p><span>First Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part3 sc30-part"><div class="sc30-part-name"><p><span>Last Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part4 sc30-part"><div class="sc30-part-name"><p><span>Company*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part5 sc30-part"><div class="sc30-part-name"><p><span>Country*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
+      <div class="sc30-part6 sc30-part"><div class="sc30-part-name"><p><span>E-Mail*</span></p></div><div class="sc30-part-input"><input type="email" required></div></div>
+      <div class="sc30-part7 sc30-part"><div class="sc30-part-name"><p><span>Phone (optional)</span></p></div><div class="sc30-part-input"><input type="tel"></div></div>
+      <div class="sc30-part8 sc30-part"><div class="sc30-part-name"><p><span>Your Message (optional)</span></p></div><div class="sc30-part-input"><textarea rows="4"></textarea></div></div>
+      <div class="sc30-part10 sc30-part"><input type="submit" value="SEND MESSAGE"></div>
+    </form>
+  </div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous" defer></script>
+  <script src="js/news-data.js?v=20260602-v11"></script>
+  <script defer src="js/main.js?v=20260602-v11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Dynamic rendering logic
+      function getSlug() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let slug = urlParams.get('slug');
+        if (slug) return slug;
+        
+        const path = window.location.pathname;
+        const parts = path.split('/');
+        const filteredParts = parts.filter(p => p !== '');
+        if (filteredParts.length > 0) {
+          const lastPart = filteredParts[filteredParts.length - 1];
+          if (lastPart && lastPart !== 'news-detail' && lastPart !== 'news-detail.html') {
+            return lastPart;
+          }
+        }
+        return null;
+      }
+      
+      function renderDetail() {
+        const slug = getSlug();
+        if (!slug || typeof newsData === 'undefined') {
+          $('#detail-title').text('Article Not Found');
+          $('#detail-content').html('<p style="text-align:center; padding: 40px 0;">We could not find the requested news article. Please return to the <a href="news.html">news center</a>.</p>');
+          return;
+        }
+        
+        const post = newsData.find(p => p.slug === slug);
+        if (!post) {
+          $('#detail-title').text('Article Not Found');
+          $('#detail-content').html('<p style="text-align:center; padding: 40px 0;">We could not find the requested news article. Please return to the <a href="news.html">news center</a>.</p>');
+          return;
+        }
+        
+        // Populate Title, Date, Breadcrumb
+        document.title = post.title + " - PN Technologies";
+        $('#detail-title').text(post.title);
+        $('#detail-date').text(post.date);
+        $('#detail-breadcrumb-title').text(post.title);
+        
+        // Render content
+        $('#detail-content').html(post.content);
+        
+        // Setup next post link
+        const currentIdx = newsData.findIndex(p => p.slug === slug);
+        const nextPost = newsData[(currentIdx + 1) % newsData.length];
+        if (nextPost) {
+          $('#detail-next-btn').html(`
+            <a href="news/${nextPost.slug}">
+              Next Article
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          `);
+        }
+      }
+      
+      // Wait slightly to ensure news-data.js is parsed
+      setTimeout(renderDetail, 100);
+    });
+  </script>
+</body>
+</html>

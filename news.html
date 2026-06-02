@@ -35,6 +35,8 @@
     .news-card-date { font-size: 12px; color: rgba(255,255,255,0.4); }
     .news-card-tag { font-size: 11px; font-weight: 600; color: #ff6600; background: rgba(255,102,0,0.1); padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
     .news-card-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.4; }
+    .news-card-title a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
+    .news-card-title a:hover { color: #ff6600; }
     .news-card-excerpt { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.45); }
     @media (max-width: 1024px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
@@ -43,6 +45,25 @@
       .news-grid { grid-template-columns: 1fr; gap: 20px; }
       .news-section { padding: 50px 0; }
     }
+    
+    /* Category styles */
+    .news-cate { display: flex; justify-content: center; gap: 16px; margin-bottom: 50px; padding: 0; list-style: none; }
+    .news-category { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 24px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; }
+    .news-category:hover { color: #ff6600; border-color: rgba(255,102,0,0.3); background: rgba(255,102,0,0.05); }
+    .news-category.active { color: var(--white); background: #ff6600; border-color: #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.4); }
+    
+    /* Pagination styles */
+    .news-pagination-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 60px; }
+    .news-page-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--white); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; outline: none; }
+    .news-page-btn:hover:not(:disabled) { background: #ff6600; border-color: #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.4); transform: scale(1.05); }
+    .news-page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .news-page-info { display: flex; align-items: center; gap: 12px; font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 500; }
+    .news-page-input { width: 55px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ff6600; font-weight: 700; font-size: 16px; text-align: center; outline: none; transition: border-color 0.3s ease; -moz-appearance: textfield; }
+    .news-page-input::-webkit-outer-spin-button, .news-page-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .news-page-input:focus { border-color: #ff6600; background: rgba(255,255,255,0.06); }
+    .news-page-of { color: rgba(255,255,255,0.4); font-size: 14px; }
+    .news-total-pages { color: var(--white); font-weight: 600; }
+
     /* Light theme overrides */
     html.light-theme .news-card { background: rgba(255, 255, 255, 0.7); border-color: rgba(0, 0, 0, 0.08); }
     html.light-theme .news-card:hover { background: rgba(255, 255, 255, 0.95); border-color: var(--accent); }
@@ -50,6 +71,15 @@
     html.light-theme .news-card-date { color: var(--text-secondary); }
     html.light-theme .news-card-excerpt { color: var(--text-secondary); }
     html.light-theme .news-section-title h2 { color: var(--text-primary); }
+    html.light-theme .news-category { background: var(--white); border-color: rgba(0,0,0,0.08); color: var(--text-secondary); }
+    html.light-theme .news-category:hover { color: #ff6600; border-color: #ff6600; }
+    html.light-theme .news-category.active { color: var(--white); background: #ff6600; }
+    html.light-theme .news-page-btn { background: var(--white); border-color: rgba(0,0,0,0.08); color: var(--text-primary); }
+    html.light-theme .news-page-btn:hover:not(:disabled) { background: #ff6600; border-color: #ff6600; color: var(--white); }
+    html.light-theme .news-page-info { color: var(--text-secondary); }
+    html.light-theme .news-page-input { background: var(--white); border-color: rgba(0,0,0,0.1); }
+    html.light-theme .news-page-of { color: var(--text-secondary); }
+    html.light-theme .news-total-pages { color: var(--text-primary); }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
 </head>
@@ -201,62 +231,36 @@
 
     <!-- News Grid -->
     <section class="news-section">
-      <div class="news-grid">
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="news-card-img"><img loading="lazy" src="images/products/pxn-90.png" alt="PX-N Series Launch"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">May 20, 2025</span><span class="news-card-tag">Product Launch</span></div>
-            <h3 class="news-card-title">PN Technologies Launches New PX-N Series Spectrum Analyzer</h3>
-            <p class="news-card-excerpt">The new PX-N Series brings handheld real-time spectrum analysis to 4.5, 6, and 9 GHz with optional tracking generator support and advanced measurement capabilities.</p>
+      <div class="con">
+        <div class="news-cate">
+          <span class="news-category active" data-id="0">All</span>
+          <span class="news-category" data-id="97">New Product Release</span>
+        </div>
+        
+        <div class="news-grid" id="dynamic-news-grid">
+          <!-- Dynamic News Cards Injected Here -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="news-pagination-container">
+          <button class="news-page-btn" id="news-prev-btn" aria-label="Previous page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          
+          <div class="news-page-info">
+            <input type="number" id="news-current-page-input" class="news-page-input" value="1" min="1" max="2">
+            <span class="news-page-of">of</span>
+            <span class="news-total-pages" id="news-total-pages-span">2</span>
           </div>
-        </article>
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="news-card-img"><img loading="lazy" src="images/products/san-60.png" alt="New SAN Series"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">Apr 15, 2025</span><span class="news-card-tag">Product Launch</span></div>
-            <h3 class="news-card-title">New SAN Series: Compact USB Spectrum Analyzer Now Available</h3>
-            <p class="news-card-excerpt">The SAN Series USB spectrum analyzers deliver compact design, fast sweep speeds, and real-time analysis for spectrum monitoring and embedded RF applications.</p>
-          </div>
-        </article>
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-          <div class="news-card-img"><img loading="lazy" src="images/about_youshi_team.jpg" alt="Bhopal Office"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">Mar 28, 2025</span><span class="news-card-tag">Company News</span></div>
-            <h3 class="news-card-title">PN Technologies Opens New Office in Bhopal</h3>
-            <p class="news-card-excerpt">Expanding our presence in India, PN Technologies has opened a new office in Bhopal, Madhya Pradesh, to better serve our growing customer base in central India.</p>
-          </div>
-        </article>
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.1s">
-          <div class="news-card-img"><img loading="lazy" src="images/products/sga-60.jpg" alt="SGA-60 VSG"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">Feb 10, 2025</span><span class="news-card-tag">Product Launch</span></div>
-            <h3 class="news-card-title">SGA-60 Vector Signal Generator Shipping Worldwide</h3>
-            <p class="news-card-excerpt">The SGA-60 USB vector signal generator (9 kHz – 6 GHz) is now available for worldwide shipping, offering compact design with powerful modulation capabilities.</p>
-          </div>
-        </article>
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-          <div class="news-card-img"><img loading="lazy" src="images/about_youshi_factory.webp" alt="Partnership"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">Jan 22, 2025</span><span class="news-card-tag">Partnership</span></div>
-            <h3 class="news-card-title">PN Technologies Partners with Leading RF Research Labs</h3>
-            <p class="news-card-excerpt">Strategic partnerships with top RF research institutions to advance next-generation spectrum analysis technology and foster innovation in the industry.</p>
-          </div>
-        </article>
-
-        <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-          <div class="news-card-img"><img loading="lazy" src="images/products/pxn-400r.jpg" alt="PX-400R Certification"></div>
-          <div class="news-card-body">
-            <div class="news-card-meta"><span class="news-card-date">Dec 05, 2024</span><span class="news-card-tag">Technology</span></div>
-            <h3 class="news-card-title">PX-400R Rugged Spectrum Analyzer Receives MIL-STD Certification</h3>
-            <p class="news-card-excerpt">The PX-400R has achieved MIL-STD-810H certification, validating its IP68-rated design for extreme water, dust, and vibration resistance in field deployments.</p>
-          </div>
-        </article>
-
+          
+          <button class="news-page-btn" id="news-next-btn" aria-label="Next page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   </main>
@@ -338,6 +342,114 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous" defer></script>
+  <script src="js/news-data.js?v=20260602-v11"></script>
   <script defer src="js/main.js?v=20260602-v11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const PAGE_SIZE = 5;
+      let currentPage = 1;
+      const totalPages = Math.ceil(newsData.length / PAGE_SIZE);
+      
+      const grid = document.getElementById('dynamic-news-grid');
+      const prevBtn = document.getElementById('news-prev-btn');
+      const nextBtn = document.getElementById('news-next-btn');
+      const pageInput = document.getElementById('news-current-page-input');
+      const totalSpan = document.getElementById('news-total-pages-span');
+      
+      if (totalSpan) {
+        totalSpan.textContent = totalPages;
+      }
+      if (pageInput) {
+        pageInput.max = totalPages;
+      }
+      
+      function renderPage(page) {
+        if (!grid || typeof newsData === 'undefined') return;
+        
+        currentPage = page;
+        if (pageInput) {
+          pageInput.value = page;
+        }
+        
+        // Enable/Disable buttons
+        if (prevBtn) prevBtn.disabled = (currentPage === 1);
+        if (nextBtn) nextBtn.disabled = (currentPage === totalPages);
+        
+        // Slice the data
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const end = Math.min(start + PAGE_SIZE, newsData.length);
+        const pageItems = newsData.slice(start, end);
+        
+        // Render
+        let html = '';
+        pageItems.forEach((item, index) => {
+          const delay = (index * 0.1).toFixed(1) + 's';
+          const coverImg = item.cover_img || 'images/about_youshi_factory.webp';
+          
+          html += `
+            <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="${delay}">
+              <div class="news-card-img"><a href="news/${item.slug}"><img loading="lazy" src="${coverImg}" alt="${item.title}"></a></div>
+              <div class="news-card-body">
+                <div class="news-card-meta">
+                  <span class="news-card-date">${item.date}</span>
+                  <span class="news-card-tag">New Product Release</span>
+                </div>
+                <h3 class="news-card-title"><a href="news/${item.slug}">${item.title}</a></h3>
+                <p class="news-card-excerpt">${item.excerpt}</p>
+              </div>
+            </article>
+          `;
+        });
+        
+        grid.innerHTML = html;
+        
+        // Re-trigger WOW.js animations for new cards
+        if (typeof WOW !== 'undefined') {
+          new WOW().init();
+        }
+      }
+      
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          if (currentPage > 1) {
+            renderPage(currentPage - 1);
+            window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
+          }
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          if (currentPage < totalPages) {
+            renderPage(currentPage + 1);
+            window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
+          }
+        });
+      }
+      
+      if (pageInput) {
+        pageInput.addEventListener('change', function() {
+          let val = parseInt(this.value);
+          if (isNaN(val) || val < 1) val = 1;
+          if (val > totalPages) val = totalPages;
+          renderPage(val);
+          window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
+        });
+      }
+
+      // Categories clicking (simply keeps showing the same articles since all are New Product Release)
+      document.querySelectorAll('.news-category').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.news-category').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          renderPage(1);
+        });
+      });
+      
+      // Initial render
+      renderPage(1);
+    });
+  </script>
 </body>
 </html>
