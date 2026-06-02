@@ -6,19 +6,29 @@
 .product-hero {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, #050505 0%, #121212 30%, #161616 60%, #242424 100%);
+  background: linear-gradient(
+    135deg,
+    #050505 0%,
+    #121212 30%,
+    #161616 60%,
+    #242424 100%
+  );
   overflow: hidden;
   padding-top: 100px;
 }
 
 .product-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   right: -20%;
   width: 80%;
   height: 200%;
-  background: radial-gradient(ellipse at center, rgba(255, 102, 0, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 102, 0, 0.08) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -54,8 +64,13 @@
 }
 
 @keyframes heroImageFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 /* Series Badge */
@@ -69,7 +84,7 @@
 .product-series-badge .badge-icon {
   width: 48px;
   height: 48px;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -115,12 +130,12 @@
   padding-left: 20px;
   margin-bottom: 14px;
   font-size: 15px;
-  color: rgba(255,255,255,0.88);
+  color: rgba(255, 255, 255, 0.88);
   line-height: 1.6;
 }
 
 .product-key-facts ul li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 8px;
@@ -181,10 +196,10 @@
 
 .model-tab {
   padding: 12px 28px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -215,8 +230,14 @@
 }
 
 @keyframes fadeInContent {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ========================================
@@ -240,7 +261,7 @@
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .specs-table {
@@ -257,7 +278,7 @@
   letter-spacing: 1px;
   padding: 16px 24px;
   text-align: left;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .specs-table tbody tr {
@@ -269,7 +290,7 @@
 }
 
 .specs-table tbody tr:nth-child(even) {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .specs-table tbody tr:nth-child(even):hover {
@@ -279,13 +300,13 @@
 .specs-table td {
   padding: 14px 24px;
   font-size: 14px;
-  color: rgba(255,255,255,0.85);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .specs-table td:first-child {
   font-weight: 600;
-  color: rgba(255,255,255,0.95);
+  color: rgba(255, 255, 255, 0.95);
   width: 40%;
 }
 
@@ -391,8 +412,8 @@
 }
 
 .feature-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   padding: 32px 24px;
   text-align: center;
@@ -433,7 +454,7 @@
 
 .feature-card p {
   font-size: 13px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
 }
 
@@ -460,8 +481,8 @@
 }
 
 .related-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -503,7 +524,7 @@
 
 .related-card .related-info p {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ========================================
@@ -526,7 +547,7 @@
 }
 
 .product-breadcrumb a {
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -536,11 +557,11 @@
 }
 
 .product-breadcrumb .sep {
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .product-breadcrumb .current {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ========================================
@@ -784,8 +805,8 @@ html.light-theme .product-breadcrumb .current {
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
 }
 .sc24-name {
   display: flex;
@@ -793,7 +814,7 @@ html.light-theme .product-breadcrumb .current {
   align-items: center;
   padding: 20px 24px;
   background: rgba(255, 102, 0, 0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .sc24-name-left {
   font-size: 18px;
@@ -808,13 +829,13 @@ html.light-theme .product-breadcrumb .current {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 16px 24px;
 }
 .sc24-tou .sc24-lie {
   font-weight: 600;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -824,7 +845,7 @@ html.light-theme .product-breadcrumb .current {
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: background 0.2s ease;
 }
 .sc24-hang:hover {
@@ -836,7 +857,7 @@ html.light-theme .product-breadcrumb .current {
 .sc24-lie {
   flex: 1;
   font-size: 14px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -850,18 +871,22 @@ html.light-theme .product-breadcrumb .current {
   color: #fff;
 }
 /* Width distribution for table columns */
-.sc24-tou .sc24-lie, .sc24-hang .sc24-lie {
+.sc24-tou .sc24-lie,
+.sc24-hang .sc24-lie {
   width: 14%;
 }
-.sc24-tou .sc24-lie:first-child, .sc24-hang .sc24-lie:first-child {
+.sc24-tou .sc24-lie:first-child,
+.sc24-hang .sc24-lie:first-child {
   width: 18%;
   flex: 1.2;
 }
-.sc24-tou .sc24-lie:nth-child(2), .sc24-hang .sc24-lie:nth-child(2) {
+.sc24-tou .sc24-lie:nth-child(2),
+.sc24-hang .sc24-lie:nth-child(2) {
   width: 10%;
   flex: 0.8;
 }
-.sc24-tou .sc24-lie:nth-child(3), .sc24-hang .sc24-lie:nth-child(3) {
+.sc24-tou .sc24-lie:nth-child(3),
+.sc24-hang .sc24-lie:nth-child(3) {
   width: 16%;
   flex: 1.1;
 }
@@ -871,37 +896,36 @@ html.light-theme .sc23-out {
   background: var(--navy-light) !important;
 }
 html.light-theme .sc24-out {
-  border-color: rgba(0,0,0,0.08) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
   background: #fff !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 html.light-theme .sc24-name {
   background: rgba(255, 102, 0, 0.08) !important;
-  border-bottom-color: rgba(0,0,0,0.08) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 html.light-theme .sc24-name-left {
   color: #111827 !important;
 }
 html.light-theme .sc24-tou {
-  background: rgba(0,0,0,0.02) !important;
-  border-bottom-color: rgba(0,0,0,0.08) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 html.light-theme .sc24-tou .sc24-lie {
-  color: rgba(0,0,0,0.6) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
 }
 html.light-theme .sc24-hang {
-  border-bottom-color: rgba(0,0,0,0.05) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.05) !important;
 }
 html.light-theme .sc24-hang:hover {
   background: rgba(255, 102, 0, 0.04) !important;
 }
 html.light-theme .sc24-lie {
-  color: rgba(0,0,0,0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 html.light-theme .sc25-lie.sc25-lie-pd {
   color: #111827 !important;
 }
-
 
 /* ========================================
    PRODUCT VIDEOS SECTION
@@ -915,13 +939,17 @@ html.light-theme .sc25-lie.sc25-lie-pd {
 }
 
 .product-videos-section::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 10% 80%, rgba(255, 102, 0, 0.03) 0%, transparent 50%);
+  background: radial-gradient(
+    circle at 10% 80%,
+    rgba(255, 102, 0, 0.03) 0%,
+    transparent 50%
+  );
   pointer-events: none;
 }
 
@@ -1070,7 +1098,8 @@ html.light-theme .sc25-lie.sc25-lie-pd {
     flex-direction: column;
     gap: 32px;
   }
-  .video-left, .video-right {
+  .video-left,
+  .video-right {
     width: 100%;
   }
   .video-section-title h2 {
@@ -1097,8 +1126,8 @@ html.light-theme .sc25-lie.sc25-lie-pd {
 /* Light Theme Product Videos Overrides */
 html.light-theme .product-videos-section {
   background: var(--navy-light) !important;
-  border-top-color: rgba(0,0,0,0.06) !important;
-  border-bottom-color: rgba(0,0,0,0.06) !important;
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
 }
 
 html.light-theme .video-section-title h2 {
@@ -1108,7 +1137,7 @@ html.light-theme .video-section-title h2 {
 html.light-theme .video-item {
   background: #fff !important;
   border-color: rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
 }
 
 html.light-theme .video-item:hover {
@@ -1144,7 +1173,7 @@ html.light-theme .video-item.active .video-item-title {
 }
 
 html.light-theme .video-player-container {
-  border-color: rgba(0,0,0,0.08) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -1166,8 +1195,8 @@ html.light-theme .sc23-out .section-title {
 .sc25-wrapper {
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
 }
 .sc25-name {
   display: flex;
@@ -1175,7 +1204,7 @@ html.light-theme .sc23-out .section-title {
   align-items: center;
   padding: 20px 24px;
   background: rgba(255, 102, 0, 0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .sc25-name-left {
   font-size: 18px;
@@ -1190,13 +1219,13 @@ html.light-theme .sc23-out .section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 16px 24px;
 }
 .sc25-tou .sc25-lie {
   font-weight: 600;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1206,7 +1235,7 @@ html.light-theme .sc23-out .section-title {
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition: background 0.2s ease;
 }
 .sc25-hang:hover {
@@ -1218,7 +1247,7 @@ html.light-theme .sc23-out .section-title {
 .sc25-lie {
   flex: 1;
   font-size: 14px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1232,22 +1261,26 @@ html.light-theme .sc23-out .section-title {
   color: #fff;
 }
 /* Width distribution for options table columns */
-.sc25-tou .sc25-lie, .sc25-hang .sc25-lie {
+.sc25-tou .sc25-lie,
+.sc25-hang .sc25-lie {
   width: 30%;
 }
-.sc25-tou .sc25-lie:first-child, .sc25-hang .sc25-lie:first-child {
+.sc25-tou .sc25-lie:first-child,
+.sc25-hang .sc25-lie:first-child {
   width: 15%;
   flex: 0.5;
   justify-content: flex-start;
   text-align: left;
 }
-.sc25-tou .sc25-lie:nth-child(2), .sc25-hang .sc25-lie:nth-child(2) {
+.sc25-tou .sc25-lie:nth-child(2),
+.sc25-hang .sc25-lie:nth-child(2) {
   width: 55%;
   flex: 2;
   justify-content: flex-start;
   text-align: left;
 }
-.sc25-tou .sc25-lie:nth-child(3), .sc25-hang .sc25-lie:nth-child(3) {
+.sc25-tou .sc25-lie:nth-child(3),
+.sc25-hang .sc25-lie:nth-child(3) {
   width: 30%;
   flex: 1;
   justify-content: flex-start;
@@ -1259,34 +1292,33 @@ html.light-theme .sc25-out {
   background: var(--navy-light) !important;
 }
 html.light-theme .sc25-wrapper {
-  border-color: rgba(0,0,0,0.08) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
   background: #fff !important;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 html.light-theme .sc25-name {
   background: rgba(255, 102, 0, 0.08) !important;
-  border-bottom-color: rgba(0,0,0,0.08) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 html.light-theme .sc25-name-left {
   color: #111827 !important;
 }
 html.light-theme .sc25-tou {
-  background: rgba(0,0,0,0.02) !important;
-  border-bottom-color: rgba(0,0,0,0.08) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 html.light-theme .sc25-tou .sc25-lie {
-  color: rgba(0,0,0,0.6) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
 }
 html.light-theme .sc25-hang {
-  border-bottom-color: rgba(0,0,0,0.05) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.05) !important;
 }
 html.light-theme .sc25-hang:hover {
   background: rgba(255, 102, 0, 0.04) !important;
 }
 html.light-theme .sc25-lie {
-  color: rgba(0,0,0,0.8) !important;
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 html.light-theme .sc25-lie.sc25-lie-pd {
   color: #111827 !important;
 }
-

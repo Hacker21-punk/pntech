@@ -1,0 +1,107 @@
+[
+  {
+    "ID": 29448,
+    "title": "Extend RF Boundaries: HAROGIC Launches New SGA-60 USB Vector Signal Genetor",
+    "permalink": "https://www.harogic.com/latest-news/extend-rf-boundaries-harogic-launches-new-sga-60-usb-vector-signal-genetor/",
+    "date": "23 / 04 2026",
+    "excerpt": "HAROGIC Launches New SGA-60 Vector Signal Generator",
+    "acf_fields": {
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2026/04/SOP-SGA_中文官网新闻内页小图708x394-副本.jpg",
+      "news_relation": "https://www.harogic.com/wp-content/uploads/2026/04/SOP-SGA_英文官网新闻大图1579x888-副本.jpg",
+      "news_like": true,
+      "page_banner": false,
+      "m_page_banner": "https://www.harogic.com/wp-content/uploads/2024/08/banner3.jpg"
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 28287,
+    "title": "RF Performance Within Reach: HAROGIC Launches New PXN Series Handheld Spectrum Analyzer",
+    "permalink": "https://www.harogic.com/latest-news/rf-performance-within-reach-harogic-launches-new-pxn-series-handheld-spectrum-analyzer/",
+    "date": "06 / 04 2026",
+    "excerpt": "HAROGIC Technologies has officially released the new PXN Series, a line of compact handheld spectrum analyzers and receivers that brings professional RF performance within easy reach for engineers, technicians and field users.",
+    "acf_fields": {
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2026/04/PX万元机sop_英文官网新闻内页小图708x394.jpg",
+      "news_relation": "https://www.harogic.com/wp-content/uploads/2026/04/PX万元机sop_英文官网新闻大图904x508.jpg",
+      "news_like": true,
+      "page_banner": "https://www.harogic.com/wp-content/uploads/2025/12/Home-banner.jpg",
+      "m_page_banner": "https://www.harogic.com/wp-content/uploads/2024/08/banner3.jpg"
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 27046,
+    "title": "HAROGIC release new SAN series spectrum analyzer/receiver up to 9 GHz",
+    "permalink": "https://www.harogic.com/latest-news/harogic-release-new-san-series-spectrum-analyzer-receiver-up-to-9-ghz/",
+    "date": "05 / 03 2026",
+    "excerpt": "HAROGIC New SAN series spectrum analyzer/receiver",
+    "acf_fields": {
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2026/03/HAROGIC-NEW-SAN-SERIES.jpg",
+      "news_relation": false,
+      "news_like": false,
+      "page_banner": "https://www.harogic.com/wp-content/uploads/2025/12/Home-banner.jpg",
+      "m_page_banner": "https://www.harogic.com/wp-content/uploads/2025/12/banner3.jpg"
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 23699,
+    "title": "HAROGIC Releases New Active Directional Antenna",
+    "permalink": "https://www.harogic.com/latest-news/harogic-release-new-active-directional-antenna/",
+    "date": "16 / 10 2025",
+    "excerpt": "HAROGIC introduces the all-new HDA-100 handheld active directional antenna. ",
+    "acf_fields": {
+      "page_banner": "https://www.harogic.com/wp-content/uploads/2025/06/新闻中心详情页-首图-可替换.svg",
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2025/10/cover.jpg",
+      "news_relation": "https://www.harogic.com/wp-content/uploads/2025/09/Selected-News1.jpg",
+      "news_like": true,
+      "m_page_banner": false
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 22359,
+    "title": "HAROGIC Releases new rugged spectrum analyzer: all-in-one AI platform",
+    "permalink": "https://www.harogic.com/latest-news/harogic-releases-new-rugged-spectrum-analyzer-all-in-one-ai-platform/",
+    "date": "24 / 09 2025",
+    "excerpt": "All-IN-ONE AI PLATFORM: HAROGIC releases IP68 Rugged Spectrum Analyzer\r\n",
+    "acf_fields": {
+      "page_banner": false,
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2025/09/cover-1.jpg",
+      "news_relation": "https://www.harogic.com/wp-content/uploads/2025/09/Selected-News2.jpg",
+      "news_like": true,
+      "m_page_banner": false
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 5880,
+    "title": "HAROGIC launches PX series Z edition handheld spectrum analyzer up to 40 GHz",
+    "permalink": "https://www.harogic.com/latest-news/harogic-launches-px-series-z-edition-handheld-spectrum-analyzer-up-to-40-ghz/",
+    "date": "20 / 03 2025",
+    "excerpt": "HAROGIC is launching the new HAROGIC PXN-400Z handheld spectrum analyzer up to 40 GHz with 100 MHz bandwidth. It is the latest spectrum analyzer based on Windows 11 operating system and AMD Z1 extreme CPU for effective field computing analysis.",
+    "acf_fields": {
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2025/03/cover-1.jpg",
+      "news_relation": false,
+      "news_like": false,
+      "page_banner": "https://www.harogic.com/wp-content/uploads/2025/06/新闻中心详情页-首图-可替换.svg",
+      "m_page_banner": false
+    },
+    "category_ids": [1, 97]
+  },
+  {
+    "ID": 2081,
+    "title": "HAROGIC  Launches PXN-400 40 GHz handheld spectrum analyzer at EuMW2024",
+    "permalink": "https://www.harogic.com/latest-news/harogic-technologies-launches-pxn-400-40-ghz-handheld-spectrum-analyzer-at-eumw2024/",
+    "date": "26 / 09 2024",
+    "excerpt": "HAROGIC Technologies has made waves at EuMW2024 with the launch of their latest innovation, the PXN-400 40 GHz handheld spectrum analyzer! This state-of-the-art handheld RF spectrum analyzer is designed to meet the growing demands of portable RF testing with its impressive frequency range of 9 kHz to 40 GHz and advanced SHR architecture with 11-segment pre-selected filters.",
+    "acf_fields": {
+      "page_banner": "https://www.harogic.com/wp-content/uploads/2025/06/新闻中心详情页-首图-可替换.svg",
+      "news_cover": "https://www.harogic.com/wp-content/uploads/2024/09/cover-1.jpg",
+      "news_relation": "https://www.harogic.com/wp-content/uploads/2024/09/新闻中心-Featured-News-应用1_画板-1-副本.jpg",
+      "news_like": false,
+      "m_page_banner": false
+    },
+    "category_ids": [1, 97]
+  }
+]

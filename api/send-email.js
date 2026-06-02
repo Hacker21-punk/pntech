@@ -1,69 +1,95 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
   // CORS & Origin Validation
   const origin = req.headers.origin;
   const referer = req.headers.referer;
   const allowedOrigins = [
-    'https://pntech.in',
-    'https://www.pntech.in',
-    'https://pntech-source-code.vercel.app',
-    'https://pntech.vercel.app'
+    "https://pntech.in",
+    "https://www.pntech.in",
+    "https://pntech-source-code.vercel.app",
+    "https://pntech.vercel.app",
   ];
 
   // Allow localhost & 127.0.0.1 for development
-  const isLocalhost = origin?.startsWith('http://localhost') || referer?.startsWith('http://localhost') || 
-                      origin?.startsWith('http://127.0.0.1') || referer?.startsWith('http://127.0.0.1');
+  const isLocalhost =
+    origin?.startsWith("http://localhost") ||
+    referer?.startsWith("http://localhost") ||
+    origin?.startsWith("http://127.0.0.1") ||
+    referer?.startsWith("http://127.0.0.1");
 
   // Allow Vercel preview/deployment domains
-  const isVercel = origin?.endsWith('.vercel.app') || referer?.includes('.vercel.app');
+  const isVercel =
+    origin?.endsWith(".vercel.app") || referer?.includes(".vercel.app");
 
   if (origin && !allowedOrigins.includes(origin) && !isLocalhost && !isVercel) {
-    return res.status(403).json({ success: false, error: 'Forbidden: Request origin not allowed.' });
+    return res.status(403).json({
+      success: false,
+      error: "Forbidden: Request origin not allowed.",
+    });
   }
 
   // Set secure CORS headers
   if (origin && (allowedOrigins.includes(origin) || isLocalhost || isVercel)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader("Access-Control-Allow-Origin", origin);
   } else {
-    res.setHeader('Access-Control-Allow-Origin', 'https://pntech.in');
+    res.setHeader("Access-Control-Allow-Origin", "https://pntech.in");
   }
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   // Handle preflight requests
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
   // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
+  if (req.method !== "POST") {
+    return res
+      .status(405)
+      .json({ success: false, error: "Method not allowed" });
   }
 
   try {
-    const { name, email, phone, company, country, request_type, message, _subject, website } = req.body;
+    const {
+      name,
+      email,
+      phone,
+      company,
+      country,
+      request_type,
+      message,
+      _subject,
+      website,
+    } = req.body;
 
     // Honeypot check (website is a hidden input field to catch automated spam bots)
-    if (website && website.trim() !== '') {
-      console.warn('Honeypot input detected. Silently ignoring email dispatch.');
+    if (website && website.trim() !== "") {
+      console.warn(
+        "Honeypot input detected. Silently ignoring email dispatch.",
+      );
       // Return 200 success so the bot believes it succeeded, preventing form retry loops
-      return res.status(200).json({ success: true, message: 'Emails sent successfully (honeypot passive mitigation)' });
+      return res.status(200).json({
+        success: true,
+        message: "Emails sent successfully (honeypot passive mitigation)",
+      });
     }
 
     if (!name || !email) {
-      return res.status(400).json({ success: false, error: 'Name and email are required fields' });
+      return res
+        .status(400)
+        .json({ success: false, error: "Name and email are required fields" });
     }
 
     // HTML Escaping Helper to sanitize inputs and prevent server-side HTML Injection in emails
     const escapeHtml = (text) => {
-      if (typeof text !== 'string') return '';
+      if (typeof text !== "string") return "";
       return text
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     };
 
     const sName = escapeHtml(name);
@@ -76,24 +102,28 @@ export default async function handler(req, res) {
     const sSubject = escapeHtml(_subject);
 
     // Configure sender & receiver options
-    const targetEmail = process.env.RECIPIENT_EMAIL || 'business@pntech.in';
-    const senderDomainEmail = process.env.SENDER_EMAIL || 'business@pntech.in'; // Must be a verified email on your domain
-    const senderName = 'PN Technologies';
+    const targetEmail = process.env.RECIPIENT_EMAIL || "business@pntech.in";
+    const senderDomainEmail = process.env.SENDER_EMAIL || "business@pntech.in"; // Must be a verified email on your domain
+    const senderName = "PN Technologies";
 
     // 1. Construct HTML for the Company Notification Email
     const fieldsHtml = [
-      { label: 'Name', value: sName },
-      { label: 'Email', value: sEmail },
-      { label: 'Phone', value: sPhone || 'N/A' },
-      { label: 'Company', value: sCompany || 'N/A' },
-      { label: 'Country', value: sCountry || 'N/A' },
-      { label: 'Request Type', value: sRequestType || 'General Inquiry' },
-    ].map(f => `
+      { label: "Name", value: sName },
+      { label: "Email", value: sEmail },
+      { label: "Phone", value: sPhone || "N/A" },
+      { label: "Company", value: sCompany || "N/A" },
+      { label: "Country", value: sCountry || "N/A" },
+      { label: "Request Type", value: sRequestType || "General Inquiry" },
+    ]
+      .map(
+        (f) => `
       <tr style="border-bottom: 1px solid #333;">
         <td style="padding: 12px; color: #888; font-weight: 500; width: 140px;">${f.label}</td>
         <td style="padding: 12px; color: #fff;">${f.value}</td>
       </tr>
-    `).join('');
+    `,
+      )
+      .join("");
 
     const companyMailHtml = `
       <div style="background-color: #0b0b0b; color: #ffffff; font-family: 'Inter', sans-serif; padding: 30px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #ff6600;">
@@ -103,7 +133,7 @@ export default async function handler(req, res) {
         </table>
         <div style="margin-top: 30px; background-color: #161616; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6600;">
           <h4 style="color: #ff6600; margin-top: 0; margin-bottom: 8px;">Message details:</h4>
-          <p style="color: #ddd; line-height: 1.6; margin: 0; white-space: pre-wrap;">${sMessage || 'No message provided'}</p>
+          <p style="color: #ddd; line-height: 1.6; margin: 0; white-space: pre-wrap;">${sMessage || "No message provided"}</p>
         </div>
       </div>
     `;
@@ -124,9 +154,9 @@ export default async function handler(req, res) {
         
         <div style="background-color: #121212; padding: 20px; border-radius: 8px; text-align: left; border: 1px solid #222; margin-bottom: 30px;">
           <div style="color: #ff6600; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 12px;">SUBMISSION BRIEF</div>
-          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Request Type:</strong> <span style="color: #eee;">${sRequestType || 'General Inquiry'}</span></div>
-          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Company:</strong> <span style="color: #eee;">${sCompany || 'N/A'}</span></div>
-          <div style="font-size: 14px; color: #888;"><strong style="color: #888;">Message:</strong><p style="color: #aaa; margin: 4px 0 0 0; line-height: 1.4; white-space: pre-wrap;">${sMessage || 'N/A'}</p></div>
+          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Request Type:</strong> <span style="color: #eee;">${sRequestType || "General Inquiry"}</span></div>
+          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Company:</strong> <span style="color: #eee;">${sCompany || "N/A"}</span></div>
+          <div style="font-size: 14px; color: #888;"><strong style="color: #888;">Message:</strong><p style="color: #aaa; margin: 4px 0 0 0; line-height: 1.4; white-space: pre-wrap;">${sMessage || "N/A"}</p></div>
         </div>
 
         <p style="color: #666; font-size: 13px; margin-top: 30px;">
@@ -143,26 +173,30 @@ export default async function handler(req, res) {
 
     // 3. Send Email using either SMTP or Resend API
     const useResend = !!process.env.RESEND_API_KEY;
-    const useSMTP = !!(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+    const useSMTP = !!(
+      process.env.SMTP_HOST &&
+      process.env.SMTP_USER &&
+      process.env.SMTP_PASS
+    );
 
     if (useResend) {
       // Send using Resend REST API
       const resendApiKey = process.env.RESEND_API_KEY;
-      
+
       // Send notification to Company
-      const companyRes = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
+      const companyRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${resendApiKey}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
           from: `${senderName} <${senderDomainEmail}>`,
           to: targetEmail,
           reply_to: email,
-          subject: _subject || 'New Website Inquiry',
-          html: companyMailHtml
-        })
+          subject: _subject || "New Website Inquiry",
+          html: companyMailHtml,
+        }),
       });
 
       if (!companyRes.ok) {
@@ -171,32 +205,34 @@ export default async function handler(req, res) {
       }
 
       // Send confirmation to Customer
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
+      await fetch("https://api.resend.com/emails", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${resendApiKey}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
           from: `${senderName} <${senderDomainEmail}>`,
           to: email,
-          subject: 'We have received your inquiry - PN Technologies',
-          html: customerMailHtml
-        })
+          subject: "We have received your inquiry - PN Technologies",
+          html: customerMailHtml,
+        }),
       });
 
-      return res.status(200).json({ success: true, message: 'Emails sent successfully via Resend API' });
-
+      return res.status(200).json({
+        success: true,
+        message: "Emails sent successfully via Resend API",
+      });
     } else if (useSMTP) {
       // Send using SMTP (Zoho Mail, Google Workspace, Hostinger, etc.)
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT || '465'),
-        secure: process.env.SMTP_SECURE !== 'false', // Default to SSL/TLS (port 465)
+        port: parseInt(process.env.SMTP_PORT || "465"),
+        secure: process.env.SMTP_SECURE !== "false", // Default to SSL/TLS (port 465)
         auth: {
           user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS
-        }
+          pass: process.env.SMTP_PASS,
+        },
       });
 
       // Send notification to Company
@@ -204,31 +240,37 @@ export default async function handler(req, res) {
         from: `"${senderName}" <${senderDomainEmail}>`,
         to: targetEmail,
         replyTo: email,
-        subject: _subject || 'New Website Inquiry',
-        html: companyMailHtml
+        subject: _subject || "New Website Inquiry",
+        html: companyMailHtml,
       });
 
       // Send confirmation to Customer
       await transporter.sendMail({
         from: `"${senderName}" <${senderDomainEmail}>`,
         to: email,
-        subject: 'We have received your inquiry - PN Technologies',
-        html: customerMailHtml
+        subject: "We have received your inquiry - PN Technologies",
+        html: customerMailHtml,
       });
 
-      return res.status(200).json({ success: true, message: 'Emails sent successfully via SMTP' });
-
+      return res
+        .status(200)
+        .json({ success: true, message: "Emails sent successfully via SMTP" });
     } else {
       // Fallback: Environment variables not configured
-      console.warn("Email dispatcher environment variables are not configured on Vercel.");
-      return res.status(501).json({ 
-        success: false, 
-        error: 'Email service not configured. Please configure RESEND_API_KEY or SMTP variables (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) on Vercel Dashboard.' 
+      console.warn(
+        "Email dispatcher environment variables are not configured on Vercel.",
+      );
+      return res.status(501).json({
+        success: false,
+        error:
+          "Email service not configured. Please configure RESEND_API_KEY or SMTP variables (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) on Vercel Dashboard.",
       });
     }
-
   } catch (error) {
-    console.error('Email dispatcher error:', error);
-    return res.status(500).json({ success: false, error: error.message || 'Internal server error' });
+    console.error("Email dispatcher error:", error);
+    return res.status(500).json({
+      success: false,
+      error: error.message || "Internal server error",
+    });
   }
 }

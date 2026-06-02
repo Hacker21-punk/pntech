@@ -1,0 +1,57 @@
+Total posts: 7
+--- POST 1 ---
+ID: 30906
+Title: Pulse Generation and Frequency Sweeping: Precision Simulation with the HAROGIC SGA-60
+Permalink: https://www.harogic.com/coop/pulse-generation-frequency-sweeping-sga60/
+Date: 2026-05-12
+Excerpt: This application note demonstrates how the HAROGIC SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.
+Cover Image: https://www.harogic.com/wp-content/uploads/2026/05/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg
+Category IDs: [9, 206]
+--- POST 2 ---
+ID: 28838
+Title: Tracking Generator and Signal Generator Applications in the New PXN Series
+Permalink: https://www.harogic.com/coop/tracking-generator-signal-generator-pxn-series/
+Date: 2026-04-16
+Excerpt: Learn how the new HAROGIC PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.
+Cover Image: https://www.harogic.com/wp-content/uploads/2026/04/页面图-1216x750px-拷贝.jpg
+Category IDs: [9, 207]
+--- POST 3 ---
+ID: 28671
+Title: RF Signal Mapping and Geolocation Using HAROGIC Mapping Mode
+Permalink: https://www.harogic.com/coop/rf-signal-mapping-geolocation-harogic-mapping-mode/
+Date: 2026-04-14
+Excerpt: This application note explains how HAROGIC Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.
+Cover Image: https://www.harogic.com/wp-content/uploads/2026/04/应用-01-02.jpg
+Category IDs: [9, 207]
+--- POST 4 ---
+ID: 26514
+Title: Using HAROGIC Products in the GNU Radio
+Permalink: https://www.harogic.com/coop/using-harogic-products-in-the-gnu-radio/
+Date: 2026-02-11
+Excerpt: HAROGIC offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces.
+Cover Image: https://www.harogic.com/wp-content/uploads/2026/02/harogic-gnradio.jpg
+Category IDs: [9, 207]
+--- POST 5 ---
+ID: 2174
+Title: Airborne Radio Measurement Systems “9 kHz to 40 GHz”
+Permalink: https://www.harogic.com/coop/airborne-radio-measurement-systems-9-khz-to-40-ghz-3/
+Date: 2025-01-02
+Excerpt: USB spectrum analyzer up to 40 GHz from HAROGIC Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring.
+Cover Image: https://www.harogic.com/wp-content/uploads/2025/01/cooperation_1.webp
+Category IDs: [9, 207]
+--- POST 6 ---
+ID: 2051
+Title: Third Party spectrum monitoring system up to 40 GHz
+Permalink: https://www.harogic.com/coop/third-party-spectrum-monitoring-system-up-to-40-ghz/
+Date: 2024-12-23
+Excerpt: HAROGIC Technologies specializes in RF spectrum monitoring with the advanced real-time spectrum analyzers. We provide open API with high compatibility to our customers, empowering customers to define their own RF spectrum monitoring system up to 40 GHz.
+Cover Image: https://www.harogic.com/wp-content/uploads/2024/12/cooperation_2.jpg
+Category IDs: [9, 207]
+--- POST 7 ---
+ID: 2055
+Title: SDR++ Works Well on HAROGIC PX Series Spectrum Analyzer.
+Permalink: https://www.harogic.com/coop/sdr-works-well-on-harogic-px-series-spectrum-analyzer/
+Date: 2024-12-22
+Excerpt: SDR++ with the feature of a versatile platform for software defined radio, is running well on HAROGIC Technologies handheld spectrum analyzer.
+Cover Image: https://www.harogic.com/wp-content/uploads/2024/12/cooperation_3.webp
+Category IDs: [207]

@@ -1,1227 +1,2222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <script>if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-  <title>Spectrum Analyzers & Receivers | PN Technologies</title>
-  <meta name="description" content="Explore PN Technologies' complete spectrum analyzer and receiver product line up to 40 GHz. Features USB, Networked, and Handheld real-time analyzers.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css?v=20260602-v11">
-  <link rel="stylesheet" href="css/product-category.css?v=20260529-v9">
-  <style>
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    /* Accent modifications to fit PNTech orange */
-    .sc17-tou .sc17-lie { font-weight: 700; color: #fff; background: #121212 !important; }
-    .sc17-header span.hover { color: var(--accent) !important; border-bottom: 3px var(--accent) solid; }
-    .sc17-check-active { background: var(--accent) !important; border-color: var(--accent) !important; display: flex; align-items: center; justify-content: center; }
-    .sc17-check-active svg { display: block !important; stroke: #fff; }
-    .sc17-tc-left .tc-part1 { color: var(--accent); }
-    .sc17-tc-right .tc-part2 a { background: var(--accent); transition: background 0.3s; }
-    .sc17-tc-right .tc-part2 a:hover { background: var(--accent-hover); }
-    .sc17-item-name p { font-weight: 600; color: #fff; }
-    .sc17-hang { border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .sc17-tou { border-bottom: 2px solid rgba(255,255,255,0.1); }
-    .sc17-check { border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; background: transparent; transition: all 0.3s; }
-    .sc17-check:hover { border-color: var(--accent); }
-    /* Dark mode specifications comparison adjustments */
-    .sc17-out { background: #080808; padding-top: 100px; padding-bottom: 100px; }
-    .sc17-header span { color: #888; font-weight: 500; font-size: 32px; transition: color 0.3s; }
-    .sc17-header span:hover { color: #fff; }
-    .sc17-lie { background: #121212; color: #eee; border-color: rgba(255,255,255,0.05); font-size: 16px; }
-    .sc17-lie a { color: #eee; text-decoration: none; transition: color 0.3s; }
-    .sc17-lie a:hover { color: var(--accent); }
-    .sc17-lie::after { background: rgba(255,255,255,0.05); }
-    .sc17-ts { border-color: var(--accent); color: #fff; background: transparent; border-radius: 6px; overflow: hidden; }
-    .sc17-ts:hover { background: var(--accent); }
-    .sc17-ts-con { color: #fff; }
-    /* Comparison popup modal styles in dark theme */
-    .sc17-tc-right .sc17-tc-item { background: #121212; color: #fff; border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; }
-    .sc17-tc-left .tc-part2 div, .sc17-tc-right .tc-part2 div { border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; color: #ccc; }
-    .sc17-tc-left .tc-part2 div { color: #888; font-weight: 500; }
-    .sc17-tc-right .tc-part1 div { color: #fff; font-size: 24px; }
-    .sc17-tc-right .tc-part2 a { border-radius: 4px; line-height: 48px; }
-    .sc17-close { display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; background: rgba(255,255,255,0.1); border-radius: 50%; width: 44px !important; height: 44px !important; top: 20px; right: 20px; transition: background 0.3s; }
-    .sc17-close:hover { background: var(--accent); }
-    .sc17-close::before { content: "×"; line-height: 1; }
-
-    /* Custom Animation Support */
-    @keyframes sc5fadeInLeft {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    .sc5fadeInLeft { animation: sc5fadeInLeft 1.5s ease forwards; }
-
-    /* Mobile dark theme specs alignment overrides */
-    @media (max-width: 768px) {
-      .sc17-hang div:nth-of-type(3), .sc17-hang div:nth-of-type(5), .sc17-hang div:nth-of-type(7) {
-        background-color: #1a1a1a !important;
+  <head>
+    <script>
+      if (localStorage.getItem("theme") === "light")
+        document.documentElement.classList.add("light-theme");
+    </script>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>Spectrum Analyzers & Receivers | PN Technologies</title>
+    <meta
+      name="description"
+      content="Explore PN Technologies' complete spectrum analyzer and receiver product line up to 40 GHz. Features USB, Networked, and Handheld real-time analyzers."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+      integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20260602-v11" />
+    <link rel="stylesheet" href="css/product-category.css?v=20260529-v9" />
+    <style>
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
       }
-      .sc17-hang div:nth-of-type(4), .sc17-hang div:nth-of-type(6), .sc17-hang div:nth-of-type(8) {
-        background-color: #121212 !important;
+      /* Accent modifications to fit PNTech orange */
+      .sc17-tou .sc17-lie {
+        font-weight: 700;
+        color: #fff;
+        background: #121212 !important;
       }
-      .sc17-lie {
-        color: #fff !important;
-        padding-left: 20px !important;
-        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+      .sc17-header span.hover {
+        color: var(--accent) !important;
+        border-bottom: 3px var(--accent) solid;
       }
-      .sc17-lie::before {
-        color: #888 !important;
-        font-weight: 600 !important;
+      .sc17-check-active {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-      /* Specific fixes for Handheld tab parameters */
-      #con_seven_3 .sc17-hang div:nth-of-type(5)::before {
-        content: "Phase Noise\A 1 GHz, 10 kHz Offset" !important;
-      }
-      #con_seven_3 .sc17-hang div:nth-of-type(6)::before {
-        content: "Analysis Bandwidth" !important;
-      }
-      #con_seven_3 .sc17-hang div:nth-of-type(7)::before {
-        content: "System OS" !important;
-      }
-      #con_seven_3 .sc17-hang div:nth-of-type(8)::before {
-        content: "Size, Weight" !important;
-      }
-    }
-
-    /* Bulletproof Desktop Overrides to absolutely prevent layout degradation or vertical collapse */
-    @media (min-width: 769px) {
-      .sc17-out {
+      .sc17-check-active svg {
         display: block !important;
+        stroke: #fff;
       }
-      .sc17-item-con {
-        overflow: visible !important;
-        margin: 0 !important;
-        width: 100% !important;
+      .sc17-tc-left .tc-part1 {
+        color: var(--accent);
       }
-      .sc17-tou {
-        display: flex !important;
+      .sc17-tc-right .tc-part2 a {
+        background: var(--accent);
+        transition: background 0.3s;
+      }
+      .sc17-tc-right .tc-part2 a:hover {
+        background: var(--accent-hover);
+      }
+      .sc17-item-name p {
+        font-weight: 600;
+        color: #fff;
       }
       .sc17-hang {
-        display: flex !important;
-        flex-direction: row !important;
-        padding: 30px 0 !important;
-        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .sc17-tou {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      }
+      .sc17-check {
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        background: transparent;
+        transition: all 0.3s;
+      }
+      .sc17-check:hover {
+        border-color: var(--accent);
+      }
+      /* Dark mode specifications comparison adjustments */
+      .sc17-out {
+        background: #080808;
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      .sc17-header span {
+        color: #888;
+        font-weight: 500;
+        font-size: 32px;
+        transition: color 0.3s;
+      }
+      .sc17-header span:hover {
+        color: #fff;
       }
       .sc17-lie {
-        width: 14% !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        height: 80px !important;
-        position: relative !important;
-        box-sizing: border-box !important;
-        padding: unset !important;
-        font-size: 16px !important;
-        color: #eee !important;
-        border-bottom: none !important;
+        background: #121212;
+        color: #eee;
+        border-color: rgba(255, 255, 255, 0.05);
+        font-size: 16px;
       }
-      /* Alternating background colors for premium legibility on desktop */
-      .sc17-hang div:nth-of-type(3),
-      .sc17-hang div:nth-of-type(5),
-      .sc17-hang div:nth-of-type(7) {
-        background-color: #181818 !important;
+      .sc17-lie a {
+        color: #eee;
+        text-decoration: none;
+        transition: color 0.3s;
       }
-      .sc17-hang div:nth-of-type(4),
-      .sc17-hang div:nth-of-type(6),
-      .sc17-hang div:nth-of-type(8) {
-        background-color: #121212 !important;
+      .sc17-lie a:hover {
+        color: var(--accent);
       }
-      .sc17-lie::before {
-        display: none !important; /* Hide mobile-specific pseudo labels */
-      }
-      .sc17-lie:nth-of-type(1) {
-        width: 6% !important;
-        background: transparent !important;
-        justify-content: flex-start !important;
-      }
-      .sc17-lie:nth-of-type(2) {
-        width: 10% !important;
-        background: transparent !important;
-        justify-content: flex-start !important;
+      .sc17-lie::after {
+        background: rgba(255, 255, 255, 0.05);
       }
       .sc17-ts {
-        display: flex !important;
+        border-color: var(--accent);
+        color: #fff;
+        background: transparent;
+        border-radius: 6px;
+        overflow: hidden;
       }
-    }
+      .sc17-ts:hover {
+        background: var(--accent);
+      }
+      .sc17-ts-con {
+        color: #fff;
+      }
+      /* Comparison popup modal styles in dark theme */
+      .sc17-tc-right .sc17-tc-item {
+        background: #121212;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+      }
+      .sc17-tc-left .tc-part2 div,
+      .sc17-tc-right .tc-part2 div {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 10px;
+        color: #ccc;
+      }
+      .sc17-tc-left .tc-part2 div {
+        color: #888;
+        font-weight: 500;
+      }
+      .sc17-tc-right .tc-part1 div {
+        color: #fff;
+        font-size: 24px;
+      }
+      .sc17-tc-right .tc-part2 a {
+        border-radius: 4px;
+        line-height: 48px;
+      }
+      .sc17-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 32px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 44px !important;
+        height: 44px !important;
+        top: 20px;
+        right: 20px;
+        transition: background 0.3s;
+      }
+      .sc17-close:hover {
+        background: var(--accent);
+      }
+      .sc17-close::before {
+        content: "×";
+        line-height: 1;
+      }
 
-    /* Fix Swiper heights & prevent flexbox width/height collapse */
-    .sc4-right {
-      display: flex;
-    }
-    .sc4-right .swiper.sc6 {
-      position: relative;
-      height: 100%;
-      width: 100%;
-    }
-    .sc4-right .swiper.sc6 img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .sc4-left .swiper.sc5 {
-      width: 100%;
-    }
+      /* Custom Animation Support */
+      @keyframes sc5fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .sc5fadeInLeft {
+        animation: sc5fadeInLeft 1.5s ease forwards;
+      }
 
-    /* ===== LIGHT MODE OVERRIDES ===== */
-    html.light-theme .sc17-out { background: #f8f9fa !important; }
-    html.light-theme .sc17-header span { color: #555 !important; }
-    html.light-theme .sc17-header span:hover { color: #111 !important; }
-    html.light-theme .sc17-header span.hover { color: var(--accent) !important; }
-    html.light-theme .sc17-tou .sc17-lie { background: #f0f0f0 !important; color: #333 !important; }
-    html.light-theme .sc17-lie { background: #fff !important; color: #222 !important; border-color: rgba(0,0,0,0.06) !important; }
-    html.light-theme .sc17-lie::after { background: rgba(0,0,0,0.08) !important; }
-    html.light-theme .sc17-lie a { color: #222 !important; }
-    html.light-theme .sc17-lie a:hover { color: var(--accent) !important; }
-    html.light-theme .sc17-item-name p { color: #111 !important; }
-    html.light-theme .sc17-hang { border-bottom-color: rgba(0,0,0,0.06) !important; }
-    html.light-theme .sc17-tou { border-bottom-color: rgba(0,0,0,0.1) !important; }
-    html.light-theme .sc17-check { border-color: rgba(0,0,0,0.25) !important; }
-    html.light-theme .sc17-ts { border-color: var(--accent) !important; color: #111 !important; }
-    html.light-theme .sc17-ts-con { color: #111 !important; }
-    html.light-theme .sc17-tc-right .sc17-tc-item { background: #fff !important; color: #111 !important; border-color: rgba(0,0,0,0.08) !important; }
-    html.light-theme .sc17-tc-left .tc-part2 div, html.light-theme .sc17-tc-right .tc-part2 div { border-bottom-color: rgba(0,0,0,0.08) !important; color: #555 !important; }
-    html.light-theme .sc17-tc-left .tc-part2 div { color: #888 !important; }
-    html.light-theme .sc17-tc-right .tc-part1 div { color: #111 !important; }
-    html.light-theme .sc17-close { color: #111 !important; background: rgba(0,0,0,0.06) !important; }
-    html.light-theme .sc17-close:hover { background: var(--accent) !important; color: #fff !important; }
-    html.light-theme .sc17-tc { background: #fff !important; border-color: rgba(0,0,0,0.1) !important; }
-    @media (min-width: 769px) {
-      html.light-theme .sc17-lie { color: #222 !important; }
-      html.light-theme .sc17-hang div:nth-of-type(3),
-      html.light-theme .sc17-hang div:nth-of-type(5),
-      html.light-theme .sc17-hang div:nth-of-type(7) { background-color: #f5f5f5 !important; }
-      html.light-theme .sc17-hang div:nth-of-type(4),
-      html.light-theme .sc17-hang div:nth-of-type(6),
-      html.light-theme .sc17-hang div:nth-of-type(8) { background-color: #fff !important; }
-    }
-    @media (max-width: 768px) {
-      html.light-theme .sc17-hang div:nth-of-type(3),
-      html.light-theme .sc17-hang div:nth-of-type(5),
-      html.light-theme .sc17-hang div:nth-of-type(7) { background-color: #f5f5f5 !important; }
-      html.light-theme .sc17-hang div:nth-of-type(4),
-      html.light-theme .sc17-hang div:nth-of-type(6),
-      html.light-theme .sc17-hang div:nth-of-type(8) { background-color: #fff !important; }
-      html.light-theme .sc17-lie { color: #222 !important; }
-      html.light-theme .sc17-lie::before { color: #666 !important; }
-    }
-    
-    /* Transform blue icons to orange to match the black & orange brand theme */
-    img[src*="-icon-blue"] {
-      filter: hue-rotate(170deg) saturate(2.5) brightness(1.1);
-    }
-  </style>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
-</head>
-<body>
-  <script>var name = 'products'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
+      /* Mobile dark theme specs alignment overrides */
+      @media (max-width: 768px) {
+        .sc17-hang div:nth-of-type(3),
+        .sc17-hang div:nth-of-type(5),
+        .sc17-hang div:nth-of-type(7) {
+          background-color: #1a1a1a !important;
+        }
+        .sc17-hang div:nth-of-type(4),
+        .sc17-hang div:nth-of-type(6),
+        .sc17-hang div:nth-of-type(8) {
+          background-color: #121212 !important;
+        }
+        .sc17-lie {
+          color: #fff !important;
+          padding-left: 20px !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+        .sc17-lie::before {
+          color: #888 !important;
+          font-weight: 600 !important;
+        }
+        /* Specific fixes for Handheld tab parameters */
+        #con_seven_3 .sc17-hang div:nth-of-type(5)::before {
+          content: "Phase Noise\A 1 GHz, 10 kHz Offset" !important;
+        }
+        #con_seven_3 .sc17-hang div:nth-of-type(6)::before {
+          content: "Analysis Bandwidth" !important;
+        }
+        #con_seven_3 .sc17-hang div:nth-of-type(7)::before {
+          content: "System OS" !important;
+        }
+        #con_seven_3 .sc17-hang div:nth-of-type(8)::before {
+          content: "Size, Weight" !important;
+        }
+      }
 
-  <!-- ========== HEADER ========== -->
-  <header>
-  <div class="hd-bg"></div>
-  <!-- Desktop Header -->
-  <div class="hd-out">
-    <div class="hd con">
-      <div class="hd-left">
-        <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-          <img src="images/logo.png" alt="PNTECH" style="height:56px; width:auto;">
-          <span class="hd-logo-text" style="color:var(--white); font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
-        </a>
-      </div>
-      <div class="hd-md">
-        <nav class="hd-nav">
-          <ul class="hdnav-box">
-            <li class="menu-item"><a href="index.html">Home</a></li>
-            <li class="menu-item menu-item-has-children">
-              <a href="products.html">Product</a>
-              <div class="sub-menu mega-menu">
-                <div class="mega-menu-inner">
-                  <!-- Column 1: Spectrum Analyzer -->
-                  <div class="mega-column spectrum-analyzer-column">
-                    <div class="mega-column-title"><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></div>
-                    <div class="mega-sub-grid">
-                      <!-- USB Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#usb">USB</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-new-san.html">New SAN Series</a></li>
-                          <li><a href="product-san400.html">SAN Series</a></li>
-                          <li><a href="product-sa.html">SA Series</a></li>
-                        </ul>
+      /* Bulletproof Desktop Overrides to absolutely prevent layout degradation or vertical collapse */
+      @media (min-width: 769px) {
+        .sc17-out {
+          display: block !important;
+        }
+        .sc17-item-con {
+          overflow: visible !important;
+          margin: 0 !important;
+          width: 100% !important;
+        }
+        .sc17-tou {
+          display: flex !important;
+        }
+        .sc17-hang {
+          display: flex !important;
+          flex-direction: row !important;
+          padding: 30px 0 !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+        .sc17-lie {
+          width: 14% !important;
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          height: 80px !important;
+          position: relative !important;
+          box-sizing: border-box !important;
+          padding: unset !important;
+          font-size: 16px !important;
+          color: #eee !important;
+          border-bottom: none !important;
+        }
+        /* Alternating background colors for premium legibility on desktop */
+        .sc17-hang div:nth-of-type(3),
+        .sc17-hang div:nth-of-type(5),
+        .sc17-hang div:nth-of-type(7) {
+          background-color: #181818 !important;
+        }
+        .sc17-hang div:nth-of-type(4),
+        .sc17-hang div:nth-of-type(6),
+        .sc17-hang div:nth-of-type(8) {
+          background-color: #121212 !important;
+        }
+        .sc17-lie::before {
+          display: none !important; /* Hide mobile-specific pseudo labels */
+        }
+        .sc17-lie:nth-of-type(1) {
+          width: 6% !important;
+          background: transparent !important;
+          justify-content: flex-start !important;
+        }
+        .sc17-lie:nth-of-type(2) {
+          width: 10% !important;
+          background: transparent !important;
+          justify-content: flex-start !important;
+        }
+        .sc17-ts {
+          display: flex !important;
+        }
+      }
+
+      /* Fix Swiper heights & prevent flexbox width/height collapse */
+      .sc4-right {
+        display: flex;
+      }
+      .sc4-right .swiper.sc6 {
+        position: relative;
+        height: 100%;
+        width: 100%;
+      }
+      .sc4-right .swiper.sc6 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .sc4-left .swiper.sc5 {
+        width: 100%;
+      }
+
+      /* ===== LIGHT MODE OVERRIDES ===== */
+      html.light-theme .sc17-out {
+        background: #f8f9fa !important;
+      }
+      html.light-theme .sc17-header span {
+        color: #555 !important;
+      }
+      html.light-theme .sc17-header span:hover {
+        color: #111 !important;
+      }
+      html.light-theme .sc17-header span.hover {
+        color: var(--accent) !important;
+      }
+      html.light-theme .sc17-tou .sc17-lie {
+        background: #f0f0f0 !important;
+        color: #333 !important;
+      }
+      html.light-theme .sc17-lie {
+        background: #fff !important;
+        color: #222 !important;
+        border-color: rgba(0, 0, 0, 0.06) !important;
+      }
+      html.light-theme .sc17-lie::after {
+        background: rgba(0, 0, 0, 0.08) !important;
+      }
+      html.light-theme .sc17-lie a {
+        color: #222 !important;
+      }
+      html.light-theme .sc17-lie a:hover {
+        color: var(--accent) !important;
+      }
+      html.light-theme .sc17-item-name p {
+        color: #111 !important;
+      }
+      html.light-theme .sc17-hang {
+        border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+      }
+      html.light-theme .sc17-tou {
+        border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+      }
+      html.light-theme .sc17-check {
+        border-color: rgba(0, 0, 0, 0.25) !important;
+      }
+      html.light-theme .sc17-ts {
+        border-color: var(--accent) !important;
+        color: #111 !important;
+      }
+      html.light-theme .sc17-ts-con {
+        color: #111 !important;
+      }
+      html.light-theme .sc17-tc-right .sc17-tc-item {
+        background: #fff !important;
+        color: #111 !important;
+        border-color: rgba(0, 0, 0, 0.08) !important;
+      }
+      html.light-theme .sc17-tc-left .tc-part2 div,
+      html.light-theme .sc17-tc-right .tc-part2 div {
+        border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+        color: #555 !important;
+      }
+      html.light-theme .sc17-tc-left .tc-part2 div {
+        color: #888 !important;
+      }
+      html.light-theme .sc17-tc-right .tc-part1 div {
+        color: #111 !important;
+      }
+      html.light-theme .sc17-close {
+        color: #111 !important;
+        background: rgba(0, 0, 0, 0.06) !important;
+      }
+      html.light-theme .sc17-close:hover {
+        background: var(--accent) !important;
+        color: #fff !important;
+      }
+      html.light-theme .sc17-tc {
+        background: #fff !important;
+        border-color: rgba(0, 0, 0, 0.1) !important;
+      }
+      @media (min-width: 769px) {
+        html.light-theme .sc17-lie {
+          color: #222 !important;
+        }
+        html.light-theme .sc17-hang div:nth-of-type(3),
+        html.light-theme .sc17-hang div:nth-of-type(5),
+        html.light-theme .sc17-hang div:nth-of-type(7) {
+          background-color: #f5f5f5 !important;
+        }
+        html.light-theme .sc17-hang div:nth-of-type(4),
+        html.light-theme .sc17-hang div:nth-of-type(6),
+        html.light-theme .sc17-hang div:nth-of-type(8) {
+          background-color: #fff !important;
+        }
+      }
+      @media (max-width: 768px) {
+        html.light-theme .sc17-hang div:nth-of-type(3),
+        html.light-theme .sc17-hang div:nth-of-type(5),
+        html.light-theme .sc17-hang div:nth-of-type(7) {
+          background-color: #f5f5f5 !important;
+        }
+        html.light-theme .sc17-hang div:nth-of-type(4),
+        html.light-theme .sc17-hang div:nth-of-type(6),
+        html.light-theme .sc17-hang div:nth-of-type(8) {
+          background-color: #fff !important;
+        }
+        html.light-theme .sc17-lie {
+          color: #222 !important;
+        }
+        html.light-theme .sc17-lie::before {
+          color: #666 !important;
+        }
+      }
+
+      /* Transform blue icons to orange to match the black & orange brand theme */
+      img[src*="-icon-blue"] {
+        filter: hue-rotate(170deg) saturate(2.5) brightness(1.1);
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <script>
+      var name = "products";
+      var currentDeviceMode = window.innerWidth <= 768 ? "mobile" : "pc";
+    </script>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+      <div class="hd-bg"></div>
+      <!-- Desktop Header -->
+      <div class="hd-out">
+        <div class="hd con">
+          <div class="hd-left">
+            <a
+              href="index.html"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src="images/logo.png"
+                alt="PNTECH"
+                style="height: 56px; width: auto"
+              />
+              <span
+                class="hd-logo-text"
+                style="
+                  color: var(--white);
+                  font-size: 22px;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  white-space: nowrap;
+                "
+                >PN Technologies</span
+              >
+            </a>
+          </div>
+          <div class="hd-md">
+            <nav class="hd-nav">
+              <ul class="hdnav-box">
+                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="products.html">Product</a>
+                  <div class="sub-menu mega-menu">
+                    <div class="mega-menu-inner">
+                      <!-- Column 1: Spectrum Analyzer -->
+                      <div class="mega-column spectrum-analyzer-column">
+                        <div class="mega-column-title">
+                          <a href="product-spectrum-analyzer.html"
+                            >Spectrum Analyzer</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <!-- USB Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-new-san.html"
+                                  >New SAN Series</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-san400.html">SAN Series</a>
+                              </li>
+                              <li><a href="product-sa.html">SA Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Networked Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#networked"
+                                >Networked</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-nxn.html">NXN Series</a></li>
+                              <li><a href="product-nxe.html">NXE Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Benchtop/Handheld Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#handheld"
+                                >Benchtop / Handheld</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-px-standard.html"
+                                  >PX Series Standard</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-geek.html"
+                                  >PX Series Geek</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-rugged.html"
+                                  >PX Series Rugged</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                      <!-- Networked Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#networked">Networked</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-nxn.html">NXN Series</a></li>
-                          <li><a href="product-nxe.html">NXE Series</a></li>
-                        </ul>
+
+                      <!-- Column 2: Vector Signal Generator -->
+                      <div class="mega-column vsg-column">
+                        <div class="mega-column-title">
+                          <a href="product-vector-signal-generator.html"
+                            >Vector Signal Generator</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-vector-signal-generator.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-sga.html">New SGA-60</a></li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                      <!-- Benchtop/Handheld Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-px-standard.html">PX Series Standard</a></li>
-                          <li><a href="product-px-geek.html">PX Series Geek</a></li>
-                          <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
-                        </ul>
+
+                      <!-- Column 3: Antenna -->
+                      <div class="mega-column antenna-column">
+                        <div class="mega-column-title">
+                          <a href="product-hda.html">Antenna</a>
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-hda.html">HDA Series</a>
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-hda.html">HDA-100</a></li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  <!-- Column 2: Vector Signal Generator -->
-                  <div class="mega-column vsg-column">
-                    <div class="mega-column-title"><a href="product-vector-signal-generator.html">Vector Signal Generator</a></div>
-                    <div class="mega-sub-grid">
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-vector-signal-generator.html#usb">USB</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-sga.html">New SGA-60</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Column 3: Antenna -->
-                  <div class="mega-column antenna-column">
-                    <div class="mega-column-title"><a href="product-hda.html">Antenna</a></div>
-                    <div class="mega-sub-grid">
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-hda.html">HDA Series</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-hda.html">HDA-100</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                </li>
+                <li class="menu-item">
+                  <a href="application.html">Application</a>
+                </li>
+                <li class="menu-item"><a href="news.html">Latest News</a></li>
+                <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="hd-right"
+            style="display: flex; align-items: center; gap: 16px"
+          >
+            <div class="hd-search">
+              <form>
+                <div class="hd-search-input">
+                  <input type="text" placeholder="Search" />
                 </div>
-              </div>
-            </li>
-            <li class="menu-item"><a href="application.html">Application</a></li>
-            <li class="menu-item"><a href="news.html">Latest News</a></li>
-            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="hd-right" style="display: flex; align-items: center; gap: 16px;">
-        <div class="hd-search">
-          <form>
-            <div class="hd-search-input"><input type="text" placeholder="Search"></div>
-            <button class="hd-search-img" type="button">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                <button class="hd-search-img" type="button">
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              <svg
+                class="sun-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                ></path>
+              </svg>
+              <svg
+                class="moon-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
             </button>
-          </form>
-        </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-          </svg>
-          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Header -->
-  <div class="phone-header">
-    <div class="phone-logo">
-      <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-        <img src="images/logo.png" alt="PNTECH" style="height:48px; width:auto;">
-        <span style="color:var(--white); font-size:18px; font-weight:700;">PN Technologies</span>
-      </a>
-    </div>
-    <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
-      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
-        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-        </svg>
-        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-      <div class="phone-more">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--white);"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </div>
-    </div>
-  </div>
-</header>
-
-  <!-- ========== MAIN CONTENT ========== -->
-  <main>
-    <!-- Banner Section -->
-    <div class="product_home_banner">
-      <div class="product_home_banner_bg">
-        <img loading="lazy" class="desktop" src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_home_banner_bg.png" alt="Spectrum Analyzer Banner">
-        <img loading="lazy" class="mobile" src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/m_product_home_banner.jpg" alt="Spectrum Analyzer Banner">
-      </div>
-      <div class="con product_home_banner_item">
-        <div class="product_home_banner_pic">
-          <img loading="lazy" src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_home_banner_pic.png" alt="RF Product cutouts">
-        </div>
-        <div class="product_home_banner_text">
-          <div class="product_home_banner_text_1">
-            <p>Extend</p>
-            <p>RF Boundaries</p>
-          </div>
-          <div class="product_home_banner_text_2">
-            <p>Spectrum Analyzers and Receivers</p>
-            <p>Up to 40 GHz</p>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Series Overview Section -->
-    <div class="product_home_main">
-      <div class="con product_home_main_title">
-        <p>Series</p>
-        <p>Overview</p>
-      </div>
-
-      <div class="con product_home_item">
-        <div class="product_home_item_img">
-          <a href="product-px-standard.html">
-            <img loading="lazy" src="images/products/pxe-200.jpg" alt="Handheld Spectrum Analyzer" style="max-width: 100%; border-radius: 8px;">
+      <!-- Mobile Header -->
+      <div class="phone-header">
+        <div class="phone-logo">
+          <a
+            href="index.html"
+            style="display: flex; align-items: center; gap: 10px"
+          >
+            <img
+              src="images/logo.png"
+              alt="PNTECH"
+              style="height: 48px; width: auto"
+            />
+            <span style="color: var(--white); font-size: 18px; font-weight: 700"
+              >PN Technologies</span
+            >
           </a>
         </div>
-        <div class="product_home_item_info">
-          <div class="product_home_item_info_text">
-            <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/08/px-icon-blue.webp" alt="PX Series Icon" style="width: 100px;">
-            <h3><a href="product-px-standard.html" style="color: inherit; text-decoration: none;">Benchtop/Handheld<br>Real-Time Spectrum Analyzer</a></h3>
-            <p class="hyphenate">PX series is the handheld real-time spectrum analyzer with 10.1-inch full touch screen and typical standby time of more than 3 h. The weight of PX model is only 1.5 kg but it covers frequency range from 9 kHz to 40 GHz, analysis bandwidth up to 100 MHz and sweep speed of up to 900 GHz/s. PX model is equipped with a standard preamplifier and used in a wide range of scenarios, such as spectrum analysis, phase noise, zero span, OBW, analog demodulation, digital demodulation. It provides engineers with a precise and reliable RF analyzer.</p>
-            <a href="product-px-standard.html" class="product-cta-btn" style="margin-top: 30px;">Learn More</a>
+        <div
+          class="phone-right-actions"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="theme-toggle"
+            id="theme-toggle-mobile"
+            aria-label="Toggle theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              ></path>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <div class="phone-more">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: var(--white)"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
           </div>
-        </div>        
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+      <!-- Banner Section -->
+      <div class="product_home_banner">
+        <div class="product_home_banner_bg">
+          <img
+            loading="lazy"
+            class="desktop"
+            src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_home_banner_bg.png"
+            alt="Spectrum Analyzer Banner"
+          />
+          <img
+            loading="lazy"
+            class="mobile"
+            src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/m_product_home_banner.jpg"
+            alt="Spectrum Analyzer Banner"
+          />
+        </div>
+        <div class="con product_home_banner_item">
+          <div class="product_home_banner_pic">
+            <img
+              loading="lazy"
+              src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_home_banner_pic.png"
+              alt="RF Product cutouts"
+            />
+          </div>
+          <div class="product_home_banner_text">
+            <div class="product_home_banner_text_1">
+              <p>Extend</p>
+              <p>RF Boundaries</p>
+            </div>
+            <div class="product_home_banner_text_2">
+              <p>Spectrum Analyzers and Receivers</p>
+              <p>Up to 40 GHz</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="con product_home_item">      
-        <div class="product_home_item_info">
-          <div class="product_home_item_info_text">
-            <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/08/sa-icon-blue.webp" alt="SA Series Icon" style="width: 100px;">
-            <h3><a href="product-new-san.html" style="color: inherit; text-decoration: none;">Compact USB<br>Spectrum Analyzer/Receiver</a></h3>
-            <p class="hyphenate">SA series from PN Technologies is designed for compact USB real-time spectrum analyzer. Based on SWaP-C and self-developed filters, the weight and size for SA series up to 40 GHz is compatible with a smart phone, suitable for embedded RF system and portable RF measurement. SA models are equipped with highly compatible APIs, empowering customers to develop their own RF system via second development.</p>
-            <a href="product-new-san.html" class="product-cta-btn" style="margin-top: 30px;">Learn More</a>
+      <!-- Series Overview Section -->
+      <div class="product_home_main">
+        <div class="con product_home_main_title">
+          <p>Series</p>
+          <p>Overview</p>
+        </div>
+
+        <div class="con product_home_item">
+          <div class="product_home_item_img">
+            <a href="product-px-standard.html">
+              <img
+                loading="lazy"
+                src="images/products/pxe-200.jpg"
+                alt="Handheld Spectrum Analyzer"
+                style="max-width: 100%; border-radius: 8px"
+              />
+            </a>
+          </div>
+          <div class="product_home_item_info">
+            <div class="product_home_item_info_text">
+              <img
+                loading="lazy"
+                src="https://www.harogic.com/wp-content/uploads/2024/08/px-icon-blue.webp"
+                alt="PX Series Icon"
+                style="width: 100px"
+              />
+              <h3>
+                <a
+                  href="product-px-standard.html"
+                  style="color: inherit; text-decoration: none"
+                  >Benchtop/Handheld<br />Real-Time Spectrum Analyzer</a
+                >
+              </h3>
+              <p class="hyphenate">
+                PX series is the handheld real-time spectrum analyzer with
+                10.1-inch full touch screen and typical standby time of more
+                than 3 h. The weight of PX model is only 1.5 kg but it covers
+                frequency range from 9 kHz to 40 GHz, analysis bandwidth up to
+                100 MHz and sweep speed of up to 900 GHz/s. PX model is equipped
+                with a standard preamplifier and used in a wide range of
+                scenarios, such as spectrum analysis, phase noise, zero span,
+                OBW, analog demodulation, digital demodulation. It provides
+                engineers with a precise and reliable RF analyzer.
+              </p>
+              <a
+                href="product-px-standard.html"
+                class="product-cta-btn"
+                style="margin-top: 30px"
+                >Learn More</a
+              >
+            </div>
           </div>
         </div>
-        <div class="product_home_item_img">
-          <a href="product-new-san.html">
-            <img loading="lazy" src="images/products/san-400.png" alt="USB Spectrum Analyzer" style="max-width: 100%; border-radius: 8px;">
-          </a>
+
+        <div class="con product_home_item">
+          <div class="product_home_item_info">
+            <div class="product_home_item_info_text">
+              <img
+                loading="lazy"
+                src="https://www.harogic.com/wp-content/uploads/2024/08/sa-icon-blue.webp"
+                alt="SA Series Icon"
+                style="width: 100px"
+              />
+              <h3>
+                <a
+                  href="product-new-san.html"
+                  style="color: inherit; text-decoration: none"
+                  >Compact USB<br />Spectrum Analyzer/Receiver</a
+                >
+              </h3>
+              <p class="hyphenate">
+                SA series from PN Technologies is designed for compact USB
+                real-time spectrum analyzer. Based on SWaP-C and self-developed
+                filters, the weight and size for SA series up to 40 GHz is
+                compatible with a smart phone, suitable for embedded RF system
+                and portable RF measurement. SA models are equipped with highly
+                compatible APIs, empowering customers to develop their own RF
+                system via second development.
+              </p>
+              <a
+                href="product-new-san.html"
+                class="product-cta-btn"
+                style="margin-top: 30px"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="product_home_item_img">
+            <a href="product-new-san.html">
+              <img
+                loading="lazy"
+                src="images/products/san-400.png"
+                alt="USB Spectrum Analyzer"
+                style="max-width: 100%; border-radius: 8px"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div class="con product_home_item">
+          <div class="product_home_item_img">
+            <a href="product-nxn.html">
+              <img
+                loading="lazy"
+                src="images/products/nxn.png"
+                alt="Networked Spectrum Analyzer"
+                style="max-width: 100%; border-radius: 8px"
+              />
+            </a>
+          </div>
+          <div class="product_home_item_info">
+            <div class="product_home_item_info_text">
+              <img
+                loading="lazy"
+                src="https://www.harogic.com/wp-content/uploads/2024/08/nx-icon-blue.webp"
+                alt="NX Series Icon"
+                style="width: 100px"
+              />
+              <h3>
+                <a
+                  href="product-nxn.html"
+                  style="color: inherit; text-decoration: none"
+                  >Networked<br />Spectrum Analyzer/Receiver</a
+                >
+              </h3>
+              <p class="hyphenate">
+                NX series is a miniaturized network node real-time spectrum
+                analyzer based on 1 GbE Ethernet interface and high-speed FPGA
+                signal processing. NX model is with compact design but not
+                simple, the RF front end contains a complete preamplifier,
+                attenuator, multi-segment preselector. It is able to output
+                spectrum, digital IQ stream, power detection and real-time
+                spectrum.
+              </p>
+              <a
+                href="product-nxn.html"
+                class="product-cta-btn"
+                style="margin-top: 30px"
+                >Learn More</a
+              >
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="con product_home_item">
-        <div class="product_home_item_img">
-          <a href="product-nxn.html">
-            <img loading="lazy" src="images/products/nxn.png" alt="Networked Spectrum Analyzer" style="max-width: 100%; border-radius: 8px;">
-          </a>
-        </div>
-        <div class="product_home_item_info">
-          <div class="product_home_item_info_text">
-            <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/08/nx-icon-blue.webp" alt="NX Series Icon" style="width: 100px;">
-            <h3><a href="product-nxn.html" style="color: inherit; text-decoration: none;">Networked<br>Spectrum Analyzer/Receiver</a></h3>
-            <p class="hyphenate">NX series is a miniaturized network node real-time spectrum analyzer based on 1 GbE Ethernet interface and high-speed FPGA signal processing. NX model is with compact design but not simple, the RF front end contains a complete preamplifier, attenuator, multi-segment preselector. It is able to output spectrum, digital IQ stream, power detection and real-time spectrum.</p>
-            <a href="product-nxn.html" class="product-cta-btn" style="margin-top: 30px;">Learn More</a>
+      <!-- Product Comparison Section -->
+      <div class="con sc17-out">
+        <div id="product_table">
+          <div class="sc17-header">
+            <span id="seven1" onclick="setTab('seven', 1, 3)" class="hover"
+              >USB</span
+            >
+            <span id="seven2" onclick="setTab('seven', 2, 3)">NETWORKED</span>
+            <span id="seven3" onclick="setTab('seven', 3, 3)">HANDHELD</span>
           </div>
-        </div>        
-      </div>
-    </div>
 
-    <!-- Product Comparison Section -->
-    <div class="con sc17-out">
-      <div id="product_table">
-        <div class="sc17-header">
-          <span id="seven1" onclick="setTab('seven',1,3)" class="hover">USB</span>
-          <span id="seven2" onclick="setTab('seven',2,3)">NETWORKED</span>
-          <span id="seven3" onclick="setTab('seven',3,3)">HANDHELD</span>
-        </div>
+          <div class="product_table_content">
+            <!-- USB TAB -->
+            <div id="con_seven_1">
+              <div class="sc17-item">
+                <div class="sc17-item-name">
+                  <img
+                    loading="lazy"
+                    src="https://www.harogic.com/wp-content/uploads/2024/10/SA-Series-亮蓝.svg"
+                    alt="USB SA badge"
+                    style="width: 80px"
+                  />
+                  <p>
+                    <span>SA-USB</span><br />
+                    <span>SPECTRUM ANALYZER</span>
+                  </p>
+                </div>
+                <div class="sc17-item-con">
+                  <div class="sc17-biao">
+                    <div class="sc17-hang sc17-tou">
+                      <div class="sc17-lie">Compare</div>
+                      <div class="sc17-lie">Model Image</div>
+                      <div class="sc17-lie">Product Name</div>
+                      <div class="sc17-lie">Frequency</div>
+                      <div class="sc17-lie">
+                        Phase Noise<br />1 GHz, 10 kHz Offset
+                      </div>
+                      <div class="sc17-lie">DANL<br />1 GHz, Amp On</div>
+                      <div class="sc17-lie">Analysis<br />Bandwidth</div>
+                      <div class="sc17-lie">Sweep Speed</div>
+                    </div>
 
-        <div class="product_table_content"> 
-          <!-- USB TAB -->
-          <div id="con_seven_1">
-            <div class="sc17-item">
-              <div class="sc17-item-name">
-                <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/10/SA-Series-亮蓝.svg" alt="USB SA badge" style="width: 80px;">
-                <p>
-                  <span>SA-USB</span><br>
-                  <span>SPECTRUM ANALYZER</span>
-                </p>
+                    <!-- New SAN Series Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="new-san">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/san-60.png"
+                          alt="New SAN"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span
+                          ><a href="product-new-san.html"
+                            >New SAN Series</a
+                          ></span
+                        >
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 4.5/6/9 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-110 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>-168 dBm/Hz</span></div>
+                      <div class="sc17-lie"><span>50/100 MHz</span></div>
+                      <div class="sc17-lie"><span>1.0 THz/s</span></div>
+                    </div>
+
+                    <!-- SAN Series Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="san-series">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/san-400.png"
+                          alt="SAN Series"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span
+                          ><a href="product-san400.html">SAN Series</a></span
+                        >
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 4.5/6/8.5/40 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-107 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
+                      <div class="sc17-lie"><span>6.25/25/100 MHz</span></div>
+                      <div class="sc17-lie"><span>1.1 THz/s</span></div>
+                    </div>
+
+                    <!-- SAE Series Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="sae-series">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/sae-200.png"
+                          alt="SAE Series"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span><a href="product-sa.html">SA Series</a></span>
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 9.5/20 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
+                      <div class="sc17-lie"><span>100 MHz</span></div>
+                      <div class="sc17-lie"><span>1.1 THz/s</span></div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="sc17-item-con">
-                <div class="sc17-biao">
-                  <div class="sc17-hang sc17-tou">
-                    <div class="sc17-lie">Compare</div>
-                    <div class="sc17-lie">Model Image</div>
-                    <div class="sc17-lie">Product Name</div>
-                    <div class="sc17-lie">Frequency</div>
-                    <div class="sc17-lie">Phase Noise<br>1 GHz, 10 kHz Offset</div>
-                    <div class="sc17-lie">DANL<br>1 GHz, Amp On</div>
-                    <div class="sc17-lie">Analysis<br>Bandwidth</div>
-                    <div class="sc17-lie">Sweep Speed</div>
-                  </div>
+            </div>
 
-                  <!-- New SAN Series Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="new-san">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+            <!-- NETWORKED TAB -->
+            <div id="con_seven_2" style="display: none">
+              <div class="sc17-item">
+                <div class="sc17-item-name">
+                  <img
+                    loading="lazy"
+                    src="https://www.harogic.com/wp-content/uploads/2024/10/NX-Series-亮蓝.svg"
+                    alt="Networked SA badge"
+                    style="width: 80px"
+                  />
+                  <p>
+                    <span>NX-NETWORKED</span><br />
+                    <span>SPECTRUM ANALYZER</span>
+                  </p>
+                </div>
+                <div class="sc17-item-con">
+                  <div class="sc17-biao">
+                    <div class="sc17-hang sc17-tou">
+                      <div class="sc17-lie">Compare</div>
+                      <div class="sc17-lie">Model Image</div>
+                      <div class="sc17-lie">Product Name</div>
+                      <div class="sc17-lie">Frequency</div>
+                      <div class="sc17-lie">
+                        Phase Noise<br />1 GHz, 10 kHz Offset
                       </div>
+                      <div class="sc17-lie">DANL<br />1 GHz, Amp On</div>
+                      <div class="sc17-lie">Analysis<br />Bandwidth</div>
+                      <div class="sc17-lie">Sweep Speed</div>
                     </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/san-60.png" alt="New SAN" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-new-san.html">New SAN Series</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 4.5/6/9 GHz</span></div>
-                    <div class="sc17-lie"><span>-110 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>-168 dBm/Hz</span></div>
-                    <div class="sc17-lie"><span>50/100 MHz</span></div>
-                    <div class="sc17-lie"><span>1.0 THz/s</span></div>
-                  </div>
 
-                  <!-- SAN Series Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="san-series">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <!-- NXN Series Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="nxn-series">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/san-400.png" alt="SAN Series" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-san400.html">SAN Series</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 4.5/6/8.5/40 GHz</span></div>
-                    <div class="sc17-lie"><span>-107 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
-                    <div class="sc17-lie"><span>6.25/25/100 MHz</span></div>
-                    <div class="sc17-lie"><span>1.1 THz/s</span></div>
-                  </div>
-
-                  <!-- SAE Series Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="sae-series">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/nxn.png"
+                          alt="NXN Series"
+                          style="height: 50px; width: auto"
+                        />
                       </div>
+                      <div class="sc17-lie">
+                        <span><a href="product-nxn.html">NXN Series</a></span>
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 4.5/6/8.5/40 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-107 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
+                      <div class="sc17-lie"><span>6.25/25/100 MHz</span></div>
+                      <div class="sc17-lie"><span>657.4 GHz/s</span></div>
                     </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/sae-200.png" alt="SAE Series" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-sa.html">SA Series</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 9.5/20 GHz</span></div>
-                    <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
-                    <div class="sc17-lie"><span>100 MHz</span></div>
-                    <div class="sc17-lie"><span>1.1 THz/s</span></div>
-                  </div>
 
+                    <!-- NXE Series Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="nxe-series">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/nxe.png"
+                          alt="NXE Series"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span><a href="product-nxe.html">NXE Series</a></span>
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 9.5/20 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>-168 dBm/Hz</span></div>
+                      <div class="sc17-lie"><span>100 MHz</span></div>
+                      <div class="sc17-lie"><span>665.6 GHz/s</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HANDHELD TAB -->
+            <div id="con_seven_3" style="display: none">
+              <div class="sc17-item">
+                <div class="sc17-item-name">
+                  <img
+                    loading="lazy"
+                    src="https://www.harogic.com/wp-content/uploads/2024/10/PX-Series-亮蓝.svg"
+                    alt="Handheld SA badge"
+                    style="width: 80px"
+                  />
+                  <p>
+                    <span>PX-BENCHTOP/HANDHELD</span><br />
+                    <span>SPECTRUM ANALYZER</span>
+                  </p>
+                </div>
+                <div class="sc17-item-con">
+                  <div class="sc17-biao">
+                    <div class="sc17-hang sc17-tou">
+                      <div class="sc17-lie">Compare</div>
+                      <div class="sc17-lie">Model Image</div>
+                      <div class="sc17-lie">Product Name</div>
+                      <div class="sc17-lie">Frequency</div>
+                      <div class="sc17-lie">
+                        Phase Noise<br />1 GHz, 10 kHz Offset
+                      </div>
+                      <div class="sc17-lie">Analysis<br />Bandwidth</div>
+                      <div class="sc17-lie">System</div>
+                      <div class="sc17-lie">Size, Weight</div>
+                    </div>
+
+                    <!-- PX Series Standard Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="px-standard">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/pxe-200.jpg"
+                          alt="PX Standard"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span
+                          ><a href="product-px-standard.html"
+                            >PX Series Standard</a
+                          ></span
+                        >
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 4.5/6/9/20/40 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-110 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>50/100 MHz</span></div>
+                      <div class="sc17-lie"><span>Linux</span></div>
+                      <div class="sc17-lie"><span>10.1", 1.5 kg</span></div>
+                    </div>
+
+                    <!-- PX Series Rugged Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="px-rugged">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/pxn-400r.jpg"
+                          alt="PX Rugged"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span
+                          ><a href="product-px-rugged.html"
+                            >PX Series Rugged</a
+                          ></span
+                        >
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 9.5/20/40 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>100 MHz</span></div>
+                      <div class="sc17-lie"><span>Linux</span></div>
+                      <div class="sc17-lie"><span>10.1", 2.5 kg</span></div>
+                    </div>
+
+                    <!-- PX Series Geek Row -->
+                    <div class="sc17-hang">
+                      <div class="sc17-lie">
+                        <div class="sc17-check" data-id="px-geek">
+                          <svg
+                            width="20"
+                            height="20"
+                            fill="none"
+                            stroke="none"
+                            stroke-width="3"
+                            viewBox="0 0 24 24"
+                            style="display: none"
+                          >
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="sc17-lie">
+                        <img
+                          loading="lazy"
+                          src="images/products/pxe-200z.png"
+                          alt="PX Geek"
+                          style="height: 50px; width: auto"
+                        />
+                      </div>
+                      <div class="sc17-lie">
+                        <span
+                          ><a href="product-px-geek.html"
+                            >PX Series Geek</a
+                          ></span
+                        >
+                      </div>
+                      <div class="sc17-lie">
+                        <span>9 kHz - 9.5/20/40 GHz</span>
+                      </div>
+                      <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
+                      <div class="sc17-lie"><span>100 MHz</span></div>
+                      <div class="sc17-lie"><span>Windows 11</span></div>
+                      <div class="sc17-lie"><span>8.8", 1.1 kg</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- NETWORKED TAB -->
-          <div id="con_seven_2" style="display:none;">
-            <div class="sc17-item">
-              <div class="sc17-item-name">
-                <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/10/NX-Series-亮蓝.svg" alt="Networked SA badge" style="width: 80px;">
-                <p>
-                  <span>NX-NETWORKED</span><br>
-                  <span>SPECTRUM ANALYZER</span>
-                </p>
-              </div>
-              <div class="sc17-item-con">
-                <div class="sc17-biao">
-                  <div class="sc17-hang sc17-tou">
-                    <div class="sc17-lie">Compare</div>
-                    <div class="sc17-lie">Model Image</div>
-                    <div class="sc17-lie">Product Name</div>
-                    <div class="sc17-lie">Frequency</div>
-                    <div class="sc17-lie">Phase Noise<br>1 GHz, 10 kHz Offset</div>
-                    <div class="sc17-lie">DANL<br>1 GHz, Amp On</div>
-                    <div class="sc17-lie">Analysis<br>Bandwidth</div>
-                    <div class="sc17-lie">Sweep Speed</div>
-                  </div>
-
-                  <!-- NXN Series Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="nxn-series">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/nxn.png" alt="NXN Series" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-nxn.html">NXN Series</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 4.5/6/8.5/40 GHz</span></div>
-                    <div class="sc17-lie"><span>-107 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>-161 dBm/Hz</span></div>
-                    <div class="sc17-lie"><span>6.25/25/100 MHz</span></div>
-                    <div class="sc17-lie"><span>657.4 GHz/s</span></div>
-                  </div>
-
-                  <!-- NXE Series Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="nxe-series">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/nxe.png" alt="NXE Series" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-nxe.html">NXE Series</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 9.5/20 GHz</span></div>
-                    <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>-168 dBm/Hz</span></div>
-                    <div class="sc17-lie"><span>100 MHz</span></div>
-                    <div class="sc17-lie"><span>665.6 GHz/s</span></div>
-                  </div>
-
-                </div>
-              </div>
+          <!-- Comparison Bar -->
+          <div class="sc17-ts" id="trigger-comparison">
+            <div
+              class="sc17-ts-img"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                />
+              </svg>
+            </div>
+            <div class="sc17-ts-con">
+              <span class="nownum">0</span>
+              <span>of 3 Product comparison</span>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- HANDHELD TAB -->
-          <div id="con_seven_3" style="display:none;">
-            <div class="sc17-item">
-              <div class="sc17-item-name">
-                <img loading="lazy" src="https://www.harogic.com/wp-content/uploads/2024/10/PX-Series-亮蓝.svg" alt="Handheld SA badge" style="width: 80px;">
-                <p>
-                  <span>PX-BENCHTOP/HANDHELD</span><br>
-                  <span>SPECTRUM ANALYZER</span>
-                </p>
-              </div>
-              <div class="sc17-item-con">
-                <div class="sc17-biao">
-                  <div class="sc17-hang sc17-tou">
-                    <div class="sc17-lie">Compare</div>
-                    <div class="sc17-lie">Model Image</div>
-                    <div class="sc17-lie">Product Name</div>
-                    <div class="sc17-lie">Frequency</div>
-                    <div class="sc17-lie">Phase Noise<br>1 GHz, 10 kHz Offset</div>
-                    <div class="sc17-lie">Analysis<br>Bandwidth</div>
-                    <div class="sc17-lie">System</div>
-                    <div class="sc17-lie">Size, Weight</div>
-                  </div>
-
-                  <!-- PX Series Standard Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="px-standard">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/pxe-200.jpg" alt="PX Standard" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-px-standard.html">PX Series Standard</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 4.5/6/9/20/40 GHz</span></div>
-                    <div class="sc17-lie"><span>-110 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>50/100 MHz</span></div>
-                    <div class="sc17-lie"><span>Linux</span></div>
-                    <div class="sc17-lie"><span>10.1", 1.5 kg</span></div>
-                  </div>
-
-                  <!-- PX Series Rugged Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="px-rugged">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/pxn-400r.jpg" alt="PX Rugged" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-px-rugged.html">PX Series Rugged</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 9.5/20/40 GHz</span></div>
-                    <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>100 MHz</span></div>
-                    <div class="sc17-lie"><span>Linux</span></div>
-                    <div class="sc17-lie"><span>10.1", 2.5 kg</span></div>
-                  </div>
-
-                  <!-- PX Series Geek Row -->
-                  <div class="sc17-hang">
-                    <div class="sc17-lie">
-                      <div class="sc17-check" data-id="px-geek">
-                        <svg width="20" height="20" fill="none" stroke="none" stroke-width="3" viewBox="0 0 24 24" style="display:none;"><polyline points="20 6 9 17 4 12"/></svg>
-                      </div>
-                    </div>
-                    <div class="sc17-lie">
-                      <img loading="lazy" src="images/products/pxe-200z.png" alt="PX Geek" style="height:50px; width:auto;">
-                    </div>
-                    <div class="sc17-lie"><span><a href="product-px-geek.html">PX Series Geek</a></span></div>
-                    <div class="sc17-lie"><span>9 kHz - 9.5/20/40 GHz</span></div>
-                    <div class="sc17-lie"><span>-100 dBc/Hz</span></div>
-                    <div class="sc17-lie"><span>100 MHz</span></div>
-                    <div class="sc17-lie"><span>Windows 11</span></div>
-                    <div class="sc17-lie"><span>8.8", 1.1 kg</span></div>
-                  </div>
-
-                </div>
-              </div>
+      <!-- Product Comparison Popup Modal -->
+      <div class="sc17-tc-dbg" id="comparison-modal-bg"></div>
+      <div
+        class="sc17-tc"
+        id="comparison-modal"
+        style="
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          border-radius: 12px;
+          background: #080808;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          overflow: hidden;
+        "
+      >
+        <div class="sc17-xbg" style="display: none">
+          <img
+            loading="lazy"
+            src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_duibi_bg.webp"
+            alt="bg"
+          />
+        </div>
+        <div class="sc17-tc-con">
+          <div class="sc17-tc-left">
+            <div class="tc-part1">
+              <p>Product</p>
+              <p>Comparison</p>
+            </div>
+            <div class="tc-part2" id="comparison-headers">
+              <div>Frequency</div>
+              <div>Analysis bandwidth</div>
+              <div>1 GHz Phase Noise (10 kHz)</div>
+              <div id="dynamic-row-header">DANL or Sweep Speed</div>
             </div>
           </div>
-
-        </div>
-
-        <!-- Comparison Bar -->
-        <div class="sc17-ts" id="trigger-comparison">
-          <div class="sc17-ts-img" style="display:flex; align-items:center; justify-content:center;">
-            <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
-          </div>
-          <div class="sc17-ts-con">
-            <span class="nownum">0</span>
-            <span>of 3 Product comparison</span>
+          <div class="sc17-tc-right" id="comparison-results">
+            <!-- Populated by JavaScript -->
           </div>
         </div>
+        <div class="sc17-close" id="close-comparison"></div>
       </div>
-    </div>
 
-    <!-- Product Comparison Popup Modal -->
-    <div class="sc17-tc-dbg" id="comparison-modal-bg"></div>
-    <div class="sc17-tc" id="comparison-modal" style="box-shadow: 0 20px 50px rgba(0,0,0,0.5); border-radius: 12px; background: #080808; border: 1px solid rgba(255,255,255,0.05); overflow: hidden;">
-      <div class="sc17-xbg" style="display:none;">
-        <img loading="lazy" src="https://www.harogic.com/wp-content/themes/enharogic/skin/images/product_duibi_bg.webp" alt="bg">
-      </div>
-      <div class="sc17-tc-con">
-        <div class="sc17-tc-left">
-          <div class="tc-part1">
-            <p>Product</p>
-            <p>Comparison</p>
-          </div>
-          <div class="tc-part2" id="comparison-headers">
-            <div>Frequency</div>
-            <div>Analysis bandwidth</div>
-            <div>1 GHz Phase Noise (10 kHz)</div>                  
-            <div id="dynamic-row-header">DANL or Sweep Speed</div>
-          </div>
-        </div>
-        <div class="sc17-tc-right" id="comparison-results">
-          <!-- Populated by JavaScript -->
-        </div>
-      </div>
-      <div class="sc17-close" id="close-comparison"></div>
-    </div>
-
-    <!-- Applications -->
-    <section class="con sc4-out">
-      <div class="sc4">
-        <div class="sc4-left sc5-out">
-          <div class="swiper sc5">
-            <div class="swiper-wrapper">
-              <!-- Slide 1 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>SGA-60 Series</p>
-                    <p class="hyphenate">Pulse Generation and Frequency Sweeping Simulation</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+      <!-- Applications -->
+      <section class="con sc4-out">
+        <div class="sc4">
+          <div class="sc4-left sc5-out">
+            <div class="swiper sc5">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>SGA-60 Series</p>
+                      <p class="hyphenate">
+                        Pulse Generation and Frequency Sweeping Simulation
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 2 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>New PXN Series</p>
-                    <p class="hyphenate">Tracking Generator and Standalone Signal Generator</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>New PXN Series</p>
+                      <p class="hyphenate">
+                        Tracking Generator and Standalone Signal Generator
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 3 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>Mapping Mode</p>
-                    <p class="hyphenate">GPS-Synchronized RF Signal Mapping and Geolocation</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>Mapping Mode</p>
+                      <p class="hyphenate">
+                        GPS-Synchronized RF Signal Mapping and Geolocation
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 4 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>GNU Radio</p>
-                    <p class="hyphenate">Custom Demodulations and Automated Testing Hooks</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>GNU Radio</p>
+                      <p class="hyphenate">
+                        Custom Demodulations and Automated Testing Hooks
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 5 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>Airborne Systems</p>
-                    <p class="hyphenate">Airborne Radio Measurement and Coverage Auditing</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>Airborne Systems</p>
+                      <p class="hyphenate">
+                        Airborne Radio Measurement and Coverage Auditing
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 6 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>Spectrum Monitoring</p>
-                    <p class="hyphenate">Third Party 40 GHz Spectrum Monitoring Systems</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 6 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>Spectrum Monitoring</p>
+                      <p class="hyphenate">
+                        Third Party 40 GHz Spectrum Monitoring Systems
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Slide 7 -->
-              <div class="swiper-slide">
-                <div class="sc5-item">
-                  <div class="sc5-item-con">
-                    <p>SDR++</p>
-                    <p class="hyphenate">Versatile Demodulation Platforms and Phase-Coherent IQ</p>
-                    <a class="sc5-item-a" href="application.html">
-                      <i><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></i>More
-                    </a>
+                <!-- Slide 7 -->
+                <div class="swiper-slide">
+                  <div class="sc5-item">
+                    <div class="sc5-item-con">
+                      <p>SDR++</p>
+                      <p class="hyphenate">
+                        Versatile Demodulation Platforms and Phase-Coherent IQ
+                      </p>
+                      <a class="sc5-item-a" href="application.html">
+                        <i
+                          ><svg
+                            width="16"
+                            height="16"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M5 12h14M12 5l7 7-7 7" /></svg></i
+                        >More
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="sc4-right sc6-out">
-          <div class="swiper sc6">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg" alt="SGA-60 Pulse Simulation"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg" alt="Tracking Generator component sweeps"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg" alt="RF Signal Geolocation Mapping"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/harogic-gnradio.jpg" alt="GNU Radio spectral automation"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/cooperation_1.webp" alt="Airborne radio systems"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/cooperation_2.jpg" alt="Third party spectrum monitoring"></a></div>
-              <div class="swiper-slide"><a href="application.html"><img loading="lazy" src="images/cooperation_3.webp" alt="SDR++ PX Series spectrum analyzer"></a></div>
+          <div class="sc4-right sc6-out">
+            <div class="swiper sc6">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg"
+                      alt="SGA-60 Pulse Simulation"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg"
+                      alt="Tracking Generator component sweeps"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg"
+                      alt="RF Signal Geolocation Mapping"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/harogic-gnradio.jpg"
+                      alt="GNU Radio spectral automation"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/cooperation_1.webp"
+                      alt="Airborne radio systems"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/cooperation_2.jpg"
+                      alt="Third party spectrum monitoring"
+                  /></a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="application.html"
+                    ><img
+                      loading="lazy"
+                      src="images/cooperation_3.webp"
+                      alt="SDR++ PX Series spectrum analyzer"
+                  /></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="sc4-other">
-        <div class="sc4-name home_title">
-          <p class="wow sc1fadeInLeft" data-wow-duration="2s" data-wow-offset="0">Find a</p>
-          <p class="wow sc1fadeInLeft" data-wow-duration="2s" data-wow-offset="0" data-wow-delay="0.2s">Application</p>
+        <div class="sc4-other">
+          <div class="sc4-name home_title">
+            <p
+              class="wow sc1fadeInLeft"
+              data-wow-duration="2s"
+              data-wow-offset="0"
+            >
+              Find a
+            </p>
+            <p
+              class="wow sc1fadeInLeft"
+              data-wow-duration="2s"
+              data-wow-offset="0"
+              data-wow-delay="0.2s"
+            >
+              Application
+            </p>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-pagination"></div>
+      </section>
+    </main>
+
+    <!-- ========== GET IN TOUCH SECTION ========== -->
+    <section class="get-in-touch-section">
+      <div class="con">
+        <div class="git-header">
+          <span class="git-tag">GET IN TOUCH</span>
+          <h2 class="git-title">Talk to our RF specialists</h2>
+          <p class="git-desc">
+            Send us your inquiry — we typically respond the same business day.
+          </p>
+        </div>
+
+        <div class="git-content">
+          <!-- Contact Form -->
+          <div class="git-form-card">
+            <h3>Send us a message</h3>
+            <form id="git-contact-form">
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-fullname">FULL NAME *</label>
+                  <input type="text" id="git-fullname" required />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-email">EMAIL *</label>
+                  <input type="email" id="git-email" required />
+                </div>
+              </div>
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-phone">PHONE</label>
+                  <input type="tel" id="git-phone" />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-company">COMPANY</label>
+                  <input type="text" id="git-company" />
+                </div>
+              </div>
+              <div class="git-form-group full-width">
+                <label for="git-message">MESSAGE *</label>
+                <textarea id="git-message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="git-submit-btn">Send Inquiry</button>
+            </form>
+          </div>
+
+          <!-- Contact Details -->
+          <div class="git-details">
+            <a href="mailto:business@pntech.in" class="git-detail-card">
+              <div class="git-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <path d="m22 6-10 7L2 6" />
+                </svg>
+              </div>
+              <div class="git-info-box">
+                <span class="git-detail-label">EMAIL</span>
+                <span class="git-detail-value">business@pntech.in</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
 
-  <!-- ========== GET IN TOUCH SECTION ========== -->
-  <section class="get-in-touch-section">
-    <div class="con">
-      <div class="git-header">
-        <span class="git-tag">GET IN TOUCH</span>
-        <h2 class="git-title">Talk to our RF specialists</h2>
-        <p class="git-desc">Send us your inquiry — we typically respond the same business day.</p>
-      </div>
-      
-      <div class="git-content">
-        <!-- Contact Form -->
-        <div class="git-form-card">
-          <h3>Send us a message</h3>
-          <form id="git-contact-form">
-            <div class="git-form-row">
-              <div class="git-form-group">
-                <label for="git-fullname">FULL NAME *</label>
-                <input type="text" id="git-fullname" required>
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <div class="con">
+        <div class="ft-out">
+          <div class="ft">
+            <div class="ft-right">
+              <div class="ft-nav">
+                <ul class="ftnav-box">
+                  <li>
+                    <a href="products.html">Product</a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a href="product-spectrum-analyzer.html"
+                          >Spectrum Analyzer</a
+                        >
+                      </li>
+                      <li>
+                        <a href="product-vector-signal-generator.html"
+                          >Vector Signal Generator</a
+                        >
+                      </li>
+                      <li><a href="product-hda.html">Antenna</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="news.html">Latest News</a></li>
+                  <li><a href="application.html">Application</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
               </div>
-              <div class="git-form-group">
-                <label for="git-email">EMAIL *</label>
-                <input type="email" id="git-email" required>
-              </div>
-            </div>
-            <div class="git-form-row">
-              <div class="git-form-group">
-                <label for="git-phone">PHONE</label>
-                <input type="tel" id="git-phone">
-              </div>
-              <div class="git-form-group">
-                <label for="git-company">COMPANY</label>
-                <input type="text" id="git-company">
-              </div>
-            </div>
-            <div class="git-form-group full-width">
-              <label for="git-message">MESSAGE *</label>
-              <textarea id="git-message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="git-submit-btn">Send Inquiry</button>
-          </form>
-        </div>
-
-        <!-- Contact Details -->
-        <div class="git-details">
-          <a href="mailto:business@pntech.in" class="git-detail-card">
-            <div class="git-icon-box">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
-            </div>
-            <div class="git-info-box">
-              <span class="git-detail-label">EMAIL</span>
-              <span class="git-detail-value">business@pntech.in</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-        <!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="con">
-      <div class="ft-out">
-        <div class="ft">
-          <div class="ft-right">
-            <div class="ft-nav">
-              <ul class="ftnav-box">
-                <li><a href="products.html">Product</a>
-                  <ul class="sub-menu">
-                    <li><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></li>
-                    <li><a href="product-vector-signal-generator.html">Vector Signal Generator</a></li>
-                    <li><a href="product-hda.html">Antenna</a></li>
-                  </ul>
-                </li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="news.html">Latest News</a></li>
-                <li><a href="application.html">Application</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="ft-right-end">
-              <div class="ft-contact-info">
-                <p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p>
-                <p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p>
+              <div class="ft-right-end">
+                <div class="ft-contact-info">
+                  <p>
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      />
+                      <path d="m22 6-10 7L2 6" />
+                    </svg>
+                    <a href="mailto:business@pntech.in" style="color: #aaa"
+                      >business@pntech.in</a
+                    >
+                  </p>
+                  <p style="margin-top: 6px; color: #777; font-size: 12px">
+                    Offices: Bhopal &middot; Ahmedabad, India
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="ft-bb">
-        <p>Copyright &copy; 2024-2026 PN Technologies</p>
-      </div>
-    </div>
-
-    <!-- Mobile Footer -->
-    <div class="phone-footer">
-      <div class="phone-box">
-        <ul class="phone-footer">
-          <li><a href="products.html">Product</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="news.html">Latest News</a></li>
-          <li><a href="application.html">Application</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ========== FLOATING SIDEBAR ========== -->
-  <div class="sc33">
-    <div class="sc33-item sc33-zx" title="Contact Us">
-      <div class="sc33-item-img">
-        <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      </div>
-    </div>
-    <div class="sc33-item sc33-top" title="Back to Top">
-      <div class="sc33-item-img">
-        <svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== CONTACT MODAL ========== -->
-  <div class="sc30-dbg"></div>
-  <div class="sc30-out">
-    <div class="sc30-close"></div>
-    <div class="sc30-name"><p>Request</p><p>For Quote</p></div>
-    <div class="sc30-con">
-      <form id="modal-contact-form">
-        <div class="sc30-part1 sc30-part">
-          <div class="sc30-part-name"><p><span>Request Fields*</span></p></div>
-          <div class="sc30-part-input" style="position:relative;">
-            <input type="text" id="request-type" placeholder="Please select" readonly style="cursor:pointer;">
-            <div class="sc30-part-xia">
-              <svg width="12" height="12" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
-            </div>
-          </div>
-          <div class="sc30-part-select" id="request-select">
-            <div class="sc30-part-select-scroll">
-              <div class="sc30-part-select-item"><p>Product Information</p></div>
-              <div class="sc30-part-select-item"><p>Request for Quote</p></div>
-              <div class="sc30-part-select-item"><p>Technical Support</p></div>
-              <div class="sc30-part-select-item"><p>Others</p></div>
-            </div>
-          </div>
+        <div class="ft-bb">
+          <p>Copyright &copy; 2024-2026 PN Technologies</p>
         </div>
-        <div class="sc30-part2 sc30-part"><div class="sc30-part-name"><p><span>First Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
-        <div class="sc30-part3 sc30-part"><div class="sc30-part-name"><p><span>Last Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
-        <div class="sc30-part4 sc30-part"><div class="sc30-part-name"><p><span>Company*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
-        <div class="sc30-part5 sc30-part"><div class="sc30-part-name"><p><span>Country*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div>
-        <div class="sc30-part6 sc30-part"><div class="sc30-part-name"><p><span>E-Mail*</span></p></div><div class="sc30-part-input"><input type="email" required></div></div>
-        <div class="sc30-part7 sc30-part"><div class="sc30-part-name"><p><span>Phone (optional)</span></p></div><div class="sc30-part-input"><input type="tel"></div></div>
-        <div class="sc30-part8 sc30-part"><div class="sc30-part-name"><p><span>Your Message (optional)</span></p></div><div class="sc30-part-input"><textarea rows="4"></textarea></div></div>
-        <div class="sc30-part10 sc30-part"><input type="submit" value="SEND MESSAGE"></div>
-      </form>
+      </div>
+
+      <!-- Mobile Footer -->
+      <div class="phone-footer">
+        <div class="phone-box">
+          <ul class="phone-footer">
+            <li><a href="products.html">Product</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="application.html">Application</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== FLOATING SIDEBAR ========== -->
+    <div class="sc33">
+      <div class="sc33-item sc33-zx" title="Contact Us">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="sc33-item sc33-top" title="Back to Top">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous" defer></script>
-  <script defer src="js/main.js?v=20260602-v11"></script>
-  <script>
-    // Tab switching engine
-    function setTab(name, cursel, n) {
-      for (var i = 1; i <= n; i++) {
-        var menu = document.getElementById(name + i);
-        var con = document.getElementById("con_" + name + "_" + i);
-        if (menu) {
-          if (i == cursel) {
-            menu.className = "hover";
-          } else {
-            menu.className = "";
-          }
-        }
-        if (con) {
-          con.style.display = i == cursel ? "block" : "none";
-        }
-      }
-      // Reset comparison checkboxes
-      $('.sc17-check').removeClass('sc17-check-active');
-      $('.sc17-check svg').hide();
-      $('.nownum').text("0");
-      
-      // Update comparison headers based on active tab
-      var activeTabName = $('#seven' + cursel).text().trim();
-      var dynamicHeader = document.getElementById("dynamic-row-header");
-      if (activeTabName === 'HANDHELD') {
-        dynamicHeader.innerHTML = "System";
-        $('#comparison-headers').append('<div id="handheld-extra-row">Size, Weight</div>');
-      } else {
-        dynamicHeader.innerHTML = "DANL<br>1 GHz, Amp On";
-        $('#handheld-extra-row').remove();
-      }
-    }
+    <!-- ========== CONTACT MODAL ========== -->
+    <div class="sc30-dbg"></div>
+    <div class="sc30-out">
+      <div class="sc30-close"></div>
+      <div class="sc30-name">
+        <p>Request</p>
+        <p>For Quote</p>
+      </div>
+      <div class="sc30-con">
+        <form id="modal-contact-form">
+          <div class="sc30-part1 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Request Fields*</span></p>
+            </div>
+            <div class="sc30-part-input" style="position: relative">
+              <input
+                type="text"
+                id="request-type"
+                placeholder="Please select"
+                readonly
+                style="cursor: pointer"
+              />
+              <div class="sc30-part-xia">
+                <svg
+                  width="12"
+                  height="12"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="sc30-part-select" id="request-select">
+              <div class="sc30-part-select-scroll">
+                <div class="sc30-part-select-item">
+                  <p>Product Information</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Request for Quote</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Technical Support</p>
+                </div>
+                <div class="sc30-part-select-item"><p>Others</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc30-part2 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>First Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part3 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Last Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part4 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Company*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part5 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Country*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part6 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>E-Mail*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="email" required /></div>
+          </div>
+          <div class="sc30-part7 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Phone (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="tel" /></div>
+          </div>
+          <div class="sc30-part8 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Your Message (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><textarea rows="4"></textarea></div>
+          </div>
+          <div class="sc30-part10 sc30-part">
+            <input type="submit" value="SEND MESSAGE" />
+          </div>
+        </form>
+      </div>
+    </div>
 
-    // Static product details database for local client-side comparison
-    var productsData = {
-      // USB
-      "new-san": {
-        title: "New SAN Series",
-        img: "images/products/san-60.png",
-        frequency: "9 kHz - 4.5/6/9 GHz",
-        bandwidth: "50/100 MHz",
-        noise: "-110 dBc/Hz",
-        danl: "-168 dBm/Hz",
-        link: "product-new-san.html"
-      },
-      "san-series": {
-        title: "SAN Series",
-        img: "images/products/san-400.png",
-        frequency: "9 kHz - 4.5/6/8.5/40 GHz",
-        bandwidth: "6.25/25/100 MHz",
-        noise: "-107 dBc/Hz",
-        danl: "-161 dBm/Hz",
-        link: "product-san400.html"
-      },
-      "sae-series": {
-        title: "SA Series",
-        img: "images/products/sae-200.png",
-        frequency: "9 kHz - 9.5/20 GHz",
-        bandwidth: "100 MHz",
-        noise: "-100 dBc/Hz",
-        danl: "-161 dBm/Hz",
-        link: "product-sa.html"
-      },
-      // Networked
-      "nxn-series": {
-        title: "NXN Series",
-        img: "images/products/nxn.png",
-        frequency: "9 kHz - 4.5/6/8.5/40 GHz",
-        bandwidth: "6.25/25/100 MHz",
-        noise: "-107 dBc/Hz",
-        danl: "-161 dBm/Hz",
-        link: "product-nxn.html"
-      },
-      "nxe-series": {
-        title: "NXE Series",
-        img: "images/products/nxe.png",
-        frequency: "9 kHz - 9.5/20 GHz",
-        bandwidth: "100 MHz",
-        noise: "-100 dBc/Hz",
-        danl: "-168 dBm/Hz",
-        link: "product-nxe.html"
-      },
-      // Handheld
-      "px-standard": {
-        title: "PX Series Standard",
-        img: "images/products/pxe-200.jpg",
-        frequency: "9 kHz - 4.5/6/9 GHz",
-        bandwidth: "50/100 MHz",
-        noise: "-110 dBc/Hz",
-        system: "Linux",
-        size: "10.1\", 1.5 kg",
-        link: "product-px-standard.html"
-      },
-      "px-rugged": {
-        title: "PX Series Rugged",
-        img: "images/products/pxn-400r.jpg",
-        frequency: "9 kHz - 9.5/20/40 GHz",
-        bandwidth: "100 MHz",
-        noise: "-100 dBc/Hz",
-        system: "Linux",
-        size: "10.1\", 2.5 kg",
-        link: "product-px-rugged.html"
-      },
-      "px-geek": {
-        title: "PX Series Geek",
-        img: "images/products/pxe-200z.png",
-        frequency: "9 kHz - 9.5/20/40 GHz",
-        bandwidth: "100 MHz",
-        noise: "-100 dBc/Hz",
-        system: "Windows 11",
-        size: "8.8\", 1.1 kg",
-        link: "product-px-geek.html"
-      }
-    };
-
-    document.addEventListener('DOMContentLoaded', function() {
-      $(document).ready(function() {
-        // Handle checkbox comparison selection
-        $('.sc17-check').click(function() {
-          var activeTabIdx = $('.sc17-header span.hover').index() + 1;
-          var parentDiv = '#con_seven_' + activeTabIdx;
-          
-          $(this).toggleClass('sc17-check-active');
-          if ($(this).hasClass('sc17-check-active')) {
-            $(this).find('svg').show();
-          } else {
-            $(this).find('svg').hide();
-          }
-          
-          var checkedCount = $(parentDiv + ' .sc17-check-active').length;
-          $('.nownum').text(checkedCount);
-
-          // Limit selection to max 3 items
-          if (checkedCount > 3) {
-            $(this).removeClass('sc17-check-active');
-            $(this).find('svg').hide();
-            $('.nownum').text(3);
-          }
-        });
-
-        // Launch Comparison Modal
-        $('#trigger-comparison').click(function() {
-          var activeTabIdx = $('.sc17-header span.hover').index() + 1;
-          var activeTabName = $('#seven' + activeTabIdx).text().trim();
-          var parentDiv = '#con_seven_' + activeTabIdx;
-          
-          var selectedIds = [];
-          $(parentDiv + ' .sc17-check-active').each(function() {
-            selectedIds.push($(this).data('id'));
-          });
-
-          if (selectedIds.length < 2) {
-            alert("Please select at least 2 products to compare.");
-            return;
-          }
-
-          // Populate comparison modal contents
-          var container = $('#comparison-results');
-          container.empty();
-
-          selectedIds.forEach(function(id) {
-            var data = productsData[id];
-            if (!data) return;
-
-            var itemHtml = '<div class="sc17-tc-item">';
-            itemHtml += '  <div class="tc-part1">';
-            itemHtml += '    <div class="tc-part1-img">';
-            itemHtml += '      <img loading="lazy" src="' + data.img + '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
-            itemHtml += '    </div>';
-            itemHtml += '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' + data.title + '</div>';
-            itemHtml += '  </div>';
-            itemHtml += '  <div class="tc-part2">';
-            itemHtml += '    <div>' + data.frequency + '</div>';
-            itemHtml += '    <div>' + data.bandwidth + '</div>';
-            itemHtml += '    <div>' + data.noise + '</div>';
-            
-            if (activeTabName === 'HANDHELD') {
-              itemHtml += '    <div>' + data.system + '</div>';
-              itemHtml += '    <div>' + data.size + '</div>';
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"
+      integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+      integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script defer src="js/main.js?v=20260602-v11"></script>
+    <script>
+      // Tab switching engine
+      function setTab(name, cursel, n) {
+        for (var i = 1; i <= n; i++) {
+          var menu = document.getElementById(name + i);
+          var con = document.getElementById("con_" + name + "_" + i);
+          if (menu) {
+            if (i == cursel) {
+              menu.className = "hover";
             } else {
-              itemHtml += '    <div>' + data.danl + '</div>';
+              menu.className = "";
+            }
+          }
+          if (con) {
+            con.style.display = i == cursel ? "block" : "none";
+          }
+        }
+        // Reset comparison checkboxes
+        $(".sc17-check").removeClass("sc17-check-active");
+        $(".sc17-check svg").hide();
+        $(".nownum").text("0");
+
+        // Update comparison headers based on active tab
+        var activeTabName = $("#seven" + cursel)
+          .text()
+          .trim();
+        var dynamicHeader = document.getElementById("dynamic-row-header");
+        if (activeTabName === "HANDHELD") {
+          dynamicHeader.innerHTML = "System";
+          $("#comparison-headers").append(
+            '<div id="handheld-extra-row">Size, Weight</div>',
+          );
+        } else {
+          dynamicHeader.innerHTML = "DANL<br>1 GHz, Amp On";
+          $("#handheld-extra-row").remove();
+        }
+      }
+
+      // Static product details database for local client-side comparison
+      var productsData = {
+        // USB
+        "new-san": {
+          title: "New SAN Series",
+          img: "images/products/san-60.png",
+          frequency: "9 kHz - 4.5/6/9 GHz",
+          bandwidth: "50/100 MHz",
+          noise: "-110 dBc/Hz",
+          danl: "-168 dBm/Hz",
+          link: "product-new-san.html",
+        },
+        "san-series": {
+          title: "SAN Series",
+          img: "images/products/san-400.png",
+          frequency: "9 kHz - 4.5/6/8.5/40 GHz",
+          bandwidth: "6.25/25/100 MHz",
+          noise: "-107 dBc/Hz",
+          danl: "-161 dBm/Hz",
+          link: "product-san400.html",
+        },
+        "sae-series": {
+          title: "SA Series",
+          img: "images/products/sae-200.png",
+          frequency: "9 kHz - 9.5/20 GHz",
+          bandwidth: "100 MHz",
+          noise: "-100 dBc/Hz",
+          danl: "-161 dBm/Hz",
+          link: "product-sa.html",
+        },
+        // Networked
+        "nxn-series": {
+          title: "NXN Series",
+          img: "images/products/nxn.png",
+          frequency: "9 kHz - 4.5/6/8.5/40 GHz",
+          bandwidth: "6.25/25/100 MHz",
+          noise: "-107 dBc/Hz",
+          danl: "-161 dBm/Hz",
+          link: "product-nxn.html",
+        },
+        "nxe-series": {
+          title: "NXE Series",
+          img: "images/products/nxe.png",
+          frequency: "9 kHz - 9.5/20 GHz",
+          bandwidth: "100 MHz",
+          noise: "-100 dBc/Hz",
+          danl: "-168 dBm/Hz",
+          link: "product-nxe.html",
+        },
+        // Handheld
+        "px-standard": {
+          title: "PX Series Standard",
+          img: "images/products/pxe-200.jpg",
+          frequency: "9 kHz - 4.5/6/9 GHz",
+          bandwidth: "50/100 MHz",
+          noise: "-110 dBc/Hz",
+          system: "Linux",
+          size: '10.1", 1.5 kg',
+          link: "product-px-standard.html",
+        },
+        "px-rugged": {
+          title: "PX Series Rugged",
+          img: "images/products/pxn-400r.jpg",
+          frequency: "9 kHz - 9.5/20/40 GHz",
+          bandwidth: "100 MHz",
+          noise: "-100 dBc/Hz",
+          system: "Linux",
+          size: '10.1", 2.5 kg',
+          link: "product-px-rugged.html",
+        },
+        "px-geek": {
+          title: "PX Series Geek",
+          img: "images/products/pxe-200z.png",
+          frequency: "9 kHz - 9.5/20/40 GHz",
+          bandwidth: "100 MHz",
+          noise: "-100 dBc/Hz",
+          system: "Windows 11",
+          size: '8.8", 1.1 kg',
+          link: "product-px-geek.html",
+        },
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        $(document).ready(function () {
+          // Handle checkbox comparison selection
+          $(".sc17-check").click(function () {
+            var activeTabIdx = $(".sc17-header span.hover").index() + 1;
+            var parentDiv = "#con_seven_" + activeTabIdx;
+
+            $(this).toggleClass("sc17-check-active");
+            if ($(this).hasClass("sc17-check-active")) {
+              $(this).find("svg").show();
+            } else {
+              $(this).find("svg").hide();
             }
 
-            itemHtml += '    <a href="' + data.link + '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
-            itemHtml += '  </div>';
-            itemHtml += '</div>';
+            var checkedCount = $(parentDiv + " .sc17-check-active").length;
+            $(".nownum").text(checkedCount);
 
-            container.append(itemHtml);
+            // Limit selection to max 3 items
+            if (checkedCount > 3) {
+              $(this).removeClass("sc17-check-active");
+              $(this).find("svg").hide();
+              $(".nownum").text(3);
+            }
           });
 
-          // Set widths depending on number of items (2 or 3)
-          if (selectedIds.length === 2) {
-            $('.sc17-tc-item').css('width', '48%');
+          // Launch Comparison Modal
+          $("#trigger-comparison").click(function () {
+            var activeTabIdx = $(".sc17-header span.hover").index() + 1;
+            var activeTabName = $("#seven" + activeTabIdx)
+              .text()
+              .trim();
+            var parentDiv = "#con_seven_" + activeTabIdx;
+
+            var selectedIds = [];
+            $(parentDiv + " .sc17-check-active").each(function () {
+              selectedIds.push($(this).data("id"));
+            });
+
+            if (selectedIds.length < 2) {
+              alert("Please select at least 2 products to compare.");
+              return;
+            }
+
+            // Populate comparison modal contents
+            var container = $("#comparison-results");
+            container.empty();
+
+            selectedIds.forEach(function (id) {
+              var data = productsData[id];
+              if (!data) return;
+
+              var itemHtml = '<div class="sc17-tc-item">';
+              itemHtml += '  <div class="tc-part1">';
+              itemHtml += '    <div class="tc-part1-img">';
+              itemHtml +=
+                '      <img loading="lazy" src="' +
+                data.img +
+                '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
+              itemHtml += "    </div>";
+              itemHtml +=
+                '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' +
+                data.title +
+                "</div>";
+              itemHtml += "  </div>";
+              itemHtml += '  <div class="tc-part2">';
+              itemHtml += "    <div>" + data.frequency + "</div>";
+              itemHtml += "    <div>" + data.bandwidth + "</div>";
+              itemHtml += "    <div>" + data.noise + "</div>";
+
+              if (activeTabName === "HANDHELD") {
+                itemHtml += "    <div>" + data.system + "</div>";
+                itemHtml += "    <div>" + data.size + "</div>";
+              } else {
+                itemHtml += "    <div>" + data.danl + "</div>";
+              }
+
+              itemHtml +=
+                '    <a href="' +
+                data.link +
+                '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
+              itemHtml += "  </div>";
+              itemHtml += "</div>";
+
+              container.append(itemHtml);
+            });
+
+            // Set widths depending on number of items (2 or 3)
+            if (selectedIds.length === 2) {
+              $(".sc17-tc-item").css("width", "48%");
+            } else {
+              $(".sc17-tc-item").css("width", "32%");
+            }
+
+            $("#comparison-modal-bg").fadeIn();
+            $("#comparison-modal").fadeIn();
+          });
+
+          // Close Comparison Modal
+          $("#close-comparison, #comparison-modal-bg").click(function () {
+            $("#comparison-modal-bg").fadeOut();
+            $("#comparison-modal").fadeOut();
+          });
+
+          // Support hash links from main menu (e.g. #usb, #networked, #handheld)
+          var hash = window.location.hash;
+          if (hash === "#networked") {
+            setTab("seven", 2, 3);
+          } else if (hash === "#handheld") {
+            setTab("seven", 3, 3);
           } else {
-            $('.sc17-tc-item').css('width', '32%');
+            setTab("seven", 1, 3);
           }
 
-          $('#comparison-modal-bg').fadeIn();
-          $('#comparison-modal').fadeIn();
-        });
-
-        // Close Comparison Modal
-        $('#close-comparison, #comparison-modal-bg').click(function() {
-          $('#comparison-modal-bg').fadeOut();
-          $('#comparison-modal').fadeOut();
-        });
-
-        // Support hash links from main menu (e.g. #usb, #networked, #handheld)
-        var hash = window.location.hash;
-        if (hash === '#networked') {
-          setTab('seven', 2, 3);
-        } else if (hash === '#handheld') {
-          setTab('seven', 3, 3);
-        } else {
-          setTab('seven', 1, 3);
-        }
-
-        // Hash change listener
-        window.addEventListener('hashchange', function() {
-          var newHash = window.location.hash;
-          if (newHash === '#networked') {
-            setTab('seven', 2, 3);
-          } else if (newHash === '#handheld') {
-            setTab('seven', 3, 3);
-          } else {
-            setTab('seven', 1, 3);
-          }
+          // Hash change listener
+          window.addEventListener("hashchange", function () {
+            var newHash = window.location.hash;
+            if (newHash === "#networked") {
+              setTab("seven", 2, 3);
+            } else if (newHash === "#handheld") {
+              setTab("seven", 3, 3);
+            } else {
+              setTab("seven", 1, 3);
+            }
+          });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

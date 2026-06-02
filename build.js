@@ -1,9 +1,9 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-const distDir = path.join(process.cwd(), 'dist');
+const distDir = path.join(process.cwd(), "dist");
 
-console.log('Starting static build...');
+console.log("Starting static build...");
 
 // Clean and create dist
 if (fs.existsSync(distDir)) {
@@ -22,21 +22,21 @@ const copySync = (src, dest) => {
 };
 
 // List of folders to copy
-const assets = ['css', 'js', 'images', 'public', '.well-known'];
-assets.forEach(asset => copySync(asset, path.join(distDir, asset)));
+const assets = ["css", "js", "images", "public", ".well-known"];
+assets.forEach((asset) => copySync(asset, path.join(distDir, asset)));
 
 // Copy all HTML files in root and other critical root files (robots.txt)
 const files = fs.readdirSync(process.cwd());
 let htmlCount = 0;
-files.forEach(file => {
-  if (file.endsWith('.html')) {
+files.forEach((file) => {
+  if (file.endsWith(".html")) {
     fs.copyFileSync(file, path.join(distDir, file));
     htmlCount++;
-  } else if (file === 'robots.txt') {
+  } else if (file === "robots.txt") {
     fs.copyFileSync(file, path.join(distDir, file));
-    console.log('Copied: robots.txt');
+    console.log("Copied: robots.txt");
   }
 });
 
 console.log(`Copied ${htmlCount} HTML files.`);
-console.log('Build completed successfully: Static site copied to dist/');
+console.log("Build completed successfully: Static site copied to dist/");

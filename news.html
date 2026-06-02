@@ -1,393 +1,1080 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <script>if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News Center - PN Technologies | Latest RF Technology Updates</title>
-  <meta name="description" content="Stay updated with the latest news from PN Technologies — product launches, partnerships, events, and technology breakthroughs in RF instrumentation.">
-  <meta property="og:title" content="News Center - PN Technologies">
-  <meta property="og:description" content="Latest news and updates from PN Technologies.">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css" integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260602-v11">
-  <style>
-    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-    .news-banner { position: relative; width: 100%; height: 400px; background: linear-gradient(135deg, #050505 0%, #160800 50%, #050505 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-    .news-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(255,102,0,0.08) 0%, transparent 60%); }
-    .news-banner-text { position: relative; z-index: 2; text-align: center; }
-    .news-banner-text h1 { font-size: 56px; font-weight: 700; color: #fff; margin-bottom: 16px; }
-    .news-banner-text p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; }
-    .news-section { padding: 80px 0; }
-    .news-section-title { text-align: center; margin-bottom: 60px; }
-    .news-section-title h2 { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .news-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; transition: all 0.4s cubic-bezier(0.4,0,0.2,1); cursor: pointer; }
-    .news-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,102,0,0.3); transform: translateY(-6px); }
-    .news-card-img { width: 100%; height: 200px; overflow: hidden; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; }
-    .news-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .news-card:hover .news-card-img img { transform: scale(1.05); }
-    .news-card-body { padding: 24px; }
-    .news-card-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .news-card-date { font-size: 12px; color: rgba(255,255,255,0.4); }
-    .news-card-tag { font-size: 11px; font-weight: 600; color: #ff6600; background: rgba(255,102,0,0.1); padding: 3px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .news-card-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 10px; line-height: 1.4; }
-    .news-card-title a { color: inherit; text-decoration: none; transition: color 0.3s ease; }
-    .news-card-title a:hover { color: #ff6600; }
-    .news-card-excerpt { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.45); }
-    @media (max-width: 1024px) { .news-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      .news-banner { height: 300px; }
-      .news-banner-text h1 { font-size: 36px; }
-      .news-grid { grid-template-columns: 1fr; gap: 20px; }
-      .news-section { padding: 50px 0; }
-    }
-    
-    /* Category styles */
-    .news-cate { display: flex; justify-content: center; gap: 16px; margin-bottom: 50px; padding: 0; list-style: none; }
-    .news-category { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px 24px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; }
-    .news-category:hover { color: #ff6600; border-color: rgba(255,102,0,0.3); background: rgba(255,102,0,0.05); }
-    .news-category.active { color: var(--white); background: #ff6600; border-color: #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.4); }
-    
-    /* Pagination styles */
-    .news-pagination-container { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 60px; }
-    .news-page-btn { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: var(--white); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; outline: none; }
-    .news-page-btn:hover:not(:disabled) { background: #ff6600; border-color: #ff6600; box-shadow: 0 0 15px rgba(255,102,0,0.4); transform: scale(1.05); }
-    .news-page-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-    .news-page-info { display: flex; align-items: center; gap: 12px; font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 500; }
-    .news-page-input { width: 55px; height: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #ff6600; font-weight: 700; font-size: 16px; text-align: center; outline: none; transition: border-color 0.3s ease; -moz-appearance: textfield; }
-    .news-page-input::-webkit-outer-spin-button, .news-page-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    .news-page-input:focus { border-color: #ff6600; background: rgba(255,255,255,0.06); }
-    .news-page-of { color: rgba(255,255,255,0.4); font-size: 14px; }
-    .news-total-pages { color: var(--white); font-weight: 600; }
+  <head>
+    <script>
+      if (localStorage.getItem("theme") === "light")
+        document.documentElement.classList.add("light-theme");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Center - PN Technologies | Latest RF Technology Updates</title>
+    <meta
+      name="description"
+      content="Stay updated with the latest news from PN Technologies — product launches, partnerships, events, and technology breakthroughs in RF instrumentation."
+    />
+    <meta property="og:title" content="News Center - PN Technologies" />
+    <meta
+      property="og:description"
+      content="Latest news and updates from PN Technologies."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+      integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20260602-v11" />
+    <style>
+      body {
+        font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .news-banner {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(
+          135deg,
+          #050505 0%,
+          #160800 50%,
+          #050505 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .news-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 70% 50%,
+          rgba(255, 102, 0, 0.08) 0%,
+          transparent 60%
+        );
+      }
+      .news-banner-text {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+      }
+      .news-banner-text h1 {
+        font-size: 56px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      .news-banner-text p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .news-section {
+        padding: 80px 0;
+      }
+      .news-section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .news-section-title h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .news-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+      .news-card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 102, 0, 0.3);
+        transform: translateY(-6px);
+      }
+      .news-card-img {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.02);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .news-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .news-card:hover .news-card-img img {
+        transform: scale(1.05);
+      }
+      .news-card-body {
+        padding: 24px;
+      }
+      .news-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .news-card-date {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .news-card-tag {
+        font-size: 11px;
+        font-weight: 600;
+        color: #ff6600;
+        background: rgba(255, 102, 0, 0.1);
+        padding: 3px 10px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .news-card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .news-card-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .news-card-title a:hover {
+        color: #ff6600;
+      }
+      .news-card-excerpt {
+        font-size: 14px;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.45);
+      }
+      @media (max-width: 1024px) {
+        .news-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .news-banner {
+          height: 300px;
+        }
+        .news-banner-text h1 {
+          font-size: 36px;
+        }
+        .news-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .news-section {
+          padding: 50px 0;
+        }
+      }
 
-    /* Light theme overrides */
-    html.light-theme .news-card { background: rgba(255, 255, 255, 0.7); border-color: rgba(0, 0, 0, 0.08); }
-    html.light-theme .news-card:hover { background: rgba(255, 255, 255, 0.95); border-color: var(--accent); }
-    html.light-theme .news-card-title { color: var(--text-primary); }
-    html.light-theme .news-card-date { color: var(--text-secondary); }
-    html.light-theme .news-card-excerpt { color: var(--text-secondary); }
-    html.light-theme .news-section-title h2 { color: var(--text-primary); }
-    html.light-theme .news-category { background: var(--white); border-color: rgba(0,0,0,0.08); color: var(--text-secondary); }
-    html.light-theme .news-category:hover { color: #ff6600; border-color: #ff6600; }
-    html.light-theme .news-category.active { color: var(--white); background: #ff6600; }
-    html.light-theme .news-page-btn { background: var(--white); border-color: rgba(0,0,0,0.08); color: var(--text-primary); }
-    html.light-theme .news-page-btn:hover:not(:disabled) { background: #ff6600; border-color: #ff6600; color: var(--white); }
-    html.light-theme .news-page-info { color: var(--text-secondary); }
-    html.light-theme .news-page-input { background: var(--white); border-color: rgba(0,0,0,0.1); }
-    html.light-theme .news-page-of { color: var(--text-secondary); }
-    html.light-theme .news-total-pages { color: var(--text-primary); }
-  </style>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
-</head>
-<body>
-  <script>var name = 'news'; var currentDeviceMode = window.innerWidth <= 768 ? 'mobile' : 'pc';</script>
+      /* Category styles */
+      .news-cate {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-bottom: 50px;
+        padding: 0;
+        list-style: none;
+      }
+      .news-category {
+        font-size: 15px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 10px 24px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .news-category:hover {
+        color: #ff6600;
+        border-color: rgba(255, 102, 0, 0.3);
+        background: rgba(255, 102, 0, 0.05);
+      }
+      .news-category.active {
+        color: var(--white);
+        background: #ff6600;
+        border-color: #ff6600;
+        box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+      }
 
-  <!-- HEADER -->
-  <header>
-  <div class="hd-bg"></div>
-  <!-- Desktop Header -->
-  <div class="hd-out">
-    <div class="hd con">
-      <div class="hd-left">
-        <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-          <img src="images/logo.png" alt="PNTECH" style="height:56px; width:auto;">
-          <span class="hd-logo-text" style="color:var(--white); font-size:22px; font-weight:700; letter-spacing:1px; white-space:nowrap;">PN Technologies</span>
-        </a>
+      /* Pagination styles */
+      .news-pagination-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 60px;
+      }
+      .news-page-btn {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+      .news-page-btn:hover:not(:disabled) {
+        background: #ff6600;
+        border-color: #ff6600;
+        box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+        transform: scale(1.05);
+      }
+      .news-page-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .news-page-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 500;
+      }
+      .news-page-input {
+        width: 55px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: #ff6600;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+        outline: none;
+        transition: border-color 0.3s ease;
+        -moz-appearance: textfield;
+      }
+      .news-page-input::-webkit-outer-spin-button,
+      .news-page-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .news-page-input:focus {
+        border-color: #ff6600;
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .news-page-of {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 14px;
+      }
+      .news-total-pages {
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      /* Light theme overrides */
+      html.light-theme .news-card {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+      html.light-theme .news-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: var(--accent);
+      }
+      html.light-theme .news-card-title {
+        color: var(--text-primary);
+      }
+      html.light-theme .news-card-date {
+        color: var(--text-secondary);
+      }
+      html.light-theme .news-card-excerpt {
+        color: var(--text-secondary);
+      }
+      html.light-theme .news-section-title h2 {
+        color: var(--text-primary);
+      }
+      html.light-theme .news-category {
+        background: var(--white);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--text-secondary);
+      }
+      html.light-theme .news-category:hover {
+        color: #ff6600;
+        border-color: #ff6600;
+      }
+      html.light-theme .news-category.active {
+        color: var(--white);
+        background: #ff6600;
+      }
+      html.light-theme .news-page-btn {
+        background: var(--white);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: var(--text-primary);
+      }
+      html.light-theme .news-page-btn:hover:not(:disabled) {
+        background: #ff6600;
+        border-color: #ff6600;
+        color: var(--white);
+      }
+      html.light-theme .news-page-info {
+        color: var(--text-secondary);
+      }
+      html.light-theme .news-page-input {
+        background: var(--white);
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+      html.light-theme .news-page-of {
+        color: var(--text-secondary);
+      }
+      html.light-theme .news-total-pages {
+        color: var(--text-primary);
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <script>
+      var name = "news";
+      var currentDeviceMode = window.innerWidth <= 768 ? "mobile" : "pc";
+    </script>
+
+    <!-- HEADER -->
+    <header>
+      <div class="hd-bg"></div>
+      <!-- Desktop Header -->
+      <div class="hd-out">
+        <div class="hd con">
+          <div class="hd-left">
+            <a
+              href="index.html"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src="images/logo.png"
+                alt="PNTECH"
+                style="height: 56px; width: auto"
+              />
+              <span
+                class="hd-logo-text"
+                style="
+                  color: var(--white);
+                  font-size: 22px;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  white-space: nowrap;
+                "
+                >PN Technologies</span
+              >
+            </a>
+          </div>
+          <div class="hd-md">
+            <nav class="hd-nav">
+              <ul class="hdnav-box">
+                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="products.html">Product</a>
+                  <div class="sub-menu mega-menu">
+                    <div class="mega-menu-inner">
+                      <!-- Column 1: Spectrum Analyzer -->
+                      <div class="mega-column spectrum-analyzer-column">
+                        <div class="mega-column-title">
+                          <a href="product-spectrum-analyzer.html"
+                            >Spectrum Analyzer</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <!-- USB Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-new-san.html"
+                                  >New SAN Series</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-san400.html">SAN Series</a>
+                              </li>
+                              <li><a href="product-sa.html">SA Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Networked Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#networked"
+                                >Networked</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-nxn.html">NXN Series</a></li>
+                              <li><a href="product-nxe.html">NXE Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Benchtop/Handheld Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#handheld"
+                                >Benchtop / Handheld</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-px-standard.html"
+                                  >PX Series Standard</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-geek.html"
+                                  >PX Series Geek</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-rugged.html"
+                                  >PX Series Rugged</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Column 2: Vector Signal Generator -->
+                      <div class="mega-column vsg-column">
+                        <div class="mega-column-title">
+                          <a href="product-vector-signal-generator.html"
+                            >Vector Signal Generator</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-vector-signal-generator.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-sga.html">New SGA-60</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Column 3: Antenna -->
+                      <div class="mega-column antenna-column">
+                        <div class="mega-column-title">
+                          <a href="product-hda.html">Antenna</a>
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-hda.html">HDA Series</a>
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-hda.html">HDA-100</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item">
+                  <a href="application.html">Application</a>
+                </li>
+                <li class="menu-item"><a href="news.html">Latest News</a></li>
+                <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="hd-right"
+            style="display: flex; align-items: center; gap: 16px"
+          >
+            <div class="hd-search">
+              <form>
+                <div class="hd-search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <button class="hd-search-img" type="button">
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              <svg
+                class="sun-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                ></path>
+              </svg>
+              <svg
+                class="moon-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="hd-md">
-        <nav class="hd-nav">
-          <ul class="hdnav-box">
-            <li class="menu-item"><a href="index.html">Home</a></li>
-            <li class="menu-item menu-item-has-children">
-              <a href="products.html">Product</a>
-              <div class="sub-menu mega-menu">
-                <div class="mega-menu-inner">
-                  <!-- Column 1: Spectrum Analyzer -->
-                  <div class="mega-column spectrum-analyzer-column">
-                    <div class="mega-column-title"><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></div>
-                    <div class="mega-sub-grid">
-                      <!-- USB Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#usb">USB</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-new-san.html">New SAN Series</a></li>
-                          <li><a href="product-san400.html">SAN Series</a></li>
-                          <li><a href="product-sa.html">SA Series</a></li>
-                        </ul>
-                      </div>
-                      <!-- Networked Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#networked">Networked</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-nxn.html">NXN Series</a></li>
-                          <li><a href="product-nxe.html">NXE Series</a></li>
-                        </ul>
-                      </div>
-                      <!-- Benchtop/Handheld Sub-column -->
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-spectrum-analyzer.html#handheld">Benchtop / Handheld</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-px-standard.html">PX Series Standard</a></li>
-                          <li><a href="product-px-geek.html">PX Series Geek</a></li>
-                          <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
 
-                  <!-- Column 2: Vector Signal Generator -->
-                  <div class="mega-column vsg-column">
-                    <div class="mega-column-title"><a href="product-vector-signal-generator.html">Vector Signal Generator</a></div>
-                    <div class="mega-sub-grid">
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-vector-signal-generator.html#usb">USB</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-sga.html">New SGA-60</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+      <!-- Mobile Header -->
+      <div class="phone-header">
+        <div class="phone-logo">
+          <a
+            href="index.html"
+            style="display: flex; align-items: center; gap: 10px"
+          >
+            <img
+              src="images/logo.png"
+              alt="PNTECH"
+              style="height: 48px; width: auto"
+            />
+            <span style="color: var(--white); font-size: 18px; font-weight: 700"
+              >PN Technologies</span
+            >
+          </a>
+        </div>
+        <div
+          class="phone-right-actions"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="theme-toggle"
+            id="theme-toggle-mobile"
+            aria-label="Toggle theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              ></path>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <div class="phone-more">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: var(--white)"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
 
-                  <!-- Column 3: Antenna -->
-                  <div class="mega-column antenna-column">
-                    <div class="mega-column-title"><a href="product-hda.html">Antenna</a></div>
-                    <div class="mega-sub-grid">
-                      <div class="mega-sub-column">
-                        <div class="mega-sub-title"><a href="product-hda.html">HDA Series</a></div>
-                        <ul class="mega-links">
-                          <li><a href="product-hda.html">HDA-100</a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+    <main>
+      <!-- Banner -->
+      <section class="news-banner">
+        <div class="news-banner-text">
+          <h1 class="wow fadeIn" data-wow-duration="1.5s">News Center</h1>
+          <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+            Latest updates from PN Technologies
+          </p>
+        </div>
+      </section>
+
+      <!-- News Grid -->
+      <section class="news-section">
+        <div class="con">
+          <div class="news-cate">
+            <span class="news-category active" data-id="97"
+              >New Product Release</span
+            >
+          </div>
+
+          <div class="news-grid" id="dynamic-news-grid">
+            <!-- Dynamic News Cards Injected Here -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="news-pagination-container">
+            <button
+              class="news-page-btn"
+              id="news-prev-btn"
+              aria-label="Previous page"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="news-page-info">
+              <input
+                type="number"
+                id="news-current-page-input"
+                class="news-page-input"
+                value="1"
+                min="1"
+                max="2"
+              />
+              <span class="news-page-of">of</span>
+              <span class="news-total-pages" id="news-total-pages-span">2</span>
+            </div>
+
+            <button
+              class="news-page-btn"
+              id="news-next-btn"
+              aria-label="Next page"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- GET IN TOUCH -->
+    <section class="get-in-touch-section">
+      <div class="con">
+        <div class="git-header">
+          <span class="git-tag">GET IN TOUCH</span>
+          <h2 class="git-title">Talk to our RF specialists</h2>
+          <p class="git-desc">
+            Send us your inquiry — we typically respond the same business day.
+          </p>
+        </div>
+        <div class="git-content">
+          <div class="git-form-card">
+            <h3>Send us a message</h3>
+            <form id="git-contact-form">
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-fullname">FULL NAME *</label
+                  ><input type="text" id="git-fullname" required />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-email">EMAIL *</label
+                  ><input type="email" id="git-email" required />
                 </div>
               </div>
-            </li>
-            <li class="menu-item"><a href="application.html">Application</a></li>
-            <li class="menu-item"><a href="news.html">Latest News</a></li>
-            <li class="menu-item"><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="hd-right" style="display: flex; align-items: center; gap: 16px;">
-        <div class="hd-search">
-          <form>
-            <div class="hd-search-input"><input type="text" placeholder="Search"></div>
-            <button class="hd-search-img" type="button">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-            </button>
-          </form>
-        </div>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-          </svg>
-          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Header -->
-  <div class="phone-header">
-    <div class="phone-logo">
-      <a href="index.html" style="display:flex; align-items:center; gap:10px;">
-        <img src="images/logo.png" alt="PNTECH" style="height:48px; width:auto;">
-        <span style="color:var(--white); font-size:18px; font-weight:700;">PN Technologies</span>
-      </a>
-    </div>
-    <div class="phone-right-actions" style="display: flex; align-items: center; gap: 15px;">
-      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle theme">
-        <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
-        </svg>
-        <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-      <div class="phone-more">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--white);"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </div>
-    </div>
-  </div>
-</header>
-
-  <main>
-    <!-- Banner -->
-    <section class="news-banner">
-      <div class="news-banner-text">
-        <h1 class="wow fadeIn" data-wow-duration="1.5s">News Center</h1>
-        <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">Latest updates from PN Technologies</p>
-      </div>
-    </section>
-
-    <!-- News Grid -->
-    <section class="news-section">
-      <div class="con">
-        <div class="news-cate">
-          <span class="news-category active" data-id="97">New Product Release</span>
-        </div>
-        
-        <div class="news-grid" id="dynamic-news-grid">
-          <!-- Dynamic News Cards Injected Here -->
-        </div>
-        
-        <!-- Pagination -->
-        <div class="news-pagination-container">
-          <button class="news-page-btn" id="news-prev-btn" aria-label="Previous page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          
-          <div class="news-page-info">
-            <input type="number" id="news-current-page-input" class="news-page-input" value="1" min="1" max="2">
-            <span class="news-page-of">of</span>
-            <span class="news-total-pages" id="news-total-pages-span">2</span>
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-phone">PHONE</label
+                  ><input type="tel" id="git-phone" />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-company">COMPANY</label
+                  ><input type="text" id="git-company" />
+                </div>
+              </div>
+              <div class="git-form-group full-width">
+                <label for="git-message">MESSAGE *</label
+                ><textarea id="git-message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="git-submit-btn">Send Inquiry</button>
+            </form>
           </div>
-          
-          <button class="news-page-btn" id="news-next-btn" aria-label="Next page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
+          <div class="git-details">
+            <a href="mailto:business@pntech.in" class="git-detail-card"
+              ><div class="git-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <path d="m22 6-10 7L2 6" />
+                </svg>
+              </div>
+              <div class="git-info-box">
+                <span class="git-detail-label">EMAIL</span
+                ><span class="git-detail-value">business@pntech.in</span>
+              </div></a
+            >
+          </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- GET IN TOUCH -->
-  <section class="get-in-touch-section">
-    <div class="con">
-      <div class="git-header"><span class="git-tag">GET IN TOUCH</span><h2 class="git-title">Talk to our RF specialists</h2><p class="git-desc">Send us your inquiry — we typically respond the same business day.</p></div>
-      <div class="git-content">
-        <div class="git-form-card"><h3>Send us a message</h3>
-          <form id="git-contact-form">
-            <div class="git-form-row"><div class="git-form-group"><label for="git-fullname">FULL NAME *</label><input type="text" id="git-fullname" required></div><div class="git-form-group"><label for="git-email">EMAIL *</label><input type="email" id="git-email" required></div></div>
-            <div class="git-form-row"><div class="git-form-group"><label for="git-phone">PHONE</label><input type="tel" id="git-phone"></div><div class="git-form-group"><label for="git-company">COMPANY</label><input type="text" id="git-company"></div></div>
-            <div class="git-form-group full-width"><label for="git-message">MESSAGE *</label><textarea id="git-message" rows="5" required></textarea></div>
-            <button type="submit" class="git-submit-btn">Send Inquiry</button>
-          </form>
-        </div>
-        <div class="git-details"><a href="mailto:business@pntech.in" class="git-detail-card"><div class="git-icon-box"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></div><div class="git-info-box"><span class="git-detail-label">EMAIL</span><span class="git-detail-value">business@pntech.in</span></div></a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-      <!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="con">
-      <div class="ft-out">
-        <div class="ft">
-          <div class="ft-right">
-            <div class="ft-nav">
-              <ul class="ftnav-box">
-                <li><a href="products.html">Product</a>
-                  <ul class="sub-menu">
-                    <li><a href="product-spectrum-analyzer.html">Spectrum Analyzer</a></li>
-                    <li><a href="product-vector-signal-generator.html">Vector Signal Generator</a></li>
-                    <li><a href="product-hda.html">Antenna</a></li>
-                  </ul>
-                </li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="news.html">Latest News</a></li>
-                <li><a href="application.html">Application</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="ft-right-end">
-              <div class="ft-contact-info">
-                <p><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:business@pntech.in" style="color:#aaa;">business@pntech.in</a></p>
-                <p style="margin-top:6px;color:#777;font-size:12px;">Offices: Bhopal &middot; Ahmedabad, India</p>
+    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <div class="con">
+        <div class="ft-out">
+          <div class="ft">
+            <div class="ft-right">
+              <div class="ft-nav">
+                <ul class="ftnav-box">
+                  <li>
+                    <a href="products.html">Product</a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a href="product-spectrum-analyzer.html"
+                          >Spectrum Analyzer</a
+                        >
+                      </li>
+                      <li>
+                        <a href="product-vector-signal-generator.html"
+                          >Vector Signal Generator</a
+                        >
+                      </li>
+                      <li><a href="product-hda.html">Antenna</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="news.html">Latest News</a></li>
+                  <li><a href="application.html">Application</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="ft-right-end">
+                <div class="ft-contact-info">
+                  <p>
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      />
+                      <path d="m22 6-10 7L2 6" />
+                    </svg>
+                    <a href="mailto:business@pntech.in" style="color: #aaa"
+                      >business@pntech.in</a
+                    >
+                  </p>
+                  <p style="margin-top: 6px; color: #777; font-size: 12px">
+                    Offices: Bhopal &middot; Ahmedabad, India
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="ft-bb">
+          <p>Copyright &copy; 2024-2026 PN Technologies</p>
+        </div>
       </div>
-      <div class="ft-bb">
-        <p>Copyright &copy; 2024-2026 PN Technologies</p>
+
+      <!-- Mobile Footer -->
+      <div class="phone-footer">
+        <div class="phone-box">
+          <ul class="phone-footer">
+            <li><a href="products.html">Product</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="application.html">Application</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Sidebar + Contact Modal (same as all pages) -->
+    <div class="sc33">
+      <div class="sc33-item sc33-zx" title="Contact Us">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="sc33-item sc33-top" title="Back to Top">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="sc30-dbg"></div>
+    <div class="sc30-out">
+      <div class="sc30-close"></div>
+      <div class="sc30-name">
+        <p>Request</p>
+        <p>For Contact</p>
+      </div>
+      <div class="sc30-con">
+        <form id="modal-contact-form">
+          <div class="sc30-part1 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Request Fields*</span></p>
+            </div>
+            <div class="sc30-part-input" style="position: relative">
+              <input
+                type="text"
+                id="request-type"
+                placeholder="Please select"
+                readonly
+                style="cursor: pointer"
+              />
+              <div class="sc30-part-xia">
+                <svg
+                  width="12"
+                  height="12"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="sc30-part-select" id="request-select">
+              <div class="sc30-part-select-scroll">
+                <div class="sc30-part-select-item">
+                  <p>Product Information</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Request for Quote</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Technical Support</p>
+                </div>
+                <div class="sc30-part-select-item"><p>Apply for a Job</p></div>
+                <div class="sc30-part-select-item"><p>Others</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc30-part2 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>First Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part3 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Last Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part4 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Company*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part5 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Country*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part6 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>E-Mail*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="email" required /></div>
+          </div>
+          <div class="sc30-part7 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Phone (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="tel" /></div>
+          </div>
+          <div class="sc30-part8 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Your Message (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><textarea rows="4"></textarea></div>
+          </div>
+          <div class="sc30-part10 sc30-part">
+            <input type="submit" value="SEND MESSAGE" />
+          </div>
+        </form>
       </div>
     </div>
 
-    <!-- Mobile Footer -->
-    <div class="phone-footer">
-      <div class="phone-box">
-        <ul class="phone-footer">
-          <li><a href="products.html">Product</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="news.html">Latest News</a></li>
-          <li><a href="application.html">Application</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"
+      integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+      integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="js/news-data.js?v=20260602-v11"></script>
+    <script defer src="js/main.js?v=20260602-v11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const PAGE_SIZE = 5;
+        let currentPage = 1;
+        const totalPages = Math.ceil(newsData.length / PAGE_SIZE);
 
-  <!-- Floating Sidebar + Contact Modal (same as all pages) -->
-  <div class="sc33">
-    <div class="sc33-item sc33-zx" title="Contact Us"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div></div>
-    <div class="sc33-item sc33-top" title="Back to Top"><div class="sc33-item-img"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></div></div>
-  </div>
-  <div class="sc30-dbg"></div><div class="sc30-out"><div class="sc30-close"></div><div class="sc30-name"><p>Request</p><p>For Contact</p></div><div class="sc30-con"><form id="modal-contact-form"><div class="sc30-part1 sc30-part"><div class="sc30-part-name"><p><span>Request Fields*</span></p></div><div class="sc30-part-input" style="position:relative;"><input type="text" id="request-type" placeholder="Please select" readonly style="cursor:pointer;"><div class="sc30-part-xia"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div></div><div class="sc30-part-select" id="request-select"><div class="sc30-part-select-scroll"><div class="sc30-part-select-item"><p>Product Information</p></div><div class="sc30-part-select-item"><p>Request for Quote</p></div><div class="sc30-part-select-item"><p>Technical Support</p></div><div class="sc30-part-select-item"><p>Apply for a Job</p></div><div class="sc30-part-select-item"><p>Others</p></div></div></div></div><div class="sc30-part2 sc30-part"><div class="sc30-part-name"><p><span>First Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div><div class="sc30-part3 sc30-part"><div class="sc30-part-name"><p><span>Last Name*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div><div class="sc30-part4 sc30-part"><div class="sc30-part-name"><p><span>Company*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div><div class="sc30-part5 sc30-part"><div class="sc30-part-name"><p><span>Country*</span></p></div><div class="sc30-part-input"><input type="text" required></div></div><div class="sc30-part6 sc30-part"><div class="sc30-part-name"><p><span>E-Mail*</span></p></div><div class="sc30-part-input"><input type="email" required></div></div><div class="sc30-part7 sc30-part"><div class="sc30-part-name"><p><span>Phone (optional)</span></p></div><div class="sc30-part-input"><input type="tel"></div></div><div class="sc30-part8 sc30-part"><div class="sc30-part-name"><p><span>Your Message (optional)</span></p></div><div class="sc30-part-input"><textarea rows="4"></textarea></div></div><div class="sc30-part10 sc30-part"><input type="submit" value="SEND MESSAGE"></div></form></div></div>
+        const grid = document.getElementById("dynamic-news-grid");
+        const prevBtn = document.getElementById("news-prev-btn");
+        const nextBtn = document.getElementById("news-next-btn");
+        const pageInput = document.getElementById("news-current-page-input");
+        const totalSpan = document.getElementById("news-total-pages-span");
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous" defer></script>
-  <script src="js/news-data.js?v=20260602-v11"></script>
-  <script defer src="js/main.js?v=20260602-v11"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const PAGE_SIZE = 5;
-      let currentPage = 1;
-      const totalPages = Math.ceil(newsData.length / PAGE_SIZE);
-      
-      const grid = document.getElementById('dynamic-news-grid');
-      const prevBtn = document.getElementById('news-prev-btn');
-      const nextBtn = document.getElementById('news-next-btn');
-      const pageInput = document.getElementById('news-current-page-input');
-      const totalSpan = document.getElementById('news-total-pages-span');
-      
-      if (totalSpan) {
-        totalSpan.textContent = totalPages;
-      }
-      if (pageInput) {
-        pageInput.max = totalPages;
-      }
-      
-      function renderPage(page) {
-        if (!grid || typeof newsData === 'undefined') return;
-        
-        currentPage = page;
-        if (pageInput) {
-          pageInput.value = page;
+        if (totalSpan) {
+          totalSpan.textContent = totalPages;
         }
-        
-        // Enable/Disable buttons
-        if (prevBtn) prevBtn.disabled = (currentPage === 1);
-        if (nextBtn) nextBtn.disabled = (currentPage === totalPages);
-        
-        // Slice the data
-        const start = (currentPage - 1) * PAGE_SIZE;
-        const end = Math.min(start + PAGE_SIZE, newsData.length);
-        const pageItems = newsData.slice(start, end);
-        
-        // Render
-        let html = '';
-        pageItems.forEach((item, index) => {
-          const delay = (index * 0.1).toFixed(1) + 's';
-          const coverImg = item.cover_img || 'images/about_youshi_factory.webp';
-          const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-          const detailUrl = isLocal ? `news-detail.html?slug=${item.slug}` : `news/${item.slug}`;
-          
-          html += `
+        if (pageInput) {
+          pageInput.max = totalPages;
+        }
+
+        function renderPage(page) {
+          if (!grid || typeof newsData === "undefined") return;
+
+          currentPage = page;
+          if (pageInput) {
+            pageInput.value = page;
+          }
+
+          // Enable/Disable buttons
+          if (prevBtn) prevBtn.disabled = currentPage === 1;
+          if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+
+          // Slice the data
+          const start = (currentPage - 1) * PAGE_SIZE;
+          const end = Math.min(start + PAGE_SIZE, newsData.length);
+          const pageItems = newsData.slice(start, end);
+
+          // Render
+          let html = "";
+          pageItems.forEach((item, index) => {
+            const delay = (index * 0.1).toFixed(1) + "s";
+            const coverImg =
+              item.cover_img || "images/about_youshi_factory.webp";
+            const isLocal =
+              window.location.hostname === "localhost" ||
+              window.location.hostname === "127.0.0.1" ||
+              window.location.protocol === "file:";
+            const detailUrl = isLocal
+              ? `news-detail.html?slug=${item.slug}`
+              : `news/${item.slug}`;
+
+            html += `
             <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="${delay}">
               <div class="news-card-img"><a href="${detailUrl}"><img loading="lazy" src="${coverImg}" alt="${item.title}"></a></div>
               <div class="news-card-body">
@@ -400,57 +1087,68 @@
               </div>
             </article>
           `;
-        });
-        
-        grid.innerHTML = html;
-        
-        // Re-trigger WOW.js animations for new cards
-        if (typeof WOW !== 'undefined') {
-          new WOW().init();
-        }
-      }
-      
-      // Event listeners
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
-          if (currentPage > 1) {
-            renderPage(currentPage - 1);
-            window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
-          }
-        });
-      }
-      
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-          if (currentPage < totalPages) {
-            renderPage(currentPage + 1);
-            window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
-          }
-        });
-      }
-      
-      if (pageInput) {
-        pageInput.addEventListener('change', function() {
-          let val = parseInt(this.value);
-          if (isNaN(val) || val < 1) val = 1;
-          if (val > totalPages) val = totalPages;
-          renderPage(val);
-          window.scrollTo({ top: $('.news-section').offset().top - 100, behavior: 'smooth' });
-        });
-      }
+          });
 
-      // Categories clicking (simply keeps showing the same articles since all are New Product Release)
-      document.querySelectorAll('.news-category').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.news-category').forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          renderPage(1);
+          grid.innerHTML = html;
+
+          // Re-trigger WOW.js animations for new cards
+          if (typeof WOW !== "undefined") {
+            new WOW().init();
+          }
+        }
+
+        // Event listeners
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            if (currentPage > 1) {
+              renderPage(currentPage - 1);
+              window.scrollTo({
+                top: $(".news-section").offset().top - 100,
+                behavior: "smooth",
+              });
+            }
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            if (currentPage < totalPages) {
+              renderPage(currentPage + 1);
+              window.scrollTo({
+                top: $(".news-section").offset().top - 100,
+                behavior: "smooth",
+              });
+            }
+          });
+        }
+
+        if (pageInput) {
+          pageInput.addEventListener("change", function () {
+            let val = parseInt(this.value);
+            if (isNaN(val) || val < 1) val = 1;
+            if (val > totalPages) val = totalPages;
+            renderPage(val);
+            window.scrollTo({
+              top: $(".news-section").offset().top - 100,
+              behavior: "smooth",
+            });
+          });
+        }
+
+        // Categories clicking (simply keeps showing the same articles since all are New Product Release)
+        document.querySelectorAll(".news-category").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            document
+              .querySelectorAll(".news-category")
+              .forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            renderPage(1);
+          });
         });
+
+        // Initial render
+        renderPage(1);
       });
-      
-      // Initial render
-      renderPage(1);
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
