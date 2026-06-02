@@ -481,5 +481,158 @@ $(document).ready(function () {
   }
   initHeroProductSliders();
 
+  // ---- Scroll-Triggered Reveal Animations ----
+  function initRevealAnimations() {
+    var revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-scale');
+    if (!revealEls.length) return;
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+  initRevealAnimations();
+
+  // ---- Animated Counter ----
+  function initCounters() {
+    var counters = document.querySelectorAll('.counter');
+    if (!counters.length) return;
+    var counted = false;
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !counted) {
+          counted = true;
+          counters.forEach(function(counter) {
+            var target = parseInt(counter.getAttribute('data-target'));
+            var duration = target > 100 ? 2000 : 1500;
+            var startTime = null;
+            
+            function easeOutCubic(t) {
+              return 1 - Math.pow(1 - t, 3);
+            }
+            
+            function animate(timestamp) {
+              if (!startTime) startTime = timestamp;
+              var progress = Math.min((timestamp - startTime) / duration, 1);
+              var easedProgress = easeOutCubic(progress);
+              var current = Math.round(easedProgress * target);
+              counter.textContent = current.toLocaleString();
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              }
+            }
+            requestAnimationFrame(animate);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Observe the stats section container
+    var statsSection = document.querySelector('.stats-section');
+    if (statsSection) observer.observe(statsSection);
+  }
+  initCounters();
+
+  // ---- 3D Tilt Effect on Cards ----
+  function initTiltCards() {
+    var cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var rotateX = ((y - centerY) / centerY) * -5;
+        var rotateY = ((x - centerX) / centerX) * 5;
+        card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  }
+  initTiltCards();
+
+  // ---- Magnetic Button Effect ----
+  function initMagneticButtons() {
+    var buttons = document.querySelectorAll('.magnetic-btn');
+    buttons.forEach(function(btn) {
+      btn.addEventListener('mousemove', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  }
+  initMagneticButtons();
+
+  // ---- Parallax on Who We Are Image ----
+  function initParallax() {
+    var parallaxImg = document.querySelector('.whoweare-img img');
+    if (!parallaxImg) return;
+    
+    window.addEventListener('scroll', function() {
+      var rect = parallaxImg.parentElement.getBoundingClientRect();
+      var windowHeight = window.innerHeight;
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        var scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        var translateY = (scrollProgress - 0.5) * -20;
+        parallaxImg.style.transform = 'translateY(' + translateY + 'px) scale(1.05)';
+      }
+    });
+  }
+  initParallax();
+
+  // ---- Capability Cards — Staggered Reveal ----
+  function initCapCardReveal() {
+    var cards = document.querySelectorAll('.cap-card');
+    if (!cards.length) return;
+    
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var cards = entry.target.querySelectorAll('.cap-card');
+          cards.forEach(function(card, i) {
+            setTimeout(function() {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, i * 150);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    var grid = document.querySelector('.cap-grid');
+    if (grid) {
+      // Set initial state
+      cards.forEach(function(card) {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      });
+      observer.observe(grid);
+    }
+  }
+  // Only init if WOW hasn't handled them
+  if (typeof WOW === 'undefined') {
+    initCapCardReveal();
+  }
+
 });
 

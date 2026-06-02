@@ -2839,19 +2839,27 @@ html.light-theme .subcategory_header .line {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--dark);
+  background: linear-gradient(160deg, #000000 0%, #0a0a0a 40%, #0d0800 70%, #0a0500 100%);
+}
+html.light-theme .hero-section {
+  background: linear-gradient(160deg, #fafafa 0%, #ffffff 40%, #fff8f0 70%, #fff5eb 100%);
 }
 .hero-bg-blur {
   position: absolute;
   top: -200px;
   right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,106,0,.25) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(255,106,0,.3) 0%, rgba(255,80,0,.1) 40%, transparent 70%);
   border-radius: 50%;
   filter: blur(100px);
   pointer-events: none;
   z-index: 0;
+  animation: heroOrbPulse 6s ease-in-out infinite alternate;
+}
+@keyframes heroOrbPulse {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.1); }
 }
 .hero-inner {
   position: relative;
@@ -2975,10 +2983,6 @@ html.light-theme .subcategory_header .line {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-}
-.subhero-block {
-  border-top: 2px solid var(--primary);
-  padding-top: 28px;
 }
 .subhero-block p {
   font-size: 1.15rem;
@@ -3358,8 +3362,7 @@ html.light-theme .subcategory_header .line {
 }
 
 /* ---------- LIGHT THEME OVERRIDES ---------- */
-html.light-theme .hero-section { background: var(--dark); }
-html.light-theme .hero-bg-blur { background: radial-gradient(circle, rgba(255,106,0,.15) 0%, transparent 70%); }
+html.light-theme .hero-bg-blur { background: radial-gradient(circle, rgba(255,106,0,.12) 0%, transparent 70%); }
 html.light-theme .cap-card { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.08); }
 html.light-theme .cap-card:hover { background: rgba(255,106,0,.05); border-color: rgba(255,106,0,.25); }
 html.light-theme .whatwedo-card { background: rgba(0,0,0,.03); border-color: rgba(0,0,0,.08); }
@@ -3367,6 +3370,11 @@ html.light-theme .whatwedo-card:hover { border-color: rgba(255,106,0,.25); }
 html.light-theme .subhero-section,
 html.light-theme .whoweare-section { background: rgba(0,0,0,.02); }
 html.light-theme .final-cta-inner { background: rgba(255,106,0,.04); border-color: rgba(255,106,0,.12); }
+html.light-theme .stats-section::before,
+html.light-theme .stats-section::after { background: linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.2), transparent); }
+html.light-theme .stat-item::after { background: rgba(0, 0, 0, 0.08); }
+html.light-theme .section-divider { background: linear-gradient(90deg, transparent 0%, rgba(255, 106, 0, 0.2) 50%, transparent 100%); }
+html.light-theme .whatwedo-icon { background: rgba(255, 106, 0, 0.06); border-color: rgba(255, 106, 0, 0.12); }
 html.light-theme .product_card_img {
   background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%) !important;
   border-bottom-color: rgba(0, 0, 0, 0.06) !important;

@@ -1,0 +1,518 @@
+/* ============================================================
+   HOME PAGE — INTERACTIVE ANIMATIONS & EFFECTS
+   Black & Orange Premium Theme
+   ============================================================ */
+
+/* ---------- ANIMATED BACKGROUND GRID ---------- */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 106, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 106, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ---------- HERO GLOW ORB ---------- */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  left: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(80px, -60px) scale(1.15); }
+}
+
+/* ---------- GRADIENT TEXT FOR HERO ---------- */
+.hero-headline {
+  background: linear-gradient(135deg, #ffffff 0%, #ff6a00 60%, #ff8c33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light-theme .hero-headline {
+  background: linear-gradient(135deg, #0a0a0a 0%, #ff6a00 60%, #e05500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- HERO CTA BUTTON ---------- */
+.hero-cta-group {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6a00 0%, #e05500 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(255, 106, 0, 0.3);
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(255, 106, 0, 0.45);
+}
+
+.hero-cta-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.hero-cta-primary:hover::after {
+  left: 100%;
+}
+
+.hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 32px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 106, 0, 0.5);
+  color: #ff6a00;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  background: transparent;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(255, 106, 0, 0.08);
+  border-color: #ff6a00;
+  transform: translateY(-2px);
+}
+
+html.light-theme .hero-cta-secondary {
+  color: #e05500;
+  border-color: rgba(224, 85, 0, 0.5);
+}
+
+/* ---------- ANIMATED PULSE LINE UNDER HEADLINE ---------- */
+.hero-headline::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6a00, #ff8c33);
+  border-radius: 2px;
+  margin-top: 20px;
+  animation: pulseWidth 3s ease-in-out infinite;
+}
+
+@keyframes pulseWidth {
+  0%, 100% { width: 80px; opacity: 0.7; }
+  50% { width: 160px; opacity: 1; }
+}
+
+/* ---------- STATS COUNTER SECTION ---------- */
+.stats-section {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.4), transparent);
+}
+
+.stats-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 106, 0, 0.4), transparent);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 32px 16px;
+  position: relative;
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 106, 0, 0.15);
+}
+
+.stat-item:last-child::after {
+  display: none;
+}
+
+.stat-number {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 800;
+  color: #ff6a00;
+  line-height: 1;
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-number .stat-suffix {
+  font-size: 0.6em;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---------- SECTION DIVIDERS ---------- */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 106, 0, 0.4) 50%, transparent 100%);
+  border: none;
+  margin: 0;
+}
+
+/* ---------- SUB-HERO GLASS CARDS ---------- */
+.subhero-block {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 106, 0, 0.1);
+  border-top: 3px solid #ff6a00;
+  border-radius: 16px;
+  padding: 36px 32px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+}
+
+.subhero-block:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(255, 106, 0, 0.08);
+  border-color: rgba(255, 106, 0, 0.3);
+}
+
+html.light-theme .subhero-block {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 106, 0, 0.15);
+}
+
+/* ---------- CAPABILITY CARDS — ANIMATED BORDER GLOW ---------- */
+.cap-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s !important;
+}
+
+.cap-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6a00, #ff8c33, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.cap-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cap-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(255, 106, 0, 0.1);
+}
+
+/* ---------- WHAT-WE-DO CARD ICONS ---------- */
+.whatwedo-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(255, 106, 0, 0.08);
+  border: 1px solid rgba(255, 106, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #ff6a00;
+  transition: all 0.4s;
+}
+
+.whatwedo-card:hover .whatwedo-icon {
+  background: rgba(255, 106, 0, 0.15);
+  border-color: rgba(255, 106, 0, 0.35);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 106, 0, 0.15);
+}
+
+/* ---------- WHAT-WE-DO CARD ACCENT ANIMATION ---------- */
+.whatwedo-card .whatwedo-card-accent {
+  transition: width 0.5s ease;
+}
+
+.whatwedo-card:hover .whatwedo-card-accent {
+  background: linear-gradient(90deg, #ff6a00, #ff8c33, transparent) !important;
+}
+
+/* ---------- SHOWCASE ITEM ENHANCED OVERLAY ---------- */
+.showcase-overlay {
+  transform: translateY(100%);
+  opacity: 1 !important;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.showcase-item:hover .showcase-overlay {
+  transform: translateY(0);
+  opacity: 1 !important;
+}
+
+.showcase-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 106, 0, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.showcase-item:hover::before {
+  opacity: 1;
+}
+
+/* ---------- FINAL CTA — ANIMATED BORDER ---------- */
+.final-cta-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-inner::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  animation: orbFloat 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Pulsing border glow */
+@keyframes borderPulse {
+  0%, 100% { border-color: rgba(255, 106, 0, 0.15); box-shadow: 0 0 0 rgba(255, 106, 0, 0); }
+  50% { border-color: rgba(255, 106, 0, 0.35); box-shadow: 0 0 30px rgba(255, 106, 0, 0.06); }
+}
+
+.final-cta-inner {
+  animation: borderPulse 4s ease-in-out infinite;
+}
+
+/* ---------- CTA BUTTON RIPPLE ---------- */
+.cta-btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-btn-primary:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ---------- TICKER TRACK ENHANCEMENTS ---------- */
+.ticker-track:hover .ticker-inner {
+  animation-play-state: paused;
+}
+
+.ticker-inner img {
+  border: 1px solid rgba(255, 106, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s, border-color 0.4s;
+}
+
+.ticker-inner img:hover {
+  border-color: rgba(255, 106, 0, 0.3);
+  box-shadow: 0 12px 40px rgba(255, 106, 0, 0.2);
+}
+
+/* ---------- SCROLL-TRIGGERED ANIMATIONS ---------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered children */
+.stagger-children > *:nth-child(1) { transition-delay: 0s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.5s; }
+.stagger-children > *:nth-child(7) { transition-delay: 0.6s; }
+.stagger-children > *:nth-child(8) { transition-delay: 0.7s; }
+.stagger-children > *:nth-child(9) { transition-delay: 0.8s; }
+
+/* ---------- TILT CARD EFFECT ---------- */
+.tilt-card {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* ---------- MAGNETIC BUTTON ---------- */
+.magnetic-btn {
+  transition: transform 0.2s ease-out;
+}
+
+/* ---------- WHO WE ARE IMAGE PARALLAX ---------- */
+.whoweare-img {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.whoweare-img img {
+  transition: transform 0.6s ease !important;
+}
+
+.whoweare-img:hover img {
+  transform: scale(1.03);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat-item {
+    padding: 24px 12px;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-headline::after {
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
