@@ -15,10 +15,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=20260529-v9">
   <style>
-    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #ffffff; color: #111; }
+    body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; background: var(--navy); color: var(--text-primary); }
     
     /* Layout overrides */
-    main { background: #ffffff; padding-bottom: 120px; }
+    main { background: var(--navy); padding-bottom: 120px; }
     
     .app-banner { position: relative; width: 100%; height: 420px; background: linear-gradient(135deg, #020202 0%, #08111e 50%, #020202 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .app-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255,102,0,0.1) 0%, transparent 70%); }
@@ -43,7 +43,7 @@
     .coo-cate {
       margin-top: 30px;
       margin-bottom: 70px;
-      border-bottom: 1px solid #eaeaea;
+      border-bottom: 1px solid var(--navy-border);
       padding-bottom: 15px;
     }
     .coo-cate ul {
@@ -56,7 +56,7 @@
     .coo-cate li.cooperation-item {
       font-size: 20px;
       font-weight: 500;
-      color: #666;
+      color: var(--text-secondary);
       cursor: pointer;
       position: relative;
       transition: all 0.3s ease;
@@ -107,7 +107,7 @@
       letter-spacing: -0.5px;
     }
     .cooperation_list_textbox h2 a {
-      color: #111;
+      color: var(--text-primary);
       text-decoration: none;
       transition: color 0.3s ease;
     }
@@ -116,7 +116,7 @@
     }
     .cooperation_list_textbox p {
       font-size: 16px;
-      color: #555;
+      color: var(--text-secondary);
       line-height: 1.8;
       margin: 0;
     }
@@ -160,9 +160,9 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(0,0,0,0.07);
-      border: 1px solid #eaeaea;
+      border: 1px solid var(--navy-border);
       transition: all 0.4s ease;
-      background: #fafafa;
+      background: var(--navy-light);
     }
     .cooperation_list_img img {
       width: 100%;
@@ -379,7 +379,7 @@
       </div>
     </section>
     <!-- Cooperation / Application Scenarios Section -->
-    <section style="background: #ffffff; padding-bottom: 80px;">
+    <section style="background: var(--navy); padding-bottom: 80px;">
       <div class="con">
         <div class="cooperation_page_title">
           <p>Application</p>
