@@ -1,17 +1,75 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
+  // CORS & Origin Validation
+  const origin = req.headers.origin;
+  const referer = req.headers.referer;
+  const allowedOrigins = [
+    'https://pntech.in',
+    'https://www.pntech.in',
+    'https://pntech-source-code.vercel.app'
+  ];
+
+  // Allow localhost & 127.0.0.1 for development
+  const isLocalhost = origin?.startsWith('http://localhost') || referer?.startsWith('http://localhost') || 
+                      origin?.startsWith('http://127.0.0.1') || referer?.startsWith('http://127.0.0.1');
+
+  if (origin && !allowedOrigins.includes(origin) && !isLocalhost) {
+    return res.status(403).json({ success: false, error: 'Forbidden: Request origin not allowed.' });
+  }
+
+  // Set secure CORS headers
+  if (origin && (allowedOrigins.includes(origin) || isLocalhost)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', 'https://pntech.in');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ success: false, error: 'Method not allowed' });
   }
 
   try {
-    const { name, email, phone, company, country, request_type, message, _subject } = req.body;
+    const { name, email, phone, company, country, request_type, message, _subject, website } = req.body;
+
+    // Honeypot check (website is a hidden input field to catch automated spam bots)
+    if (website && website.trim() !== '') {
+      console.warn('Honeypot input detected. Silently ignoring email dispatch.');
+      // Return 200 success so the bot believes it succeeded, preventing form retry loops
+      return res.status(200).json({ success: true, message: 'Emails sent successfully (honeypot passive mitigation)' });
+    }
 
     if (!name || !email) {
       return res.status(400).json({ success: false, error: 'Name and email are required fields' });
     }
+
+    // HTML Escaping Helper to sanitize inputs and prevent server-side HTML Injection in emails
+    const escapeHtml = (text) => {
+      if (typeof text !== 'string') return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    };
+
+    const sName = escapeHtml(name);
+    const sEmail = escapeHtml(email);
+    const sPhone = escapeHtml(phone);
+    const sCompany = escapeHtml(company);
+    const sCountry = escapeHtml(country);
+    const sRequestType = escapeHtml(request_type);
+    const sMessage = escapeHtml(message);
+    const sSubject = escapeHtml(_subject);
 
     // Configure sender & receiver options
     const targetEmail = process.env.RECIPIENT_EMAIL || 'business@pntech.in';
@@ -20,12 +78,12 @@ export default async function handler(req, res) {
 
     // 1. Construct HTML for the Company Notification Email
     const fieldsHtml = [
-      { label: 'Name', value: name },
-      { label: 'Email', value: email },
-      { label: 'Phone', value: phone || 'N/A' },
-      { label: 'Company', value: company || 'N/A' },
-      { label: 'Country', value: country || 'N/A' },
-      { label: 'Request Type', value: request_type || 'General Inquiry' },
+      { label: 'Name', value: sName },
+      { label: 'Email', value: sEmail },
+      { label: 'Phone', value: sPhone || 'N/A' },
+      { label: 'Company', value: sCompany || 'N/A' },
+      { label: 'Country', value: sCountry || 'N/A' },
+      { label: 'Request Type', value: sRequestType || 'General Inquiry' },
     ].map(f => `
       <tr style="border-bottom: 1px solid #333;">
         <td style="padding: 12px; color: #888; font-weight: 500; width: 140px;">${f.label}</td>
@@ -41,7 +99,7 @@ export default async function handler(req, res) {
         </table>
         <div style="margin-top: 30px; background-color: #161616; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6600;">
           <h4 style="color: #ff6600; margin-top: 0; margin-bottom: 8px;">Message details:</h4>
-          <p style="color: #ddd; line-height: 1.6; margin: 0; white-space: pre-wrap;">${message || 'No message provided'}</p>
+          <p style="color: #ddd; line-height: 1.6; margin: 0; white-space: pre-wrap;">${sMessage || 'No message provided'}</p>
         </div>
       </div>
     `;
@@ -56,15 +114,15 @@ export default async function handler(req, res) {
         
         <h3 style="color: #ffffff; font-size: 20px; font-weight: 600; margin-top: 30px;">Inquiry Received</h3>
         <p style="color: #aaa; font-size: 15px; line-height: 1.6; max-width: 480px; margin: 15px auto 30px;">
-          Dear ${name},<br><br>
+          Dear ${sName},<br><br>
           Thank you for reaching out to PN Technologies. We have successfully received your request and our RF specialists are reviewing it. You can expect a professional response with specifications or a quote in 1-2 business days.
         </p>
         
         <div style="background-color: #121212; padding: 20px; border-radius: 8px; text-align: left; border: 1px solid #222; margin-bottom: 30px;">
           <div style="color: #ff6600; font-size: 13px; font-weight: 600; letter-spacing: 1px; margin-bottom: 12px;">SUBMISSION BRIEF</div>
-          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Request Type:</strong> <span style="color: #eee;">${request_type || 'General Inquiry'}</span></div>
-          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Company:</strong> <span style="color: #eee;">${company || 'N/A'}</span></div>
-          <div style="font-size: 14px; color: #888;"><strong style="color: #888;">Message:</strong><p style="color: #aaa; margin: 4px 0 0 0; line-height: 1.4; white-space: pre-wrap;">${message || 'N/A'}</p></div>
+          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Request Type:</strong> <span style="color: #eee;">${sRequestType || 'General Inquiry'}</span></div>
+          <div style="margin-bottom: 8px; font-size: 14px;"><strong style="color: #888;">Company:</strong> <span style="color: #eee;">${sCompany || 'N/A'}</span></div>
+          <div style="font-size: 14px; color: #888;"><strong style="color: #888;">Message:</strong><p style="color: #aaa; margin: 4px 0 0 0; line-height: 1.4; white-space: pre-wrap;">${sMessage || 'N/A'}</p></div>
         </div>
 
         <p style="color: #666; font-size: 13px; margin-top: 30px;">

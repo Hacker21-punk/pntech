@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /supabase/
+Sitemap: https://pntech.in/sitemap.xml

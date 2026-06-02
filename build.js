@@ -22,16 +22,19 @@ const copySync = (src, dest) => {
 };
 
 // List of folders to copy
-const assets = ['css', 'js', 'images', 'public'];
+const assets = ['css', 'js', 'images', 'public', '.well-known'];
 assets.forEach(asset => copySync(asset, path.join(distDir, asset)));
 
-// Copy all HTML files in root
+// Copy all HTML files in root and other critical root files (robots.txt)
 const files = fs.readdirSync(process.cwd());
 let htmlCount = 0;
 files.forEach(file => {
   if (file.endsWith('.html')) {
     fs.copyFileSync(file, path.join(distDir, file));
     htmlCount++;
+  } else if (file === 'robots.txt') {
+    fs.copyFileSync(file, path.join(distDir, file));
+    console.log('Copied: robots.txt');
   }
 });
 

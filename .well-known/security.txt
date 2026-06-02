@@ -1,0 +1,4 @@
+Contact: mailto:business@pntech.in
+Preferred-Languages: en
+Canonical: https://pntech.in/.well-known/security.txt
+Expires: 2027-06-01T00:00:00.000Z

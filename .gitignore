@@ -21,6 +21,7 @@ env
 .env
 .env.local
 .env.*
+wrangler.jsonc
 
 # Python helper/debug scripts
 *.py
@@ -28,3 +29,9 @@ env
 # Debug/temp images
 images/pxn_*.jpg
 images/debug_*.jpg
+
+# Tool and library metadata
+.lovable/
+.tanstack/
+supabase/
+

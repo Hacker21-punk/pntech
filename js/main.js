@@ -328,11 +328,47 @@ $(document).ready(function () {
 
   // Theme is permanently dark mode — no toggler needed.
 
-  // ---- Contact Forms AJAX Integration ----
+  // ---- Contact Forms AJAX Integration & Hardening ----
+
+  // 1. Dynamic injection of honeypot & autocomplete attributes for bot/spam protection and WCAG compliance
+  $('form#git-contact-form, form#modal-contact-form').each(function() {
+    // Append a hidden honeypot input field. Bots will autofill this field, but standard humans will not.
+    if ($(this).find('input[name="website"]').length === 0) {
+      $(this).append('<input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none !important" aria-hidden="true">');
+    }
+  });
+
+  // Inject autocomplete tags on footer contact form
+  $('#git-fullname').attr('autocomplete', 'name');
+  $('#git-email').attr('autocomplete', 'email');
+  $('#git-phone').attr('autocomplete', 'tel');
+  $('#git-company').attr('autocomplete', 'organization');
+
+  // Inject autocomplete tags on modal contact form
+  $('.sc30-part2 input').attr('autocomplete', 'given-name');
+  $('.sc30-part3 input').attr('autocomplete', 'family-name');
+  $('.sc30-part4 input').attr('autocomplete', 'organization');
+  $('.sc30-part5 input').attr('autocomplete', 'country-name');
+  $('.sc30-part6 input').attr('autocomplete', 'email');
+  $('.sc30-part7 input').attr('autocomplete', 'tel');
   
   // Custom premium Toast Notification
   function showToast(title, message, isSuccess) {
     $('.toast-notification').remove();
+    
+    // HTML entity escaping helper to mitigate client-side XSS sinks
+    function escapeHtml(text) {
+      if (typeof text !== 'string') return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    var safeTitle = escapeHtml(title);
+    var safeMessage = escapeHtml(message);
     
     var iconSvg = isSuccess 
       ? '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>'
@@ -344,8 +380,8 @@ $(document).ready(function () {
           ${iconSvg}
         </div>
         <div class="toast-content">
-          <div class="toast-title">${title}</div>
-          <div class="toast-message">${message}</div>
+          <div class="toast-title">${safeTitle}</div>
+          <div class="toast-message">${safeMessage}</div>
         </div>
       </div>
     `;
@@ -380,6 +416,7 @@ $(document).ready(function () {
       phone: $form.find('#git-phone').val(),
       company: $form.find('#git-company').val(),
       message: $form.find('#git-message').val(),
+      website: $form.find('input[name="website"]').val(), // Honeypot field!
       _subject: 'New Inquiry from Website (Footer Form)'
     };
     
@@ -423,6 +460,7 @@ $(document).ready(function () {
       email: userEmail,
       phone: $form.find('.sc30-part7 input').val(),
       message: $form.find('.sc30-part8 textarea').val(),
+      website: $form.find('input[name="website"]').val(), // Honeypot field!
       _subject: 'New Inquiry from Website (Modal Form) - ' + requestType
     };
     
