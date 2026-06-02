@@ -361,6 +361,70 @@
       </div>
     </section>
 
+    
+    <!-- Products Videos Section -->
+    <section class="product-videos-section">
+      <div class="con">
+        <div class="video-left">
+          <div class="video-section-title">
+            <h2>Products <span>Videos</span></h2>
+          </div>
+          <div class="video-list-wrapper">
+            <!-- Video 1 -->
+            <div class="video-item active" data-video-id="h2OKSCfAt1Y">
+              <div class="video-icon-box">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-item-title">All-IN-ONE AI PLATFORM: HAROGIC releases IP68 Rugged Spectrum Analyzer</div>
+            </div>
+            <!-- Video 2 -->
+            <div class="video-item" data-video-id="03BCavOTc10">
+              <div class="video-icon-box">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-item-title">HAROGIC latest PXN-400 40 GHz real-time spectrum analyzer: AT A GLANCE</div>
+            </div>
+            <!-- Video 3 -->
+            <div class="video-item" data-video-id="dRfdkBjqYSs">
+              <div class="video-icon-box">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-item-title">HAROGIC PXE-200 20 GHz handheld spectrum analyzer first glance</div>
+            </div>
+          </div>
+        </div>
+        <div class="video-right">
+          <div class="video-player-container">
+            <div class="video-player-wrapper">
+              <iframe id="product-video-player" src="https://www.youtube.com/embed/h2OKSCfAt1Y?si=0Nn3Umia-Tm-QPMB&rel=0&enablejsapi=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inline Script to Handle Tab Switching -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const videoItems = document.querySelectorAll('.video-item');
+        const player = document.getElementById('product-video-player');
+        
+        videoItems.forEach(item => {
+          item.addEventListener('click', function() {
+            if (this.classList.contains('active')) return;
+            
+            // Toggle active state
+            videoItems.forEach(i => i.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update iframe src
+            const videoId = this.getAttribute('data-video-id');
+            player.src = `https://www.youtube.com/embed/${videoId}?rel=0&enablejsapi=1&autoplay=1`;
+          });
+        });
+      });
+    </script>
+
     <!-- Related Products -->
     <section class="related-section">
       <div class="con">
