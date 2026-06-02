@@ -543,8 +543,11 @@ $(document).ready(function () {
         showToast('Success', 'Your message has been sent successfully. We will get back to you shortly!', true);
         $form[0].reset();
       },
-      error: function (err) {
-        showToast('Error', 'Failed to send message. Please try again or email business@pntech.in directly.', false);
+      error: function (xhr) {
+        var errorMsg = xhr.responseJSON && xhr.responseJSON.error 
+          ? xhr.responseJSON.error 
+          : 'Failed to send message. Please try again or email business@pntech.in directly.';
+        showToast('Error', errorMsg, false);
       },
       complete: function () {
         $btn.prop('disabled', false).text(originalBtnText);
@@ -589,8 +592,11 @@ $(document).ready(function () {
         $('.sc30-out, .sc30-dbg').fadeOut(300);
         $('body').css('overflow', '');
       },
-      error: function (err) {
-        showToast('Error', 'Failed to send request. Please try again or email business@pntech.in directly.', false);
+      error: function (xhr) {
+        var errorMsg = xhr.responseJSON && xhr.responseJSON.error 
+          ? xhr.responseJSON.error 
+          : 'Failed to send request. Please try again or email business@pntech.in directly.';
+        showToast('Error', errorMsg, false);
       },
       complete: function () {
         $btn.prop('disabled', false).val(originalBtnText);
