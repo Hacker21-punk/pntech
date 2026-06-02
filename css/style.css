@@ -486,16 +486,15 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
   height: 100%;
 }
 .hd-search {
-  position: relative;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
+  margin-left: 24px; /* Safety margin to keep clean space from Contact Us navigation link */
 }
 .hd-search-input {
   display: none;
-  position: absolute;
-  right: 100%;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  margin-right: 8px; /* Breathing room between input line and search icon */
 }
 .hd-search-input input {
   background: transparent;
