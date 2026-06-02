@@ -43,6 +43,12 @@
       .news-grid { grid-template-columns: 1fr; gap: 20px; }
       .news-section { padding: 50px 0; }
     }
+    /* Light theme overrides */
+    html.light-theme .news-card { background: rgba(255, 255, 255, 0.7); border-color: rgba(0, 0, 0, 0.08); }
+    html.light-theme .news-card:hover { background: rgba(255, 255, 255, 0.95); border-color: var(--accent); }
+    html.light-theme .news-card-title { color: var(--text-primary); }
+    html.light-theme .news-card-date { color: var(--text-secondary); }
+    html.light-theme .news-card-excerpt { color: var(--text-secondary); }
   </style>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
 </head>
