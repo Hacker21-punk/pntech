@@ -511,8 +511,21 @@ html.light-theme .hdnav-box .menu-item-has-children > a::after {
   border: none;
   padding: 8px;
   cursor: pointer;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast), transform 0.3s ease;
 }
-.hd-search-img img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+.hd-search-img:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--accent);
+  transform: scale(1.05);
+}
+html.light-theme .hd-search-img:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
 .hd-search-img-ac { display: none; }
 
 .hd-hy, .hd-qh {
