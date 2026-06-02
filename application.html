@@ -608,7 +608,7 @@
           filtered.forEach((post, index) => {
             const isEven = index % 2 === 0;
             const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-            const detailUrl = isLocal ? `application-detail.html?slug=${post.slug}` : `coop/${post.slug}`;
+            const detailUrl = isLocal ? `application-detail.html?slug=${post.slug}` : `/coop/${post.slug}`;
 
             if (!isEven) {
               html += `

@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/coop/:slug", "destination": "/application-detail.html?slug=:slug" },
-    { "source": "/news/:slug", "destination": "/news-detail.html?slug=:slug" }
+    { "source": "/coop/:slug", "destination": "/application-detail?slug=:slug" },
+    { "source": "/news/:slug", "destination": "/news-detail?slug=:slug" }
   ],
   "headers": [
     {
