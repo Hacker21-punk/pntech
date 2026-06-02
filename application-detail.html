@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');</script>
+  <script>
+    if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light-theme');
+    if (window.location.protocol !== 'file:') {
+      const base = document.createElement('base');
+      base.href = '/';
+      document.write(base.outerHTML);
+    }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Application Details - PN Technologies</title>
@@ -603,8 +610,10 @@
         const currentIdx = applicationsData.findIndex(p => p.slug === slug);
         const nextPost = applicationsData[(currentIdx + 1) % applicationsData.length];
         if (nextPost) {
+          const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+          const nextUrl = isLocal ? `application-detail.html?slug=${nextPost.slug}` : `coop/${nextPost.slug}`;
           $('#detail-next-btn').html(`
-            <a href="coop/${nextPost.slug}">
+            <a href="${nextUrl}">
               Next Article
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>

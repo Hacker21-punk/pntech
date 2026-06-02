@@ -384,16 +384,18 @@
         pageItems.forEach((item, index) => {
           const delay = (index * 0.1).toFixed(1) + 's';
           const coverImg = item.cover_img || 'images/about_youshi_factory.webp';
+          const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+          const detailUrl = isLocal ? `news-detail.html?slug=${item.slug}` : `news/${item.slug}`;
           
           html += `
             <article class="news-card wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="${delay}">
-              <div class="news-card-img"><a href="news/${item.slug}"><img loading="lazy" src="${coverImg}" alt="${item.title}"></a></div>
+              <div class="news-card-img"><a href="${detailUrl}"><img loading="lazy" src="${coverImg}" alt="${item.title}"></a></div>
               <div class="news-card-body">
                 <div class="news-card-meta">
                   <span class="news-card-date">${item.date}</span>
                   <span class="news-card-tag">New Product Release</span>
                 </div>
-                <h3 class="news-card-title"><a href="news/${item.slug}">${item.title}</a></h3>
+                <h3 class="news-card-title"><a href="${detailUrl}">${item.title}</a></h3>
                 <p class="news-card-excerpt">${item.excerpt}</p>
               </div>
             </article>
