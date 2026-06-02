@@ -1102,117 +1102,119 @@
       }
     };
 
-    $(document).ready(function() {
-      // Handle checkbox comparison selection
-      $('.sc17-check').click(function() {
-        var activeTabIdx = $('.sc17-header span.hover').index() + 1;
-        var parentDiv = '#con_seven_' + activeTabIdx;
-        
-        $(this).toggleClass('sc17-check-active');
-        if ($(this).hasClass('sc17-check-active')) {
-          $(this).find('svg').show();
-        } else {
-          $(this).find('svg').hide();
-        }
-        
-        var checkedCount = $(parentDiv + ' .sc17-check-active').length;
-        $('.nownum').text(checkedCount);
+    document.addEventListener('DOMContentLoaded', function() {
+      $(document).ready(function() {
+        // Handle checkbox comparison selection
+        $('.sc17-check').click(function() {
+          var activeTabIdx = $('.sc17-header span.hover').index() + 1;
+          var parentDiv = '#con_seven_' + activeTabIdx;
+          
+          $(this).toggleClass('sc17-check-active');
+          if ($(this).hasClass('sc17-check-active')) {
+            $(this).find('svg').show();
+          } else {
+            $(this).find('svg').hide();
+          }
+          
+          var checkedCount = $(parentDiv + ' .sc17-check-active').length;
+          $('.nownum').text(checkedCount);
 
-        // Limit selection to max 3 items
-        if (checkedCount > 3) {
-          $(this).removeClass('sc17-check-active');
-          $(this).find('svg').hide();
-          $('.nownum').text(3);
-        }
-      });
-
-      // Launch Comparison Modal
-      $('#trigger-comparison').click(function() {
-        var activeTabIdx = $('.sc17-header span.hover').index() + 1;
-        var activeTabName = $('#seven' + activeTabIdx).text().trim();
-        var parentDiv = '#con_seven_' + activeTabIdx;
-        
-        var selectedIds = [];
-        $(parentDiv + ' .sc17-check-active').each(function() {
-          selectedIds.push($(this).data('id'));
+          // Limit selection to max 3 items
+          if (checkedCount > 3) {
+            $(this).removeClass('sc17-check-active');
+            $(this).find('svg').hide();
+            $('.nownum').text(3);
+          }
         });
 
-        if (selectedIds.length < 2) {
-          alert("Please select at least 2 products to compare.");
-          return;
-        }
-
-        // Populate comparison modal contents
-        var container = $('#comparison-results');
-        container.empty();
-
-        selectedIds.forEach(function(id) {
-          var data = productsData[id];
-          if (!data) return;
-
-          var itemHtml = '<div class="sc17-tc-item">';
-          itemHtml += '  <div class="tc-part1">';
-          itemHtml += '    <div class="tc-part1-img">';
-          itemHtml += '      <img loading="lazy" src="' + data.img + '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
-          itemHtml += '    </div>';
-          itemHtml += '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' + data.title + '</div>';
-          itemHtml += '  </div>';
-          itemHtml += '  <div class="tc-part2">';
-          itemHtml += '    <div>' + data.frequency + '</div>';
-          itemHtml += '    <div>' + data.bandwidth + '</div>';
-          itemHtml += '    <div>' + data.noise + '</div>';
+        // Launch Comparison Modal
+        $('#trigger-comparison').click(function() {
+          var activeTabIdx = $('.sc17-header span.hover').index() + 1;
+          var activeTabName = $('#seven' + activeTabIdx).text().trim();
+          var parentDiv = '#con_seven_' + activeTabIdx;
           
-          if (activeTabName === 'HANDHELD') {
-            itemHtml += '    <div>' + data.system + '</div>';
-            itemHtml += '    <div>' + data.size + '</div>';
-          } else {
-            itemHtml += '    <div>' + data.danl + '</div>';
+          var selectedIds = [];
+          $(parentDiv + ' .sc17-check-active').each(function() {
+            selectedIds.push($(this).data('id'));
+          });
+
+          if (selectedIds.length < 2) {
+            alert("Please select at least 2 products to compare.");
+            return;
           }
 
-          itemHtml += '    <a href="' + data.link + '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
-          itemHtml += '  </div>';
-          itemHtml += '</div>';
+          // Populate comparison modal contents
+          var container = $('#comparison-results');
+          container.empty();
 
-          container.append(itemHtml);
+          selectedIds.forEach(function(id) {
+            var data = productsData[id];
+            if (!data) return;
+
+            var itemHtml = '<div class="sc17-tc-item">';
+            itemHtml += '  <div class="tc-part1">';
+            itemHtml += '    <div class="tc-part1-img">';
+            itemHtml += '      <img loading="lazy" src="' + data.img + '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
+            itemHtml += '    </div>';
+            itemHtml += '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' + data.title + '</div>';
+            itemHtml += '  </div>';
+            itemHtml += '  <div class="tc-part2">';
+            itemHtml += '    <div>' + data.frequency + '</div>';
+            itemHtml += '    <div>' + data.bandwidth + '</div>';
+            itemHtml += '    <div>' + data.noise + '</div>';
+            
+            if (activeTabName === 'HANDHELD') {
+              itemHtml += '    <div>' + data.system + '</div>';
+              itemHtml += '    <div>' + data.size + '</div>';
+            } else {
+              itemHtml += '    <div>' + data.danl + '</div>';
+            }
+
+            itemHtml += '    <a href="' + data.link + '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
+            itemHtml += '  </div>';
+            itemHtml += '</div>';
+
+            container.append(itemHtml);
+          });
+
+          // Set widths depending on number of items (2 or 3)
+          if (selectedIds.length === 2) {
+            $('.sc17-tc-item').css('width', '48%');
+          } else {
+            $('.sc17-tc-item').css('width', '32%');
+          }
+
+          $('#comparison-modal-bg').fadeIn();
+          $('#comparison-modal').fadeIn();
         });
 
-        // Set widths depending on number of items (2 or 3)
-        if (selectedIds.length === 2) {
-          $('.sc17-tc-item').css('width', '48%');
-        } else {
-          $('.sc17-tc-item').css('width', '32%');
-        }
+        // Close Comparison Modal
+        $('#close-comparison, #comparison-modal-bg').click(function() {
+          $('#comparison-modal-bg').fadeOut();
+          $('#comparison-modal').fadeOut();
+        });
 
-        $('#comparison-modal-bg').fadeIn();
-        $('#comparison-modal').fadeIn();
-      });
-
-      // Close Comparison Modal
-      $('#close-comparison, #comparison-modal-bg').click(function() {
-        $('#comparison-modal-bg').fadeOut();
-        $('#comparison-modal').fadeOut();
-      });
-
-      // Support hash links from main menu (e.g. #usb, #networked, #handheld)
-      var hash = window.location.hash;
-      if (hash === '#networked') {
-        setTab('seven', 2, 3);
-      } else if (hash === '#handheld') {
-        setTab('seven', 3, 3);
-      } else {
-        setTab('seven', 1, 3);
-      }
-
-      // Hash change listener
-      window.addEventListener('hashchange', function() {
-        var newHash = window.location.hash;
-        if (newHash === '#networked') {
+        // Support hash links from main menu (e.g. #usb, #networked, #handheld)
+        var hash = window.location.hash;
+        if (hash === '#networked') {
           setTab('seven', 2, 3);
-        } else if (newHash === '#handheld') {
+        } else if (hash === '#handheld') {
           setTab('seven', 3, 3);
         } else {
           setTab('seven', 1, 3);
         }
+
+        // Hash change listener
+        window.addEventListener('hashchange', function() {
+          var newHash = window.location.hash;
+          if (newHash === '#networked') {
+            setTab('seven', 2, 3);
+          } else if (newHash === '#handheld') {
+            setTab('seven', 3, 3);
+          } else {
+            setTab('seven', 1, 3);
+          }
+        });
       });
     });
   </script>

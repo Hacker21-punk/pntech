@@ -810,82 +810,84 @@
       }
     };
 
-    $(document).ready(function() {
-      // Handle checkbox comparison selection
-      $('.sc17-check').click(function() {
-        var parentDiv = '#con_seven_1';
-        
-        $(this).toggleClass('sc17-check-active');
-        if ($(this).hasClass('sc17-check-active')) {
-          $(this).find('svg').show();
-        } else {
-          $(this).find('svg').hide();
-        }
-        
-        var checkedCount = $(parentDiv + ' .sc17-check-active').length;
-        $('.nownum').text(checkedCount);
+    document.addEventListener('DOMContentLoaded', function() {
+      $(document).ready(function() {
+        // Handle checkbox comparison selection
+        $('.sc17-check').click(function() {
+          var parentDiv = '#con_seven_1';
+          
+          $(this).toggleClass('sc17-check-active');
+          if ($(this).hasClass('sc17-check-active')) {
+            $(this).find('svg').show();
+          } else {
+            $(this).find('svg').hide();
+          }
+          
+          var checkedCount = $(parentDiv + ' .sc17-check-active').length;
+          $('.nownum').text(checkedCount);
 
-        // Limit selection to max 3 items (or 2 here)
-        if (checkedCount > 2) {
-          $(this).removeClass('sc17-check-active');
-          $(this).find('svg').hide();
-          $('.nownum').text(2);
-        }
-      });
-
-      // Launch Comparison Modal
-      $('#trigger-comparison').click(function() {
-        var parentDiv = '#con_seven_1';
-        
-        var selectedIds = [];
-        $(parentDiv + ' .sc17-check-active').each(function() {
-          selectedIds.push($(this).data('id'));
+          // Limit selection to max 3 items (or 2 here)
+          if (checkedCount > 2) {
+            $(this).removeClass('sc17-check-active');
+            $(this).find('svg').hide();
+            $('.nownum').text(2);
+          }
         });
 
-        if (selectedIds.length < 2) {
-          alert("Please select both products to compare.");
-          return;
-        }
+        // Launch Comparison Modal
+        $('#trigger-comparison').click(function() {
+          var parentDiv = '#con_seven_1';
+          
+          var selectedIds = [];
+          $(parentDiv + ' .sc17-check-active').each(function() {
+            selectedIds.push($(this).data('id'));
+          });
 
-        // Populate comparison modal contents
-        var container = $('#comparison-results');
-        container.empty();
+          if (selectedIds.length < 2) {
+            alert("Please select both products to compare.");
+            return;
+          }
 
-        selectedIds.forEach(function(id) {
-          var data = productsData[id];
-          if (!data) return;
+          // Populate comparison modal contents
+          var container = $('#comparison-results');
+          container.empty();
 
-          var itemHtml = '<div class="sc17-tc-item">';
-          itemHtml += '  <div class="tc-part1">';
-          itemHtml += '    <div class="tc-part1-img">';
-          itemHtml += '      <img loading="lazy" src="' + data.img + '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
-          itemHtml += '    </div>';
-          itemHtml += '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' + data.title + '</div>';
-          itemHtml += '  </div>';
-          itemHtml += '  <div class="tc-part2">';
-          itemHtml += '    <div>' + data.frequency + '</div>';
-          itemHtml += '    <div>' + data.power + '</div>';
-          itemHtml += '    <div>' + data.noise + '</div>';
-          itemHtml += '    <div>' + data.bandwidth + '</div>';
-          itemHtml += '    <div>' + data.dac + '</div>';
-          itemHtml += '    <a href="' + data.link + '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
-          itemHtml += '  </div>';
-          itemHtml += '</div>';
+          selectedIds.forEach(function(id) {
+            var data = productsData[id];
+            if (!data) return;
 
-          container.append(itemHtml);
+            var itemHtml = '<div class="sc17-tc-item">';
+            itemHtml += '  <div class="tc-part1">';
+            itemHtml += '    <div class="tc-part1-img">';
+            itemHtml += '      <img loading="lazy" src="' + data.img + '" style="height: 120px; width: auto; object-fit: contain; margin-bottom: 10px;">';
+            itemHtml += '    </div>';
+            itemHtml += '    <div style="font-size: 20px; font-weight:700; margin-top:10px;">' + data.title + '</div>';
+            itemHtml += '  </div>';
+            itemHtml += '  <div class="tc-part2">';
+            itemHtml += '    <div>' + data.frequency + '</div>';
+            itemHtml += '    <div>' + data.power + '</div>';
+            itemHtml += '    <div>' + data.noise + '</div>';
+            itemHtml += '    <div>' + data.bandwidth + '</div>';
+            itemHtml += '    <div>' + data.dac + '</div>';
+            itemHtml += '    <a href="' + data.link + '" style="border-radius: 4px; font-weight:600;">View Detail</a>';
+            itemHtml += '  </div>';
+            itemHtml += '</div>';
+
+            container.append(itemHtml);
+          });
+
+          // Set widths (since there are exactly 2 here, use 48%)
+          $('.sc17-tc-item').css('width', '48%');
+
+          $('#comparison-modal-bg').fadeIn();
+          $('#comparison-modal').fadeIn();
         });
 
-        // Set widths (since there are exactly 2 here, use 48%)
-        $('.sc17-tc-item').css('width', '48%');
-
-        $('#comparison-modal-bg').fadeIn();
-        $('#comparison-modal').fadeIn();
-      });
-
-      // Close Comparison Modal
-      $('#close-comparison, #comparison-modal-bg').click(function() {
-        $('#comparison-modal-bg').fadeOut();
-        $('#comparison-modal').fadeOut();
+        // Close Comparison Modal
+        $('#close-comparison, #comparison-modal-bg').click(function() {
+          $('#comparison-modal-bg').fadeOut();
+          $('#comparison-modal').fadeOut();
+        });
       });
     });
   </script>

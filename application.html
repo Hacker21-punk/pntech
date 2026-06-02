@@ -398,7 +398,7 @@
       
       <!-- List of Alternating Showcase items -->
       <div class="coo-list"></div>
-    </section>n>
+    </section>
 
     <!-- Work With PN Technologies -->
     <section class="home_join">
@@ -518,145 +518,147 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" defer></script>
   <script defer src="js/main.js?v=20260529-v9"></script>
   <script>
-    $(function() {
-      // 7 Live posts tailored for PN Technologies
-      const posts = [
-        {
-          id: 30906,
-          title: "Pulse Generation and Frequency Sweeping: Precision Simulation with the SGA-60",
-          excerpt: "This application note demonstrates how the PN Technologies SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.",
-          image: "images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg",
-          category_ids: [206]
-        },
-        {
-          id: 28838,
-          title: "Tracking Generator and Signal Generator Applications in the New PXN Series",
-          excerpt: "Learn how the new PN Technologies PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.",
-          image: "images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg",
-          category_ids: [207]
-        },
-        {
-          id: 28671,
-          title: "RF Signal Mapping and Geolocation Using Mapping Mode",
-          excerpt: "This application note explains how PN Technologies Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.",
-          image: "images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg",
-          category_ids: [207]
-        },
-        {
-          id: 26514,
-          title: "Using PN Technologies Products in GNU Radio",
-          excerpt: "PN Technologies offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces, enabling seamless integration into GNU Radio projects.",
-          image: "images/harogic-gnradio.jpg",
-          category_ids: [207]
-        },
-        {
-          id: 2174,
-          title: "Airborne Radio Measurement Systems \"9 kHz to 40 GHz\"",
-          excerpt: "A USB spectrum analyzer up to 40 GHz from PN Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring and coverage auditing.",
-          image: "images/cooperation_1.webp",
-          category_ids: [207]
-        },
-        {
-          id: 2051,
-          title: "Third Party Spectrum Monitoring System Up to 40 GHz",
-          excerpt: "PN Technologies specializes in RF spectrum monitoring with advanced real-time spectrum analyzers. We provide an open API with high compatibility to our customers, empowering them to define their own RF spectrum monitoring systems up to 40 GHz.",
-          image: "images/cooperation_2.jpg",
-          category_ids: [207]
-        },
-        {
-          id: 2055,
-          title: "SDR++ Works Well on PN Technologies PX Series Spectrum Analyzer",
-          excerpt: "SDR++ with the feature of a versatile platform for software defined radio, is running well on PN Technologies handheld spectrum analyzer.",
-          image: "images/cooperation_3.webp",
-          category_ids: [207]
-        }
-      ];
-
-      // Initial render: show All (id: 0)
-      renderPosts(0);
-
-      // Category click event
-      $('.cooperation-item').click(function() {
-        $(this).addClass('active').siblings().removeClass('active');
-        var cateId = $(this).data('id');
-        renderPosts(cateId);
-      });
-
-      function renderPosts(subCategoryId) {
-        const container = $('.coo-list');
-        container.empty();
-
-        // Filter posts
-        const filtered = subCategoryId === 0
-          ? posts
-          : posts.filter(p => p.category_ids.includes(subCategoryId));
-
-        if (filtered.length === 0) {
-          container.append('<div class="con no-data">No relevant content available</div>');
-          return;
-        }
-
-        let html = '';
-        filtered.forEach((post, index) => {
-          const isEven = index % 2 === 0;
-          const contactUrl = 'contact.html?subject=' + encodeURIComponent('Inquiry regarding ' + post.title);
-
-          if (!isEven) {
-            html += `
-              <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
-                <div class="cooperation_list_text">
-                  <div class="cooperation_list_textbox">
-                    <h2><a href="${contactUrl}">${post.title}</a></h2>
-                    <p class="hyphenate">${post.excerpt}</p>
-                  </div>
-                  <a href="${contactUrl}" class="cooperation_list_more">
-                    <i>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </i>
-                    More
-                  </a>
-                </div>
-                <div class="cooperation_list_img">
-                  <img loading="lazy" src="${post.image}" alt="${post.title}">
-                </div>
-              </div>
-            `;
-          } else {
-            html += `
-              <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
-                <div class="cooperation_list_img">
-                  <img loading="lazy" src="${post.image}" alt="${post.title}">
-                </div>
-                <div class="cooperation_list_text">
-                  <div class="cooperation_list_textbox">
-                    <h2><a href="${contactUrl}">${post.title}</a></h2>
-                    <p class="hyphenate">${post.excerpt}</p>
-                  </div>
-                  <a href="${contactUrl}" class="cooperation_list_more">
-                    <i>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                      </svg>
-                    </i>
-                    More
-                  </a>
-                </div>
-              </div>
-            `;
+    document.addEventListener('DOMContentLoaded', function() {
+      $(function() {
+        // 7 Live posts tailored for PN Technologies
+        const posts = [
+          {
+            id: 30906,
+            title: "Pulse Generation and Frequency Sweeping: Precision Simulation with the SGA-60",
+            excerpt: "This application note demonstrates how the PN Technologies SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.",
+            image: "images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg",
+            category_ids: [206]
+          },
+          {
+            id: 28838,
+            title: "Tracking Generator and Signal Generator Applications in the New PXN Series",
+            excerpt: "Learn how the new PN Technologies PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.",
+            image: "images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg",
+            category_ids: [207]
+          },
+          {
+            id: 28671,
+            title: "RF Signal Mapping and Geolocation Using Mapping Mode",
+            excerpt: "This application note explains how PN Technologies Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.",
+            image: "images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg",
+            category_ids: [207]
+          },
+          {
+            id: 26514,
+            title: "Using PN Technologies Products in GNU Radio",
+            excerpt: "PN Technologies offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces, enabling seamless integration into GNU Radio projects.",
+            image: "images/harogic-gnradio.jpg",
+            category_ids: [207]
+          },
+          {
+            id: 2174,
+            title: "Airborne Radio Measurement Systems \"9 kHz to 40 GHz\"",
+            excerpt: "A USB spectrum analyzer up to 40 GHz from PN Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring and coverage auditing.",
+            image: "images/cooperation_1.webp",
+            category_ids: [207]
+          },
+          {
+            id: 2051,
+            title: "Third Party Spectrum Monitoring System Up to 40 GHz",
+            excerpt: "PN Technologies specializes in RF spectrum monitoring with advanced real-time spectrum analyzers. We provide an open API with high compatibility to our customers, empowering them to define their own RF spectrum monitoring systems up to 40 GHz.",
+            image: "images/cooperation_2.jpg",
+            category_ids: [207]
+          },
+          {
+            id: 2055,
+            title: "SDR++ Works Well on PN Technologies PX Series Spectrum Analyzer",
+            excerpt: "SDR++ with the feature of a versatile platform for software defined radio, is running well on PN Technologies handheld spectrum analyzer.",
+            image: "images/cooperation_3.webp",
+            category_ids: [207]
           }
+        ];
+
+        // Initial render: show All (id: 0)
+        renderPosts(0);
+
+        // Category click event
+        $('.cooperation-item').click(function() {
+          $(this).addClass('active').siblings().removeClass('active');
+          var cateId = $(this).data('id');
+          renderPosts(cateId);
         });
 
-        container.append(html);
-        
-        // Re-initialize WOW.js for dynamically generated elements
-        if (typeof WOW !== 'undefined') {
-          new WOW().init();
+        function renderPosts(subCategoryId) {
+          const container = $('.coo-list');
+          container.empty();
+
+          // Filter posts
+          const filtered = subCategoryId === 0
+            ? posts
+            : posts.filter(p => p.category_ids.includes(subCategoryId));
+
+          if (filtered.length === 0) {
+            container.append('<div class="con no-data">No relevant content available</div>');
+            return;
+          }
+
+          let html = '';
+          filtered.forEach((post, index) => {
+            const isEven = index % 2 === 0;
+            const contactUrl = 'contact.html?subject=' + encodeURIComponent('Inquiry regarding ' + post.title);
+
+            if (!isEven) {
+              html += `
+                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                  <div class="cooperation_list_text">
+                    <div class="cooperation_list_textbox">
+                      <h2><a href="${contactUrl}">${post.title}</a></h2>
+                      <p class="hyphenate">${post.excerpt}</p>
+                    </div>
+                    <a href="${contactUrl}" class="cooperation_list_more">
+                      <i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </i>
+                      More
+                    </a>
+                  </div>
+                  <div class="cooperation_list_img">
+                    <img loading="lazy" src="${post.image}" alt="${post.title}">
+                  </div>
+                </div>
+              `;
+            } else {
+              html += `
+                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                  <div class="cooperation_list_img">
+                    <img loading="lazy" src="${post.image}" alt="${post.title}">
+                  </div>
+                  <div class="cooperation_list_text">
+                    <div class="cooperation_list_textbox">
+                      <h2><a href="${contactUrl}">${post.title}</a></h2>
+                      <p class="hyphenate">${post.excerpt}</p>
+                    </div>
+                    <a href="${contactUrl}" class="cooperation_list_more">
+                      <i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </i>
+                      More
+                    </a>
+                  </div>
+                </div>
+              `;
+            }
+          });
+
+          container.append(html);
+          
+          // Re-initialize WOW.js for dynamically generated elements
+          if (typeof WOW !== 'undefined') {
+            new WOW().init();
+          }
         }
-      }
+      });
     });
   </script>
 </body>
