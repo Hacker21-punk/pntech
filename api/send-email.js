@@ -1,4 +1,32 @@
 import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
+
+// Load local env file if process.env.RESEND_API_KEY is not defined
+if (!process.env.RESEND_API_KEY) {
+  try {
+    const envPath = path.join(process.cwd(), "env");
+    if (fs.existsSync(envPath)) {
+      const envContent = fs.readFileSync(envPath, "utf8");
+      envContent.split("\n").forEach((line) => {
+        const match = line.match(/^\s*([\w.-]+)\s*=\s*(.*)?\s*$/);
+        if (match) {
+          const key = match[1];
+          let value = match[2] || "";
+          // Remove quotes
+          if (value.startsWith('"') && value.endsWith('"')) {
+            value = value.substring(1, value.length - 1);
+          } else if (value.startsWith("'") && value.endsWith("'")) {
+            value = value.substring(1, value.length - 1);
+          }
+          process.env[key] = value;
+        }
+      });
+    }
+  } catch (err) {
+    console.warn("Failed to load local env file:", err);
+  }
+}
 
 export default async function handler(req, res) {
   // CORS & Origin Validation
