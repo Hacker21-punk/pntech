@@ -716,11 +716,9 @@ $(document).ready(function () {
     if ($("html").hasClass("light-theme")) {
       $("html").removeClass("light-theme");
       localStorage.setItem("theme", "dark");
-      showToast("Theme Changed", "Switched to Premium Dark Mode 🌙", true);
     } else {
       $("html").addClass("light-theme");
       localStorage.setItem("theme", "light");
-      showToast("Theme Changed", "Switched to Elegant Light Mode ☀️", true);
     }
   }
 
