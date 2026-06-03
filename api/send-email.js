@@ -233,7 +233,7 @@ export default async function handler(req, res) {
       }
 
       // Send confirmation to Customer
-      await fetch("https://api.resend.com/emails", {
+      const customerRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -246,6 +246,11 @@ export default async function handler(req, res) {
           html: customerMailHtml,
         }),
       });
+
+      if (!customerRes.ok) {
+        const errText = await customerRes.text();
+        console.error(`Resend customer confirmation failed: ${errText}`);
+      }
 
       return res.status(200).json({
         success: true,
