@@ -10,6 +10,74 @@ if (localStorage.getItem("theme") === "light") {
 }
 
 $(document).ready(function () {
+  // ---- Dynamic Mobile Menu Injection ----
+  var downArrowSvg =
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxwb2x5bGluZSBwb2ludHM9IjYgOSAxMiAxNSAxOCA5Ij48L3BvbHlsaW5lPjwvc3ZnPg==";
+  var closeSvg =
+    "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PGxpbmUgeDE9IjE4IiB5MT0iNiIgeDI9IjYiIHkyPSIxOCI+PC9saW5lPjxsaW5lIHgxPSI2IiB5MT0iNiIgeDI9IjE4IiB5Mj0iMTgiPjwvbGluZT48L3N2Zz4=";
+
+  var mobileMenuHtml = `
+    <div class="phone-back">
+      <div class="back-desc">
+        <div class="back-logo">
+          <a href="index.html" style="display: flex; align-items: center; gap: 10px;">
+            <img src="images/logo.png" alt="PNTECH" style="height: 35px; width: auto;" />
+            <span class="logo-text" style="color: var(--white); font-size: 20px; font-weight: 700; letter-spacing: 1px;">PN Technologies</span>
+          </a>
+        </div>
+        <div class="back-more">
+          <img src="${closeSvg}" alt="Close Menu" />
+        </div>
+      </div>
+      <div class="back-title">
+        <ul class="back-level1">
+          <li><a href="index.html">Home</a></li>
+          <li class="menu-item-has-children">
+            <a href="products.html">Product</a>
+            <img class="back-booton" src="${downArrowSvg}" alt="Dropdown" />
+            <ul class="sub-menu">
+              <li class="menu-item-has-children">
+                <a href="product-spectrum-analyzer.html">Spectrum Analyzer</a>
+                <img class="back-booton" src="${downArrowSvg}" alt="Dropdown" />
+                <ul class="sub-menu">
+                  <li><a href="product-new-san.html">New SAN Series</a></li>
+                  <li><a href="product-san400.html">SAN Series</a></li>
+                  <li><a href="product-sa.html">SA Series</a></li>
+                  <li><a href="product-nxn.html">NXN Series</a></li>
+                  <li><a href="product-nxe.html">NXE Series</a></li>
+                  <li><a href="product-px-standard.html">PX Series Standard</a></li>
+                  <li><a href="product-px-geek.html">PX Series Geek</a></li>
+                  <li><a href="product-px-rugged.html">PX Series Rugged</a></li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="product-vector-signal-generator.html">Vector Signal Generator</a>
+                <img class="back-booton" src="${downArrowSvg}" alt="Dropdown" />
+                <ul class="sub-menu">
+                  <li><a href="product-sga.html">New SGA-60</a></li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="product-hda.html">Antenna</a>
+                <img class="back-booton" src="${downArrowSvg}" alt="Dropdown" />
+                <ul class="sub-menu">
+                  <li><a href="product-hda.html">HDA-100</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="application.html">Application</a></li>
+          <li><a href="news.html">Latest News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  `;
+
+  if ($(".phone-back").length === 0) {
+    $("body").append(mobileMenuHtml);
+  }
+
   // ---- WOW.js Init ----
   if (typeof WOW !== "undefined") {
     new WOW({
@@ -163,15 +231,25 @@ $(document).ready(function () {
   });
 
   // Mobile accordion sub-menus
-  $(".back-level1 .menu-item-has-children > a").on("click", function (e) {
+  $(
+    ".back-level1 .menu-item-has-children > a, .back-level1 .menu-item-has-children > .back-booton",
+  ).on("click", function (e) {
     e.preventDefault();
-    var $li = $(this).parent();
-    var $sub = $li.find("> .sub-menu");
+    e.stopPropagation();
+    var $parent = $(this).closest("li");
+    var $sub = $parent.find("> .sub-menu");
+    var $btn = $parent.find("> .back-booton");
+
     if ($sub.is(":visible")) {
       $sub.slideUp(300);
+      $btn.removeClass("open");
     } else {
-      $li.siblings().find(".sub-menu").slideUp(300);
+      // Collapse sibling sub-menus at the same hierarchy level
+      $parent.siblings().find("> .sub-menu").slideUp(300);
+      $parent.siblings().find("> .back-booton").removeClass("open");
+
       $sub.slideDown(300);
+      $btn.addClass("open");
     }
   });
 

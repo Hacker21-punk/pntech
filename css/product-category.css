@@ -1511,3 +1511,14 @@ html.light-theme .product_home_banner_text_1 p::after {
     text-align: center;
   }
 }
+
+/* Tablet horizontal scroll support for Specifications Comparison Grid (.sc17) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sc17-item-con {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sc17-biao {
+    min-width: 950px !important;
+  }
+}

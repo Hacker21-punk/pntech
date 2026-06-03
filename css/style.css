@@ -4092,3 +4092,22 @@ html.light-theme .ft-bb p {
     padding: 48px 24px;
   }
 }
+
+/* Optimize mobile header layout for very small screens (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .phone-header {
+    padding: 10px 12px !important;
+    left: 3% !important;
+    width: 94% !important;
+  }
+  .phone-logo .logo-text,
+  .phone-logo span {
+    font-size: 14px !important;
+  }
+  .phone-logo img {
+    height: 30px !important;
+  }
+  .phone-right-actions {
+    gap: 8px !important;
+  }
+}

@@ -1322,3 +1322,63 @@ html.light-theme .sc25-lie {
 html.light-theme .sc25-lie.sc25-lie-pd {
   color: #111827 !important;
 }
+
+/* ========================================
+   RESPONSIVE ENHANCEMENTS & OPTIMIZATIONS
+   ======================================== */
+
+/* Horizontal scroll support for Available Models Table (.sc24) and Options Table (.sc25) */
+@media (max-width: 768px) {
+  .sc24 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+  }
+  .sc24-tou,
+  .sc24-hang {
+    min-width: 850px; /* Keep standard width for table columns */
+  }
+
+  .sc25 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+  }
+  .sc25-tou,
+  .sc25-hang {
+    min-width: 750px; /* Options table has 3 columns, 750px is plenty */
+  }
+}
+
+/* Horizontal swipe-scrolling for model tabs and gallery thumbnails */
+@media (max-width: 576px) {
+  .model-tabs {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: none; /* Firefox */
+  }
+  .model-tabs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  .model-tab {
+    flex-shrink: 0;
+  }
+
+  .gallery-thumbs {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: none; /* Firefox */
+  }
+  .gallery-thumbs::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  .gallery-thumb {
+    flex-shrink: 0;
+  }
+}
