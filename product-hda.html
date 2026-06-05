@@ -34,6 +34,17 @@
       body {
         font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
+      /* Fix white background on HDA antenna JPG images in dark mode */
+      .product-hero-right img,
+      .gallery-main img,
+      .gallery-thumb img {
+        mix-blend-mode: multiply;
+      }
+      html.light-theme .product-hero-right img,
+      html.light-theme .gallery-main img,
+      html.light-theme .gallery-thumb img {
+        mix-blend-mode: normal;
+      }
     </style>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
