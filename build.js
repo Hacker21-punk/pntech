@@ -25,16 +25,26 @@ const copySync = (src, dest) => {
 const assets = ["css", "js", "images", "public", ".well-known"];
 assets.forEach((asset) => copySync(asset, path.join(distDir, asset)));
 
-// Copy all HTML files in root and other critical root files (robots.txt)
+// Copy all HTML files in root and other critical root files (robots.txt, favicons, manifests)
 const files = fs.readdirSync(process.cwd());
 let htmlCount = 0;
+const rootFilesToCopy = [
+  "robots.txt",
+  "site.webmanifest",
+  "favicon.ico",
+  "favicon-96x96.png",
+  "apple-touch-icon.png",
+  "web-app-manifest-192x192.png",
+  "web-app-manifest-512x512.png"
+];
+
 files.forEach((file) => {
   if (file.endsWith(".html")) {
     fs.copyFileSync(file, path.join(distDir, file));
     htmlCount++;
-  } else if (file === "robots.txt") {
+  } else if (rootFilesToCopy.includes(file)) {
     fs.copyFileSync(file, path.join(distDir, file));
-    console.log("Copied: robots.txt");
+    console.log(`Copied: ${file}`);
   }
 });
 
