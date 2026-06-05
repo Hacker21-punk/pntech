@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      if (localStorage.getItem("theme") === "light")
+        document.documentElement.classList.add("light-theme");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="PN Technologies" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Application Solutions - PN Technologies | RF Instruments for Every
+      Industry
+    </title>
+    <meta
+      name="description"
+      content="Discover how PN Technologies RF instruments power innovation across industries — from spectrum monitoring to 5G testing, EMC compliance, and research."
+    />
+    <meta
+      property="og:title"
+      content="Application Solutions - PN Technologies"
+    />
+    <meta
+      property="og:description"
+      content="RF instruments for spectrum monitoring, drone detection, 5G testing, and more."
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+      integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css?v=20260605-v12" />
+    <style>
+      body {
+        font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: var(--navy);
+        color: var(--text-primary);
+      }
+
+      /* Layout overrides */
+      main {
+        background: var(--navy);
+        padding-bottom: 120px;
+      }
+
+      .app-banner {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        background: linear-gradient(
+          135deg,
+          #020202 0%,
+          #160800 50%,
+          #020202 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .app-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(255, 102, 0, 0.1) 0%,
+          transparent 70%
+        );
+      }
+      .app-banner-text {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 20px;
+      }
+      .app-banner-text h1 {
+        font-size: 56px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+      }
+      .app-banner-text p {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.65);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* Cooperation Page Banner & Title */
+      .cooperation_page_title {
+        padding: 90px 0 20px 0;
+        text-align: left;
+      }
+      .cooperation_page_title p {
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.15;
+        color: #ff6600; /* Use premium brand orange */
+        margin: 0;
+      }
+
+      /* Cooperation Categories/Tabs */
+      .coo-cate {
+        margin-top: 30px;
+        margin-bottom: 70px;
+        border-bottom: 1px solid var(--navy-border);
+        padding-bottom: 15px;
+      }
+      .coo-cate ul {
+        display: flex;
+        gap: 50px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .coo-cate li.cooperation-item {
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        padding-bottom: 12px;
+      }
+      .coo-cate li.cooperation-item:hover {
+        color: #ff6600;
+      }
+      .coo-cate li.cooperation-item.active {
+        color: #ff6600;
+        font-weight: 700;
+      }
+      .coo-cate li.cooperation-item.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ff6600;
+        border-radius: 2px;
+      }
+
+      /* Cooperation List Items */
+      .coo-list {
+        display: flex;
+        flex-direction: column;
+        gap: 110px;
+      }
+      .cooperation_list_item {
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        justify-content: space-between;
+      }
+      .cooperation_list_text {
+        flex: 1.25;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 260px;
+      }
+      .cooperation_list_textbox h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        line-height: 1.3;
+        letter-spacing: -0.5px;
+      }
+      .cooperation_list_textbox h2 a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .cooperation_list_textbox h2 a:hover {
+        color: #ff6600;
+      }
+      .cooperation_list_textbox p {
+        font-size: 16px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      /* More Button styling */
+      .cooperation_list_more {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #ff6600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        align-self: flex-start;
+      }
+      .cooperation_list_more i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #fff4ee;
+        color: #ff6600;
+        transition: all 0.3s ease;
+      }
+      .cooperation_list_more:hover {
+        color: #cc5200;
+      }
+      .cooperation_list_more:hover i {
+        transform: translateX(6px);
+        background: #ff6600;
+        color: #fff;
+      }
+
+      /* Image Column styling */
+      .cooperation_list_img {
+        flex: 1;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        border: 1px solid var(--navy-border);
+        transition: all 0.4s ease;
+        background: var(--navy-light);
+      }
+      .cooperation_list_img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .cooperation_list_img:hover {
+        box-shadow: 0 20px 45px rgba(255, 102, 0, 0.12);
+        border-color: rgba(255, 102, 0, 0.2);
+        transform: translateY(-4px);
+      }
+      .cooperation_list_img:hover img {
+        transform: scale(1.03);
+      }
+
+      /* Empty state */
+      .no-data {
+        padding: 80px 0;
+        text-align: center;
+        font-size: 18px;
+        color: #888;
+      }
+
+      /* Responsive styling */
+      @media (max-width: 991px) {
+        .cooperation_list_item {
+          gap: 40px;
+        }
+        .cooperation_list_textbox h2 {
+          font-size: 26px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cooperation_page_title {
+          padding: 60px 0 10px 0;
+        }
+        .cooperation_page_title p {
+          font-size: 38px;
+        }
+        .coo-cate {
+          margin-bottom: 40px;
+        }
+        .coo-cate ul {
+          gap: 30px;
+        }
+        .coo-cate li.cooperation-item {
+          font-size: 17px;
+        }
+        .coo-list {
+          gap: 60px;
+        }
+        .cooperation_list_item {
+          flex-direction: column !important;
+          gap: 30px;
+        }
+        .cooperation_list_text {
+          min-height: auto;
+        }
+        .cooperation_list_img {
+          width: 100%;
+          order: -1 !important; /* Image on top on mobile */
+        }
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <script>
+      var name = "application";
+      var currentDeviceMode = window.innerWidth <= 768 ? "mobile" : "pc";
+    </script>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+      <div class="hd-bg"></div>
+      <!-- Desktop Header -->
+      <div class="hd-out">
+        <div class="hd con">
+          <div class="hd-left">
+            <a
+              href="index.html"
+              style="display: flex; align-items: center; gap: 10px"
+            >
+              <img
+                src="images/logo.png"
+                alt="PNTECH"
+                style="height: 56px; width: auto"
+              />
+              <span
+                class="hd-logo-text"
+                style="
+                  color: var(--white);
+                  font-size: 22px;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  white-space: nowrap;
+                "
+                >PN Technologies</span
+              >
+            </a>
+          </div>
+          <div class="hd-md">
+            <nav class="hd-nav">
+              <ul class="hdnav-box">
+                <li class="menu-item"><a href="index.html">Home</a></li>
+                <li class="menu-item menu-item-has-children">
+                  <a href="products.html">Product</a>
+                  <div class="sub-menu mega-menu">
+                    <div class="mega-menu-inner">
+                      <!-- Column 1: Spectrum Analyzer -->
+                      <div class="mega-column spectrum-analyzer-column">
+                        <div class="mega-column-title">
+                          <a href="product-spectrum-analyzer.html"
+                            >Spectrum Analyzer</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <!-- USB Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-new-san.html"
+                                  >New SAN Series</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-san400.html">SAN Series</a>
+                              </li>
+                              <li><a href="product-sa.html">SA Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Networked Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#networked"
+                                >Networked</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-nxn.html">NXN Series</a></li>
+                              <li><a href="product-nxe.html">NXE Series</a></li>
+                            </ul>
+                          </div>
+                          <!-- Benchtop/Handheld Sub-column -->
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-spectrum-analyzer.html#handheld"
+                                >Benchtop / Handheld</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li>
+                                <a href="product-px-standard.html"
+                                  >PX Series Standard</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-geek.html"
+                                  >PX Series Geek</a
+                                >
+                              </li>
+                              <li>
+                                <a href="product-px-rugged.html"
+                                  >PX Series Rugged</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Column 2: Vector Signal Generator -->
+                      <div class="mega-column vsg-column">
+                        <div class="mega-column-title">
+                          <a href="product-vector-signal-generator.html"
+                            >Vector Signal Generator</a
+                          >
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-vector-signal-generator.html#usb"
+                                >USB</a
+                              >
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-sga.html">New SGA-60</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Column 3: Antenna -->
+                      <div class="mega-column antenna-column">
+                        <div class="mega-column-title">
+                          <a href="product-hda.html">Antenna</a>
+                        </div>
+                        <div class="mega-sub-grid">
+                          <div class="mega-sub-column">
+                            <div class="mega-sub-title">
+                              <a href="product-hda.html">HDA Series</a>
+                            </div>
+                            <ul class="mega-links">
+                              <li><a href="product-hda.html">HDA-100</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item">
+                  <a href="application.html">Application</a>
+                </li>
+                <li class="menu-item"><a href="news.html">Latest News</a></li>
+                <li class="menu-item"><a href="contact.html">Contact Us</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="hd-right"
+            style="display: flex; align-items: center; gap: 16px"
+          >
+            <div class="hd-search">
+              <form>
+                <div class="hd-search-input">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <button class="hd-search-img" type="button">
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </button>
+              </form>
+            </div>
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              aria-label="Toggle theme"
+            >
+              <svg
+                class="sun-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                ></path>
+              </svg>
+              <svg
+                class="moon-icon"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Header -->
+      <div class="phone-header">
+        <div class="phone-logo">
+          <a
+            href="index.html"
+            style="display: flex; align-items: center; gap: 10px"
+          >
+            <img
+              src="images/logo.png"
+              alt="PNTECH"
+              style="height: 48px; width: auto"
+            />
+            <span style="color: var(--white); font-size: 18px; font-weight: 700"
+              >PN Technologies</span
+            >
+          </a>
+        </div>
+        <div
+          class="phone-right-actions"
+          style="display: flex; align-items: center; gap: 15px"
+        >
+          <button
+            class="theme-toggle"
+            id="theme-toggle-mobile"
+            aria-label="Toggle theme"
+          >
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="4"></circle>
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+              ></path>
+            </svg>
+            <svg
+              class="moon-icon"
+              width="20"
+              height="20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <div class="phone-more">
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: var(--white)"
+            >
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+      <!-- Banner -->
+      <section class="app-banner">
+        <div class="app-banner-text">
+          <h1 class="wow fadeIn" data-wow-duration="1.5s">
+            Application Solutions
+          </h1>
+          <p class="wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.3s">
+            Precision RF instrumentation designed to solve complex test and
+            measurement challenges in the field and in the laboratory.
+          </p>
+        </div>
+      </section>
+      <!-- Cooperation / Application Scenarios Section -->
+      <section style="background: var(--navy); padding-bottom: 80px">
+        <div class="con">
+          <div class="cooperation_page_title">
+            <p>Application</p>
+            <p>Scenarios.</p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="coo-cate">
+            <ul>
+              <li class="cooperation-item active" data-id="0">All</li>
+              <li class="cooperation-item" data-id="206">Signal Generator</li>
+              <li class="cooperation-item" data-id="207">Spectrum analyzer</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- List of Alternating Showcase items -->
+        <div class="coo-list"></div>
+      </section>
+
+      <!-- Work With PN Technologies -->
+      <section class="home_join">
+        <div class="con home_join_text">
+          <div class="home_join_text_title home_title">
+            <p
+              class="wow sc4fadeInLeft"
+              data-wow-duration="2s"
+              data-wow-offset="100"
+            >
+              Work with
+            </p>
+            <p
+              class="wow sc4fadeInLeft"
+              data-wow-duration="2s"
+              data-wow-offset="100"
+              data-wow-delay="0.1s"
+            >
+              PN Technologies
+            </p>
+          </div>
+          <div class="home_join_text_info">
+            <p class="hyphenate">
+              At PN Technologies, we thrive on bold ideas, unconventional
+              thinking, and a relentless passion for RF knowledge and
+              technology. Reach out to us and let's collaborate.
+            </p>
+          </div>
+          <div class="m_home_join_text_info">
+            <p class="hyphenate">
+              At PN Technologies, we thrive on bold ideas and a relentless
+              passion for RF technology. Reach out and let's innovate together.
+            </p>
+          </div>
+        </div>
+        <div class="home_join_bg">
+          <picture>
+            <source
+              media="(min-width: 769px)"
+              srcset="images/home_join_bg.jpg"
+            />
+            <source
+              media="(max-width: 768px)"
+              srcset="images/home_join_bg_m.jpg"
+            />
+            <img
+              loading="lazy"
+              src="images/home_join_bg_m.jpg"
+              alt="Work with PN Technologies"
+            />
+          </picture>
+        </div>
+      </section>
+    </main>
+
+    <!-- GET IN TOUCH -->
+    <section class="get-in-touch-section">
+      <div class="con">
+        <div class="git-header">
+          <span class="git-tag">GET IN TOUCH</span>
+          <h2 class="git-title">Talk to our RF specialists</h2>
+          <p class="git-desc">
+            Send us your inquiry — we typically respond the same business day.
+          </p>
+        </div>
+        <div class="git-content">
+          <div class="git-form-card">
+            <h3>Send us a message</h3>
+            <form id="git-contact-form">
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-fullname">FULL NAME *</label
+                  ><input type="text" id="git-fullname" required />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-email">EMAIL *</label
+                  ><input type="email" id="git-email" required />
+                </div>
+              </div>
+              <div class="git-form-row">
+                <div class="git-form-group">
+                  <label for="git-phone">PHONE</label
+                  ><input type="tel" id="git-phone" />
+                </div>
+                <div class="git-form-group">
+                  <label for="git-company">COMPANY</label
+                  ><input type="text" id="git-company" />
+                </div>
+              </div>
+              <div class="git-form-group full-width">
+                <label for="git-message">MESSAGE *</label
+                ><textarea id="git-message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="git-submit-btn">Send Inquiry</button>
+            </form>
+          </div>
+          <div class="git-details">
+            <a href="mailto:business@pntech.in" class="git-detail-card"
+              ><div class="git-icon-box">
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <path d="m22 6-10 7L2 6" />
+                </svg>
+              </div>
+              <div class="git-info-box">
+                <span class="git-detail-label">EMAIL</span
+                ><span class="git-detail-value">business@pntech.in</span>
+              </div></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <div class="con">
+        <div class="ft-out">
+          <div class="ft">
+            <div class="ft-right">
+              <div class="ft-nav">
+                <ul class="ftnav-box">
+                  <li>
+                    <a href="products.html">Product</a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a href="product-spectrum-analyzer.html"
+                          >Spectrum Analyzer</a
+                        >
+                      </li>
+                      <li>
+                        <a href="product-vector-signal-generator.html"
+                          >Vector Signal Generator</a
+                        >
+                      </li>
+                      <li><a href="product-hda.html">Antenna</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="news.html">Latest News</a></li>
+                  <li><a href="application.html">Application</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="ft-right-end">
+                <div class="ft-contact-info">
+                  <p>
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                      />
+                      <path d="m22 6-10 7L2 6" />
+                    </svg>
+                    <a href="mailto:business@pntech.in" style="color: #aaa"
+                      >business@pntech.in</a
+                    >
+                  </p>
+                  <p style="margin-top: 6px; color: #777; font-size: 12px">
+                    Offices: Bhopal &middot; Ahmedabad, India
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ft-bb">
+          <p>Copyright &copy; 2024-2026 PN Technologies</p>
+        </div>
+      </div>
+
+      <!-- Mobile Footer -->
+      <div class="phone-footer">
+        <div class="phone-box">
+          <ul class="phone-footer">
+            <li><a href="products.html">Product</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="news.html">Latest News</a></li>
+            <li><a href="application.html">Application</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Sidebar -->
+    <div class="sc33">
+      <div class="sc33-item sc33-zx" title="Contact Us">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="sc33-item sc33-top" title="Back to Top">
+        <div class="sc33-item-img">
+          <svg
+            width="20"
+            height="20"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="sc30-dbg"></div>
+    <div class="sc30-out">
+      <div class="sc30-close"></div>
+      <div class="sc30-name">
+        <p>Request</p>
+        <p>For Contact</p>
+      </div>
+      <div class="sc30-con">
+        <form id="modal-contact-form">
+          <div class="sc30-part1 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Request Fields*</span></p>
+            </div>
+            <div class="sc30-part-input" style="position: relative">
+              <input
+                type="text"
+                id="request-type"
+                placeholder="Please select"
+                readonly
+                style="cursor: pointer"
+              />
+              <div class="sc30-part-xia">
+                <svg
+                  width="12"
+                  height="12"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+            <div class="sc30-part-select" id="request-select">
+              <div class="sc30-part-select-scroll">
+                <div class="sc30-part-select-item">
+                  <p>Product Information</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Request for Quote</p>
+                </div>
+                <div class="sc30-part-select-item">
+                  <p>Technical Support</p>
+                </div>
+                <div class="sc30-part-select-item"><p>Apply for a Job</p></div>
+                <div class="sc30-part-select-item"><p>Others</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="sc30-part2 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>First Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part3 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Last Name*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part4 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Company*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part5 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Country*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="text" required /></div>
+          </div>
+          <div class="sc30-part6 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>E-Mail*</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="email" required /></div>
+          </div>
+          <div class="sc30-part7 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Phone (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><input type="tel" /></div>
+          </div>
+          <div class="sc30-part8 sc30-part">
+            <div class="sc30-part-name">
+              <p><span>Your Message (optional)</span></p>
+            </div>
+            <div class="sc30-part-input"><textarea rows="4"></textarea></div>
+          </div>
+          <div class="sc30-part10 sc30-part">
+            <input type="submit" value="SEND MESSAGE" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js"
+      integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+      integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script defer src="js/main.js?v=20260602-v11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        $(function () {
+          // 7 Live posts tailored for PN Technologies
+          const posts = [
+            {
+              id: 30906,
+              slug: "pulse-generation-frequency-sweeping-sga60",
+              title:
+                "Pulse Generation and Frequency Sweeping: Precision Simulation with the HAROGIC SGA-60",
+              excerpt:
+                "This application note demonstrates how the HAROGIC SGA-60 vector signal generator performs precise 100 ns pulse generation and concurrent frequency sweeping up to 6 GHz. With 100 MHz instantaneous bandwidth and fast-locking synthesis architecture, the SGA-60 enables advanced RF, radar, and EW signal simulation for modern testing environments.",
+              image:
+                "images/HAROGIC-SGA-60-Pulse-Generation-and-Frequency-Sweeping-.jpg",
+              category_ids: [206],
+            },
+            {
+              id: 28838,
+              slug: "tracking-generator-signal-generator-pxn-series",
+              title:
+                "Tracking Generator and Signal Generator Applications in the New PXN Series",
+              excerpt:
+                "Learn how the new HAROGIC PXN Series supports both tracking generator and standalone signal generator functions for filter characterization, cable loss testing, amplifier gain measurement, P1dB testing, IMD testing, and receiver characterization.",
+              image:
+                "images/HAROGIC-Tracking-Generator-and-Signal-Generator-Applications-in-the-New-PXN-Series.jpg",
+              category_ids: [207],
+            },
+            {
+              id: 28671,
+              slug: "rf-signal-mapping-geolocation-harogic-mapping-mode",
+              title:
+                "RF Signal Mapping and Geolocation Using HAROGIC Mapping Mode",
+              excerpt:
+                "This application note explains how HAROGIC Mapping Mode combines spectrum measurement data with GNSS positioning to support real-time RF signal mapping and geolocation. It can be used for applications such as cellular coverage verification, indoor WiFi signal mapping, and RF interference localization through triangulation.",
+              image:
+                "images/HAROGIC-RF-Signal-Mapping-and-Geolocation-Using-HAROGIC-Mapping-Mode.jpg",
+              category_ids: [207],
+            },
+            {
+              id: 26514,
+              slug: "using-harogic-products-in-the-gnu-radio",
+              title: "Using HAROGIC Products in the GNU Radio",
+              excerpt:
+                "HAROGIC offers a rich variety of product forms and frequency options, covering both modular and handheld devices with USB and Ethernet interfaces.",
+              image: "images/harogic-gnradio.jpg",
+              category_ids: [207],
+            },
+            {
+              id: 2174,
+              slug: "airborne-radio-measurement-systems-9-khz-to-40-ghz-3",
+              title: "Airborne Radio Measurement Systems “9 kHz to 40 GHz”",
+              excerpt:
+                "USB spectrum analyzer up to 40 GHz from HAROGIC Technologies is deployed on the airborne radio measurement solutions from SIXARMS for spectrum monitoring.",
+              image: "images/cooperation_1.webp",
+              category_ids: [207],
+            },
+            {
+              id: 2051,
+              slug: "third-party-spectrum-monitoring-system-up-to-40-ghz",
+              title: "Third Party spectrum monitoring system up to 40 GHz",
+              excerpt:
+                "HAROGIC Technologies specializes in RF spectrum monitoring with the advanced real-time spectrum analyzers. We provide open API with high compatibility to our customers, empowering customers to define their own RF spectrum monitoring system up to 40 GHz.",
+              image: "images/cooperation_2.jpg",
+              category_ids: [207],
+            },
+            {
+              id: 2055,
+              slug: "sdr-works-well-on-harogic-px-series-spectrum-analyzer",
+              title: "SDR++ Works Well on HAROGIC PX Series Spectrum Analyzer",
+              excerpt:
+                "SDR++ with the feature of a versatile platform for software defined radio, is running well on HAROGIC Technologies handheld spectrum analyzer.",
+              image: "images/cooperation_3.webp",
+              category_ids: [207],
+            },
+          ];
+
+          // Initial render: show All (id: 0)
+          renderPosts(0);
+
+          // Category click event
+          $(".cooperation-item").click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+            var cateId = $(this).data("id");
+            renderPosts(cateId);
+          });
+
+          function renderPosts(subCategoryId) {
+            const container = $(".coo-list");
+            container.empty();
+
+            // Filter posts
+            const filtered =
+              subCategoryId === 0
+                ? posts
+                : posts.filter((p) => p.category_ids.includes(subCategoryId));
+
+            if (filtered.length === 0) {
+              container.append(
+                '<div class="con no-data">No relevant content available</div>',
+              );
+              return;
+            }
+
+            let html = "";
+            filtered.forEach((post, index) => {
+              const isEven = index % 2 === 0;
+              const isLocal =
+                window.location.hostname === "localhost" ||
+                window.location.hostname === "127.0.0.1" ||
+                window.location.protocol === "file:";
+              const detailUrl = isLocal
+                ? `application-detail.html?slug=${post.slug}`
+                : `/coop/${post.slug}`;
+
+              if (!isEven) {
+                html += `
+                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                  <div class="cooperation_list_text">
+                    <div class="cooperation_list_textbox">
+                      <h2><a href="${detailUrl}">${post.title}</a></h2>
+                      <p class="hyphenate">${post.excerpt}</p>
+                    </div>
+                    <a href="${detailUrl}" class="cooperation_list_more">
+                      <i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </i>
+                      More
+                    </a>
+                  </div>
+                  <div class="cooperation_list_img">
+                    <img loading="lazy" src="${post.image}" alt="${post.title}">
+                  </div>
+                </div>
+              `;
+              } else {
+                html += `
+                <div class="con cooperation_list_item wow fadeIn" data-wow-duration="1s">
+                  <div class="cooperation_list_img">
+                    <img loading="lazy" src="${post.image}" alt="${post.title}">
+                  </div>
+                  <div class="cooperation_list_text">
+                    <div class="cooperation_list_textbox">
+                      <h2><a href="${detailUrl}">${post.title}</a></h2>
+                      <p class="hyphenate">${post.excerpt}</p>
+                    </div>
+                    <a href="${detailUrl}" class="cooperation_list_more">
+                      <i>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </i>
+                      More
+                    </a>
+                  </div>
+                </div>
+              `;
+              }
+            });
+
+            container.append(html);
+
+            // Re-initialize WOW.js for dynamically generated elements
+            if (typeof WOW !== "undefined") {
+              new WOW().init();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
